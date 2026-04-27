@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #071a2d, #1F8C47);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* CONTAINER */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CAIXA DE LOGIN */
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    width: 450px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* LOGO */
+.login-box h2 {
+    margin: 0;
+}
+
+.login-box span {
+    color: #1F8C47;
+}
+
+/* TEXTO */
+.login-box p {
+    margin: 10px 0 20px;
+    color: #555;
+}
+
+/* INPUTS */
+.input-box {
+    margin-bottom: 15px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+/* Hover (passar o mouse) */
+.input-box input:hover {
+    border-color: #888;
+    transform: scale(1.02);
+}
+
+/* Focus (clicar/digitar) */
+.input-box input:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+    transform: scale(1.03);
+}
+
+/* BOTÃO */
+button {
+    width: 100%;
+    padding: 10px;
+    background: #1F8C47;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #176c36;
+    transform: scale(1.05);
+}
+
+/* LINKS */
+.extra {
+    margin-top: 15px;
+    font-size: 12px;
+}
+
+.extra a {
+    color: #1F8C47;
+    text-decoration: none;
+}
+
+
+/*Botão voltar*/
+.button {
+    height: 40px;
+    width: 380px;
+    justify-content: center;
+    background: #1F8C47;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}

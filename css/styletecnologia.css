@@ -1,0 +1,496 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* OBS:
+Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* OBS:
+Paleta do site */
+:root {
+    --azul-escuro: #070E1E;
+    --azul-secundario: #071a2d;
+    --verde-marca: #1F8C47;
+    --verde-claro: #20C562;
+    --laranja: #f5a000;
+    --cinza-claro: #eaeaea;
+    --branco: #ffffff;
+    --texto-escuro: #111111;
+    --cinza-texto: #666666;
+    --sombra: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cinza-claro);
+    color: var(--texto-escuro);
+}
+
+/* =========================
+   HEADER
+========================= */
+/* HEADER / BARRA DE NAVEGAÇÃO*/
+header,
+.nav {
+    position: fixed;
+    /* 👈 ISSO AQUI FIXA */
+    top: 0;
+    /* 👈 gruda no topo */
+    left: 0;
+    background: #070E1E;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 1000;
+    /* 👈 garante que fica acima de tudo */
+}
+
+nav .menu {
+    display: flex;
+
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.menu .logo a {
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.logo span {
+    color: #1F8C47;
+}
+
+.menu ul {
+    display: inline-flex;
+}
+
+.menu ul li {
+    list-style: none;
+    margin-left: 9px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.menu ul li a:hover {
+    background: #fff;
+    color: #000;
+}
+/*BARRA DE NAVEGAÇÃO FIM*/
+
+/* =========================
+   ESTRUTURA
+========================= */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+section h2 {
+    font-size: 34px;
+    margin-bottom: 25px;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero-tecnologia {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(rgba(7, 14, 30, 0.78), rgba(7, 14, 30, 0.78));
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+    color: var(--branco);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.hero-conteudo {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.hero-texto-box {
+    max-width: 760px;
+}
+
+.hero-tag {
+    display: inline-block;
+    background: rgba(32, 197, 98, 0.15);
+    border: 1px solid rgba(32, 197, 98, 0.35);
+    color: #dfffea;
+    padding: 8px 16px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.hero-texto-box h1 {
+    font-size: 78px;
+    line-height: 1.05;
+    font-weight: 600;
+    max-width: 760px;
+    background: linear-gradient(to right, #f8f8f8, #f8f8f8, #bfe8cc, #20C562);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-texto-box h1 span {
+    color: #20C562;
+    -webkit-text-fill-color: #20C562;
+}
+
+.hero-texto {
+    font-size: 22px;
+    max-width: 760px;
+    color: #f2f2f2;
+    margin-top: 28px;
+    line-height: 1.6;
+}
+
+.hero-botoes {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.hero-video-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-video-box video {
+    width: 100%;
+    max-width: 620px;
+    height: 540px;
+    object-fit: cover;
+    border-radius: 28px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+/* =========================
+   BOTÕES
+========================= */
+.btn-primario,
+.btn-secundario {
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 22px;
+    padding: 12px 26px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.btn-primario {
+    background: var(--azul-secundario);
+    color: white;
+}
+
+.btn-primario:hover {
+    opacity: 0.92;
+}
+
+.btn-secundario {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-secundario:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* =========================
+   FUNCIONAMENTO
+========================= */
+.secao-funcionamento {
+    background: var(--cinza-claro);
+    text-align: center;
+}
+
+.funcionamento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.passo-card {
+    background: white;
+    border-radius: 20px;
+    padding: 28px 22px;
+    box-shadow: var(--sombra);
+}
+
+.passo-card span {
+    display: inline-block;
+    background: var(--laranja);
+    color: var(--azul-escuro);
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.passo-card h3 {
+    margin-bottom: 12px;
+    font-size: 22px;
+}
+
+.passo-card p {
+    line-height: 1.6;
+    color: var(--cinza-texto);
+}
+
+/* =========================
+   TECNOLOGIAS
+========================= */
+.secao-tecnologias {
+    background: var(--azul-secundario);
+}
+
+.bloco-tecnologia {
+    background: var(--laranja);
+    border-radius: 45px;
+    padding: 45px;
+}
+
+.texto-tecnologia {
+    max-width: 650px;
+    margin-bottom: 30px;
+}
+
+.cards-tecnologia {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.tech-card {
+    background: rgba(255, 255, 255, 0.82);
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: var(--sombra);
+}
+
+.tech-card h3 {
+    margin-bottom: 10px;
+}
+
+.tech-card p {
+    color: #444;
+    line-height: 1.6;
+}
+
+/* =========================
+   FUNCIONALIDADES
+========================= */
+.secao-funcionalidades {
+    background: white;
+}
+
+.funcionalidades-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.func-card {
+    border-top: 8px solid var(--verde-marca);
+    background: #f8f8f8;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: var(--sombra);
+}
+
+.func-card h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.func-card p {
+    line-height: 1.6;
+    color: var(--cinza-texto);
+}
+
+/* =========================
+   VÍDEO
+========================= */
+.secao-video {
+    background: var(--azul-escuro);
+    color: white;
+}
+
+.video-box {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.video-texto p {
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.video-texto ul {
+    padding-left: 20px;
+    line-height: 1.8;
+}
+
+.video-area video {
+    width: 100%;
+    border-radius: 25px;
+    box-shadow: var(--sombra);
+    background: #000;
+}
+
+/* =========================
+   DIFERENCIAIS
+========================= */
+.secao-diferenciais {
+    background: #2c8b4b;
+    color: #0b1c2c;
+    text-align: center;
+}
+
+.diferenciais-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.diferencial-card {
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: var(--sombra);
+}
+
+.diferencial-card h3 {
+    margin-bottom: 10px;
+}
+
+.diferencial-card p {
+    line-height: 1.6;
+}
+
+/* =========================
+   FINAL
+========================= */
+.secao-final {
+    background: var(--cinza-claro);
+}
+
+.caixa-final {
+    background: var(--azul-secundario);
+    color: white;
+    border-radius: 35px;
+    text-align: center;
+    padding: 50px 30px;
+}
+
+.caixa-final h2 {
+    margin-bottom: 18px;
+}
+
+.caixa-final p {
+    max-width: 760px;
+    margin: 0 auto 22px;
+    line-height: 1.7;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+@media (max-width: 1100px) {
+    .funcionamento-grid,
+    .cards-tecnologia,
+    .funcionalidades-grid,
+    .diferenciais-grid,
+    .video-box {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    nav .menu {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .menu ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-tecnologia {
+        min-height: auto;
+        padding: 130px 0 80px;
+    }
+
+    .hero-conteudo h1 {
+        font-size: 36px;
+    }
+
+    .hero-texto {
+        font-size: 17px;
+    }
+
+    .funcionamento-grid,
+    .cards-tecnologia,
+    .funcionalidades-grid,
+    .diferenciais-grid,
+    .video-box {
+        grid-template-columns: 1fr;
+    }
+
+    .bloco-tecnologia {
+        padding: 30px 22px;
+        border-radius: 28px;
+    }
+
+    section h2 {
+        font-size: 28px;
+    }
+}

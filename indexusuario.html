@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- OBS:
+    Faz a página funcionar bem em celular, tablet e desktop -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- OBS:
+    Título da aba -->
+    <title>SENTRYX | Painel do Usuário</title>
+
+    <!-- OBS:
+    Arquivo CSS do painel -->
+    <link rel="stylesheet" href="css/styleusuario.css">
+</head>
+
+<body>
+
+    <!-- OBS:
+    Header seguindo o padrão visual do site -->
+    <header>
+        <nav class="nav">
+            <div class="menu">
+                <div class="logo">
+                    <a href="#">SENTRY<span>X</span></a>
+                </div>
+
+                <ul>
+                    <li><a href="#">Painel</a></li>
+                    <li><a href="#">Configurações</a></li>
+                    <li><a href="indexsuporte.html">Ajuda</a></li>
+                    <li><a href="index.html">Sair</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- OBS:
+    Conteúdo principal da página -->
+    <main class="painel-container">
+
+        <!-- OBS:
+        Topo curto do painel, com informações resumidas -->
+        <section class="painel-topo">
+            <div class="topo-texto">
+                <p class="boas-vindas">Olá, usuário</p>
+                <h1>Painel de monitoramento</h1>
+                <p class="descricao">
+                    Acompanhe o nível de gás, gerencie contatos de emergência e visualize os alertas do sensor.
+                </p>
+            </div>
+
+            <div class="topo-info">
+                <div class="info-box">
+                    <span>Ambiente</span>
+                    <strong>Cozinha principal</strong>
+                </div>
+
+                <div class="info-box status">
+                    <span>Status</span>
+                    <strong>Sistema ativo</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- OBS:
+        Primeira linha: resumo principal do painel -->
+        <section class="resumo-grid">
+
+            <div class="card resumo destaque">
+                <p>Nível de gás</p>
+                <h2>12 <span>ppm</span></h2>
+                <small>Leitura em tempo real</small>
+            </div>
+
+            <div class="card resumo">
+                <p>Status do ambiente</p>
+                <h3 class="status-seguro">Seguro</h3>
+                <small>Sem risco detectado</small>
+            </div>
+
+            <div class="card resumo">
+                <p>Sensor</p>
+                <h3>Conectado</h3>
+                <small>Última leitura há 5 segundos</small>
+            </div>
+
+            <div class="card resumo">
+                <p>Bateria</p>
+                <h3>89%</h3>
+                <small>Funcionamento normal</small>
+            </div>
+
+        </section>
+
+        <!-- OBS:
+        Segunda linha do painel -->
+        <section class="painel-grid">
+
+            <!-- OBS:
+            Card grande com monitoramento -->
+            <div class="card card-monitoramento">
+                <div class="card-header">
+                    <h2>Monitoramento do ambiente</h2>
+                    <span class="tag tag-verde">Ativo</span>
+                </div>
+
+                <div class="monitoramento-conteudo">
+                    <div class="medidor-box">
+                        <p class="medidor-label">Nível atual detectado</p>
+                        <div class="medidor-numero">12 <span>ppm</span></div>
+                    </div>
+
+                    <div class="monitoramento-lista">
+                        <p><strong>Última atualização:</strong> há 5 segundos</p>
+                        <p><strong>Local monitorado:</strong> Cozinha principal</p>
+                        <p><strong>Situação:</strong> Ambiente seguro</p>
+                        <p><strong>Alerta sonoro:</strong> Ativado</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OBS:
+            Card de ações rápidas -->
+            <div class="card card-acoes">
+                <div class="card-header">
+                    <h2>Ações rápidas</h2>
+                </div>
+
+                <div class="botoes-acoes">
+                    <button class="btn-padrao">Testar sensor</button>
+                    <button class="btn-secundario">Testar notificação</button>
+                    <button class="btn-alerta">Acionar emergência</button>
+                </div>
+            </div>
+
+            <!-- OBS:
+            Card de contatos -->
+            <div class="card card-contatos">
+                <div class="card-header">
+                    <h2>Contatos de emergência</h2>
+                    <button class="mini-acao">+ Adicionar</button>
+                </div>
+
+                <div class="lista-contatos">
+                    <div class="item-contato">
+                        <div>
+                            <strong>Maria Silva</strong>
+                            <p>Mãe • (11) 99999-9999</p>
+                        </div>
+                        <button>Editar</button>
+                    </div>
+
+                    <div class="item-contato">
+                        <div>
+                            <strong>João Souza</strong>
+                            <p>Vizinho • (11) 98888-8888</p>
+                        </div>
+                        <button>Editar</button>
+                    </div>
+
+                    <div class="item-contato">
+                        <div>
+                            <strong>Carla Mendes</strong>
+                            <p>Irmã • (11) 97777-7777</p>
+                        </div>
+                        <button>Editar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OBS:
+            Card de suporte -->
+            <div class="card card-suporte">
+                <div class="card-header">
+                    <h2>Suporte</h2>
+                    <span class="tag tag-laranja">24h</span>
+                </div>
+
+                <div class="suporte-conteudo">
+                    <p><strong>E-mail:</strong> suporte@sentryx.com</p>
+                    <p><strong>Telefone:</strong> 0800 123 4567</p>
+                    <p><strong>Atendimento:</strong> disponível 24 horas</p>
+                </div>
+
+                <button class="btn-padrao">Falar com suporte</button>
+            </div>
+
+        </section>
+
+        <!-- OBS:
+        Terceira linha com histórico e instruções -->
+        <section class="painel-grid inferior">
+
+            <!-- OBS:
+            Histórico recente -->
+            <div class="card card-historico">
+                <div class="card-header">
+                    <h2>Histórico de alertas</h2>
+                </div>
+
+                <div class="linha-historico">
+                    <span class="bolinha verde"></span>
+                    <div>
+                        <strong>14/04 - 18:20</strong>
+                        <p>Ambiente monitorado normalmente.</p>
+                    </div>
+                </div>
+
+                <div class="linha-historico">
+                    <span class="bolinha amarelo"></span>
+                    <div>
+                        <strong>14/04 - 19:03</strong>
+                        <p>Nível de gás acima do ideal. Alerta preventivo emitido.</p>
+                    </div>
+                </div>
+
+                <div class="linha-historico">
+                    <span class="bolinha laranja"></span>
+                    <div>
+                        <strong>14/04 - 19:05</strong>
+                        <p>Notificação enviada aos contatos cadastrados.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OBS:
+            Instruções rápidas -->
+            <div class="card card-orientacoes">
+                <div class="card-header">
+                    <h2>Informações em caso de vazamento</h2>
+                </div>
+
+                <div class="lista-orientacoes">
+                    <p>1. Feche imediatamente o registro de gás.</p>
+                    <p>2. Abra portas e janelas para ventilar o local.</p>
+                    <p>3. Não acenda luzes, fósforos ou isqueiros.</p>
+                    <p>4. Retire as pessoas do ambiente com segurança.</p>
+                    <p>5. Acione os contatos cadastrados e o suporte.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+</html>

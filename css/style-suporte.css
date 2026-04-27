@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --azul-escuro: #070E1E;
+    --azul-secundario: #071a2d;
+    --verde-marca: #1F8C47;
+    --verde-claro: #20C562;
+    --laranja: #f5a000;
+    --cinza-claro: #eaeaea;
+    --branco: #ffffff;
+    --texto-escuro: #111111;
+    --cinza-texto: #666666;
+    --sombra: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+header,
+.nav {
+    position: fixed;
+    /* 👈 ISSO AQUI FIXA */
+    top: 0;
+    /* 👈 gruda no topo */
+    left: 0;
+    background: #070E1E;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 1000;
+    /* 👈 garante que fica acima de tudo */
+}
+
+nav .menu {
+    display: flex;
+
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.menu .logo a {
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.logo span {
+    color: #1F8C47;
+}
+
+.menu ul {
+    display: inline-flex;
+}
+
+.menu ul li {
+    list-style: none;
+    margin-left: 9px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.menu ul li a:hover {
+    background: #fff;
+    color: #000;
+}
+
+
+/* --- Hero Section --- */
+
+/* --- Grid de Categorias --- */
+.card-icon {
+    font-size: 3.5rem; /* Tamanho do ícone */
+    color: var(--verde-marca); /* Cor principal do ícone */
+    /* margin-bottom: 25px; */
+    display: inline-block;
+    transition: var(--transition);
+}
+
+.category-card:hover .card-icon {
+    color: var(--verde-claro); /* Muda para verde claro no hover */
+    transform: scale(1.1); /* Efeito de pulso leve */
+}
+
+/* Garante que o ícone do PDF tenha uma cor que remeta a documento se preferir */
+.fa-file-pdf {
+    color: var(--verde-marca); 
+}
+
+.support-grid {
+    padding: 160px 0 100px 0;
+    background: var(--branco);
+    width: 100%;
+    max-width: 1250px;
+    margin: auto;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.category-card {
+    background: linear-gradient(45deg, var(--azul-escuro) 20%, var(--azul-secundario) 100%);
+    line-height: 2;
+    padding: 45px 30px;
+    border-radius: 25px;
+    border: 1px solid var(--cinza-claro);
+    text-align: center;
+    transition: ease .3s linear;
+}
+
+.category-card:hover {
+    border-color: var(--cinza-claro);
+    transform: translateY(-10px);
+    box-shadow: var(--sombra);
+    transition: ease .3s;
+}
+
+.category-card h3 {
+    color: var(--branco);
+    font-size: 1.5rem;
+    margin: 20px 0 10px;
+}
+
+.category-card p {
+    color: var(--branco);
+    font-size: 0.95rem;
+}
+
+.card-link {
+    color: var(--laranja);
+}
+
+/* --- Seção de Vídeos (Estilo Glassmorphism Dark) --- */
+.video-tutorials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    line-height: 2;
+    text-align: center;
+    background-color: var(--azul-escuro);
+    padding: 80px 10%;
+    color: var(--branco);
+}
+
+.video-tutorials .container {
+    display: flex;
+    width: 100%;
+    max-width: 1250px;
+}
+
+.video-card {
+    background: var(--azul-secundario);
+    width: 30%;
+    padding: 15px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.video-placeholder {
+    height: 200px;
+    background: linear-gradient(45deg, var(--azul-escuro), var(--verde-marca));
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    transition: var(--transition);
+}
+
+.video-card:hover .video-placeholder {
+    filter: brightness(1.2);
+}
+
+/* --- Seção de Contato (Laranja Vibrante) --- */
+.contact-section {
+    padding: 80px 0;
+    width: 100%;
+    max-width: 1250px;
+    margin: auto;
+    background: var(--branco);
+}
+
+.contact-box {
+    display: flex;
+    justify-content: center;
+    background: var(--laranja);
+    border-radius: 40px;
+    padding: 60px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    color: var(--azul-escuro);
+}
+
+.contact-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-dark {
+    background: var(--azul-escuro);
+    color: var(--branco);
+    padding: 18px 40px;
+    border-radius: 50px;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid var(--azul-escuro);
+}
+
+.btn-dark:hover {
+    background: var(--azul-secundario);
+    border: 1px solid var(--branco);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--azul-escuro);
+    color: var(--azul-escuro);
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-weight: bold;
+}
+
+.btn-outline:hover {
+    background: var(--azul-escuro);
+    color: var(--branco);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .contact-box { flex-direction: column; text-align: center; padding: 40px 20px; }
+    .hero-content h1 { font-size: 2.5rem; }
+}

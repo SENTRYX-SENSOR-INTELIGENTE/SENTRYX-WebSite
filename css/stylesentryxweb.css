@@ -39,8 +39,7 @@ body {}
     border: none;
 }
 .alinhamento .title span {
-    display: block;
-    margin-left: 150px;
+    text-align:left;
 }
 
 .alinhamento .sub-title {
@@ -101,7 +100,7 @@ body {}
 
     background: linear-gradient(to bottom, #eedfdf 50%, #1f7a3f 50%);
     text-align: center;
-    padding: 1px 20px;
+    padding: 10px 20px ;
     /* border: solid 10px #000; */
     /*isso é para saber oque esta localizado*/
 }
@@ -153,7 +152,7 @@ body {}
     padding: 10px 40px;
     border-radius: 20px;
     cursor: pointer;
-    margin-bottom: 100px;
+    margin-bottom: 20px;
 }
 
 /*
@@ -183,7 +182,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* 🔶 SEÇÃO AZUL DO FUNDO */
+/* 🔶 SEÇÃO LARANJA DO FUNDO */
 .secao-motivos {
     background: #071a2d;
     padding: 40px;

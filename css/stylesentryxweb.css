@@ -11,12 +11,14 @@
 body {}
 
 :root {
-  --branco: #ffffff;
-  --laranja: #f4a300;
+    --branco: #ffffff;
+    --laranja: #f4a300;
 }
+
 /*navbar*/
 
 .alinhamento {
+    font-size: 24px;
     position: absolute;
     top: 46%;
     left: 80px;
@@ -26,51 +28,37 @@ body {}
     width: auto;
     padding: 0;
 }
+
 .alinhamento .title {
-    font-size: clamp(38px, 4.8vw, 64px);
     max-width: 900px;
     line-height: 1.05;
     font-weight: 600;
     text-align: left;
-    /* mais flexível */
     background: linear-gradient(to right, #f8f8f8, #f8f8f8, #20C562, #ffffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    border: none;
+
 }
+
 .alinhamento .title span {
-    text-align:left;
+    position: none;
+    display: flex;
+
 }
 
 .alinhamento .sub-title {
     font-size: 22px;
     color: #fff;
-    margin-top: 30px;
+    margin-top: 20px;
     /* border: solid 3px #000; */
 }
-/* .title {
-    max-width: 1000px;
-    font-size: clamp(38px, 4.8vw, 64px);
-    font-weight: 600;
-    line-height: 1.05;
-    color: #ffffff;
-    margin-bottom: 18px;
-    border: solid 3px #000; */
-
-/* .title span {
-    max-width: 584.31px;
-    display: block;
-    justify-content: center;
-    border: solid 3px #000;
-} */
 
 .video-container {
     position: relative;
-    /* position: fixed; */
-    /* top: 0px; /* altura da navbar */
     left: 0;
     width: 100%;
-    height: auto;
+    height: 660px;
+    /* AQUI AO INVÉS DE DEIXAR A TAG HEIGHT NO AUTO EU DEFINO QUE O TAMANHO DELA É DE 600PX PARA CORTAR EM */
     z-index: -1;
     margin-top: 0 auto;
 }
@@ -92,27 +80,24 @@ body {}
 }
 
 .nosso-produto {
-    font-size: 32px;
-    color: #000000;
+    font-size: 30px;
+    margin-top: 30px;
 }
 
 .videos-section {
-
-    background: linear-gradient(to bottom, #eedfdf 50%, #1f7a3f 50%);
+    background: linear-gradient(to bottom, #ffffff 50%, #1f7a3f 50%);
     text-align: center;
-    padding: 10px 20px ;
-    /* border: solid 10px #000; */
-    /*isso é para saber oque esta localizado*/
+    padding: 10px 20px;
 }
 
 /* Título */
 .videos-section h2 {
+
     padding: 20px 0;
     margin-bottom: 30px;
-    background: linear-gradient(to right, #000000, #080808, #20C562, #ffffff);
+    background: linear-gradient(to right, #000000, #000000, #000000, #000000);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
 }
 
 /* Container dos vídeos */
@@ -146,13 +131,21 @@ body {}
 
 /* Botão */
 .btn {
-    background: #0b1c2c;
-    color: white;
+
+    background: #02152e;
+    color: #fff;
     border: none;
-    padding: 10px 40px;
-    border-radius: 20px;
+    border-radius: 999px;
+    padding: 12px 26px;
+    font-size: 0.95rem;
+    font-weight: 600;
     cursor: pointer;
-    margin-bottom: 20px;
+    transition: 0.25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
 }
 
 /*INICIO - Novo card detecção inteligente*/
@@ -165,12 +158,11 @@ body {}
 
 /* 🔥 card moderno */
 .card-motivos {
-    
-    background: rgba(255,255,255,0.05);
-    border-left: 6px solid #FAA301; /*isso deixa aquela etiqueta laranja do lado do card*/
-    border-radius: 30px;
-    
 
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 6px solid #FAA301;
+    /*isso deixa aquela etiqueta laranja do lado do card*/
+    border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -179,20 +171,22 @@ body {}
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
 
-    
+
     border-radius: 30px;
     padding: 15px 70px;
-    max-width: 1300px; /*aumenta a largura do card*/
+    max-width: 1300px;
+    /*aumenta a largura do card*/
     width: 100%;
 
-    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
 }
 
 /* texto */
-.texto h2{
+.texto h2 {
     color: #fff;
     max-width: 550px;
 }
+
 .texto p {
     max-width: 750px;
     color: #fff;
@@ -220,14 +214,15 @@ body {}
 /* imagem */
 .imagem img {
     width: 350px;
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
     transition: transform 0.3s ease;
-    filter: drop-shadow(0 0 25px rgba(250,163,1,0.35));
+    filter: drop-shadow(0 0 25px rgba(250, 163, 1, 0.35));
 }
 
 .imagem img:hover {
     transform: scale(1.05);
 }
+
 /*FIM - novo card detecção inteligente*/
 
 /* 👨‍👩‍👧 USUÁRIOS */
@@ -259,6 +254,7 @@ body {}
     justify-content: space-between;
     gap: 50px;
     margin-bottom: 70px;
+
 }
 
 .usuario-bloco.reverso {
@@ -272,6 +268,7 @@ body {}
 }
 
 .usuario-imagem img {
+    position: fixed;
     width: 100%;
     display: block;
     border-radius: 6px;
@@ -307,20 +304,62 @@ body {}
 .usuario-texto {
     flex: 1;
     max-width: 430px;
+    font-size: 55px;
+
 }
 
-.usuario-texto h4 {
-    font-size: 1.5rem;
+/* aqui são nossas tag  h4 e p com os ids definidos*/
+#pequenosNegocios {
+    position: relative;
+    font-size: 32px;
     font-weight: 700;
     color: #111;
     margin-bottom: 16px;
+
+    right: 120px
 }
 
-.usuario-texto p {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: #444;
+#residenciasFamiliares {
+    position: relative;
+    font-size: 32px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 16px;
+
+    left: 170px
 }
+
+#Restaurantes {
+    position: relative;
+    font-size: 32px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 16px;
+    right: 120px
+}
+
+#um {
+    position: relative;
+    font-size: 16px;
+    color: #1c1c1c;
+    right: 120px;
+}
+
+#dois {
+    position: relative;
+    font-size: 16px;
+    color: #1c1c1c;
+    left: 170px;
+}
+
+#tres {
+    position: relative;
+    font-size: 16px;
+    color: #1c1c1c;
+    right: 120px;
+}
+
+
 
 /* responsivo */
 @media (max-width: 900px) {
@@ -362,13 +401,16 @@ body {}
     width: 100%;
     max-width: 1180px;
     margin: 0 auto;
-    padding: 0 24px;;
+    padding: 0 24px;
+    ;
 }
-.area-carrossel .card-comunidade p span{
+
+.area-carrossel .card-comunidade p span {
     color: #1F8C47;
     font-weight: bold;
 }
-.secao-tryx{
+
+.secao-tryx {
     & .container-padrao {
         display: flex;
         align-items: center;
@@ -381,6 +423,7 @@ body {}
         }
     }
 }
+
 body {
     font-family: Arial, sans-serif;
     background: #ffffff;
@@ -397,22 +440,28 @@ body {
     max-width: 420px;
 }
 
-.texto-tryx h3 {
+.texto-tryx h2 {
     font-size: 2rem;
     font-weight: 800;
     margin-bottom: 20px;
-   
+
 }
-.texto-tryx h3 span {
+
+.texto-tryx h2 span {
     color: #1F8C47;
     font-weight: bold;
 }
 
 .texto-tryx p {
-    font-size: 0.92rem;
+    font-size: 16px;
     line-height: 1.45;
     margin-bottom: 8px;
     color: #0c1b2b;
+    margin-top: 8px;
+}
+
+.texto-tryx h3 {
+    font-size: 20px;
 }
 
 .btn-escuro {
@@ -433,7 +482,7 @@ body {
     opacity: 0.95;
 }
 
-/* SEÇÃO COMUNIDADE */
+/* SEÇÃO COMUNIDADE 
 .secao-comunidade {
     background: #219247;
     padding: 50px 0 30px;
@@ -465,7 +514,7 @@ body {
 .area-carrossel {
     position: relative;
     padding-bottom: 56px;
-    /* deixa as setas como rodapé */
+    /* deixa as setas como rodapé 
 }
 
 .viewport-carrossel {
@@ -502,37 +551,107 @@ body {
     font-size: 0.74rem;
     line-height: 1.45;
     color: #1b2d2a;
+}/*
+
+/* SEÇÃO COMUNIDADE */
+.secao-comunidade {
+    background: linear-gradient(135deg, #219247, #1a6b35);
+    padding: 60px 0 40px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* SETAS NO RODAPÉ DA SEÇÃO VERDE */
-.rodape-setas {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    gap: 8px;
+.topo-comunidade {
+    text-align: center;
+    margin-bottom: 35px;
 }
 
-.seta {
-    width: 28px;
-    height: 28px;
-    border: none;
-    border-radius: 50%;
-    background: #f2f2f2;
-    color: #1a5e38;
-    font-size: 0.95rem;
+.topo-comunidade h2 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.topo-comunidade p {
+    font-size: 1.1rem;
+    color: #d9f0df;
+    margin-bottom: 20px;
+}
+
+.marca {
+    color: #ffdd57;
     font-weight: 700;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.2s ease;
 }
 
-.seta:hover {
+.btn-comunidade {
+    position: relative;
+    background: #071a2d;
+    color: #ffffff;
+    padding: 12px 26px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 450px;
+}
+
+
+.btn-comunidade:hover {
+    background: #0c2f4a;
     transform: scale(1.05);
 }
 
+/* CARROSSEL */
+.area-carrossel {
+    position: relative;
+    padding-bottom: 40px;
+}
+
+.viewport-carrossel {
+    overflow: hidden;
+    width: 100%;
+}
+
+.track-carrossel {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.4s ease;
+    will-change: transform;
+}
+
+/* CARDS */
+.card-comunidade {
+    min-width: 260px;
+    max-width: 260px;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+.card-comunidade:hover {
+    transform: translateY(-6px);
+}
+
+.avatar-card {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #219247;
+    margin-bottom: 14px;
+}
+
+.card-comunidade p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #1b2d2a;
+}
 /* CONTRIBUA */
 .secao-contribua {
     background: #e8e8e8;

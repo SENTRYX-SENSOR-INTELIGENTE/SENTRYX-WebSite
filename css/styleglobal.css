@@ -72,5 +72,184 @@ nav .menu {
     background: #fff;
     color: #000;
 }
-
 /*BARRA DE NAVEGAÇÃO FIM*/
+
+ /* Inicio - Novo FOOTER */
+.container-padrao {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+    ;
+}
+
+.footer-sentryx {
+    background: linear-gradient(180deg, #041224 0%, #070E1E 100%);
+    color: rgba(255, 255, 255, 0.88);
+    position: relative;
+    overflow: hidden;
+}
+
+/* glow leve */
+.footer-sentryx::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(250,163,1,0.08), transparent);
+    pointer-events: none;
+}
+
+/* 🔝 TOPO */
+.footer-sentryx__topo {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-top: 56px;
+    padding-bottom: 42px;
+    position: relative;
+    z-index: 1;
+}
+
+/* 🔤 LOGO */
+.footer-sentryx__logo {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+    display: inline-block;
+}
+
+.footer-sentryx__logo span {
+    color: #17a34a;
+}
+
+/* 🧾 TEXTO */
+.footer-sentryx__marca p {
+    max-width: 330px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+/* 📂 COLUNAS */
+.footer-sentryx__coluna h4 {
+    color: #ffffff;
+    margin-bottom: 18px;
+}
+
+.footer-sentryx__coluna ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-sentryx__coluna li {
+    margin-bottom: 12px;
+}
+
+/* 🔗 LINKS */
+.footer-sentryx__coluna a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.75);
+    position: relative;
+    transition: 0.3s;
+}
+
+.footer-sentryx__coluna a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background: #FAA301;
+    transition: 0.3s;
+}
+
+.footer-sentryx__coluna a:hover {
+    color: #ffffff;
+}
+
+.footer-sentryx__coluna a:hover::after {
+    width: 100%;
+}
+
+/* 📞 CONTATO */
+.footer-sentryx__contato li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* 🔗 REDES */
+.footer-sentryx__redes {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+}
+
+.footer-sentryx__redes a {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+
+    transition: 0.3s;
+}
+
+.footer-sentryx__redes a:hover {
+    background: #FAA301;
+    color: #070E1E;
+    transform: translateY(-3px);
+}
+
+/* 🔻 BASE */
+.footer-sentryx__base {
+    border-top: 1px solid rgba(250, 163, 1, 0.2);
+    padding: 18px 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* 👇 AQUI ESTÁ A CORREÇÃO */
+.footer-sentryx__base-conteudo {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.footer-sentryx__base-conteudo p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* 📱 RESPONSIVO */
+@media (max-width: 1024px) {
+    .footer-sentryx__topo {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 680px) {
+    .footer-sentryx__topo {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-sentryx__base-conteudo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

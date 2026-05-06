@@ -57,6 +57,7 @@ ul {
   min-height: 580px;
   background-image: url("../assets/fundo-sobre.jpg"); /* ajuste se precisar */
   background-position: top;
+  height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;

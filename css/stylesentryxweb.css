@@ -57,7 +57,7 @@ body {}
     position: relative;
     left: 0;
     width: 100%;
-    height: 660px;
+    height: 100vh; /* view port heigth = vh (ele deixa o video totalmente na tela, independente do dispositivo
     /* AQUI AO INVÉS DE DEIXAR A TAG HEIGHT NO AUTO EU DEFINO QUE O TAMANHO DELA É DE 600PX PARA CORTAR EM */
     z-index: -1;
     margin-top: 0 auto;
@@ -626,6 +626,7 @@ body {
 /* CARDS */
 .card-comunidade {
     min-width: 260px;
+    margin-top: 10px;
     max-width: 260px;
     background: #ffffff;
     border-radius: 14px;

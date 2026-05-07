@@ -124,27 +124,12 @@ nav .menu {
     position: relative;
     z-index: 2;
 
+    margin-top: 100px;
     width: 100%;
+  
 }
 
-/* TAG */
-.hero-tag {
-    display: inline-block;
 
-    background: rgba(31, 140, 71, 0.16);
-    border: 1px solid rgba(31, 140, 71, 0.45);
-
-    color: #8cffb6;
-
-    padding: 10px 18px;
-    border-radius: 999px;
-
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-
-    margin-bottom: 22px;
-}
 
 /* TÍTULO */
 .hero-title {

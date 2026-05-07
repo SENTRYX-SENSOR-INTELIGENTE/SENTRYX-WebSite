@@ -117,6 +117,16 @@ ul {
   max-width: 630px;
 } */
 
+ #SBh1
+ {position: relative;
+    z-index: 2;
+
+    margin-top: 60px;
+    width: 100%;
+    }
+  
+
+
 /* INTRO */
 .secao-intro {
   padding: 85px 0;

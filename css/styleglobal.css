@@ -76,8 +76,6 @@ nav .menu {
 
 /* HERO GLOBAL */
 
-
-
 .hero-padrao {
     position: relative;
     width: 100%;
@@ -133,15 +131,28 @@ nav .menu {
 
 /* TÍTULO */
 .hero-title {
-    max-width: 720px;
+     max-width: 650px;
 
-    font-size: 72px;
-    line-height: 1.05;
-    font-weight: 700;
+     
+    font-size: 4rem;
+    line-height: 1.1;
+    font-weight: 800;
+
+    letter-spacing: -2px;
 
     color: #ffffff;
 
     margin-bottom: 24px;
+    background: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #d8ffe7 35%,
+        #63e691 65%,
+        #1F8C47 100%
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* SUBTÍTULO */

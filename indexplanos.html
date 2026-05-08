@@ -5,12 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sentryx | Planos</title>
-     <link rel="stylesheet" href="css/styleglobal.css">
+
+    <link rel="stylesheet" href="css/styleglobal.css">
     <link rel="stylesheet" href="css/styleplanos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
+
+    <!-- HEADER -->
     <header>
         <nav>
             <div class="menu">
@@ -21,116 +27,532 @@
                     <li><a href="index.html">Ínicio</a></li>
                     <li><a href="indexsobrenos.html">Sobre nós</a></li>
                     <li><a href="indextecnologia.html">Tecnologia</a></li>
-                    <li><a id="selecionado" href="indexplanos.html" class="ativo">Ver planos</a></li>
+                    <li><a id="selecionado" href="indexplanos.html">Ver planos</a></li>
                     <li><a href="indexsuporte.html">Suporte</a></li>
                     <li><a href="indexlogin.html">Login</a></li>
                 </ul>
             </div>
         </nav>
     </header>
-    
-    <section class="planos">
-        <h2>Escolha o plano ideal</h2>
 
-        <div class="container-planos">
-            <div class="card-plano">
-                <h3>Básico</h3>
-                <p class="preco">R$ 29<span>/mês</span></p>
-                <ul>
-                    <li>✔ Monitoramento básico</li>
-                    <li>✔ Alertas sonoros</li>
-                    <li>✔ Suporte padrão</li>
-                </ul>
-                <button>Escolher plano</button>
-            </div>
+    <!-- HERO -->
+    <section class="hero-padrao">
 
-            <div class="card-plano destaque">
-                <h3>Profissional</h3>
-                <p class="preco">R$ 59<span>/mês</span></p>
-                <ul>
-                    <li>✔ Monitoramento avançado</li>
-                    <li>✔ Notificações no celular</li>
-                    <li>✔ Suporte prioritário</li>
-                </ul>
-                <button>Escolher plano</button>
-            </div>
+         <!-- VIDEO -->
+        <video class="hero-bg" autoplay muted loop playsinline id="video-planos">
+            <source src="assets/videoplanos.mp4" type="video/mp4">
+        </video>
 
-            <div class="card-plano">
-                <h3>Empresarial</h3>
-                <p class="preco">R$ 99<span>/mês</span></p>
-                <ul>
-                    <li>✔ Monitoramento completo</li>
-                    <li>✔ Integração com sistemas</li>
-                    <li>✔ Suporte 24h</li>
-                </ul>
-                <button>Escolher plano</button>
+        <!-- OVERLAY -->
+        <div class="hero-overlay"></div>
+
+        <!-- CONTEÚDO -->
+        <div class="container-padrao">
+            <div class="hero-conteudo">
+                <div class="hero-texto">
+                    <h1 class="hero-title" id="planos">
+                        Detecção de gás em tempo real, para cada tipo de ambiente
+                    </h1>
+                    <p class="hero-subtitle">
+                        O sensor SENTRYX detecta vazamentos de gás, aciona alarme
+                        sonoro e visual imediatamente e notifica você e seus contatos
+                        de prioridade — antes que o perigo se torne uma tragédia.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!--Inicio - Novo Footer -->
-<footer class="footer-sentryx">
-    <div class="container-padrao footer-sentryx__topo">
-
-        <div class="footer-sentryx__marca">
-            <a href="index.html" class="footer-sentryx__logo">
-                SENTRY<span>X</span>
-            </a>
-            <p>
-                Tecnologia preventiva que antecipa riscos e protege vidas com inteligência, precisão e confiança.
-            </p>
-        </div>
-
-        <div class="footer-sentryx__coluna">
-            <h4>Navegação</h4>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="indexsobrenos.html">Sobre nós</a></li>
-                <li><a href="indextecnologia.html">Tecnologia</a></li>
-                <li><a href="indexplanos.html">Ver planos</a></li>
-                <li><a href="indexsuporte.html">Suporte</a></li>
-                <li><a href="indexlogin.html">Login</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-sentryx__coluna">
-            <h4>Soluções</h4>
-            <ul>
-                <li><a href="#">Residencial</a></li>
-                <li><a href="#">Comercial</a></li>
-                <li><a href="#">Cozinhas profissionais</a></li>
-                <li><a href="#">Monitoramento inteligente</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-sentryx__coluna">
-            <h4>Contato</h4>
-            <ul class="footer-sentryx__contato">
-                <li><i class="fa-solid fa-envelope"></i> contato@sentryx.com</li>
-                <li><i class="fa-solid fa-phone"></i> (11) 99999-9999</li>
-                <li><i class="fa-solid fa-location-dot"></i> São Paulo - SP</li>
-            </ul>
-
-            <div class="footer-sentryx__redes">
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- BASE CORRIGIDA -->
-    <div class="footer-sentryx__base">
+    <!-- BANNER GARANTIA 
+    <section class="secao-garantia">
         <div class="container-padrao">
-            <div class="footer-sentryx__base-conteudo">
-                <p>© 2026 SENTRYX. Todos os direitos reservados.</p>
-                <p>Segurança inteligente para proteger o que realmente importa.</p>
+            <div class="banner-garantia">
+                <div class="garantia-icone">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div class="garantia-texto">
+                    <h3>30 dias grátis. Sem cartão de crédito.</h3>
+                    <p>Teste qualquer plano sem compromisso. Se não ficar satisfeito, cancelamos sem burocracia.</p>
+                </div>
+                <div class="garantia-badges">
+                    <span class="garantia-badge">
+                        <i class="fa-solid fa-lock"></i> Dados criptografados
+                    </span>
+                    <span class="garantia-badge">
+                        <i class="fa-solid fa-circle-check"></i> Cancelamento fácil
+                    </span>
+                    <span class="garantia-badge">
+                        <i class="fa-solid fa-bolt"></i> Ativação imediata
+                    </span>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
-<!--Fim - Novo Footer -->
+    </section> 
+    -->
+
+    <!-- PLANOS -->
+    <section class="secao-planos">
+        <div class="container-padrao">
+
+            <div class="topo-planos">
+                <span class="mini-tag">NOSSOS PLANOS</span>
+                <h2>Proteção que acompanha sua necessidade</h2>
+                <p>Todos os planos incluem o sensor inteligente SENTRYX com detecção de gás, alarme sonoro e visual, e
+                    notificação automática de contatos.</p>
+            </div>
+
+            <div class="container-planos">
+
+                <!-- CARD 1 - BÁSICO -->
+                <div class="card-plano">
+                    <div class="icone-plano">
+                        <i class="fa-solid fa-house"></i>
+                    </div>
+                    <span class="tipo-plano">RESIDENCIAL</span>
+                    <h3>Básico</h3>
+                    <p class="descricao-plano">Ideal para apartamentos, casas e pequenos ambientes domésticos.</p>
+                    <div class="preco">R$ 29<span>/mês</span></div>
+                    <ul>
+                        <li><i class="fa-solid fa-circle-check"></i> Detecção de vazamento de gás</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Alarme sonoro e visual</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Notificação de até 3 contatos</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Histórico de alertas (7 dias)</li>
+                        <li><i class="fa-solid fa-circle-check"></i> 1 sensor conectado</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Suporte padrão</li>
+                    </ul>
+                    <a href="#" class="btn-plano">Escolher plano</a>
+                </div>
+
+                <!-- CARD 2 - PROFISSIONAL -->
+                <div class="card-plano destaque">
+                    <div class="badge-popular">MAIS ESCOLHIDO</div>
+                    <div class="icone-plano">
+                        <i class="fa-solid fa-building-shield"></i>
+                    </div>
+                    <span class="tipo-plano">PROFISSIONAL</span>
+                    <h3>Profissional</h3>
+                    <p class="descricao-plano">Perfeito para restaurantes, padarias e cozinhas profissionais.</p>
+                    <div class="preco">R$ 59<span>/mês</span></div>
+                    <ul>
+                        <li><i class="fa-solid fa-circle-check"></i> Detecção de vazamento de gás</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Alarme sonoro e visual</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Notificação de contatos ilimitada</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Histórico de alertas (90 dias)</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Até 5 sensores conectados</li>
+                        <li><i class="fa-solid fa-circle-check"></i> IA TRYX integrada</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Suporte prioritário</li>
+                    </ul>
+                    <a href="#" class="btn-plano">Escolher plano</a>
+                </div>
+
+                <!-- CARD 3 - EMPRESARIAL -->
+                <div class="card-plano empresarial">
+                    <div class="icone-plano">
+                        <i class="fa-solid fa-industry"></i>
+                    </div>
+                    <span class="tipo-plano">EMPRESARIAL</span>
+                    <h3>Empresarial</h3>
+                    <p class="descricao-plano">Segurança completa para indústrias, condomínios e operações críticas.</p>
+                    <div class="preco">R$ 99<span>/mês</span></div>
+                    <ul>
+                        <li><i class="fa-solid fa-circle-check"></i> Detecção de vazamento de gás</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Alarme sonoro e visual</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Notificação de contatos ilimitada</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Histórico de alertas ilimitado</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Sensores ilimitados</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Painel administrativo</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Relatórios e integração via API</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Suporte 24h dedicado</li>
+                    </ul>
+                    <a href="#" class="btn-plano">Escolher plano</a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PULSEIRA VIBRATÓRIA -->
+    <section class="secao-pulseira">
+        <div class="container-padrao">
+            <div class="pulseira-card">
+
+                <div class="pulseira-left">
+                    <span class="mini-tag">ACESSÓRIO</span>
+                    <h2>Pulseira vibratória SENTRYX</h2>
+                    <p>
+                        Pensando em acessibilidade, desenvolvemos a pulseira vibratória SENTRYX para
+                        garantir que ninguém fique desprotegido. Ao detectar um vazamento de gás,
+                        o sensor aciona a pulseira automaticamente — ideal para pessoas com deficiência
+                        auditiva ou visual, que não percebem o alarme sonoro e luminoso.
+                    </p>
+                    <ul class="pulseira-features">
+                        <li><i class="fa-solid fa-circle-check"></i> Vibração intensa ao detectar vazamento</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Compatível com todos os planos SENTRYX</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Design leve e resistente à água</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Bateria de longa duração</li>
+                    </ul>
+                    <div class="pulseira-rodape">
+                        <div class="pulseira-preco">
+                            <span class="pulseira-preco-label">Acessório avulso</span>
+                            <span class="pulseira-preco-valor">R$ 149 <small>pagamento único</small></span>
+                        </div>
+                        <a href="#" class="btn-pulseira">Adquirir pulseira</a>
+                    </div>
+                </div>
+
+                <div class="pulseira-right">
+                    <div class="pulseira-icone-grande">
+                        <img src="assets/pulseira.png" alt="Pulseira SENTRYX">
+                    </div>
+                    <div class="pulseira-tag-acessibilidade">
+                        <i class="fa-solid fa-universal-access"></i>
+                        Comprometidos com a acessibilidade
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARAÇÃO -->
+    <section class="secao-comparacao">
+        <div class="container-padrao">
+
+            <div class="topo-secao">
+                <span class="mini-tag">COMPARAÇÃO</span>
+                <h2>O que cada plano oferece</h2>
+                <p>Veja em detalhes as diferenças entre os planos para escolher com segurança.</p>
+            </div>
+
+            <div class="tabela-wrap">
+                <table class="tabela-comparacao">
+                    <thead>
+                        <tr>
+                            <th>Recurso</th>
+                            <th>Básico</th>
+                            <th class="col-destaque-header">Profissional</th>
+                            <th>Empresarial</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Detecção de vazamento de gás</td>
+                            <td><i class="fa-solid fa-circle-check ic-sim"></i></td>
+                            <td class="col-destaque"><i class="fa-solid fa-circle-check ic-dest"></i></td>
+                            <td><i class="fa-solid fa-circle-check ic-sim"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Alarme sonoro e visual</td>
+                            <td><i class="fa-solid fa-circle-check ic-sim"></i></td>
+                            <td class="col-destaque"><i class="fa-solid fa-circle-check ic-dest"></i></td>
+                            <td><i class="fa-solid fa-circle-check ic-sim"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Notificação de contatos</td>
+                            <td>Até 3 contatos</td>
+                            <td class="col-destaque">Ilimitados</td>
+                            <td>Ilimitados</td>
+                        </tr>
+                        <tr>
+                            <td>Sensores conectados</td>
+                            <td>1</td>
+                            <td class="col-destaque">Até 5</td>
+                            <td>Ilimitados</td>
+                        </tr>
+                        <tr>
+                            <td>IA TRYX integrada</td>
+                            <td><i class="fa-solid fa-xmark ic-nao"></i></td>
+                            <td class="col-destaque"><i class="fa-solid fa-circle-check ic-dest"></i></td>
+                            <td><i class="fa-solid fa-circle-check ic-sim"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Histórico de alertas</td>
+                            <td>7 dias</td>
+                            <td class="col-destaque">90 dias</td>
+                            <td>Ilimitado</td>
+                        </tr>
+                        <tr>
+                            <td>Relatórios e API</td>
+                            <td><i class="fa-solid fa-xmark ic-nao"></i></td>
+                            <td class="col-destaque"><i class="fa-solid fa-xmark ic-nao"></i></td>
+                            <td><i class="fa-solid fa-circle-check ic-sim"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Painel administrativo</td>
+                            <td><i class="fa-solid fa-xmark ic-nao"></i></td>
+                            <td class="col-destaque"><i class="fa-solid fa-xmark ic-nao"></i></td>
+                            <td><i class="fa-solid fa-circle-check ic-sim"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Pulseira vibratória</td>
+                            <td colspan="3" class="col-pulseira">
+                                <i class="fa-solid fa-cart-shopping"></i> Acessório avulso — compatível com todos os
+                                planos
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Suporte</td>
+                            <td>Padrão</td>
+                            <td class="col-destaque">Prioritário</td>
+                            <td>24h dedicado</td>
+                        </tr>
+                        <tr>
+                            <td>Trial grátis</td>
+                            <td>30 dias</td>
+                            <td class="col-destaque">30 dias</td>
+                            <td>30 dias</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="secao-depoimentos">
+        <div class="container-padrao">
+
+            <div class="topo-secao">
+                <span class="mini-tag">DEPOIMENTOS</span>
+                <h2>Quem usa, confia</h2>
+                <p>Mais de 2.400 ambientes protegidos pelo sensor SENTRYX em todo o Brasil.</p>
+            </div>
+
+            <div class="grid-depoimentos">
+
+                <div class="card-depoimento">
+                    <div class="estrelas">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="depo-texto">"O sensor detectou um vazamento de gás enquanto eu dormia. O alarme tocou e
+                        meu celular recebeu a notificação na hora. Não quero nem pensar no que poderia ter acontecido
+                        sem ele."</p>
+                    <div class="depo-autor">
+                        <div class="avatar av-verde">AM</div>
+                        <div class="autor-info">
+                            <p class="autor-nome">Ana Martins</p>
+                            <p class="autor-cargo">Cliente desde 2024</p>
+                        </div>
+                        <span class="plano-pill">BÁSICO</span>
+                    </div>
+                </div>
+
+                <div class="card-depoimento">
+                    <div class="estrelas">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="depo-texto">"Tenho um restaurante com fogões industriais. Instalei 4 sensores SENTRYX e
+                        agora qualquer anomalia cai no meu celular e no da equipe. O suporte é rápido e eficiente."</p>
+                    <div class="depo-autor">
+                        <div class="avatar av-amarelo">RC</div>
+                        <div class="autor-info">
+                            <p class="autor-nome">Ricardo Costa</p>
+                            <p class="autor-cargo">Chef & proprietário</p>
+                        </div>
+                        <span class="plano-pill pill-pro">PROFISSIONAL</span>
+                    </div>
+                </div>
+
+                <div class="card-depoimento">
+                    <div class="estrelas">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="depo-texto">"Minha mãe tem deficiência auditiva e a pulseira vibratória foi um divisor de
+                        águas. Agora ela está protegida mesmo quando está sozinha em casa. Produto incrível."</p>
+                    <div class="depo-autor">
+                        <div class="avatar av-escuro">FL</div>
+                        <div class="autor-info">
+                            <p class="autor-nome">Fernanda Lima</p>
+                            <p class="autor-cargo">Cliente desde 2025</p>
+                        </div>
+                        <span class="plano-pill">BÁSICO</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="secao-faq">
+        <div class="container-padrao">
+
+            <div class="topo-secao">
+                <span class="mini-tag">DÚVIDAS FREQUENTES</span>
+                <h2>Perguntas frequentes</h2>
+                <p>Tudo o que você precisa saber antes de começar.</p>
+            </div>
+
+            <div class="faq-lista">
+
+                <div class="faq-item">
+                    <button class="faq-pergunta" aria-expanded="false">
+                        <span>Como o sensor SENTRYX detecta o vazamento de gás?</span>
+                        <i class="fa-solid fa-plus faq-icone"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>O sensor SENTRYX utiliza tecnologia eletroquímica de alta sensibilidade para identificar
+                            concentrações de gás antes que atinjam níveis perigosos. Ao detectar qualquer anomalia, ele
+                            aciona o alarme sonoro e visual imediatamente e envia notificação para o app e para todos os
+                            contatos de prioridade cadastrados.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-pergunta" aria-expanded="false">
+                        <span>Quem recebe a notificação quando o alarme é acionado?</span>
+                        <i class="fa-solid fa-plus faq-icone"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>Você recebe a notificação no app instantaneamente. Além disso, todos os contatos que você
+                            cadastrar como prioridade também são notificados — como familiares, vizinhos de confiança ou
+                            a equipe do seu negócio. No plano Básico você pode cadastrar até 3 contatos; nos planos
+                            Profissional e Empresarial a quantidade é ilimitada.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-pergunta" aria-expanded="false">
+                        <span>A pulseira vibratória funciona com qualquer plano?</span>
+                        <i class="fa-solid fa-plus faq-icone"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>Sim! A pulseira vibratória é um acessório avulso compatível com todos os planos SENTRYX. Ela
+                            se conecta automaticamente ao seu sensor e vibra assim que um vazamento é detectado —
+                            perfeita para pessoas com deficiência auditiva ou visual que não percebem o alarme sonoro e
+                            luminoso.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-pergunta" aria-expanded="false">
+                        <span>A instalação do sensor é difícil? Precisa de técnico?</span>
+                        <i class="fa-solid fa-plus faq-icone"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>Não. O sensor SENTRYX foi projetado para instalação simples e rápida, sem necessidade de
+                            técnico. Basta posicioná-lo próximo aos pontos de gás, conectar ao aplicativo e cadastrar os
+                            contatos de prioridade — tudo em poucos minutos.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-pergunta" aria-expanded="false">
+                        <span>Posso mudar de plano depois de assinar?</span>
+                        <i class="fa-solid fa-plus faq-icone"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>Sim, a qualquer momento. O upgrade é imediato e o downgrade acontece no início do próximo
+                            ciclo de cobrança. Não há fidelidade mínima nem taxa de cancelamento.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-pergunta" aria-expanded="false">
+                        <span>Como funciona o período de 30 dias grátis?</span>
+                        <i class="fa-solid fa-plus faq-icone"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>Você ativa o plano escolhido sem informar cartão de crédito. Durante 30 dias tem acesso
+                            completo a todos os recursos. Só cobramos se você decidir continuar — e avisamos antes do
+                            prazo encerrar.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-sentryx">
+
+        <div class="container-padrao footer-sentryx__topo">
+
+            <div class="footer-sentryx__marca">
+                <a href="index.html" class="footer-sentryx__logo">SENTRY<span>X</span></a>
+                <p>Sensor inteligente de detecção de gás que protege vidas com alertas em tempo real e notificação
+                    automática de contatos.</p>
+            </div>
+
+            <div class="footer-sentryx__coluna">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="indexsobrenos.html">Sobre nós</a></li>
+                    <li><a href="indextecnologia.html">Tecnologia</a></li>
+                    <li><a href="indexplanos.html">Ver planos</a></li>
+                    <li><a href="indexsuporte.html">Suporte</a></li>
+                    <li><a href="indexlogin.html">Login</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-sentryx__coluna">
+                <h4>Soluções</h4>
+                <ul>
+                    <li><a href="#">Residencial</a></li>
+                    <li><a href="#">Cozinhas profissionais</a></li>
+                    <li><a href="#">Indústrias e empresas</a></li>
+                    <li><a href="#">Pulseira vibratória</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-sentryx__coluna">
+                <h4>Contato</h4>
+                <ul class="footer-sentryx__contato">
+                    <li><i class="fa-solid fa-envelope"></i> contato@sentryx.com</li>
+                    <li><i class="fa-solid fa-phone"></i> (11) 99999-9999</li>
+                    <li><i class="fa-solid fa-location-dot"></i> São Paulo - SP</li>
+                </ul>
+                <div class="footer-sentryx__redes">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-sentryx__base">
+            <div class="container-padrao">
+                <div class="footer-sentryx__base-conteudo">
+                    <p>© 2026 SENTRYX. Todos os direitos reservados.</p>
+                    <p>Segurança inteligente para proteger o que realmente importa.</p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <script>
+        const video = document.getElementById("video-planos");
+        video.playbackRate = 0.5;
+
+        document.querySelectorAll('.faq-pergunta').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.faq-item');
+                const aberto = item.classList.contains('aberto');
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.classList.remove('aberto');
+                    i.querySelector('.faq-pergunta').setAttribute('aria-expanded', 'false');
+                });
+                if (!aberto) {
+                    item.classList.add('aberto');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+    </script>
+
 </body>
 
 </html>

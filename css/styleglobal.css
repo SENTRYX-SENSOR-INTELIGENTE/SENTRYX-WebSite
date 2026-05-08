@@ -80,7 +80,7 @@ nav .menu {
     position: relative;
     width: 100%;
     min-height: 100vh;
-
+    
 
     display: flex;
     align-items: center;
@@ -94,7 +94,7 @@ nav .menu {
     inset: 0;
 
     width: 100%;
-    height: 100%;
+    height: 100vh;
 
     object-fit: cover;
 
@@ -126,8 +126,6 @@ nav .menu {
     width: 100%;
   
 }
-
-
 
 /* TÍTULO */
 .hero-title {
@@ -261,7 +259,7 @@ nav .menu {
     max-width: 1180px;
     margin: 0 auto;
     padding: 0 24px;
-    ;
+    
 }
 
 

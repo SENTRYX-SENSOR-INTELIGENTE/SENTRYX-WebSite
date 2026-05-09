@@ -35,18 +35,18 @@
         </nav>
     </header>
 
-    <!-- HERO -->
+    <!-- HERO 
     <section class="hero-padrao">
 
-         <!-- VIDEO -->
+        VIDEO 
         <video class="hero-bg" autoplay muted loop playsinline id="video-planos">
             <source src="assets/videoplanos.mp4" type="video/mp4">
         </video>
 
-        <!-- OVERLAY -->
+        <!-- OVERLAY 
         <div class="hero-overlay"></div>
 
-        <!-- CONTEÚDO -->
+        <!-- CONTEÚDO
         <div class="container-padrao">
             <div class="hero-conteudo">
                 <div class="hero-texto">
@@ -179,7 +179,7 @@
 
                 <div class="pulseira-left">
                     <span class="mini-tag">ACESSÓRIO</span>
-                    <h2>Pulseira vibratória SENTRYX</h2>
+                    <h2>Pulseira vibratória SENTRY<span id="x">X</span></h2>
                     <p>
                         Pensando em acessibilidade, desenvolvemos a pulseira vibratória SENTRYX para
                         garantir que ninguém fique desprotegido. Ao detectar um vazamento de gás,
@@ -286,7 +286,7 @@
                         </tr>
                         <tr>
                             <td>Pulseira vibratória</td>
-                            <td colspan="3" class="col-pulseira">
+                            <td colspan="3" class="col-pulseira" id="puls">
                                 <i class="fa-solid fa-cart-shopping"></i> Acessório avulso — compatível com todos os
                                 planos
                             </td>
@@ -533,7 +533,7 @@
 
     </footer>
 
-    <script>
+    <!--<script>
         const video = document.getElementById("video-planos");
         video.playbackRate = 0.5;
 
@@ -552,6 +552,35 @@
             });
         });
     </script>
+-->
+
+<!--Script para os botes de perguntas frequentes funcionar-->
+    <script>
+
+document.querySelectorAll('.faq-pergunta').forEach(btn => {
+
+    btn.addEventListener('click', () => {
+
+        const item = btn.closest('.faq-item');
+
+        const aberto = item.classList.contains('aberto');
+
+        document.querySelectorAll('.faq-item').forEach(i => {
+            i.classList.remove('aberto');
+            i.querySelector('.faq-pergunta')
+             .setAttribute('aria-expanded', 'false');
+        });
+
+        if (!aberto) {
+            item.classList.add('aberto');
+            btn.setAttribute('aria-expanded', 'true');
+        }
+
+    });
+
+});
+
+</script>
 
 </body>
 

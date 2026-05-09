@@ -87,7 +87,7 @@
 ========================================= */
 
 .secao-planos {
-    padding: 40px;
+    padding: 100px;
     background: #ffffff;
 }
 
@@ -396,8 +396,11 @@
 ========================================= */
 
 .secao-comparacao {
-    padding: 60px;
+    padding: 40px;
     background: #ffffff;
+}
+#puls{
+    text-align: center;
 }
 
 .tabela-wrap {
@@ -477,7 +480,7 @@
 ========================================= */
 
 .secao-depoimentos {
-    padding: 40pxpx;
+    padding: 40px;
     background: #f4f6f8;
 }
 
@@ -592,7 +595,7 @@
 ========================================= */
 
 .secao-faq {
-    padding: 60px;
+    padding: 40px;
     background: #ffffff;
 }
 
@@ -755,8 +758,13 @@
 ========================================= */
 
 .hero-padrao {
-    background: #071a2d;
-    position: relative;
+    background:
+    radial-gradient(circle at top left,
+    rgba(31,140,71,.18),
+    transparent 40%),
+    #071a2d;
+
+    padding: 170px 0 120px;
 }
 
 /* grade de pontos sutil como textura de fundo */
@@ -815,6 +823,9 @@
     padding: 4px ;
 }
 
+#x {
+    color: #1F8C47;
+}
 .pulseira-card {
     background: #071a2d;
     border-radius: 24px;

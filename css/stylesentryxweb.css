@@ -15,67 +15,6 @@ body {}
     --laranja: #f4a300;
 }
 
-/*navbar*/
-
-/*
-.alinhamento {
-    border: solid 3px;
-    font-size: 24px;
-    top: 46%;
-    transform: translateY(-50%);
-    text-align: left;
-    z-index: 2;
-    width: auto;
-    padding: 0;
-}
-
-.alinhamento .title {
-    
-    position: relative;
-    max-width: 60%;
-    line-height: 1.05;
-    font-weight: 600;
-    text-align: left;
-    background: linear-gradient(to right, #f8f8f8, #f8f8f8, #20C562, #ffffff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-}
-
-.alinhamento .sub-title {
-    font-size: 22px;
-    color: #fff;
-    margin-top: 20px;
-    /* border: solid 3px #000; 
-}
-
-.video-container {
-    position: relative;
-    left: 0;
-    width: 100%;
-    height: 75vh; /* view port heigth = vh (ele deixa o video totalmente na tela, independente do dispositivo
-    /* AQUI AO INVÉS DE DEIXAR A TAG HEIGHT NO AUTO EU DEFINO QUE O TAMANHO DELA É DE 600PX PARA CORTAR EM 
-    z-index: -1;
-    margin-top: 0 auto;
-}
-
-.video-container video {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    margin-top: 60px;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 101vh;
-    background: rgba(0, 0, 0, 0.5);
-}
-    FIM*/
-
     /* =========================================
    HERO HOME
 ========================================= */
@@ -609,11 +548,7 @@ body {}
     }
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #ffffff;
-    color: #071a2d;
-}
+
 
 /* TOPO LARANJA */
 .secao-tryx {
@@ -622,12 +557,12 @@ body {
 }
 
 .texto-tryx {
-    max-width: 420px;
+    width: 420px;
 }
 
 .texto-tryx h2 {
-    font-size: 2rem;
-    font-weight: 800;
+    font-size: 3rem;
+    font-weight: bolder; /* deixa em negrito, o peso mais pesado de todos(by, bigodon)*/
     margin-bottom: 20px;
 
 }

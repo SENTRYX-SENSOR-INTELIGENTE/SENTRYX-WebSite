@@ -86,8 +86,10 @@ section h2 {
     display: flex;
     gap: 60px;
 }
-
-.hero-video-box video {
+.hero-bg video{ /* Analisar o pq nao esta puxando ess config. do css global */
+    width: 100%;
+}
+/* .hero-video-box video {
     width: 100%;
     max-width: 620px;
     height: 540px;
@@ -95,7 +97,7 @@ section h2 {
     border-radius: 28px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
     border: 1px solid rgba(255, 255, 255, 0.10);
-}
+} */
 
 /*Final - hero especifico da tela tecnologia*/
 
@@ -208,9 +210,43 @@ section h2 {
 }
 
 .bloco-tecnologia {
-    background: var(--laranja);
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(to bottom,
+            #f5a300 0%,
+            #cc8600 45%,
+            #081321 100%);
     border-radius: 45px;
     padding: 45px;
+}
+
+.bloco-tecnologia::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    background: #ffb300;
+
+    filter: blur(120px);
+
+    opacity: .25;
+
+    top: -150px;
+    right: -100px;
+}
+
+.bloco-tecnologia::after {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, .05) 1px,
+            transparent 1px),
+        linear-gradient(90deg,
+            rgba(255, 255, 255, .05) 1px,
+            transparent 1px);
+
 }
 
 .texto-tecnologia {
@@ -219,13 +255,20 @@ section h2 {
 }
 
 .cards-tecnologia {
+    border: solid;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 18px;
 }
 
 .tech-card {
-    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(10px);
+    border:
+        1px solid rgba(255, 255, 255, .10);
+    background:
+        linear-gradient(145deg,
+            rgba(255, 255, 255, .10),
+            rgba(255, 255, 255, .03));
     border-radius: 18px;
     padding: 22px;
     box-shadow: var(--sombra);
@@ -239,7 +282,6 @@ section h2 {
     color: #444;
     line-height: 1.6;
 }
-
 /* =========================
    FUNCIONALIDADES
 ========================= */

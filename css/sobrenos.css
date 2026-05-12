@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -117,13 +118,13 @@ ul {
   max-width: 630px;
 } */
 
-#SBh1
- {position: relative;
-    z-index: 2;
+#SBh1 {
+  position: relative;
+  z-index: 2;
 
-    margin-bottom: 121px;
-    width: 100%;
-    }
+  margin-bottom: 121px;
+  width: 100%;
+}
 
 /* INTRO */
 .secao-intro {
@@ -173,13 +174,17 @@ ul {
 .bloco-sobre {
   display: flex;
   align-items: center;
-  gap: 54px;
-  margin-bottom: 84px; 
- 
+  gap: 50px;
+  margin-bottom: 84px;
+
 }
 
 .bloco-sobre.reverso {
   flex-direction: row-reverse;
+
+  & .bloco-texto {
+    text-align: right;
+  }
 }
 
 .bloco-imagem {
@@ -222,19 +227,20 @@ ul {
 .bloco-texto {
   flex: 1;
   max-width: 500px;
-}
+  text-align: left;
 
-.bloco-texto h3 {
-  font-size: 1.9rem;
-  color: var(--azul);
-  margin-bottom: 16px;
-  
-}
+  & h3 {
+    font-size: 1.9rem;
+    color: var(--azul);
+    margin-bottom: 16px;
+  }
 
-.bloco-texto p {
-  color: var(--texto-suave);
-  line-height: 1.9;
-  margin-bottom: 14px;
+  & p {
+    color: var(--texto-suave);
+    line-height: 1.9;
+    margin-bottom: 14px;
+
+  }
 }
 
 /* TÍTULOS */
@@ -327,25 +333,28 @@ ul {
 
 /* 🧩 CARD */
 .card-mvv {
-  background: #f9fafb; /* branco suavizado */
+  background: #f9fafb;
+  /* branco suavizado */
   border-radius: 20px;
   padding: 30px;
 
   border: 1px solid rgba(250, 163, 1, 0.2);
   border-top: 6px solid #FAA301;
 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 
   transition: 0.3s;
 
-  flex: 1; /* garante lado a lado */
+  flex: 1;
+  /* garante lado a lado */
 }
 
 /* ✨ HOVER */
 .card-mvv:hover {
   transform: translateY(-8px);
-  border-top-color: #1F8C47; /* muda pra verde */
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  border-top-color: #1F8C47;
+  /* muda pra verde */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* 🔶 ÍCONE */
@@ -370,7 +379,8 @@ ul {
 
   margin-bottom: 15px;
 
-  flex: 0 0 auto; /* 👈 impede qualquer esticamento */
+  flex: 0 0 auto;
+  /* 👈 impede qualquer esticamento */
 }
 
 /* 🧠 TÍTULO */
@@ -419,7 +429,7 @@ ul {
   width: 500px;
   height: 500px;
 
-  background: radial-gradient(circle, rgba(31,140,71,0.15), transparent);
+  background: radial-gradient(circle, rgba(31, 140, 71, 0.15), transparent);
 
   transform: translate(-50%, -50%);
   z-index: 0;

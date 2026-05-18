@@ -1,0 +1,247 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+body {
+    background: #f5f7fa;
+}
+
+.checkout {
+    padding: 170px 0 100px;
+}
+
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 1fr 480px;
+    gap: 40px;
+    align-items: start;
+}
+
+/* LEFT */
+
+.checkout-resumo h1 {
+    font-size: 54px;
+    line-height: 1.1;
+    color: #071a2d;
+    margin-bottom: 18px;
+    letter-spacing: -2px;
+}
+
+.checkout-resumo p {
+    color: #5b6572;
+    line-height: 1.8;
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+.mini-tag {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 7px 16px;
+    border-radius: 999px;
+    background: rgba(31,140,71,.1);
+    color: #1F8C47;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.resumo-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 32px;
+    border: 1px solid rgba(0,0,0,.06);
+    max-width: 500px;
+}
+
+.resumo-topo {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.resumo-topo h3 {
+    font-size: 52px;
+    color: #071a2d;
+}
+
+.resumo-topo span {
+    margin-bottom: 10px;
+    color: #697586;
+}
+
+.resumo-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.resumo-card ul li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #5b6572;
+}
+
+.resumo-card ul li i {
+    color: #1F8C47;
+}
+
+/* RIGHT */
+
+.checkout-formulario {
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 40px;
+    border: 1px solid rgba(0,0,0,.06);
+}
+
+.checkout-formulario h2 {
+    font-size: 30px;
+    color: #071a2d;
+    margin-bottom: 30px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.campo label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #071a2d;
+    margin-bottom: 10px;
+}
+
+.campo input {
+    height: 56px;
+    border-radius: 14px;
+    border: 1px solid rgba(0,0,0,.08);
+    padding: 0 18px;
+    font-size: 15px;
+    outline: none;
+}
+
+.campo input:focus {
+    border-color: #1F8C47;
+}
+
+.linha-campos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.btn-finalizar {
+    width: 100%;
+    height: 58px;
+    border: none;
+    border-radius: 999px;
+    background: #1F8C47;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .3s;
+    margin-top: 10px;
+}
+
+.btn-finalizar:hover {
+    transform: translateY(-2px);
+    background: #26a556;
+}
+
+/* MODAL */
+
+.modal-sucesso {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    z-index: 9999;
+}
+
+.modal-sucesso.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-card {
+    width: 90%;
+    max-width: 420px;
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 50px 40px;
+    text-align: center;
+}
+
+.modal-icone {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: rgba(31,140,71,.1);
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1F8C47;
+    font-size: 38px;
+}
+
+.modal-card h2 {
+    font-size: 34px;
+    color: #071a2d;
+    margin-bottom: 14px;
+}
+
+.modal-card p {
+    color: #5b6572;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.btn-voltar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 26px;
+    border-radius: 999px;
+    background: #1F8C47;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:1000px){
+
+    .checkout-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .checkout-resumo h1 {
+        font-size: 38px;
+    }
+
+    .checkout-formulario {
+        padding: 30px;
+    }
+
+    .linha-campos {
+        grid-template-columns: 1fr;
+    }
+
+}

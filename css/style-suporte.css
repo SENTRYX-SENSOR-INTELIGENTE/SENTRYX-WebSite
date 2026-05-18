@@ -1,202 +1,367 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-:root {
-    --azul-escuro: #070E1E;
-    --azul-secundario: #071a2d;
-    --verde-marca: #1F8C47;
-    --verde-claro: #20C562;
-    --laranja: #f5a000;
-    --cinza-claro: #eaeaea;
-    --branco: #ffffff;
-    --texto-escuro: #111111;
-    --cinza-texto: #666666;
-    --sombra: 0 5px 12px rgba(0, 0, 0, 0.15);
+body{
+    background:#071a2d;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
+/* HERO */
+
+.hero-suporte{
+    position:relative;
+    padding:180px 0 120px;
+    overflow:hidden;
+    background:
+    radial-gradient(circle at top left,
+    rgba(31,140,71,.18),
+    transparent 35%),
+    #071a2d;
 }
 
-/* Navbar*/
-
-/* --- Hero Section --- */
-
-/* --- Grid de Categorias --- */
-.card-icon {
-    font-size: 3.5rem; /* Tamanho do ícone */
-    color: var(--verde-marca); /* Cor principal do ícone */
-    /* margin-bottom: 25px; */
-    display: inline-block;
-    transition: var(--transition);
+.hero-glow{
+    position:absolute;
+    right:-120px;
+    top:-120px;
+    width:420px;
+    height:420px;
+    background:radial-gradient(circle,
+    rgba(31,140,71,.25),
+    transparent 70%);
 }
 
-.category-card:hover .card-icon {
-    color: var(--verde-claro); /* Muda para verde claro no hover */
-    transform: scale(1.1); /* Efeito de pulso leve */
+.hero-content{
+    max-width:760px;
+    position:relative;
+    z-index:2;
 }
 
-/* Garante que o ícone do PDF tenha uma cor que remeta a documento se preferir */
-.fa-file-pdf {
-    color: var(--verde-marca); 
+.mini-tag{
+    display:inline-block;
+    padding:7px 16px;
+    border-radius:999px;
+    background:rgba(31,140,71,.12);
+    color:#20C562;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:2px;
+    margin-bottom:20px;
 }
 
-.support-grid {
-    padding: 160px 0 100px 0;
-    background: var(--branco);
-    width: 100%;
-    max-width: 1250px;
-    margin: auto;
+.hero-content h1{
+    font-size:58px;
+    line-height:1.1;
+    color:#fff;
+    font-weight:800;
+    margin-bottom:20px;
+    letter-spacing:-2px;
 }
 
-.container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
+.hero-content p{
+    font-size:16px;
+    line-height:1.9;
+    color:rgba(255,255,255,.65);
+    max-width:620px;
 }
 
-.category-card {
-    background: linear-gradient(45deg, var(--azul-escuro) 20%, var(--azul-secundario) 100%);
-    line-height: 2;
-    padding: 45px 30px;
-    border-radius: 25px;
-    border: 1px solid var(--cinza-claro);
-    text-align: center;
-    transition: ease .3s linear;
+.hero-buttons{
+    margin-top:35px;
+    display:flex;
+    gap:16px;
 }
 
-.category-card:hover {
-    border-color: var(--cinza-claro);
-    transform: translateY(-10px);
-    box-shadow: var(--sombra);
-    transition: ease .3s;
+.btn-primary,
+.btn-secondary{
+    padding:16px 28px;
+    border-radius:999px;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
 }
 
-.category-card h3 {
-    color: var(--branco);
-    font-size: 1.5rem;
-    margin: 20px 0 10px;
+.btn-primary{
+    background:#1F8C47;
+    color:#fff;
 }
 
-.category-card p {
-    color: var(--branco);
-    font-size: 0.95rem;
+.btn-primary:hover{
+    transform:translateY(-3px);
+    background:#26a556;
 }
 
-.card-link {
-    color: var(--laranja);
+.btn-secondary{
+    border:1px solid rgba(255,255,255,.12);
+    color:#fff;
 }
 
-/* --- Seção de Vídeos (Estilo Glassmorphism Dark) --- */
-.video-tutorials {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    line-height: 2;
-    text-align: center;
-    background-color: var(--azul-escuro);
-    padding: 80px 10%;
-    color: var(--branco);
+.btn-secondary:hover{
+    background:rgba(255,255,255,.06);
 }
 
-.video-tutorials .container {
-    display: flex;
-    width: 100%;
-    max-width: 1250px;
+/* SUPPORT */
+
+.support-section{
+    padding:90px 0;
+    background:#f4f6f8;
 }
 
-.video-card {
-    background: var(--azul-secundario);
-    width: 30%;
-    padding: 15px;
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.05);
+.support-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
 }
 
-.video-placeholder {
-    height: 200px;
-    background: linear-gradient(45deg, var(--azul-escuro), var(--verde-marca));
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    transition: var(--transition);
+.support-card{
+    background:#fff;
+    padding:40px 32px;
+    border-radius:24px;
+    border:1px solid rgba(0,0,0,.06);
+    transition:.3s;
 }
 
-.video-card:hover .video-placeholder {
-    filter: brightness(1.2);
+.support-card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(31,140,71,.25);
 }
 
-/* --- Seção de Contato (Laranja Vibrante) --- */
-.contact-section {
-    padding: 80px 0;
-    width: 100%;
-    max-width: 1250px;
-    margin: auto;
-    background: var(--branco);
+.support-icon{
+    width:64px;
+    height:64px;
+    border-radius:18px;
+    background:rgba(31,140,71,.1);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    color:#1F8C47;
+    margin-bottom:22px;
 }
 
-.contact-box {
-    display: flex;
-    justify-content: center;
-    background: var(--laranja);
-    border-radius: 40px;
-    padding: 60px;
-    display: flex;
-    width: 100%;
-    align-items: center;
-    color: var(--azul-escuro);
+.support-card h3{
+    font-size:24px;
+    color:#071a2d;
+    margin-bottom:14px;
 }
 
-.contact-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+.support-card p{
+    color:#667085;
+    line-height:1.8;
+    margin-bottom:24px;
 }
 
-.btn-dark {
-    background: var(--azul-escuro);
-    color: var(--branco);
-    padding: 18px 40px;
-    border-radius: 50px;
-    border: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border: 1px solid var(--azul-escuro);
+.support-card a{
+    color:#1F8C47;
+    font-weight:600;
+    text-decoration:none;
 }
 
-.btn-dark:hover {
-    background: var(--azul-secundario);
-    border: 1px solid var(--branco);
+/* STATUS */
+
+.status-section{
+    padding:0 0 90px;
+    background:#f4f6f8;
 }
 
-.btn-outline {
-    background: transparent;
-    border: 2px solid var(--azul-escuro);
-    color: var(--azul-escuro);
-    padding: 16px 40px;
-    border-radius: 50px;
-    font-weight: bold;
+.status-card{
+    background:#071a2d;
+    border-radius:24px;
+    padding:30px 36px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:#fff;
 }
 
-.btn-outline:hover {
-    background: var(--azul-escuro);
-    color: var(--branco);
+.status-left{
+    display:flex;
+    align-items:center;
+    gap:18px;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .contact-box { flex-direction: column; text-align: center; padding: 40px 20px; }
-    .hero-content h1 { font-size: 2.5rem; }
+.status-online{
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:#20C562;
+    box-shadow:0 0 15px #20C562;
+}
+
+.status-left h3{
+    font-size:20px;
+}
+
+.status-left p{
+    color:rgba(255,255,255,.6);
+    margin-top:4px;
+}
+
+.status-right{
+    text-align:right;
+}
+
+.status-right span{
+    color:rgba(255,255,255,.5);
+    display:block;
+    margin-bottom:5px;
+}
+
+/* TUTORIAIS */
+
+.tutorial-section{
+    padding:100px 0;
+    background:#071a2d;
+}
+
+.topo-secao{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.topo-secao h2{
+    font-size:42px;
+    color:#fff;
+    margin-bottom:14px;
+}
+
+.topo-secao p{
+    color:rgba(255,255,255,.6);
+    max-width:620px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.tutorial-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+}
+
+.tutorial-card{
+    background:#0c2238;
+    padding:20px;
+    border-radius:24px;
+    border:1px solid rgba(255,255,255,.05);
+    transition:.3s;
+}
+
+.tutorial-card:hover{
+    transform:translateY(-6px);
+}
+
+.tutorial-thumb{
+    height:220px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#071a2d,#1F8C47);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:36px;
+    color:#fff;
+    margin-bottom:22px;
+}
+
+.tutorial-card h4{
+    color:#fff;
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.tutorial-card span{
+    color:rgba(255,255,255,.5);
+}
+
+/* CONTACT */
+
+.contact-section{
+    padding:100px 0;
+    background:#071a2d;
+}
+
+.contact-box{
+    background:linear-gradient(135deg,#1F8C47,#20C562);
+    border-radius:32px;
+    padding:70px;
+    text-align:center;
+}
+
+.contact-content h2{
+    font-size:46px;
+    color:#fff;
+    margin-bottom:18px;
+}
+
+.contact-content p{
+    color:rgba(255,255,255,.85);
+    line-height:1.8;
+    max-width:620px;
+    margin:auto;
+}
+
+.contact-buttons{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    margin-top:36px;
+}
+
+.btn-whatsapp,
+.btn-email{
+    padding:16px 28px;
+    border-radius:999px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-whatsapp{
+    background:#071a2d;
+    color:#fff;
+}
+
+.btn-email{
+    background:#fff;
+    color:#071a2d;
+}
+
+.btn-whatsapp:hover,
+.btn-email:hover{
+    transform:translateY(-3px);
+}
+
+/* RESPONSIVO */
+
+@media(max-width:950px){
+
+    .support-grid,
+    .tutorial-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-content h1{
+        font-size:42px;
+    }
+
+    .status-card{
+        flex-direction:column;
+        gap:20px;
+        align-items:flex-start;
+    }
+
+    .contact-box{
+        padding:50px 28px;
+    }
+
+    .contact-content h2{
+        font-size:34px;
+    }
+
+    .contact-buttons{
+        flex-direction:column;
+    }
 }

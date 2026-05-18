@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SentryX | Checkout</title>
+
+    <link rel="stylesheet" href="css/styleglobal.css">
+    <link rel="stylesheet" href="css/stylecheckout.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="menu">
+
+                <div class="logo">
+                    <a href="index.html">SENTRY<span>X</span></a>
+                </div>
+
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="indexsobrenos.html">Sobre nós</a></li>
+                    <li><a href="indextecnologia.html">Tecnologia</a></li>
+                    <li><a id="selecionado" href="indexplanos.html">Ver planos</a></li>
+                    <li><a href="indexsuporte.html">Suporte</a></li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+
+    <!-- CHECKOUT -->
+    <section class="checkout">
+
+        <div class="container-padrao">
+
+            <div class="checkout-grid">
+
+                <!-- RESUMO -->
+                <div class="checkout-resumo">
+
+                    <span class="mini-tag">
+                        CHECKOUT
+                    </span>
+
+                    <h1>
+                        Plano Profissional
+                    </h1>
+
+                    <p>
+                        Proteção inteligente para restaurantes, cozinhas industriais e ambientes profissionais.
+                    </p>
+
+                    <div class="resumo-card">
+
+                        <div class="resumo-topo">
+                            <h3>R$ 59</h3>
+                            <span>/mês</span>
+                        </div>
+
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Até 5 sensores conectados
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-circle-check"></i>
+                                IA TRYX integrada
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Contatos ilimitados
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Suporte prioritário
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <!-- FORM -->
+                <div class="checkout-formulario">
+
+                    <h2>
+                        Finalizar assinatura
+                    </h2>
+
+                    <form id="formCheckout">
+
+                        <div class="campo">
+                            <label>Nome completo</label>
+                            <input type="text" placeholder="Digite seu nome">
+                        </div>
+
+                        <div class="campo">
+                            <label>Email</label>
+                            <input type="email" placeholder="Digite seu email">
+                        </div>
+
+                        <div class="campo">
+                            <label>Número do cartão</label>
+                            <input type="text" placeholder="0000 0000 0000 0000">
+                        </div>
+
+                        <div class="linha-campos">
+
+                            <div class="campo">
+                                <label>Validade</label>
+                                <input type="text" placeholder="MM/AA">
+                            </div>
+
+                            <div class="campo">
+                                <label>CVV</label>
+                                <input type="text" placeholder="123">
+                            </div>
+
+                        </div>
+
+                        <button type="submit" class="btn-finalizar">
+                            Finalizar assinatura
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal-sucesso" id="modalSucesso">
+
+        <div class="modal-card">
+
+            <div class="modal-icone">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+
+            <h2>
+                Assinatura realizada!
+            </h2>
+
+            <p>
+                Bem-vindo ao ecossistema SENTRYX.
+            </p>
+
+            <a href="indexlogin.html" class="btn-voltar">
+                Iniciar tela de login
+            </a>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        const form = document.getElementById('formCheckout');
+        const modal = document.getElementById('modalSucesso');
+
+        form.addEventListener('submit', function(event) {
+
+            event.preventDefault();
+
+            modal.classList.add('ativo');
+
+        });
+
+    </script>
+
+</body>
+
+</html>
+
+

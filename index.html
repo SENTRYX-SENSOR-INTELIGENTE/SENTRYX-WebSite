@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sentryx</title>
+    <title>SENTRYX</title>
     <link rel="stylesheet" href="css/stylesentryxweb.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/styleglobal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="shortcut icon" href="assets/Logo SENTRYX em neon verde-comfundo.png.jpeg" type="image/x-icon">
+    <link rel="shortcut icon"  href="assets/favicon16x16.png" type="image/x-icon" >
 
 </head>
 
@@ -82,27 +82,33 @@
     </section>
 
     <!-- SOBRE O NOSSO PRODUTO -->
-    <section class="videos-section">
-        <div class="nosso-produto">
+    <section class="videos-section" id="produto">
+        <div class="nosso-produto container-padrao">
             <h2>Sobre o nosso produto</h2>
+            <p>
+                Veja de perto o design, os detalhes internos e a presença do sensor que ajuda a proteger ambientes com
+                gás todos os dias.
+            </p>
         </div>
 
-        <div class="videos-container">
+        <div class="videos-container container-padrao">
             <div class="video-card">
-
+                <span>Estrutura</span>
                 <video src="assets/desmontando1.mp4" autoplay muted loop playsinline></video>
             </div>
 
             <div class="video-card">
+                <span>Precisão</span>
                 <video src="assets/closesentryx.mp4" autoplay muted loop playsinline></video>
             </div>
 
             <div class="video-card">
+                <span>Design</span>
                 <video src="assets/girandosentryx.mp4" autoplay muted loop playsinline></video>
             </div>
         </div>
 
-        <a href="indextecnologia.html"><button class="btn">Saiba mais</button></a>
+        <a href="indextecnologia.html" class="produto-btn">Saiba mais</a>
     </section>
 
     <!--  INICIO - Novo card detecção inteligente-->
@@ -182,29 +188,57 @@
 
 
     <section class="secao-tryx">
-        <div class="container-padrao">
+        <div class="container-padrao tryx-grid">
             <div class="texto-tryx">
                 <h2>Conheça a <span>TRYX</span></h2>
 
-                <h3>Nossa IA oficial!</h3>
+                <h3>A IA que entende alertas, histórico e risco em tempo real.</h3>
 
                 <p>
-                    A TRYX é a assistente inteligente oficial do ecossistema SENTRYX, atuando no envio de notificações
-                    em tempo real diante de alertas de vazamento de gás e na gestão do histórico de eventos.
+                    A TRYX é a assistente inteligente oficial do ecossistema SENTRYX. Ela transforma alertas de
+                    vazamento de gás em respostas claras, rápidas e fáceis de acompanhar.
                 </p>
 
-                <p>
-                    Com isso, o usuário pode visualizar registros anteriores, acompanhar padrões de risco e tomar
-                    decisões com mais rapidez, segurança e eficiência.
-                </p>
+                <div class="tryx-metricas" aria-label="Recursos da TRYX">
+                    <div>
+                        <strong>24h</strong>
+                        <span>monitoramento</span>
+                    </div>
+                    <div>
+                        <strong>IA</strong>
+                        <span>análise de risco</span>
+                    </div>
+                    <div>
+                        <strong>Tempo real</strong>
+                        <span>notificações</span>
+                    </div>
+                </div>
 
-                Ela é a voz amiga da SENTRYX: uma companheira acessível, simpática e compartilhadora das ideias de
-                inovação, sempre pronta para sua jornada.
-                </p>
+                <ul class="tryx-recursos">
+                    <li><i class="fa-solid fa-bell"></i> Envia avisos imediatos quando um risco é detectado.</li>
+                    <li><i class="fa-solid fa-chart-line"></i> Organiza o histórico e ajuda a enxergar padrões.</li>
+                    <li><i class="fa-solid fa-shield-halved"></i> Orienta decisões com mais segurança e eficiência.</li>
+                </ul>
 
-                <button class="btn-escuro">Conheça melhor nossa IA</button>
+                <a href="indextecnologia.html" class="btn-tryx">Conheça melhor nossa IA</a>
             </div>
-            <img src="assets/IA.png" alt="">
+
+            <div class="tryx-visual" aria-label="Interface visual da assistente TRYX">
+                <div class="tryx-orbita tryx-orbita-um"></div>
+                <div class="tryx-orbita tryx-orbita-dois"></div>
+                <div class="tryx-card-alerta">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <div>
+                        <strong>Alerta preventivo</strong>
+                        <span>Risco identificado na cozinha</span>
+                    </div>
+                </div>
+                <img src="assets/IA.png" alt="Assistente virtual TRYX">
+                <div class="tryx-card-status">
+                    <span></span>
+                    Sistema em análise contínua
+                </div>
+            </div>
         </div>
     </section>
 

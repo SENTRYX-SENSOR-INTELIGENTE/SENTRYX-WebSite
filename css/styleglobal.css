@@ -279,7 +279,6 @@ nav .menu {
     transform: translateX(-50%);
     width: 600px;
     height: 300px;
-    background: radial-gradient(circle, rgba(250,163,1,0.08), transparent);
     pointer-events: none;
 }
 
@@ -387,6 +386,9 @@ nav .menu {
     font-size: 16px;
 
     transition: 0.3s;
+}
+.footer-sentryx__redes a::after {
+    background: none;  /* bloquenado o sublinhado */
 }
 
 .footer-sentryx__redes a:hover {

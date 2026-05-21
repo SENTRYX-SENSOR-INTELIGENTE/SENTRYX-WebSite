@@ -684,7 +684,7 @@
    RESPONSIVO
 ========================================= */
 
-@media (max-width: 1100px) {
+@media (max-width: 1199px) {
     .container-planos {
         grid-template-columns: 1fr;
         max-width: 460px;
@@ -715,7 +715,7 @@
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1199px) {
     .banner-garantia {
         flex-wrap: wrap;
     }
@@ -726,7 +726,7 @@
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
     .secao-planos,
     .secao-comparacao,
     .secao-depoimentos,
@@ -1027,7 +1027,7 @@
 
 /* ── RESPONSIVO ── */
 
-@media (max-width: 1000px) {
+@media (max-width: 1199px) {
     .pulseira-card {
         grid-template-columns: 1fr;
         padding: 44px 36px;
@@ -1040,7 +1040,7 @@
     }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 768px) {
     .secao-pulseira {
         padding: 70px 0;
     }

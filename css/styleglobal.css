@@ -134,7 +134,7 @@ nav .menu {
      
     font-size: 4rem;
     line-height: 1.1;
-    font-weight: bolder;
+    font-weight: 500;
 
     letter-spacing: -2px;
 
@@ -185,7 +185,7 @@ nav .menu {
     text-decoration: none;
 
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 10;
 
     transition: 0.3s ease;
 }
@@ -216,11 +216,7 @@ nav .menu {
 
 /* RESPONSIVO */
 
-@media (max-width: 900px) {
-
-    .hero-padrao {
-        padding: 140px 0 100px;
-    }
+@media (max-width: 1199px) {
 
     .hero-title {
         font-size: 48px;
@@ -231,7 +227,12 @@ nav .menu {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+
+    .hero-padrao {
+        padding: 140px 0 100px;
+        min-height: auto;
+    }
 
     .hero-title {
         font-size: 38px;
@@ -245,10 +246,25 @@ nav .menu {
     .hero-botoes {
         flex-direction: column;
         align-items: flex-start;
+        width: 100%;
     }
 
     .btn-hero {
         width: 100%;
+    }
+
+    nav .menu {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .menu ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .menu .logo a {
+        font-size: 28px;
     }
 }
 /*FIM - HERO GLOBAL*/
@@ -419,20 +435,31 @@ nav .menu {
 }
 
 /* 📱 RESPONSIVO */
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
     .footer-sentryx__topo {
         grid-template-columns: 1fr 1fr;
+        gap: 30px;
     }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 768px) {
     .footer-sentryx__topo {
         grid-template-columns: 1fr;
+        padding-top: 40px;
+        padding-bottom: 30px;
     }
 
     .footer-sentryx__base-conteudo {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .footer-sentryx__logo {
+        font-size: 1.5rem;
+    }
+
+    .footer-sentryx__coluna h4 {
+        margin-top: 20px;
     }
 }
 

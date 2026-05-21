@@ -222,7 +222,7 @@ body {
 
 /* RESPONSIVO */
 
-@media(max-width:1000px){
+@media (max-width: 1199px) {
 
     .checkout-grid {
         grid-template-columns: 1fr;
@@ -230,7 +230,7 @@ body {
 
 }
 
-@media(max-width:700px){
+@media (max-width: 768px) {
 
     .checkout-resumo h1 {
         font-size: 38px;

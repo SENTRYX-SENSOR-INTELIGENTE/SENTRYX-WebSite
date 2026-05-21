@@ -499,7 +499,7 @@ body {
     background: #f0f0f0;
 }
 
-@media(max-width:950px) {
+@media (max-width: 1199px) {
 
     .support-grid,
     .tutorial-grid {
@@ -545,7 +545,7 @@ body {
     }
 }
 
-@media(max-width:600px) {
+@media (max-width: 768px) {
     .hero-content h1 {
         font-size: 36px;
     }

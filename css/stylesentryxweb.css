@@ -160,7 +160,7 @@ body {}
    RESPONSIVO
 ========================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 1199px) {
 
     .hero-home {
         height: auto;
@@ -178,7 +178,7 @@ body {}
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
 
     .hero-title {
         font-size: 38px;
@@ -398,7 +398,7 @@ body {}
 }
 
 /* Responsivo da secao Produto */
-@media (max-width: 980px) {
+@media (max-width: 1199px) {
     .videos-section::after {
         inset: 335px 0 0;
     }
@@ -423,7 +423,7 @@ body {}
     }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 768px) {
     .videos-section {
         padding: 44px 0 68px;
     }
@@ -668,7 +668,7 @@ body {}
 
 
 /* responsivo */
-@media (max-width: 900px) {
+@media (max-width: 1199px) {
 
     .usuario-bloco,
     .usuario-bloco.reverso {
@@ -999,7 +999,7 @@ body {}
     box-shadow: 0 0 0 6px rgba(31, 140, 71, 0.16);
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1199px) {
     .tryx-grid {
         grid-template-columns: 1fr;
         gap: 36px;
@@ -1014,7 +1014,7 @@ body {}
     }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 768px) {
     .secao-tryx {
         padding: 64px 0 70px;
     }

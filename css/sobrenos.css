@@ -442,7 +442,7 @@ ul {
 }
 
 /* 📱 RESPONSIVO */
-@media (max-width: 900px) {
+@media (max-width: 1199px) {
   .grid-mvv {
     flex-direction: column;
   }

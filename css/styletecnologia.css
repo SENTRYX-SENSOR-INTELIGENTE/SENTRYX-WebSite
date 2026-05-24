@@ -205,7 +205,7 @@ section h2 {
 
 /* =========================
    TECNOLOGIAS
-========================= */
+========================= 
 .secao-tecnologias {
     background: #070E1E
 }
@@ -280,6 +280,92 @@ section h2 {
     color: #000;
     line-height: 1.6;
 }
+
+*/
+
+
+.secao-tecnologias {
+  background: #06122b; /* fundo azul escuro */
+  padding: 70px 0;
+}
+
+.bloco-tecnologia {
+  background: #0b1c2c; /* painel azul mais claro */
+  border: 3px solid #f5a000; /* borda laranja vibrante */
+  border-radius: 35px;
+  padding: 55px;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.6);
+}
+
+.texto-tecnologia {
+  max-width: 650px;
+  margin-bottom: 40px;
+}
+
+.texto-tecnologia h2 {
+  color: #fff;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.texto-tecnologia p {
+  color: #dcdcdc;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.cards-tecnologia {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.tech-card {
+  background: #ffffff; /* cinza escuro dos cards */
+  border: 2px solid #f5a000; /* borda laranja */
+  border-radius: 20px;
+  padding: 28px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  cursor: pointer;
+}
+
+.tech-card:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 15px 30px rgba(245, 160, 0, 0.5);
+  border-color: #ffb300;
+}
+
+.tech-card h3 {
+  color: #000000;
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.tech-card p {
+  color: #000000;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.card-icon {
+  font-size: 2rem;
+  color: #f5a000; /* ícones em laranja */
+  margin-bottom: 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.tech-card:hover .card-icon {
+  color: #ffb300;
+  transform: scale(1.15);
+}
+
+
+
+
+
+
 /* =========================
    FUNCIONALIDADES
 ========================= */

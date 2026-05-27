@@ -52,7 +52,7 @@
                 <p class="boas-vindas">Olá, usuário</p>
                 <h1>Painel de monitoramento</h1>
                 <p class="descricao">
-                    Acompanhe o nível de gás, gerencie contatos de emergência e visualize os alertas do sensor.
+                    Acompanhe o nível de gás, gerencie contatos de emergência e visualize alertas do sensor em tempo real.
                 </p>
             </div>
 
@@ -74,24 +74,36 @@
         <section class="resumo-grid">
 
             <div class="card resumo destaque">
+                <div class="resumo-icone">
+                    <i class="fa-solid fa-chart-column" aria-hidden="true"></i>
+                </div>
                 <p>Nível de gás</p>
                 <h2>12 <span>ppm</span></h2>
                 <small>Leitura em tempo real</small>
             </div>
 
             <div class="card resumo">
+                <div class="resumo-icone">
+                    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                </div>
                 <p>Status do ambiente</p>
                 <h3 class="status-seguro">Seguro</h3>
                 <small>Sem risco detectado</small>
             </div>
 
             <div class="card resumo">
+                <div class="resumo-icone">
+                    <i class="fa-solid fa-wifi" aria-hidden="true"></i>
+                </div>
                 <p>Sensor</p>
                 <h3>Conectado</h3>
                 <small>Última leitura há 5 segundos</small>
             </div>
 
             <div class="card resumo">
+                <div class="resumo-icone">
+                    <i class="fa-solid fa-battery-three-quarters" aria-hidden="true"></i>
+                </div>
                 <p>Bateria</p>
                 <h3>89%</h3>
                 <small>Funcionamento normal</small>
@@ -107,14 +119,20 @@
             Card grande com monitoramento -->
             <div class="card card-monitoramento">
                 <div class="card-header">
-                    <h2>Monitoramento do ambiente</h2>
+                    <div class="header-titulo">
+                        <h2>Monitoramento do ambiente</h2>
+                        <p class="header-sub">Medição contínua com alertas inteligentes</p>
+                    </div>
                     <span class="tag tag-verde">Ativo</span>
                 </div>
 
                 <div class="monitoramento-conteudo">
                     <div class="medidor-box">
                         <p class="medidor-label">Nível atual detectado</p>
-                        <div class="medidor-numero">12 <span>ppm</span></div>
+                        <div class="medidor-numero" aria-label="Nível atual: 12 ppm">12 <span>ppm</span></div>
+                        <div class="medidor-barra" aria-hidden="true">
+                            <span class="medidor-barra-progresso" style="--p: 12%"></span>
+                        </div>
                     </div>
 
                     <div class="monitoramento-lista">
@@ -130,13 +148,16 @@
             Card de ações rápidas -->
             <div class="card card-acoes">
                 <div class="card-header">
-                    <h2>Ações rápidas</h2>
+                    <div class="header-titulo">
+                        <h2>Ações rápidas</h2>
+                        <p class="header-sub">Ajuste e teste quando precisar</p>
+                    </div>
                 </div>
 
                 <div class="botoes-acoes">
-                    <button class="btn-padrao">Testar sensor</button>
-                    <button class="btn-secundario">Testar notificação</button>
-                    <button class="btn-alerta">Acionar emergência</button>
+                    <button class="btn-padrao"><i class="fa-solid fa-vial" aria-hidden="true"></i> Testar sensor</button>
+                    <button class="btn-secundario"><i class="fa-regular fa-bell" aria-hidden="true"></i> Testar notificação</button>
+                    <button class="btn-alerta"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Acionar emergência</button>
                 </div>
             </div>
 
@@ -144,9 +165,13 @@
             Card de contatos -->
             <div class="card card-contatos">
                 <div class="card-header">
-                    <h2>Contatos de emergência</h2>
-                    <button class="mini-acao">+ Adicionar</button>
+                    <div class="header-titulo">
+                        <h2>Contatos de emergência</h2>
+                        <p class="header-sub">Avise quem realmente importa</p>
+                    </div>
+                    <button class="mini-acao btn-adicionar-contato" type="button" aria-haspopup="dialog" aria-controls="popup-adicionar-contato"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Adicionar</button>
                 </div>
+
 
                 <div class="lista-contatos">
                     <div class="item-contato">
@@ -154,7 +179,7 @@
                             <strong>Maria Silva</strong>
                             <p>Mãe • (11) 99999-9999</p>
                         </div>
-                        <button>Editar</button>
+                        <button aria-label="Editar Maria Silva"><i class="fa-solid fa-pen" aria-hidden="true"></i> Editar</button>
                     </div>
 
                     <div class="item-contato">
@@ -162,7 +187,7 @@
                             <strong>João Souza</strong>
                             <p>Vizinho • (11) 98888-8888</p>
                         </div>
-                        <button>Editar</button>
+                        <button aria-label="Editar João Souza"><i class="fa-solid fa-pen" aria-hidden="true"></i> Editar</button>
                     </div>
 
                     <div class="item-contato">
@@ -170,7 +195,7 @@
                             <strong>Carla Mendes</strong>
                             <p>Irmã • (11) 97777-7777</p>
                         </div>
-                        <button>Editar</button>
+                        <button aria-label="Editar Carla Mendes"><i class="fa-solid fa-pen" aria-hidden="true"></i> Editar</button>
                     </div>
                 </div>
             </div>
@@ -220,7 +245,10 @@
             Instruções rápidas -->
             <div class="card card-orientacoes">
                 <div class="card-header">
-                    <h2>Informações em caso de vazamento</h2>
+                    <div class="header-titulo">
+                        <h2>Informações em caso de vazamento</h2>
+                        <p class="header-sub">Passo a passo para agir com segurança</p>
+                    </div>
                 </div>
 
                 <div class="lista-orientacoes">
@@ -234,7 +262,10 @@
             Card de suporte -->
             <div class="card card-suporte">
                 <div class="card-header">
-                    <h2>Suporte</h2>
+                    <div class="header-titulo">
+                        <h2>Suporte</h2>
+                        <p class="header-sub">Atendimento rápido e humano</p>
+                    </div>
                     <span class="tag tag-laranja">24h</span>
                 </div>
 
@@ -244,12 +275,166 @@
                     <p><strong>Atendimento:</strong> disponível 24 horas</p>
                 </div>
 
-                <button class="btn-padrao">Falar com suporte</button>
+                    <button class="btn-padrao btn-falar-suporte" type="button" aria-haspopup="dialog" aria-controls="popup-suporte">Falar com suporte</button>
             </div>
 
         </section>
 
-    </main>
+</main>
+
+    <!-- Pop-up: Adicionar contato -->
+    <div id="popup-adicionar-contato" class="popup-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="popup">
+            <div class="popup-topo">
+                <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px;">
+                    <div>
+                        <h2>Adicionar usuário</h2>
+                        <p>Cadastre um contato de emergência</p>
+                    </div>
+                    <button type="button" class="popup-close" aria-label="Fechar">&times;</button>
+                </div>
+            </div>
+            <div class="popup-corpo">
+                <form class="form-contato" onsubmit="event.preventDefault(); mockContatoSubmit();">
+                    <div class="form-grid">
+                        <div class="field">
+                            <label for="nome">Nome</label>
+                            <input id="nome" name="nome" type="text" placeholder="Ex: Maria Silva" required />
+                        </div>
+
+                        <div class="field">
+                            <label for="parentesco">Parentesco</label>
+                            <input id="parentesco" name="parentesco" type="text" placeholder="Ex: Mãe" required />
+                        </div>
+
+                        <div class="field" style="grid-column: 1 / -1;">
+                            <label for="telefone">Telefone</label>
+                            <input id="telefone" name="telefone" type="tel" placeholder="Ex: (11) 99999-9999" required />
+                            <small class="help">Apenas para uso de emergência.</small>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <a class="btn-secundario btn-voltar" href="#" onclick="closePopup(); return false;"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Voltar</a>
+                        <button class="btn-padrao" type="submit"><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Salvar contato</button>
+                    </div>
+
+                    <div id="toast-popup" class="toast" role="status" aria-live="polite" hidden>
+                        <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                        <span>Contato cadastrado (simulação).</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up: Suporte -->
+    <div id="popup-suporte" class="popup-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="popup">
+            <div class="popup-topo">
+                <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px;">
+                    <div>
+                        <h2>Falar com suporte</h2>
+                        <p>Escolha uma forma de contato</p>
+                    </div>
+                    <button type="button" class="popup-close" aria-label="Fechar" data-close-suporte>&times;</button>
+                </div>
+            </div>
+            <div class="popup-corpo">
+                <div class="suporte-popup-grid">
+                    <div class="suporte-popup-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <strong>E-mail</strong>
+                            <span>suporte@sentryx.com</span>
+                        </div>
+                        <a class="btn-secundario" href="mailto:suporte@sentryx.com"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Enviar</a>
+                    </div>
+
+                    <div class="suporte-popup-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <strong>Telefone</strong>
+                            <span>0800 123 4567</span>
+                        </div>
+                        <a class="btn-secundario" href="tel:08001234567"><i class="fa-solid fa-phone-volume" aria-hidden="true"></i> Ligar</a>
+                    </div>
+                </div>
+
+                <div class="form-actions" style="justify-content:flex-start; margin-top:18px;">
+                    <button type="button" class="btn-padrao" data-close-suporte><i class="fa-solid fa-xmark" aria-hidden="true"></i> Fechar</button>
+                </div>
+
+                <div id="toast-suporte" class="toast" role="status" aria-live="polite" hidden>
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span>Preferência registrada (simulação).</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const popup = document.getElementById('popup-adicionar-contato');
+
+        const btnAdicionar = document.querySelector('.btn-adicionar-contato');
+        const btnFechar = document.querySelector('.popup-close');
+
+        function openPopup() {
+            popup.classList.add('ativo');
+            popup.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePopup() {
+            popup.classList.remove('ativo');
+            popup.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        // Suporte
+        const popupSuporte = document.getElementById('popup-suporte');
+        const btnFalarSuporte = document.querySelector('.btn-falar-suporte');
+        const btnFecharSuporte = document.querySelector('[data-close-suporte]');
+
+        function openSuporte() {
+            popupSuporte?.classList.add('ativo');
+            popupSuporte?.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSuporte() {
+            popupSuporte?.classList.remove('ativo');
+            popupSuporte?.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+
+        function mockContatoSubmit() {
+            const toast = document.getElementById('toast-popup');
+            toast.hidden = false;
+            setTimeout(() => {
+                toast.hidden = true;
+                closePopup();
+            }, 1200);
+        }
+
+        btnAdicionar?.addEventListener('click', openPopup);
+        btnFechar?.addEventListener('click', closePopup);
+
+        btnFalarSuporte?.addEventListener('click', openSuporte);
+        btnFecharSuporte?.addEventListener('click', closeSuporte);
+
+
+        popup?.addEventListener('click', (e) => {
+            if (e.target === popup) closePopup();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && popup.classList.contains('ativo')) {
+                closePopup();
+            }
+        });
+    </script>
 
 </body>
 

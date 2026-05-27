@@ -30,9 +30,27 @@ html {
 }
 
 body {
-    background: var(--cinza-claro);
+    background: radial-gradient(circle at 10% 10%, rgba(31, 140, 71, 0.14), transparent 32%),
+        radial-gradient(circle at 90% 20%, rgba(250, 163, 1, 0.12), transparent 28%),
+        linear-gradient(180deg, #f3f6f6 0%, #e9eef0 100%);
     color: var(--texto-escuro);
 }
+
+/* efeito de profundidade no fundo (pattern bem leve) */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background-image:
+        linear-gradient(rgba(7, 26, 45, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(7, 26, 45, 0.035) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 55%);
+    mask-image: linear-gradient(to bottom, #000 0%, transparent 55%);
+}
+
 
 /*nav bar*/
 
@@ -45,21 +63,117 @@ body {
     padding: 110px 20px 50px;
 }
 
+/* Utilitários de cabeçalho interno (já usados no HTML) */
+.header-titulo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* padrão: em cards claros */
+.card .header-titulo h2,
+.card .header-titulo h3 {
+    color: #0b223a;
+}
+
+
+.header-sub {
+    margin: 0;
+    font-size: 13px;
+    color: #516a86;
+    opacity: 0.95;
+}
+
+/* em cards no topo azul (painel-topo) - mantém legível */
+.painel-topo .header-sub {
+    color: #cfe0ef;
+}
+
+.painel-topo .header-titulo h2 {
+    color: #ffffff;
+}
+
+/* evita contraste ruim/“marrom” em detalhes do card de monitoramento */
+.card-monitoramento {
+    background:
+        radial-gradient(circle at 10% 10%, rgba(32, 197, 98, 0.10), transparent 42%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(240, 248, 244, 0.96) 100%);
+    border: 1px solid rgba(31, 140, 71, 0.12);
+}
+
+
+
+
+/* Ícones do resumo superior */
+.resumo-icone {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: rgba(7, 14, 30, 0.04);
+    border: 1px solid rgba(7, 14, 30, 0.08);
+    margin-bottom: 10px;
+}
+
+.resumo-icone i {
+    font-size: 18px;
+    color: var(--azul-secundario);
+}
+
+.card.resumo.destaque .resumo-icone {
+    background: rgba(31, 140, 71, 0.12);
+    border-color: rgba(31, 140, 71, 0.18);
+}
+
+.card.resumo.destaque .resumo-icone i {
+    color: var(--verde-claro);
+}
+
+
 /* =========================
    TOPO DO PAINEL
 ========================= */
 .painel-topo {
-    background: var(--azul-secundario);
+    background:
+        radial-gradient(circle at 15% 20%, rgba(31, 140, 71, 0.35), transparent 45%),
+        radial-gradient(circle at 85% 25%, rgba(245, 160, 0, 0.28), transparent 40%),
+        linear-gradient(135deg, #061a30 0%, var(--azul-secundario) 55%, #071a2d 100%);
     color: var(--branco);
-    border-radius: 25px;
-    padding: 30px;
+    border-radius: 28px;
+    padding: 34px 30px;
     margin-bottom: 25px;
     display: flex;
     justify-content: space-between;
     gap: 20px;
     align-items: center;
-    box-shadow: var(--sombra);
+    box-shadow:
+        0 18px 55px rgba(7, 14, 30, 0.22),
+        0 10px 24px rgba(0, 0, 0, 0.12);
+    position: relative;
+    overflow: hidden;
 }
+
+.painel-topo::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background:
+        linear-gradient(90deg,
+            rgba(31, 140, 71, 0.0) 0%,
+            rgba(31, 140, 71, 0.35) 20%,
+            rgba(250, 163, 1, 0.25) 55%,
+            rgba(31, 140, 71, 0.0) 100%);
+    opacity: 0.35;
+    filter: blur(18px);
+    pointer-events: none;
+}
+
+.painel-topo > * {
+    position: relative;
+    z-index: 1;
+}
+
 
 .boas-vindas {
     color: #cfcfcf;
@@ -70,7 +184,10 @@ body {
 .topo-texto h1 {
     font-size: 34px;
     margin-bottom: 10px;
+    color: #ffffff;
+    text-shadow: 0 12px 34px rgba(0, 0, 0, 0.26);
 }
+
 
 .descricao {
     max-width: 650px;
@@ -118,11 +235,38 @@ body {
 }
 
 .card {
-    background: var(--branco);
+    background:
+        radial-gradient(circle at 10% 10%, rgba(31, 140, 71, 0.06), transparent 35%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.96) 100%);
     border-radius: 20px;
     padding: 24px;
-    box-shadow: var(--sombra);
+    box-shadow: 0 18px 50px rgba(7, 14, 30, 0.10);
+    border: 1px solid rgba(7, 14, 30, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    position: relative;
+    overflow: hidden;
 }
+
+.card::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: radial-gradient(circle at 30% 10%, rgba(31, 140, 71, 0.12), transparent 45%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 26px 70px rgba(7, 14, 30, 0.16);
+    border-color: rgba(31, 140, 71, 0.20);
+}
+
+.card:hover::after {
+    opacity: 1;
+}
+
 
 .card.resumo {
     min-height: 140px;
@@ -133,9 +277,11 @@ body {
 
 .card.resumo p {
     font-size: 14px;
-    color: var(--cinza-texto);
+    color: #52657a;
     margin-bottom: 8px;
+    line-height: 1.35;
 }
+
 
 .card.resumo h2 {
     font-size: 42px;
@@ -143,6 +289,19 @@ body {
     line-height: 1;
     margin-bottom: 8px;
 }
+
+.card.resumo h2 span {
+    font-size: 20px;
+    color: var(--texto-escuro);
+}
+
+/* deixa o texto mais “limpo” com os ícones acima */
+.card.resumo p {
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #6b7f95;
+}
+
 
 .card.resumo h2 span {
     font-size: 20px;
@@ -245,9 +404,31 @@ body {
 
 .medidor-numero {
     font-size: 54px;
-    font-weight: 600;
+    font-weight: 650;
     color: var(--verde-claro);
+    letter-spacing: -0.5px;
 }
+
+.medidor-barra {
+    height: 10px;
+    width: 100%;
+    border-radius: 999px;
+    background: rgba(7, 14, 30, 0.06);
+    margin-top: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(7, 14, 30, 0.06);
+}
+
+.medidor-barra-progresso {
+    display: block;
+    height: 100%;
+    width: var(--p, 0%);
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(31, 140, 71, 0.95) 0%, rgba(32, 197, 98, 0.95) 45%, rgba(250, 163, 1, 0.9) 100%);
+    box-shadow: 0 0 18px rgba(32, 197, 98, 0.25);
+    transition: width 0.4s ease;
+}
+
 
 .medidor-numero span {
     font-size: 22px;
@@ -336,6 +517,265 @@ body {
 .item-contato button:hover {
     background: #e8e8e8;
 }
+
+/* ===== Pop-up (Adicionar contato / suporte) ===== */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    inset: 0;
+    background: rgba(7, 14, 30, 0.55);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    z-index: 9999;
+}
+
+.popup-overlay.ativo {
+    display: flex;
+}
+
+.popup {
+    width: 100%;
+    max-width: 760px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.90);
+    border: 1px solid rgba(31, 140, 71, 0.18);
+    box-shadow: 0 40px 120px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.popup-topo {
+    padding: 22px 22px 14px;
+    background:
+        radial-gradient(circle at 12% 10%, rgba(31, 140, 71, 0.28), transparent 45%),
+        linear-gradient(135deg, #061a30 0%, rgba(7, 26, 45, 0.95) 55%, rgba(7, 26, 45, 0.98) 100%);
+    color: #fff;
+}
+
+.popup-topo h2 {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.popup-topo p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.84);
+}
+
+.popup-corpo {
+    padding: 18px 22px 22px;
+}
+
+.popup-close {
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 12px;
+    transition: background 0.2s ease;
+}
+
+.popup-close:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* ===== Pop-up: Adicionar contato / suporte ===== */
+
+/* Layout específico do pop-up de suporte (evita espaçamento desalinhado) */
+.suporte-popup-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 6px;
+}
+
+.suporte-popup-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px;
+    border-radius: 18px;
+    background: rgba(7, 14, 30, 0.04);
+    border: 1px solid rgba(7, 14, 30, 0.06);
+}
+
+.suporte-popup-item i {
+    color: var(--verde-marca);
+    font-size: 18px;
+}
+
+.suporte-popup-item strong {
+    font-size: 14px;
+}
+
+.suporte-popup-item span {
+    font-size: 13px;
+    color: #516a86;
+    line-height: 1.4;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+/* Ajusta o alinhamento quando o HTML setar inline style com flex-start */
+.popup .form-actions[style*="justify-content:flex-start"],
+.popup .form-actions[style*="justify-content: flex-start"] {
+    justify-content: flex-start !important;
+}
+
+.popup-overlay.ativo {
+
+
+    display: flex;
+}
+
+.popup {
+    width: 100%;
+    max-width: 760px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.90);
+    border: 1px solid rgba(31, 140, 71, 0.18);
+    box-shadow: 0 40px 120px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.popup-topo {
+    padding: 22px 22px 14px;
+    background:
+        radial-gradient(circle at 12% 10%, rgba(31, 140, 71, 0.28), transparent 45%),
+        linear-gradient(135deg, #061a30 0%, rgba(7, 26, 45, 0.95) 55%, rgba(7, 26, 45, 0.98) 100%);
+    color: #fff;
+}
+
+.popup-topo h2 {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.popup-topo p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.84);
+}
+
+.popup-corpo {
+    padding: 18px 22px 22px;
+}
+
+.popup-close {
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 12px;
+    transition: background 0.2s ease;
+}
+
+.popup-close:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* ===== Pop-up: Adicionar contato ===== */
+.form-contato {
+    padding-top: 6px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.field label {
+    font-size: 13px;
+    color: #0b223a;
+    font-weight: 700;
+}
+
+.field input {
+    border: 1px solid rgba(7, 14, 30, 0.10);
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 16px;
+    padding: 12px 14px;
+    outline: none;
+    font-size: 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field input:focus {
+    border-color: rgba(31, 140, 71, 0.55);
+    box-shadow: 0 0 0 4px rgba(31, 140, 71, 0.14);
+}
+
+.help {
+    color: #50657c;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.btn-voltar {
+    text-decoration: none;
+}
+
+.toast {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border-radius: 16px;
+    border: 1px solid rgba(31, 140, 71, 0.25);
+    background: rgba(31, 140, 71, 0.10);
+    color: #0b223a;
+    font-weight: 700;
+}
+
+.toast i {
+    color: var(--verde-marca);
+}
+
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-voltar,
+    .btn-padrao {
+        text-align: center;
+    }
+}
+
 
 /* =========================
    CONTATOS
@@ -446,6 +886,11 @@ body {
     .resumo-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .medidor-barra {
+        margin-top: 14px;
+    }
+
 
     .painel-grid,
     .painel-grid.inferior,

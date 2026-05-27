@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -28,147 +28,140 @@
                     <li><a href="indexsobrenos.html">Sobre nós</a></li>
                     <li><a href="indextecnologia.html">Tecnologia</a></li>
                     <li><a id="selecionado" href="indexplanos.html">Ver planos</a></li>
-                    <li><a href="indexsuporte.html">Suporte</a></li>
                     <li><a href="indexlogin.html">Login</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <!-- HERO 
-    <section class="hero-padrao">
-
-        VIDEO 
-        <video class="hero-bg" autoplay muted loop playsinline id="video-planos">
-            <source src="assets/videoplanos.mp4" type="video/mp4">
-        </video>
-
-        <!-- OVERLAY 
-        <div class="hero-overlay"></div>
-
-        <!-- CONTEÚDO
-        <div class="container-padrao">
-            <div class="hero-conteudo">
-                <div class="hero-texto">
-                    <h1 class="hero-title" id="planos">
-                        Detecção de gás em tempo real, para cada tipo de ambiente
-                    </h1>
-                    <p class="hero-subtitle">
-                        O sensor SENTRYX detecta vazamentos de gás, aciona alarme
-                        sonoro e visual imediatamente e notifica você e seus contatos
-                        de prioridade — antes que o perigo se torne uma tragédia.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BANNER GARANTIA 
-    <section class="secao-garantia">
-        <div class="container-padrao">
-            <div class="banner-garantia">
-                <div class="garantia-icone">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
-                <div class="garantia-texto">
-                    <h3>30 dias grátis. Sem cartão de crédito.</h3>
-                    <p>Teste qualquer plano sem compromisso. Se não ficar satisfeito, cancelamos sem burocracia.</p>
-                </div>
-                <div class="garantia-badges">
-                    <span class="garantia-badge">
-                        <i class="fa-solid fa-lock"></i> Dados criptografados
-                    </span>
-                    <span class="garantia-badge">
-                        <i class="fa-solid fa-circle-check"></i> Cancelamento fácil
-                    </span>
-                    <span class="garantia-badge">
-                        <i class="fa-solid fa-bolt"></i> Ativação imediata
-                    </span>
-                </div>
-            </div>
-        </div>
-    </section> 
-    -->
-
     <!-- PLANOS -->
-    <section class="secao-planos">
+    <section class="secao-planos" id="planos-disponiveis">
         <div class="container-padrao">
 
-            <div class="topo-planos">
-                <span class="mini-tag">NOSSOS PLANOS</span>
-                <h2>Proteção que acompanha sua necessidade</h2>
-                <p>Todos os planos incluem o sensor inteligente SENTRYX com detecção de gás, alarme sonoro e visual, e
-                    notificação automática de contatos.</p>
+            <div class="primeira-secao">
+
+                <div class="planos-showcase">
+                    <div class="planos-showcase__texto">
+                        <span class="mini-tag">PLANOS SENTRYX</span>
+                        <h1>Proteção que acompanha sua necessidade</h1>
+                        <p>
+                            Planos objetivos para residências, cozinhas profissionais e operações críticas. Todos os
+                            planos incluem o sensor inteligente SENTRYX com detecção de gás, alarme sonoro e visual,
+                            e notificação automática de contatos.
+                        </p>
+                    </div>
+
+                    <div class="planos-showcase__painel">
+                        <div class="painel-topline">
+                            <span></span>
+                            Recomendado para começar
+                        </div>
+                        <strong>Profissional</strong>
+                        <p>Mais sensores, IA TRYX, histórico ampliado e suporte prioritário.</p>
+                        <a href="#comparacao">Comparar recursos</a>
+                    </div>
+                </div>
+
+                <div class="planos-beneficios" aria-label="Benefícios inclusos">
+                    <div>
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Segurança em tempo real</span>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-bell"></i>
+                        <span>Alertas imediatos</span>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-lock"></i>
+                        <span>Dados protegidos</span>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-headset"></i>
+                        <span>Suporte humano</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="container-planos">
+            <div class="segunda-secao">
 
-                <!-- CARD 1 - BÁSICO -->
-                <div class="card-plano">
-                    <div class="icone-plano">
-                        <i class="fa-solid fa-house"></i>
-                    </div>
-                    <span class="tipo-plano">RESIDENCIAL</span>
-                    <h3>Básico</h3>
-                    <p class="descricao-plano">Ideal para apartamentos, casas e pequenos ambientes domésticos.</p>
-                    <div class="preco">R$ 29<span>/mês</span></div>
-                    <ul>
-                        <li><i class="fa-solid fa-circle-check"></i> Detecção de vazamento de gás</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Alarme sonoro e visual</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Notificação de até 3 contatos</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Histórico de alertas (7 dias)</li>
-                        <li><i class="fa-solid fa-circle-check"></i> 1 sensor conectado</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Suporte padrão</li>
-                    </ul>
-                    <a href="checkout.html" class="btn-plano">Escolher plano</a>
+                <!--<div class="topo-planos topo-planos--compacto">
+                    <span class="mini-tag">NOSSOS PLANOS</span>
+                    <h2>Proteção que acompanha sua necessidade</h2>
+                    <p>Todos os planos incluem o sensor inteligente SENTRYX com detecção de gás, alarme sonoro e visual,
+                        e
+                        notificação automática de contatos.</p>
                 </div>
+            -->
 
-                <!-- CARD 2 - PROFISSIONAL -->
-                <div class="card-plano destaque">
-                    <div class="badge-popular">MAIS ESCOLHIDO</div>
-                    <div class="icone-plano">
-                        <i class="fa-solid fa-building-shield"></i>
+                <div class="container-planos">
+
+                    <!-- CARD 1 - BÁSICO -->
+                    <div class="card-plano">
+                        <div class="icone-plano">
+                            <i class="fa-solid fa-house"></i>
+                        </div>
+                        <span class="tipo-plano">RESIDENCIAL</span>
+                        <h3>Básico</h3>
+                        <p class="descricao-plano">Ideal para apartamentos, casas e pequenos ambientes domésticos.</p>
+                        <div class="preco">R$ 29<span>/mês</span></div>
+                        <ul>
+                            <li><i class="fa-solid fa-circle-check"></i> Detecção de vazamento de gás</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Alarme sonoro e visual</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Notificação de até 3 contatos</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Histórico de alertas (7 dias)</li>
+                            <li><i class="fa-solid fa-circle-check"></i> 1 sensor conectado</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Suporte padrão</li>
+                        </ul>
+                        <a href="checkout.html" class="btn-plano">Escolher plano</a>
                     </div>
-                    <span class="tipo-plano">PROFISSIONAL</span>
-                    <h3>Profissional</h3>
-                    <p class="descricao-plano">Perfeito para restaurantes, padarias e cozinhas profissionais.</p>
-                    <div class="preco">R$ 59<span>/mês</span></div>
-                    <ul>
-                        <li><i class="fa-solid fa-circle-check"></i> Detecção de vazamento de gás</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Alarme sonoro e visual</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Notificação de contatos ilimitada</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Histórico de alertas (90 dias)</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Até 5 sensores conectados</li>
-                        <li><i class="fa-solid fa-circle-check"></i> IA TRYX integrada</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Suporte prioritário</li>
-                    </ul>
-                    <a href="checkout.html" class="btn-plano">Escolher plano</a>
-                </div>
 
-                <!-- CARD 3 - EMPRESARIAL -->
-                <div class="card-plano empresarial">
-                    <div class="icone-plano">
-                        <i class="fa-solid fa-industry"></i>
+                    <!-- CARD 2 - PROFISSIONAL -->
+                    <div class="card-plano destaque">
+                        <div class="badge-popular">Mais escolhido</div>
+                        <div class="icone-plano">
+                            <i class="fa-solid fa-building-shield"></i>
+                        </div>
+                        <span class="tipo-plano">PROFISSIONAL</span>
+                        <h3>Profissional</h3>
+                        <p class="descricao-plano">Perfeito para restaurantes, padarias e cozinhas profissionais.</p>
+                        <div class="preco">R$ 59<span>/mês</span></div>
+                        <ul>
+                            <li><i class="fa-solid fa-circle-check"></i> Detecção de vazamento de gás</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Alarme sonoro e visual</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Notificação de contatos ilimitada</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Histórico de alertas (90 dias)</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Até 5 sensores conectados</li>
+                            <li><i class="fa-solid fa-circle-check"></i> IA TRYX integrada</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Suporte prioritário</li>
+                        </ul>
+                        <a href="checkout.html" class="btn-plano">Escolher plano</a>
                     </div>
-                    <span class="tipo-plano">EMPRESARIAL</span>
-                    <h3>Empresarial</h3>
-                    <p class="descricao-plano">Segurança completa para indústrias, condomínios e operações críticas.</p>
-                    <div class="preco">R$ 99<span>/mês</span></div>
-                    <ul>
-                        <li><i class="fa-solid fa-circle-check"></i> Detecção de vazamento de gás</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Alarme sonoro e visual</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Notificação de contatos ilimitada</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Histórico de alertas ilimitado</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Sensores ilimitados</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Painel administrativo</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Relatórios e integração via API</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Suporte 24h dedicado</li>
-                    </ul>
-                    <a href="checkout.html" class="btn-plano">Escolher plano</a>
-                </div>
 
+                    <!-- CARD 3 - EMPRESARIAL -->
+                    <div class="card-plano empresarial">
+                        <div class="icone-plano">
+                            <i class="fa-solid fa-industry"></i>
+                        </div>
+                        <span class="tipo-plano">EMPRESARIAL</span>
+                        <h3>Empresarial</h3>
+                        <p class="descricao-plano">Segurança completa para indústrias, condomínios e operações críticas.
+                        </p>
+                        <div class="preco">R$ 99<span>/mês</span></div>
+                        <ul>
+                            <li><i class="fa-solid fa-circle-check"></i> Detecção de vazamento de gás</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Alarme sonoro e visual</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Notificação de contatos ilimitada</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Histórico de alertas ilimitado</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Sensores ilimitados</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Painel administrativo</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Relatórios e integração via API</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Suporte 24h dedicado</li>
+                        </ul>
+                        <a href="checkout.html" class="btn-plano">Escolher plano</a>
+                    </div>
+
+                </div>
             </div>
-
         </div>
     </section>
 
@@ -199,7 +192,7 @@
                         </div>
 
                         <a href="checkout.html" class="btn-pulseira">Adquirir pulseira</a>
-                        
+
                     </div>
                 </div>
 
@@ -218,7 +211,7 @@
     </section>
 
     <!-- COMPARAÇÃO -->
-    <section class="secao-comparacao">
+    <section class="secao-comparacao" id="comparacao">
         <div class="container-padrao">
 
             <div class="topo-secao">
@@ -535,54 +528,62 @@
 
     </footer>
 
-    <!--<script>
-        const video = document.getElementById("video-planos");
-        video.playbackRate = 0.5;
-
+    <script>
         document.querySelectorAll('.faq-pergunta').forEach(btn => {
             btn.addEventListener('click', () => {
                 const item = btn.closest('.faq-item');
                 const aberto = item.classList.contains('aberto');
+
                 document.querySelectorAll('.faq-item').forEach(i => {
                     i.classList.remove('aberto');
                     i.querySelector('.faq-pergunta').setAttribute('aria-expanded', 'false');
                 });
+
                 if (!aberto) {
                     item.classList.add('aberto');
                     btn.setAttribute('aria-expanded', 'true');
                 }
             });
         });
-    </script>
--->
 
-<!--Script para os botes de perguntas frequentes funcionar-->
-    <script>
+        const elementosAnimados = document.querySelectorAll(
+            '.planos-showcase, .planos-beneficios div, .card-plano, .pulseira-card, .tabela-wrap, .card-depoimento, .faq-item'
+        );
 
-document.querySelectorAll('.faq-pergunta').forEach(btn => {
+        if ('IntersectionObserver' in window) {
+            const observador = new IntersectionObserver((entradas) => {
+                entradas.forEach((entrada) => {
+                    if (entrada.isIntersecting) {
+                        entrada.target.classList.add('apareceu');
+                        observador.unobserve(entrada.target);
+                    }
+                });
+            }, { threshold: 0.14 });
 
-    btn.addEventListener('click', () => {
-
-        const item = btn.closest('.faq-item');
-
-        const aberto = item.classList.contains('aberto');
-
-        document.querySelectorAll('.faq-item').forEach(i => {
-            i.classList.remove('aberto');
-            i.querySelector('.faq-pergunta')
-             .setAttribute('aria-expanded', 'false');
-        });
-
-        if (!aberto) {
-            item.classList.add('aberto');
-            btn.setAttribute('aria-expanded', 'true');
+            elementosAnimados.forEach((elemento, index) => {
+                elemento.classList.add('reveal-on-scroll');
+                elemento.style.transitionDelay = `${Math.min(index * 45, 240)}ms`;
+                observador.observe(elemento);
+            });
+        } else {
+            elementosAnimados.forEach(elemento => elemento.classList.add('apareceu'));
         }
 
-    });
+        document.querySelectorAll('.card-plano').forEach(card => {
+            const glow = document.createElement('span');
+            glow.className = 'card-glow';
+            card.prepend(glow);
 
-});
+            card.addEventListener('mousemove', (event) => {
+                const rect = card.getBoundingClientRect();
+                const x = ((event.clientX - rect.left) / rect.width) * 100;
+                const y = ((event.clientY - rect.top) / rect.height) * 100;
 
-</script>
+                card.style.setProperty('--mouse-x', `${x}%`);
+                card.style.setProperty('--mouse-y', `${y}%`);
+            });
+        });
+    </script>
 
 </body>
 

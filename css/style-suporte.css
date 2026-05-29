@@ -1,5 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+/* =========================================================
+   IMPORTAÇÃO DA FONTE PRINCIPAL
+   Essa fonte será usada em toda a tela de suporte.
+========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
+
+/* =========================================================
+   RESET GERAL
+   Remove margens e paddings padrões do navegador.
+   Também garante que largura e altura dos elementos sejam
+   calculadas de forma mais previsível.
+========================================================= */
 * {
     margin: 0;
     padding: 0;
@@ -7,577 +18,1680 @@
     font-family: 'Poppins', sans-serif;
 }
 
+
+/* =========================================================
+   VARIÁVEIS DE CORES E SOMBRAS DO PROJETO
+   Facilita a manutenção da identidade visual da SENTRYX.
+========================================================= */
+:root {
+    --azul-escuro: #070E1E;
+    --azul-medio: #0d1f3a;
+    --verde: #1F8C47;
+    --verde-claro: #2ecc71;
+    --amarelo: #FAA301;
+    --branco: #ffffff;
+    --cinza-texto: #647084;
+    --cinza-claro: #f6f8fb;
+    --borda: rgba(7, 14, 30, 0.10);
+    --sombra-suave: 0 18px 45px rgba(7, 14, 30, 0.10);
+    --sombra-forte: 0 28px 70px rgba(7, 14, 30, 0.18);
+}
+
+
+/* =========================================================
+   CONFIGURAÇÃO GERAL DO BODY
+   Define a cor de fundo e a cor padrão dos textos.
+========================================================= */
 body {
-    background: linear-gradient(135deg, #070E1E 0%, #0f2847 100%);
-    min-height: 100vh;
+    background: var(--cinza-claro);
+    color: var(--azul-escuro);
 }
 
-/* HERO */
 
-.hero-suporte {
+/* =========================================================
+   HERO PRINCIPAL DA TELA DE SUPORTE
+   Primeira seção da página.
+   Aqui ficam o título, botões e o card de preview da TRYX.
+========================================================= */
+.suporte-hero {
     position: relative;
-    padding: 250px 0 140px;
+    min-height: auto;
+    padding: 132px 0 82px;
     overflow: hidden;
-    background:
-        radial-gradient(circle at top left,
-            rgba(31, 140, 71, .18),
-            transparent 35%),
-        #071a2d;
+    background: var(--azul-escuro);
 }
 
-.hero-glow {
+
+/* =========================================================
+   IMAGEM DE FUNDO DA HERO
+   A imagem é puxada diretamente pelo HTML.
+   O CSS apenas posiciona e controla opacidade.
+========================================================= */
+.hero-img-bg {
     position: absolute;
-    right: -120px;
-    top: -120px;
-    width: 420px;
-    height: 420px;
-    background: radial-gradient(circle,
-            rgba(31, 140, 71, .25),
-            transparent 70%);
-}
-
-.hero-content {
-    max-width: 7600px;
-    position: relative;
-    z-index: 2;
-}
-
-#suportetitle {
-    max-width: 8000px;
-
-}
-
-.hero-content h1 {
-    font-size: 58px;
-    line-height: 1.1;
-    color: #fff;
-    font-weight: 800;
-    margin-bottom: 20px;
-    letter-spacing: -2px;
-}
-
-.hero-content p {
-    font-size: 17px;
-    line-height: 2;
-    color: rgba(255, 255, 255, .7);
-    max-width: 650px;
-    font-weight: 400;
-}
-
-.hero-buttons {
-    margin-top: 42px;
-    display: flex;
-    gap: 18px;
-    flex-wrap: wrap;
-}
-
-.btn-primary,
-.btn-secondary {
-    padding: 16px 32px;
-    border-radius: 999px;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 600;
-    transition: all .4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    cursor: pointer;
-    border: none;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-primary {
-    background: #1F8C47;
-    color: #fff;
-    box-shadow: 0 10px 30px rgba(31, 140, 71, .3);
-}
-
-
-
-.btn-primary:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(31, 140, 71, .4);
-}
-
-.btn-secondary {
-    border: 1.5px solid rgba(255, 255, 255, .25);
-    color: #fff;
-    background: rgba(255, 255, 255, .08);
-}
-
-.btn-secondary:hover {
-    background: rgba(255, 255, 255, .12);
-    border-color: rgba(32, 197, 98, .5);
-    box-shadow: 0 8px 24px rgba(32, 197, 98, .2);
-    transform: translateY(-5px);
-}
-
-/* SUPPORT */
-
-.support-section {
-    padding: 60px 0 30px;
-    background: #f8f9fa;
-    position: relative;
-}
-
-.support-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-}
-
-.support-card {
-    background: #ffffff;
-    padding: 48px 36px;
-    border-radius: 20px;
-    border: none;
-    transition: all .5s cubic-bezier(0.23, 1, 0.320, 1);
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
-}
-
-.support-card::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(31, 140, 71, .3) 0%, rgba(250, 163, 1, .2) 70%, transparent 100%);
-    opacity: 0;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-    filter: blur(50px);
-    pointer-events: none;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.44;
     z-index: 0;
 }
 
-.support-card:hover::after {
-    opacity: 1;
+
+/* =========================================================
+   OVERLAY ESCURO DA HERO
+   Serve para melhorar a leitura dos textos sobre a imagem.
+========================================================= */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(7, 14, 30, 0.92) 0%,
+            rgba(7, 14, 30, 0.80) 48%,
+            rgba(7, 14, 30, 0.74) 100%
+        );
+    z-index: 1;
 }
 
-.support-card:hover {
-    transform: translateY(-16px);
-    box-shadow: 0 30px 60px rgba(31, 140, 71, .15);
+
+/* =========================================================
+   GRADE VISUAL DA HERO
+   Cria o efeito de quadradinhos/linhas tecnológicas.
+========================================================= */
+.hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 68px 68px;
+    mask-image: linear-gradient(to bottom, black, transparent 95%);
+    z-index: 2;
 }
 
-.support-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, #1F8C47 0%, #26a556 100%);
+
+/* =========================================================
+   LUZES DECORATIVAS DA HERO
+   Criam profundidade e deixam o fundo menos vazio.
+========================================================= */
+.hero-luz {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    pointer-events: none;
+    z-index: 2;
+}
+
+
+/* Luz verde lateral */
+.hero-luz-verde {
+    width: 380px;
+    height: 380px;
+    left: -120px;
+    top: 60px;
+    background: rgba(31, 140, 71, 0.36);
+}
+
+
+/* Luz amarela superior */
+.hero-luz-amarela {
+    width: 300px;
+    height: 300px;
+    right: 80px;
+    top: 45px;
+    background: rgba(250, 163, 1, 0.14);
+}
+
+
+/* =========================================================
+   CONTAINER INTERNO DA HERO
+   Divide a hero em duas colunas:
+   esquerda = texto
+   direita = card da TRYX
+========================================================= */
+.suporte-hero-container {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 1.06fr 0.94fr;
+    align-items: center;
+    gap: 42px;
+}
+
+
+/* Bloco de texto da hero */
+.suporte-hero-texto {
+    max-width: 760px;
+}
+
+
+/* =========================================================
+   TAG SUPERIOR DA HERO
+   Pequeno selo "Central de suporte SENTRYX".
+========================================================= */
+.suporte-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 26px;
+    backdrop-filter: blur(12px);
+}
+
+
+/* Título principal da hero */
+.suporte-hero h1 {
+    color: #ffffff;
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.06;
+    .suporte-hero h1 {
+    color: #ffffff;
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.06;
+    letter-spacing: -1.8px;
+    margin-bottom: 20px;
+    max-width: 760px;
+}
+    letter-spacing: -1.8px;
+    margin-bottom: 20px;
+    max-width: 760px;
+}
+
+
+/* Texto de apoio da hero */
+.suporte-hero p {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 620px;
+}
+
+
+/* =========================================================
+   BOTÕES DA HERO
+   Botões principais: falar com a TRYX e falar com humano.
+========================================================= */
+.suporte-hero-botoes {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 36px;
+}
+
+
+/* Estilo base dos botões */
+.btn-suporte-primary,
+.btn-suporte-secondary {
+    min-height: 52px;
+    padding: 0 26px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 14px;
+    transition: all 0.35s ease;
+}
+
+
+/* Botão principal verde */
+.btn-suporte-primary {
+    background: linear-gradient(135deg, var(--verde), #27b35d);
+    color: #ffffff;
+    box-shadow: 0 16px 36px rgba(31, 140, 71, 0.34);
+}
+
+
+/* Hover do botão principal */
+.btn-suporte-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 24px 52px rgba(31, 140, 71, 0.44);
+}
+
+
+/* Botão secundário com borda */
+.btn-suporte-secondary {
+    color: #ffffff;
+    border: 1.5px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+}
+
+
+/* Hover do botão secundário */
+.btn-suporte-secondary:hover {
+    background: rgba(255, 255, 255, 0.14);
+    transform: translateY(-5px);
+}
+
+
+/* =========================================================
+   CARD DA TRYX NA HERO
+   Card lateral simulando uma prévia de conversa com a IA.
+========================================================= */
+.suporte-hero-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.07));
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 28px;
+    padding: 24px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(16px);
+    max-width: 500px;
+    margin-left: auto;
+}
+
+
+/* Topo do card da TRYX */
+.tryx-card-topo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+
+/* Avatar pequeno da TRYX dentro do card */
+.tryx-avatar {
+    width: 68px;
+    height: 68px;
+    border-radius: 20px;
+    background:
+        radial-gradient(circle, rgba(31, 140, 71, 0.18), #ffffff 72%);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 36px;
-    color: #fff;
-    margin-bottom: 28px;
-    box-shadow: 0 12px 36px rgba(31, 140, 71, .25);
-    position: relative;
-    z-index: 2;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    overflow: hidden;
+    box-shadow: 0 12px 28px rgba(31, 140, 71, 0.30);
+    flex-shrink: 0;
 }
 
-.support-card:hover .support-icon {
-    transform: translateY(-12px) rotate(10deg) scale(1.15);
-    box-shadow: 0 16px 48px rgba(31, 140, 71, .4);
-    background: linear-gradient(135deg, #FAA301 0%, #f5b233 100%);
+
+/* Imagem dentro do avatar da TRYX */
+.tryx-avatar img {
+    width: 115%;
+    height: 115%;
+    object-fit: cover;
 }
 
-.support-card h3 {
-    font-size: 26px;
-    color: #070E1E;
-    margin-bottom: 16px;
-    font-weight: 800;
-    position: relative;
-    z-index: 2;
-    letter-spacing: -0.5px;
+
+/* Título do card */
+.tryx-card-topo h3 {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 900;
 }
 
-.support-card p {
-    color: #555;
-    line-height: 1.8;
-    margin-bottom: 28px;
-    position: relative;
-    z-index: 2;
-    font-weight: 500;
-    font-size: 15px;
+
+/* Subtexto do card */
+.tryx-card-topo p {
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 13px;
+    line-height: 1.4;
 }
 
-.support-card a {
-    color: #1F8C47;
-    font-weight: 800;
+
+/* Bolinha de status online */
+.tryx-status {
+    margin-left: auto;
+    width: 13px;
+    height: 13px;
+    background: var(--verde-claro);
+    border-radius: 50%;
+    box-shadow: 0 0 0 8px rgba(46, 204, 113, 0.12), 0 0 18px rgba(46, 204, 113, 0.9);
+}
+
+
+/* Prévia das mensagens */
+.tryx-chat-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+
+/* Estilo geral dos balões de mensagem */
+.mensagem {
+    max-width: 92%;
+    padding: 14px 16px;
+    border-radius: 18px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* Balão da TRYX */
+.mensagem-tryx {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.13);
+    color: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+
+/* Balão do usuário */
+.mensagem-user {
+    align-self: flex-end;
+    background: var(--verde);
+    color: #ffffff;
+}
+
+
+/* Botão do card da TRYX */
+.tryx-card-btn {
+    margin-top: 24px;
+    width: 100%;
+    min-height: 52px;
+    border-radius: 16px;
+    background: #ffffff;
+    color: var(--azul-escuro);
     text-decoration: none;
-    transition: all .3s ease;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+
+/* Hover do botão do card */
+.tryx-card-btn:hover {
+    transform: translateY(-4px);
+    background: #f2f5f8;
+}
+
+
+/* =========================================================
+   SEÇÃO DE EMERGÊNCIA
+   Card logo abaixo da hero com orientação para casos urgentes.
+========================================================= */
+.emergencia-section {
+    background: var(--cinza-claro);
+    padding: 0 0 70px;
+    margin-top: -38px;
     position: relative;
-    z-index: 2;
+    z-index: 5;
+}
+
+
+/* Caixa de emergência */
+.emergencia-box {
+    background: #ffffff;
+    border-radius: 26px;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 24px;
+    box-shadow: var(--sombra-forte);
+    border: 1px solid rgba(250, 163, 1, 0.22);
+}
+
+
+/* Ícone amarelo de alerta */
+.emergencia-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 22px;
+    background: rgba(250, 163, 1, 0.14);
+    color: var(--amarelo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+
+/* Título da emergência */
+.emergencia-texto h2 {
+    color: var(--azul-escuro);
+    font-size: 25px;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+
+/* Texto da emergência */
+.emergencia-texto p {
+    color: var(--cinza-texto);
+    line-height: 1.7;
+}
+
+
+/* Área dos botões da emergência */
+.emergencia-acoes {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+
+/* Estilo base dos botões da emergência */
+.btn-emergencia,
+.btn-emergencia-outline {
+    min-height: 48px;
+    padding: 0 22px;
+    border-radius: 999px;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 15px;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 14px;
+    transition: all 0.3s ease;
 }
 
-.support-card a::after {
-    content: '→';
-    transition: transform 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+
+/* Botão amarelo principal */
+.btn-emergencia {
+    background: var(--amarelo);
+    color: var(--azul-escuro);
 }
 
-.support-card a:hover {
-    color: #FAA301;
-    transform: translateX(6px);
+
+/* Botão branco com borda */
+.btn-emergencia-outline {
+    border: 1.5px solid rgba(7, 14, 30, 0.14);
+    color: var(--azul-escuro);
+    background: #ffffff;
 }
 
-.support-card a:hover::after {
-    transform: translateX(6px);
+
+/* Hover dos botões da emergência */
+.btn-emergencia:hover,
+.btn-emergencia-outline:hover {
+    transform: translateY(-3px);
 }
 
-/* STATUS */
 
-.status-section {
-    padding: 12px 0;
-    background: #f8f9fa;
+/* =========================================================
+   TOPO PADRÃO DAS SEÇÕES
+   Usado em "Como podemos te ajudar" e "Base de conhecimento".
+========================================================= */
+.topo-secao {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 64px;
+}
+
+
+/* Subtítulo pequeno das seções */
+.subtitulo-secao {
+    display: inline-flex;
+    color: var(--verde);
+    background: rgba(31, 140, 71, 0.10);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 900;
+    margin-bottom: 18px;
+}
+
+
+/* Subtítulo usado sobre fundo escuro */
+.subtitulo-claro {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+
+/* Título das seções */
+.topo-secao h2 {
+    font-size: clamp(32px, 4vw, 50px);
+    line-height: 1.15;
+    color: var(--azul-escuro);
+    font-weight: 900;
+    letter-spacing: -1.4px;
+    margin-bottom: 18px;
+}
+
+
+/* Parágrafo das seções */
+.topo-secao p {
+    color: var(--cinza-texto);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   CAMINHOS DE SUPORTE
+   Cards com os principais tipos de ajuda que o cliente pode buscar.
+========================================================= */
+.caminhos-section {
+    padding: 90px 0;
+    background: var(--cinza-claro);
+}
+
+
+/* Grid dos cards de suporte */
+.caminhos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+}
+
+
+/* Card padrão de suporte */
+.caminho-card {
+    background: #ffffff;
+    border: 1px solid var(--borda);
+    border-radius: 26px;
+    padding: 34px;
+    box-shadow: 0 12px 36px rgba(7, 14, 30, 0.06);
+    transition: all 0.35s ease;
     position: relative;
+    overflow: hidden;
 }
 
+
+/* Brilho decorativo no card */
+.caminho-card::before {
+    content: "";
+    position: absolute;
+    inset: auto -80px -100px auto;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(31, 140, 71, 0.16), transparent 70%);
+    opacity: 0;
+    transition: all 0.35s ease;
+}
+
+
+/* Card de destaque da TRYX */
+.caminho-card.destaque {
+    background:
+        radial-gradient(circle at top right, rgba(250, 163, 1, 0.20), transparent 35%),
+        linear-gradient(135deg, #071426, #0d2645);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+
+/* Hover dos cards */
+.caminho-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--sombra-forte);
+    border-color: rgba(31, 140, 71, 0.28);
+}
+
+
+/* Ativa o brilho no hover */
+.caminho-card:hover::before {
+    opacity: 1;
+}
+
+
+/* Ícone do card */
+.caminho-icon {
+    width: 66px;
+    height: 66px;
+    border-radius: 20px;
+    background: rgba(31, 140, 71, 0.11);
+    color: var(--verde);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin-bottom: 24px;
+}
+
+
+/* Ícone do card destacado */
+.caminho-card.destaque .caminho-icon {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+}
+
+
+/* Categoria pequena do card */
+.caminho-card span {
+    display: block;
+    color: var(--verde);
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+
+/* Categoria do card destacado */
+.caminho-card.destaque span {
+    color: var(--amarelo);
+}
+
+
+/* Título do card */
+.caminho-card h3 {
+    color: var(--azul-escuro);
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 14px;
+}
+
+
+/* Título do card destacado */
+.caminho-card.destaque h3 {
+    color: #ffffff;
+}
+
+
+/* Texto do card */
+.caminho-card p {
+    color: var(--cinza-texto);
+    line-height: 1.75;
+    font-size: 15px;
+    margin-bottom: 24px;
+}
+
+
+/* Texto do card destacado */
+.caminho-card.destaque p {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+
+/* Link do card */
+.caminho-card a {
+    color: var(--verde);
+    font-weight: 900;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    transition: all 0.3s ease;
+}
+
+
+/* Link do card destacado */
+.caminho-card.destaque a {
+    color: #ffffff;
+}
+
+
+/* Hover do link */
+.caminho-card a:hover {
+    gap: 14px;
+}
+
+
+/* =========================================================
+   STATUS DO SISTEMA
+   Mostra se os serviços estão operando normalmente.
+========================================================= */
+.status-section {
+    background: var(--cinza-claro);
+    padding: 0 0 90px;
+}
+
+
+/* Card de status */
 .status-card {
     background: #ffffff;
-    border-radius: 20px;
-    padding: 40px 48px;
+    border-radius: 26px;
+    padding: 36px 42px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #070E1E;
-    border: none;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
-    position: relative;
-    overflow: hidden;
-    transition: all .5s cubic-bezier(0.23, 1, 0.320, 1);
+    box-shadow: var(--sombra-suave);
+    border: 1px solid var(--borda);
 }
 
-.status-card::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(31, 140, 71, .2) 0%, rgba(250, 163, 1, .15) 70%, transparent 100%);
-    opacity: 0;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-    filter: blur(50px);
-    pointer-events: none;
-    z-index: 0;
-}
 
-.status-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 30px 60px rgba(31, 140, 71, .15);
-}
-
-.status-card:hover::after {
-    opacity: 1;
-}
-
+/* Lado esquerdo do status */
 .status-left {
     display: flex;
     align-items: center;
-    gap: 24px;
-    position: relative;
-    z-index: 1;
+    gap: 20px;
 }
 
+
+/* Bolinha verde de online */
 .status-online {
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
-    background: #1F8C47;
-    box-shadow: 0 0 12px #1F8C47;
+    background: var(--verde-claro);
+    box-shadow: 0 0 0 10px rgba(46, 204, 113, 0.12), 0 0 22px rgba(46, 204, 113, 0.8);
 }
 
+
+/* Título do status */
 .status-left h3 {
+    color: var(--azul-escuro);
     font-size: 22px;
-    font-weight: 700;
-    color: #070E1E;
+    font-weight: 900;
+    margin-bottom: 5px;
 }
 
+
+/* Texto do status */
 .status-left p {
-    color: #555;
-    margin-top: 6px;
-    font-size: 15px;
+    color: var(--cinza-texto);
 }
 
+
+/* Lado direito do status */
 .status-right {
     text-align: right;
+}
+
+
+/* Label do status */
+.status-right span {
+    color: var(--cinza-texto);
+    font-size: 14px;
+    display: block;
+    margin-bottom: 6px;
+}
+
+
+/* Informação forte do status */
+.status-right strong {
+    color: var(--verde);
+    font-size: 26px;
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   SEÇÃO PRINCIPAL DA TRYX
+   Área escura onde apresentamos a TRYX como assistente.
+========================================================= */
+.tryx-section {
+    padding: 105px 0;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(31, 140, 71, 0.16), transparent 28%),
+        linear-gradient(135deg, #070E1E, #0b1d36);
+    overflow: hidden;
+}
+
+/* Container geral da seção da TRYX
+   Ajustado para dar mais espaço ao card branco da direita. */
+.tryx-container {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 58px;
+    align-items: center;
+}
+
+
+
+/* Título da área da TRYX */
+.tryx-info h2 {
+    color: #ffffff;
+    font-size: clamp(34px, 4vw, 54px);
+    line-height: 1.15;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    margin-bottom: 22px;
+}
+
+/* Texto explicativo da TRYX */
+.tryx-info p {
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.9;
+    font-size: 16px;
+    max-width: 660px;
+}
+
+/* Lista de benefícios da TRYX */
+.tryx-beneficios {
+    display: grid;
+    gap: 16px;
+    margin-top: 36px;
+}
+
+/* Cada item da lista de benefícios */
+.tryx-beneficios div {
+    color: rgba(255, 255, 255, 0.86);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+}
+
+/* Ícone verde da lista */
+.tryx-beneficios i {
+    color: var(--verde-claro);
+}
+
+/* =========================================================
+   BOX DA MASCOTE TRYX
+   Card branco corrigido para não ficar alto demais,
+   não ultrapassar visualmente e não parecer fino.
+========================================================= */
+.tryx-mascote-box {
+    background:
+        radial-gradient(circle at 32% 55%, rgba(31, 140, 71, 0.24), transparent 34%),
+        radial-gradient(circle at 88% 10%, rgba(250, 163, 1, 0.10), transparent 26%),
+        linear-gradient(135deg, #ffffff 0%, #eef7f2 100%);
+    border-radius: 32px;
+    padding: 34px 38px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.26);
+    display: grid;
+    grid-template-columns: 1.15fr 0.95fr;
+    align-items: center;
+    gap: 28px;
+    border: 1px solid rgba(31, 140, 71, 0.16);
+    position: relative;
+    overflow: hidden;
+    min-height: 470px;
+    max-width: 720px;
+    width: 100%;
+    justify-self: end;
+}
+
+/* Brilho verde atrás da mascote */
+.tryx-mascote-box::before {
+    content: "";
+    position: absolute;
+    left: -95px;
+    top: 55%;
+    transform: translateY(-50%);
+    width: 460px;
+    height: 460px;
+    background: radial-gradient(circle, rgba(31, 140, 71, 0.30), transparent 70%);
+    filter: blur(8px);
+    z-index: 0;
+}
+
+/* Grade discreta dentro do box da mascote */
+.tryx-mascote-box::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(7, 14, 30, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(7, 14, 30, 0.035) 1px, transparent 1px);
+    background-size: 42px 42px;
+    opacity: 0.52;
+    z-index: 0;
+}
+
+/* Imagem da mascote TRYX
+   Fica grande, mas sem estourar o card. */
+.tryx-mascote-img {
+    width: 125%;
+    max-width: 430px;
+    border-radius: 0;
+    object-fit: contain;
+    justify-self: center;
     position: relative;
     z-index: 1;
+    margin-left: -20px;
+    filter: drop-shadow(0 26px 30px rgba(7, 14, 30, 0.30));
+    animation: tryxFloat 4s ease-in-out infinite;
 }
 
-.status-right span {
-    color: #666;
-    display: block;
-    margin-bottom: 8px;
-    font-size: 14px;
-    font-weight: 500;
+/* Animação leve da mascote */
+@keyframes tryxFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
-.status-right strong {
-    color: #1F8C47;
-    font-size: 24px;
-    font-weight: 700;
+/* Conteúdo textual ao lado da mascote */
+.tryx-mascote-content {
+    position: relative;
+    z-index: 2;
+    padding-right: 4px;
 }
 
-/* TUTORIAIS */
-
-.tutorial-section {
-    padding: 120px 0;
-    background: #f8f9fa;
+/* Título do card branco */
+.tryx-mascote-content h3 {
+    color: var(--azul-escuro);
+    font-size: 29px;
+    font-weight: 900;
+    line-height: 1.12;
+    margin-bottom: 16px;
 }
 
-.topo-secao {
-    text-align: center;
-    margin-bottom: 80px;
-}
-
-.topo-secao h2 {
-    font-size: 48px;
-    color: #070E1E;
-    margin-bottom: 18px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-}
-
-.topo-secao p {
-    color: #666;
-    max-width: 680px;
-    margin: auto;
-    line-height: 1.8;
+/* Texto do card branco */
+.tryx-mascote-content p {
+    color: var(--cinza-texto);
+    line-height: 1.7;
+    margin-bottom: 22px;
     font-size: 16px;
-    font-weight: 400;
 }
 
-.tutorial-grid {
+/* =========================================================
+   BOTÕES DE OPÇÕES DA TRYX
+========================================================= */
+.tryx-opcoes {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    gap: 12px;
 }
 
-.tutorial-card {
-    background: #fff;
-    padding: 0;
-    border-radius: 20px;
-    border: 1px solid #e0e0e0;
-    transition: all .3s ease;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+/* Botões de opções rápidas */
+.tryx-opcoes button {
+    width: 100%;
+    border: 1px solid var(--borda);
+    background: #f8fafc;
+    color: var(--azul-escuro);
+    text-align: left;
+    padding: 13px 16px;
+    border-radius: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.tutorial-card:hover {
-    transform: translateY(-8px);
-    border-color: #1F8C47;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, .12);
+/* Hover das opções rápidas */
+.tryx-opcoes button:hover {
+    background: rgba(31, 140, 71, 0.09);
+    border-color: rgba(31, 140, 71, 0.24);
+    transform: translateX(5px);
 }
 
-.tutorial-thumb {
-    height: 220px;
-    border-radius: 0;
-    background: linear-gradient(135deg, #1F8C47, #0f6b2f);
+/* Botão abrir chatbot */
+.btn-abrir-chat {
+    margin-top: 18px;
+    width: 100%;
+    min-height: 50px;
+    border: none;
+    border-radius: 16px;
+    background: var(--verde);
+    color: #ffffff;
+    font-weight: 900;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 48px;
-    color: #fff;
-    margin-bottom: 0;
-    position: relative;
+    gap: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+/* Hover do botão abrir chatbot */
+.btn-abrir-chat:hover {
+    transform: translateY(-4px);
+    background: #18763b;
+}
+
+
+/* =========================================================
+   BASE DE CONHECIMENTO
+   Seção com guias rápidos e tutoriais.
+========================================================= */
+.base-section {
+    padding: 105px 0;
+    background: var(--cinza-claro);
+}
+
+
+/* Grid dos cards da base de conhecimento */
+.base-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+}
+
+
+/* Card da base */
+.base-card {
+    background: #ffffff;
+    border-radius: 26px;
     overflow: hidden;
+    box-shadow: 0 12px 34px rgba(7, 14, 30, 0.08);
+    border: 1px solid var(--borda);
+    transition: all 0.35s ease;
 }
 
-.tutorial-card:hover .tutorial-thumb {
-    filter: brightness(1.1);
+
+/* Hover do card da base */
+.base-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--sombra-forte);
 }
 
-.tutorial-card h4 {
-    color: #070E1E;
-    font-size: 20px;
-    margin-bottom: 8px;
-    font-weight: 700;
-    padding: 24px 24px 0;
+
+/* Parte visual superior do card */
+.base-thumb {
+    height: 205px;
+    background:
+        radial-gradient(circle at top right, rgba(250, 163, 1, 0.28), transparent 36%),
+        linear-gradient(135deg, var(--verde), #0d5f31);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
 }
 
-.tutorial-card span {
-    color: #999;
+
+/* Conteúdo interno do card */
+.base-content {
+    padding: 26px;
+}
+
+
+/* Tempo/categoria do conteúdo */
+.base-content span {
+    color: var(--verde);
     font-size: 13px;
-    padding: 0 24px 24px;
-    display: block;
-    font-weight: 500;
+    font-weight: 800;
 }
 
-/* CONTACT */
 
+/* Título do card */
+.base-content h3 {
+    color: var(--azul-escuro);
+    font-size: 22px;
+    font-weight: 900;
+    margin: 10px 0;
+}
+
+
+/* Texto do card */
+.base-content p {
+    color: var(--cinza-texto);
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SEÇÃO DE CONTATO
+   Área final para contato humano.
+========================================================= */
 .contact-section {
-    padding: 120px 0;
+    padding: 105px 0;
     background: #070E1E;
 }
 
+
+/* Box verde de contato */
 .contact-box {
-    background: #1F8C47;
-    border-radius: 24px;
-    padding: 70px 60px;
+    background:
+        radial-gradient(circle at top left, rgba(250, 163, 1, 0.24), transparent 34%),
+        linear-gradient(135deg, #1F8C47, #176f39);
+    border-radius: 34px;
+    padding: 76px 56px;
     text-align: center;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 8px 24px rgba(31, 140, 71, .2);
+    box-shadow: 0 35px 80px rgba(31, 140, 71, 0.25);
 }
 
-.contact-content h2 {
-    font-size: 48px;
-    color: #fff;
-    margin-bottom: 20px;
+
+/* Label pequeno do contato */
+.contact-label {
+    display: inline-flex;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.13);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 13px;
     font-weight: 800;
-    position: relative;
-    z-index: 1;
-    letter-spacing: -0.5px;
+    margin-bottom: 20px;
 }
 
+
+/* Título do contato */
+.contact-content h2 {
+    color: #ffffff;
+    font-size: clamp(34px, 4vw, 54px);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -1.4px;
+    margin-bottom: 18px;
+}
+
+
+/* Texto do contato */
 .contact-content p {
-    color: rgba(255, 255, 255, .9);
-    line-height: 1.9;
-    max-width: 680px;
-    margin: auto;
-    font-size: 17px;
-    position: relative;
-    z-index: 1;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.85;
+    max-width: 740px;
+    margin: 0 auto;
+    font-size: 16px;
 }
 
+
+/* Botões de contato */
 .contact-buttons {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-top: 42px;
-    position: relative;
-    z-index: 1;
+    gap: 16px;
     flex-wrap: wrap;
+    margin-top: 40px;
 }
 
+
+/* Estilo base dos botões de contato */
 .btn-whatsapp,
-.btn-email {
-    padding: 16px 32px;
+.btn-email,
+.btn-documentos {
+    min-height: 54px;
+    padding: 0 26px;
     border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     text-decoration: none;
-    font-weight: 700;
-    transition: all .3s ease;
-    cursor: pointer;
+    font-weight: 900;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+
+/* Botão do WhatsApp */
+.btn-whatsapp {
+    background: #ffffff;
+    color: var(--verde);
+}
+
+
+/* Botão de email */
+.btn-email {
+    background: rgba(7, 14, 30, 0.42);
+    color: #ffffff;
+    border: 1.5px solid rgba(255, 255, 255, 0.18);
+}
+
+
+/* Botão de documentos */
+.btn-documentos {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border: 1.5px solid rgba(255, 255, 255, 0.18);
+}
+
+
+/* Hover dos botões de contato */
+.btn-whatsapp:hover,
+.btn-email:hover,
+.btn-documentos:hover {
+    transform: translateY(-5px);
+}
+
+
+/* =========================================================
+   CHATBOT FLUTUANTE DA TRYX
+   Botão fixo no canto inferior direito e janela de conversa.
+========================================================= */
+.tryx-chat-widget {
+    position: fixed;
+    right: 28px;
+    bottom: 28px;
+    z-index: 9999;
+}
+
+
+/* Botão flutuante circular */
+.tryx-floating-button {
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
     border: none;
-    font-size: 15px;
-    position: relative;
+    background:
+        radial-gradient(circle, rgba(31, 140, 71, 0.18), #ffffff 70%);
+    padding: 4px;
+    cursor: pointer;
+    box-shadow: 0 16px 42px rgba(31, 140, 71, 0.36);
     overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+
+/* Imagem dentro do botão flutuante */
+.tryx-floating-button img {
+    width: 118%;
+    height: 118%;
+    margin-left: -9%;
+    margin-top: -9%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/* Hover do botão flutuante */
+.tryx-floating-button:hover {
+    transform: translateY(-5px) scale(1.04);
+    box-shadow: 0 22px 58px rgba(31, 140, 71, 0.48);
+}
+
+
+/* Caixa do chat */
+.tryx-chat-box {
+    position: absolute;
+    right: 0;
+    bottom: 82px;
+    width: 390px;
+    height: 560px;
+    background: #ffffff;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 30px 90px rgba(7, 14, 30, 0.28);
+    border: 1px solid rgba(7, 14, 30, 0.08);
+    display: none;
+    flex-direction: column;
+}
+
+
+/* Classe adicionada pelo JavaScript para abrir o chat */
+.tryx-chat-box.ativo {
+    display: flex;
+}
+
+
+/* Header do chat */
+.tryx-chat-header {
+    background: linear-gradient(135deg, #070E1E, #0d2645);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* Informações do header do chat */
+.tryx-header-info {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+
+/* Avatar da TRYX dentro do header */
+.tryx-header-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background:
+        radial-gradient(circle, rgba(31, 140, 71, 0.18), #ffffff 72%);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+
+/* Imagem do avatar do chat */
+.tryx-header-avatar img {
+    width: 118%;
+    height: 118%;
+    margin-left: -9%;
+    margin-top: -9%;
+    object-fit: cover;
+}
+
+
+/* Nome TRYX no chat */
+.tryx-header-info h3 {
+    color: #ffffff;
+    font-size: 19px;
+    font-weight: 900;
+}
+
+
+/* Status online no chat */
+.tryx-header-info p {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+
+/* Bolinha verde do status online */
+.tryx-header-info p span {
+    width: 8px;
+    height: 8px;
+    background: #2ecc71;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #2ecc71;
+}
+
+
+/* Botão para fechar o chat */
+.tryx-close {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+/* Hover do botão fechar */
+.tryx-close:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+
+/* Área onde as mensagens aparecem */
+.tryx-chat-messages {
+    flex: 1;
+    padding: 22px;
+    overflow-y: auto;
+    background: #f6f8fb;
+}
+
+
+/* Estrutura geral de cada mensagem */
+.tryx-message {
+    display: flex;
+    margin-bottom: 14px;
+}
+
+
+/* Texto dentro da mensagem */
+.tryx-message p {
+    max-width: 82%;
+    padding: 14px 16px;
+    border-radius: 18px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* Mensagem da TRYX alinhada à esquerda */
+.tryx-bot {
+    justify-content: flex-start;
+}
+
+
+/* Balão da mensagem da TRYX */
+.tryx-bot p {
+    background: #ffffff;
+    color: #384052;
+    border: 1px solid rgba(7, 14, 30, 0.08);
+    border-bottom-left-radius: 6px;
+}
+
+
+/* Mensagem do usuário alinhada à direita */
+.tryx-user {
+    justify-content: flex-end;
+}
+
+
+/* Balão do usuário */
+.tryx-user p {
+    background: var(--verde);
+    color: #ffffff;
+    border-bottom-right-radius: 6px;
+}
+
+
+/* Sugestões rápidas dentro do chat */
+.tryx-sugestoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin: 10px 0 18px;
+}
+
+
+/* Botões das sugestões rápidas */
+.tryx-sugestoes button {
+    border: 1px solid rgba(31, 140, 71, 0.22);
+    background: rgba(31, 140, 71, 0.08);
+    color: var(--verde);
+    padding: 9px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+/* Hover das sugestões */
+.tryx-sugestoes button:hover {
+    background: var(--verde);
+    color: #ffffff;
+}
+
+
+/* Área inferior com input e botão de envio */
+.tryx-chat-input-area {
+    padding: 16px;
+    background: #ffffff;
     display: flex;
     align-items: center;
     gap: 10px;
+    border-top: 1px solid rgba(7, 14, 30, 0.08);
 }
 
-.btn-whatsapp {
-    background: rgba(7, 14, 30, .35);
-    color: #fff;
-    border: 1.5px solid rgba(255, 255, 255, .2);
+
+/* Campo de digitação */
+.tryx-chat-input-area input {
+    flex: 1;
+    height: 48px;
+    border: 1px solid rgba(7, 14, 30, 0.12);
+    border-radius: 999px;
+    padding: 0 18px;
+    outline: none;
+    font-size: 14px;
+    color: var(--azul-escuro);
 }
 
-.btn-whatsapp:hover {
-    background: rgba(7, 14, 30, .5);
-    transform: translateY(-3px);
+
+/* Foco no campo de digitação */
+.tryx-chat-input-area input:focus {
+    border-color: var(--verde);
+    box-shadow: 0 0 0 4px rgba(31, 140, 71, 0.10);
 }
 
-.btn-email {
-    background: #ffffff;
-    color: #1F8C47;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, .15);
+
+/* Botão de enviar mensagem */
+.tryx-chat-input-area button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: var(--verde);
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
 }
 
-.btn-email:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, .2);
-    background: #f0f0f0;
+
+/* Hover do botão enviar */
+.tryx-chat-input-area button:hover {
+    background: #176f39;
+    transform: translateY(-2px);
 }
 
+
+/* =========================================================
+   RESPONSIVIDADE PARA TABLETS
+========================================================= */
 @media (max-width: 1199px) {
 
-    .support-grid,
-    .tutorial-grid {
+    /* Hero e seção da TRYX passam para uma coluna */
+    .suporte-hero-container,
+    .tryx-container {
+        grid-template-columns: 1fr;
+        gap: 46px;
+    }
+
+    /* Card da hero não fica mais grudado à direita */
+    .suporte-hero-card {
+        max-width: 620px;
+        margin-left: 0;
+    }
+
+    /* Cards passam de 3 para 2 colunas */
+    .caminhos-grid,
+    .base-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .hero-content h1 {
-        font-size: 48px;
+    /* Card de emergência fica empilhado */
+    .emergencia-box {
+        grid-template-columns: 1fr;
+        text-align: center;
     }
 
-    .topo-secao h2 {
-        font-size: 36px;
+    /* Centraliza ícone da emergência */
+    .emergencia-icon {
+        margin: 0 auto;
     }
 
-    .status-card {
-        flex-direction: column;
-        gap: 24px;
-        align-items: flex-start;
-    }
-
-    .status-right {
-        text-align: left;
-        width: 100%;
-    }
-
-    .contact-box {
-        padding: 60px 40px;
-    }
-
-    .contact-content h2 {
-        font-size: 40px;
-    }
-
-    .contact-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .btn-whatsapp,
-    .btn-email {
-        width: 100%;
+    /* Centraliza botões da emergência */
+    .emergencia-acoes {
         justify-content: center;
+    }
+
+    /* Box da mascote fica em uma coluna */
+    .tryx-mascote-box {
+        grid-template-columns: 1fr;
+        text-align: center;
+        min-height: auto;
+    }
+
+    /* No tablet, a TRYX fica grande, mas centralizada */
+    .tryx-mascote-img {
+        width: 100%;
+        max-width: 430px;
+        margin-left: 0;
+    }
+
+    /* Remove padding lateral do conteúdo */
+    .tryx-mascote-content {
+        padding-right: 0;
     }
 }
 
+
+/* =========================================================
+   RESPONSIVIDADE PARA CELULARES
+========================================================= */
 @media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 36px;
+
+    /* Reduz o espaçamento da hero */
+    .suporte-hero {
+        padding: 125px 0 74px;
     }
 
-    .hero-content p {
+    /* Overlay mais escuro no celular para melhorar leitura */
+    .hero-overlay {
+        background: rgba(7, 14, 30, 0.86);
+    }
+
+    /* Ajuste fino do título */
+    .suporte-hero h1 {
+        letter-spacing: -1.2px;
+    }
+
+    /* Texto menor no celular */
+    .suporte-hero p {
         font-size: 15px;
     }
 
-    .support-grid,
-    .tutorial-grid {
+    /* Botões ficam um abaixo do outro */
+    .suporte-hero-botoes,
+    .contact-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    /* Botões ocupam a largura total */
+    .btn-suporte-primary,
+    .btn-suporte-secondary,
+    .btn-whatsapp,
+    .btn-email,
+    .btn-documentos {
+        width: 100%;
+    }
+
+    /* Grids viram uma coluna */
+    .caminhos-grid,
+    .base-grid {
         grid-template-columns: 1fr;
     }
 
-    .topo-secao h2 {
-        font-size: 28px;
+    /* Status fica empilhado */
+    .status-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
     }
 
-    .support-card {
-        padding: 36px 24px;
+    /* Alinha texto do status à esquerda */
+    .status-right {
+        text-align: left;
     }
 
+    /* Reduz padding das seções */
+    .tryx-section,
+    .base-section,
+    .contact-section,
+    .caminhos-section {
+        padding: 80px 0;
+    }
+
+    /* Ajusta box de contato no celular */
     .contact-box {
-        padding: 40px 24px;
+        padding: 52px 24px;
+        border-radius: 26px;
     }
 
-    .contact-content h2 {
-        font-size: 32px;
+    /* Ajusta box de emergência no celular */
+    .emergencia-box {
+        padding: 28px 22px;
     }
 
-    .btn-primary,
-    .btn-secondary {
-        padding: 14px 24px;
-        font-size: 14px;
+    /* Box da mascote fica mais confortável no celular */
+    .tryx-mascote-box {
+        padding: 28px 22px;
+        gap: 24px;
+        min-height: auto;
+    }
+
+    /* TRYX fica grande, mas sem estourar a tela */
+    .tryx-mascote-img {
+        width: 100%;
+        max-width: 340px;
+        margin-left: 0;
+    }
+
+    /* Título do card da TRYX menor no celular */
+    .tryx-mascote-content h3 {
+        font-size: 26px;
+    }
+
+    /* Posicionamento do chat flutuante no celular */
+    .tryx-chat-widget {
+        right: 18px;
+        bottom: 18px;
+    }
+
+    /* Chat ocupa quase toda a largura no celular */
+    .tryx-chat-box {
+        width: calc(100vw - 36px);
+        height: 520px;
+        right: 0;
+    }
+
+    /* Botão flutuante um pouco menor no celular */
+    .tryx-floating-button {
+        width: 58px;
+        height: 58px;
     }
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SENTRYX | Suporte</title>
 
+    <!-- CSS global do projeto -->
     <link rel="stylesheet" href="css/styleglobal.css">
+
+    <!-- CSS exclusivo da tela de suporte -->
     <link rel="stylesheet" href="css/style-suporte.css">
 
+    <!-- Ícones Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 
@@ -23,7 +27,7 @@
                 </div>
 
                 <ul>
-                    <li><a href="index.html">Ínicio</a></li>
+                    <li><a href="index.html">Início</a></li>
                     <li><a href="indexsobrenos.html">Sobre nós</a></li>
                     <li><a href="indextecnologia.html">Tecnologia</a></li>
                     <li><a id="selecionado" href="indexsuporte.html">Suporte</a></li>
@@ -34,96 +38,137 @@
         </nav>
     </header>
 
-    <!-- HERO -->
-    <section class="hero-padrao">
+    <!-- HERO SUPORTE -->
+    <section class="suporte-hero">
 
-        <img src="assets/suportenossacor.png" alt="Fundo de suporte" class="hero-bg">
+        <!-- Imagem de fundo puxada diretamente pelo HTML -->
+        <img src="assets/suportenossacor.png" alt="Imagem de fundo do suporte SENTRYX" class="hero-img-bg">
 
+        <!-- Camadas visuais por cima da imagem -->
         <div class="hero-overlay"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-luz hero-luz-verde"></div>
+        <div class="hero-luz hero-luz-amarela"></div>
 
-        <div class="hero-conteudo">
-            <div class="container-padrao">
+        <div class="container-padrao suporte-hero-container">
 
-                <h1 class="hero-title" id="suportetitle">
-                    Suporte rápido, inteligente e preparado para emergências
+            <!-- Texto principal da hero -->
+            <div class="suporte-hero-texto">
+
+                <span class="suporte-tag">
+                    <i class="fa-solid fa-headset"></i>
+                    Central de suporte SENTRYX
+                </span>
+
+                <!-- 
+                    Classe hero-title adicionada para o título seguir o padrão global.
+                    Você pode controlar a espessura dele no styleglobal.css em .hero-title.
+                -->
+                <h1 class="hero-title suporte-hero-title">
+                    Suporte ágil, humano e inteligente para você se sentir seguro.
                 </h1>
 
-                <p class="hero-subtitle">
-                    Nossa equipe está pronta para ajudar você em qualquer situação.
-                    Tire dúvidas, resolva problemas técnicos e mantenha sua proteção
-                    SENTRYX funcionando perfeitamente.
+                <!-- 
+                    Classe hero-subtitle adicionada para manter padrão global de subtítulo.
+                -->
+                <p class="hero-subtitle suporte-hero-subtitle">
+                    Conte com a nossa equipe e com a TRYX, nossa IA assistente,
+                    para resolver dúvidas, orientar em situações críticas e manter
+                    sua proteção funcionando com confiança.
                 </p>
 
-                <div class="hero-botoes">
-                    <a href="#" class="btn-hero btn-hero-verde">
-                        Falar com suporte
+                <!-- 
+                    Classe hero-botoes adicionada para manter padrão global dos botões.
+                    Mantive também suporte-hero-botoes para seu CSS específico continuar funcionando.
+                -->
+                <div class="hero-botoes suporte-hero-botoes">
+                    <a href="#tryx" class="btn-hero btn-hero-verde btn-suporte-primary">
+                        <i class="fa-solid fa-robot"></i>
+                        Falar com a TRYX
                     </a>
 
-                    <a href="#" class="btn-hero btn-hero-outline">
-                        Ver documentação
+                    <a href="#contato" class="btn-hero btn-hero-outline btn-suporte-secondary">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        Falar com humano
                     </a>
                 </div>
 
             </div>
+
+            <!-- Card da TRYX no hero -->
+            <div class="suporte-hero-card">
+
+                <div class="tryx-card-topo">
+
+                    <!-- Imagem da TRYX puxada pelo HTML -->
+                    <div class="tryx-avatar">
+                        <img src="assets/TRYX-sms.png" alt="Mascote TRYX">
+                    </div>
+
+                    <div>
+                        <h3>TRYX Online</h3>
+                        <p>Assistente inteligente SENTRYX</p>
+                    </div>
+
+                    <span class="tryx-status"></span>
+                </div>
+
+                <div class="tryx-chat-preview">
+
+                    <div class="mensagem mensagem-tryx">
+                        Olá! Sou a TRYX. Posso te ajudar com alertas, instalação,
+                        sensor offline e dúvidas de segurança.
+                    </div>
+
+                    <div class="mensagem mensagem-user">
+                        Meu sensor está apitando. O que eu faço?
+                    </div>
+
+                    <div class="mensagem mensagem-tryx">
+                        Vou te orientar agora. Primeiro, mantenha a calma e verifique
+                        se há cheiro forte de gás no ambiente.
+                    </div>
+
+                </div>
+
+                <a href="#tryx" class="tryx-card-btn">
+                    Iniciar atendimento com IA
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
         </div>
 
     </section>
 
-    <!-- CARDS -->
-    <section class="support-section">
+    <!-- ALERTA DE EMERGÊNCIA -->
+    <section class="emergencia-section">
 
         <div class="container-padrao">
 
-            <div class="support-grid">
+            <div class="emergencia-box">
 
-                <div class="support-card">
-                    <div class="support-icon">
-                        <i class="fa-solid fa-rocket"></i>
-                    </div>
-
-                    <h3>Primeiros passos</h3>
-
-                    <p>
-                        Aprenda a configurar seu sensor, conectar no Wi-Fi
-                        e ativar os alertas inteligentes.
-                    </p>
-
-                    <a href="#">
-                        Ver guias
-                    </a>
+                <div class="emergencia-icon">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
                 </div>
 
-                <div class="support-card">
-                    <div class="support-icon">
-                        <i class="fa-solid fa-screwdriver-wrench"></i>
-                    </div>
-
-                    <h3>Suporte técnico</h3>
+                <div class="emergencia-texto">
+                    <h2>Recebeu um alerta ou suspeita de vazamento?</h2>
 
                     <p>
-                        Diagnóstico rápido, LEDs, alertas sonoros,
-                        conexão e funcionamento do dispositivo.
+                        Acesse orientações rápidas de segurança, fale com a TRYX
+                        ou entre em contato com nosso suporte humano.
                     </p>
-
-                    <a href="#">
-                        Resolver problema
-                    </a>
                 </div>
 
-                <div class="support-card">
-                    <div class="support-icon">
-                        <i class="fa-solid fa-file-lines"></i>
-                    </div>
+                <div class="emergencia-acoes">
+                    <a href="#tryx" class="btn-emergencia">
+                        Falar com a TRYX
+                    </a>
 
-                    <h3>Documentação</h3>
-
-                    <p>
-                        Acesse manuais técnicos, garantia,
-                        termos de uso e especificações completas.
-                    </p>
-
-                    <a href="#">
-                        Baixar arquivos
+                    <a href="#contato" class="btn-emergencia-outline">
+                        Contato urgente
                     </a>
                 </div>
 
@@ -133,7 +178,151 @@
 
     </section>
 
-    <!-- STATUS -->
+    <!-- CAMINHOS DE SUPORTE -->
+    <section class="caminhos-section">
+
+        <div class="container-padrao">
+
+            <div class="topo-secao">
+                <span class="subtitulo-secao">Escolha o que você precisa</span>
+
+                <h2>Como podemos te ajudar hoje?</h2>
+
+                <p>
+                    Encontre rapidamente o caminho certo para resolver dúvidas,
+                    configurar seu sensor, entender alertas ou receber atendimento especializado.
+                </p>
+            </div>
+
+            <div class="caminhos-grid">
+
+                <article class="caminho-card destaque">
+                    <div class="caminho-icon">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+
+                    <span>Atendimento inteligente</span>
+
+                    <h3>Falar com a TRYX</h3>
+
+                    <p>
+                        Nossa IA ajuda você com dúvidas frequentes, instalação,
+                        alertas, falhas de conexão e orientações iniciais.
+                    </p>
+
+                    <a href="#tryx">
+                        Iniciar conversa
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </article>
+
+                <article class="caminho-card">
+                    <div class="caminho-icon">
+                        <i class="fa-solid fa-wifi"></i>
+                    </div>
+
+                    <span>Conectividade</span>
+
+                    <h3>Sensor offline</h3>
+
+                    <p>
+                        Veja como reconectar o dispositivo, validar Wi-Fi,
+                        energia e comunicação com a plataforma.
+                    </p>
+
+                    <a href="#">
+                        Resolver conexão
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </article>
+
+                <article class="caminho-card">
+                    <div class="caminho-icon">
+                        <i class="fa-solid fa-bell"></i>
+                    </div>
+
+                    <span>Alertas</span>
+
+                    <h3>Recebi uma notificação</h3>
+
+                    <p>
+                        Entenda os tipos de alerta, níveis de risco e o que fazer
+                        em cada situação detectada pelo sensor.
+                    </p>
+
+                    <a href="#">
+                        Entender alerta
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </article>
+
+                <article class="caminho-card">
+                    <div class="caminho-icon">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+
+                    <span>Configuração</span>
+
+                    <h3>Instalação do sensor</h3>
+
+                    <p>
+                        Aprenda a posicionar, ligar, configurar e testar seu sensor
+                        SENTRYX pela primeira vez.
+                    </p>
+
+                    <a href="#">
+                        Ver instalação
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </article>
+
+                <article class="caminho-card">
+                    <div class="caminho-icon">
+                        <i class="fa-solid fa-file-lines"></i>
+                    </div>
+
+                    <span>Documentação</span>
+
+                    <h3>Manuais e arquivos</h3>
+
+                    <p>
+                        Acesse manuais, garantia, termos de uso, especificações técnicas
+                        e documentos de apoio.
+                    </p>
+
+                    <a href="#">
+                        Abrir documentos
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </article>
+
+                <article class="caminho-card">
+                    <div class="caminho-icon">
+                        <i class="fa-solid fa-user-headset"></i>
+                    </div>
+
+                    <span>Atendimento humano</span>
+
+                    <h3>Falar com especialista</h3>
+
+                    <p>
+                        Precisa de ajuda personalizada? Nossa equipe está pronta
+                        para acompanhar seu caso.
+                    </p>
+
+                    <a href="#contato">
+                        Chamar suporte
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- STATUS DO SISTEMA -->
     <section class="status-section">
 
         <div class="container-padrao">
@@ -145,13 +334,13 @@
 
                     <div>
                         <h3>Sistemas operando normalmente</h3>
-                        <p>Todos os serviços SENTRYX estão online.</p>
+                        <p>Monitoramento, alertas, chatbot e plataforma estão disponíveis.</p>
                     </div>
                 </div>
 
                 <div class="status-right">
-                    <span>Tempo médio de resposta:</span>
-                    <strong>~ 3 minutos</strong>
+                    <span>Tempo médio de resposta</span>
+                    <strong>~3 min</strong>
                 </div>
 
             </div>
@@ -160,61 +349,144 @@
 
     </section>
 
-    <!-- TUTORIAIS -->
-    <section class="tutorial-section">
+    <!-- SEÇÃO DA TRYX -->
+    <section class="tryx-section" id="tryx">
+
+        <div class="container-padrao tryx-container">
+
+            <div class="tryx-info">
+
+                <span class="subtitulo-secao subtitulo-claro">IA de suporte</span>
+
+                <h2>Conheça a TRYX, sua assistente de segurança.</h2>
+
+                <p>
+                    A TRYX foi criada para ajudar você a entender alertas, encontrar tutoriais,
+                    resolver dúvidas sobre instalação e receber orientações rápidas antes mesmo
+                    de falar com um atendente humano.
+                </p>
+
+                <div class="tryx-beneficios">
+
+                    <div>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Respostas rápidas para dúvidas frequentes
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Ajuda inicial em casos de alerta do sensor
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Orientação para instalação e conexão
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Encaminhamento para suporte humano quando necessário
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="tryx-mascote-box">
+
+                <!-- Imagem da TRYX puxada pelo HTML -->
+                <img src="assets/TRYX-tchau.png" alt="Mascote TRYX" class="tryx-mascote-img">
+
+                <div class="tryx-mascote-content">
+                    <h3>TRYX está pronta para te ajudar</h3>
+
+                    <p>
+                        Escolha uma dúvida abaixo ou abra o chatbot para iniciar seu atendimento.
+                    </p>
+
+                    <div class="tryx-opcoes">
+                        <button onclick="enviarSugestao('Meu sensor está offline')">
+                            Meu sensor está offline
+                        </button>
+
+                        <button onclick="enviarSugestao('Recebi um alerta de gás')">
+                            Recebi um alerta de gás
+                        </button>
+
+                        <button onclick="enviarSugestao('Como instalar o sensor?')">
+                            Como instalar o sensor?
+                        </button>
+
+                        <button onclick="enviarSugestao('Quero falar com suporte humano')">
+                            Quero falar com suporte humano
+                        </button>
+                    </div>
+
+                    <button class="btn-abrir-chat" onclick="abrirChatTryx()">
+                        Abrir chatbot
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- BASE DE CONHECIMENTO -->
+    <section class="base-section">
 
         <div class="container-padrao">
 
             <div class="topo-secao">
+                <span class="subtitulo-secao">Base de conhecimento</span>
 
-                <h2>
-                    Aprenda visualmente
-                </h2>
+                <h2>Guias rápidos para resolver sem complicação.</h2>
 
                 <p>
-                    Tutoriais rápidos para ajudar você a configurar,
-                    monitorar e utilizar todos os recursos da SENTRYX.
+                    Conteúdos simples, diretos e visuais para você usar melhor
+                    todos os recursos da SENTRYX.
                 </p>
-
             </div>
 
-            <div class="tutorial-grid">
+            <div class="base-grid">
 
-                <div class="tutorial-card">
-
-                    <div class="tutorial-thumb">
+                <article class="base-card">
+                    <div class="base-thumb">
                         <i class="fa-solid fa-play"></i>
                     </div>
 
-                    <h4>Instalando o sensor</h4>
+                    <div class="base-content">
+                        <span>2 min • iniciante</span>
+                        <h3>Instalando o sensor</h3>
+                        <p>Aprenda a ligar, posicionar e testar seu sensor corretamente.</p>
+                    </div>
+                </article>
 
-                    <span>2 min • iniciante</span>
-
-                </div>
-
-                <div class="tutorial-card">
-
-                    <div class="tutorial-thumb">
-                        <i class="fa-solid fa-play"></i>
+                <article class="base-card">
+                    <div class="base-thumb">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
                     </div>
 
-                    <h4>Configurando alertas</h4>
+                    <div class="base-content">
+                        <span>3 min • configuração</span>
+                        <h3>Configurando alertas</h3>
+                        <p>Veja como ativar notificações e acompanhar eventos importantes.</p>
+                    </div>
+                </article>
 
-                    <span>3 min • intermediário</span>
-
-                </div>
-
-                <div class="tutorial-card">
-
-                    <div class="tutorial-thumb">
-                        <i class="fa-solid fa-play"></i>
+                <article class="base-card">
+                    <div class="base-thumb">
+                        <i class="fa-solid fa-battery-half"></i>
                     </div>
 
-                    <h4>Troca de bateria</h4>
-
-                    <span>1 min • rápido</span>
-
-                </div>
+                    <div class="base-content">
+                        <span>1 min • manutenção</span>
+                        <h3>Troca de bateria</h3>
+                        <p>Saiba quando trocar e como manter seu dispositivo funcionando.</p>
+                    </div>
+                </article>
 
             </div>
 
@@ -223,7 +495,7 @@
     </section>
 
     <!-- CONTATO -->
-    <section class="contact-section">
+    <section class="contact-section" id="contato">
 
         <div class="container-padrao">
 
@@ -231,25 +503,32 @@
 
                 <div class="contact-content">
 
+                    <span class="contact-label">Suporte humano</span>
+
                     <h2>
-                        Precisa de ajuda imediata?
+                        Precisa falar com a gente?
                     </h2>
 
                     <p>
-                        Nossa equipe técnica está disponível para auxiliar você
-                        rapidamente em casos críticos ou dúvidas urgentes.
+                        Nossa equipe está disponível para te ajudar em dúvidas técnicas,
+                        instalação, problemas com sensores, alertas e acompanhamento do seu caso.
                     </p>
 
                     <div class="contact-buttons">
 
                         <a href="https://web.whatsapp.com/" class="btn-whatsapp">
                             <i class="fa-brands fa-whatsapp"></i>
-                            WhatsApp
+                            Chamar no WhatsApp
                         </a>
 
-                        <a href="#" class="btn-email">
+                        <a href="mailto:suporte@sentryx.com" class="btn-email">
                             <i class="fa-solid fa-envelope"></i>
-                            E-mail
+                            Enviar e-mail
+                        </a>
+
+                        <a href="#" class="btn-documentos">
+                            <i class="fa-solid fa-folder-open"></i>
+                            Central de documentos
                         </a>
 
                     </div>
@@ -261,6 +540,79 @@
         </div>
 
     </section>
+
+    <!-- CHATBOT FLUTUANTE TRYX -->
+    <div class="tryx-chat-widget">
+
+        <button class="tryx-floating-button" id="abrirTryx" aria-label="Abrir chat da TRYX">
+            <img src="assets/TRYX-duvida.png" alt="TRYX">
+        </button>
+
+        <div class="tryx-chat-box" id="tryxChatBox">
+
+            <div class="tryx-chat-header">
+
+                <div class="tryx-header-info">
+                    <div class="tryx-header-avatar">
+                        <img src="assets/TRYX-duvida.png" alt="TRYX">
+                    </div>
+
+                    <div>
+                        <h3>TRYX</h3>
+                        <p><span></span> Online agora</p>
+                    </div>
+                </div>
+
+                <button class="tryx-close" id="fecharTryx" aria-label="Fechar chat da TRYX">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+            <div class="tryx-chat-messages" id="tryxMessages">
+
+                <div class="tryx-message tryx-bot">
+                    <p>
+                        Olá! Eu sou a TRYX, assistente inteligente da SENTRYX.
+                        Posso te ajudar com alertas, instalação, sensor offline,
+                        documentação ou suporte humano.
+                    </p>
+                </div>
+
+                <div class="tryx-sugestoes">
+                    <button onclick="enviarSugestao('Meu sensor está offline')">
+                        Sensor offline
+                    </button>
+
+                    <button onclick="enviarSugestao('Recebi um alerta de gás')">
+                        Alerta de gás
+                    </button>
+
+                    <button onclick="enviarSugestao('Como instalar o sensor?')">
+                        Instalação
+                    </button>
+
+                    <button onclick="enviarSugestao('Quero falar com suporte humano')">
+                        Suporte humano
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="tryx-chat-input-area">
+                <input type="text" id="tryxInput" placeholder="Digite sua dúvida...">
+
+                <button id="enviarTryx" aria-label="Enviar mensagem">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JS da TRYX -->
+    <script src="js/tryx-chat.js"></script>
 
 </body>
 

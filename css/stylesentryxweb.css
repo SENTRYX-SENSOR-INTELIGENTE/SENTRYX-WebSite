@@ -1,667 +1,430 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+/* =========================================================
+   STYLESENTRYXWEB.CSS
+   CSS específico da página inicial da SENTRYX.
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+   Este arquivo controla somente as seções da Home:
+   - Hero da página inicial
+   - Sobre o nosso produto
+   - Card de detecção inteligente
+   - Quem usa SENTRYX
+   - Seção TRYX
+   - Comunidade
+   - Contribua
 
-}
+   Importante:
+   Header, hero global, botões globais, container e footer
+   ficam no arquivo css/styleglobal.css.
+========================================================= */
 
-body {}
 
+/* =========================================================
+   VARIÁVEIS LOCAIS DA HOME
+   Essas cores são usadas apenas nesta página.
+========================================================= */
 :root {
-    --branco: #ffffff;
-    --laranja: #f4a300;
+    --home-azul: #071a2d;
+    --home-azul-profundo: #070E1E;
+    --home-verde: #1F8C47;
+    --home-verde-claro: #20C562;
+    --home-amarelo: #FAA301;
+    --home-branco: #ffffff;
+    --home-cinza-texto: #4b6174;
+    --home-sombra-card: 0 24px 44px rgba(2, 21, 46, 0.30);
 }
 
-    /* =========================================
-   HERO HOME
-========================================= */
 
-.hero-home {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+/* =========================================================
+   AJUSTES SEGUROS PARA A HERO DA HOME
+   A estrutura visual principal da hero vem do styleglobal.css.
 
-    display: flex;
-    align-items: center;
-}
+   Aqui colocamos apenas ajustes específicos da Home:
+   - garante que o vídeo ocupe toda a área;
+   - melhora o enquadramento do vídeo;
+   - não altera o peso/tamanho do título global.
+========================================================= */
 
-/* VÍDEO */
-.hero-video {
-    position: absolute;
-    inset: 0;
-
+/* Vídeo/imagem de fundo da hero */
+.hero-padrao .hero-bg {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
+    object-position: center top;
 }
 
-/* OVERLAY */
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-
+/* Ajuste do overlay somente para a Home */
+.hero-padrao .hero-overlay {
     background:
-        linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0.72),
-            rgba(0, 0, 0, 0.45),
-            rgba(0, 0, 0, 0.30)
-        );
-
-    z-index: 1;
+        linear-gradient(to right,
+            rgba(0, 0, 0, 0.80),
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.32));
 }
 
-/* CONTEÚDO */
-.hero-conteudo {
-    position: relative;
-    z-index: 2;
 
-    width: 100%;
-}
+/* =========================================================
+   SEÇÃO SOBRE O NOSSO PRODUTO
+   Mostra os vídeos do sensor:
+   - Estrutura
+   - Precisão
+   - Design
+========================================================= */
 
-/* TAG */
-.hero-tag {
-    display: inline-block;
-
-    background: rgba(31, 140, 71, 0.18);
-    border: 1px solid rgba(31, 140, 71, 0.5);
-
-    color: #7dffad;
-
-    padding: 10px 18px;
-    border-radius: 999px;
-
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-
-    margin-bottom: 22px;
-}
-
-/* TÍTULO */
-.hero-title {
-    max-width: 700px;
-
-    font-size: 72px;
-    line-height: 1.05;
-    font-weight: 700;
-
-    color: #ffffff;
-
-    margin-bottom: 24px;
-}
-
-/* SUBTÍTULO */
-.hero-subtitle {
-    max-width: 650px;
-
-    font-size: 20px;
-    line-height: 1.7;
-
-    color: rgba(255,255,255,0.88);
-
-    margin-bottom: 40px;
-}
-
-/* BOTÕES */
-.hero-botoes {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    flex-wrap: wrap;
-}
-
-.btn-hero {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 14px 28px;
-    border-radius: 999px;
-
-    text-decoration: none;
-
-    font-size: 15px;
-    font-weight: 600;
-
-    transition: 0.3s ease;
-}
-
-/* BOTÃO VERDE */
-.btn-hero-verde {
-    background: #1F8C47;
-    color: white;
-}
-
-.btn-hero-verde:hover {
-    background: #27a356;
-    transform: translateY(-2px);
-}
-
-/* BOTÃO OUTLINE */
-.btn-hero-outline {
-    border: 1px solid rgba(255,255,255,0.35);
-    color: white;
-
-    backdrop-filter: blur(10px);
-}
-
-.btn-hero-outline:hover {
-    background: rgba(255,255,255,0.08);
-    transform: translateY(-2px);
-}
-
-/* =========================================
-   RESPONSIVO
-========================================= */
-
-@media (max-width: 1199px) {
-
-    .hero-home {
-        height: auto;
-        min-height: 100vh;
-
-        padding: 140px 0 100px;
-    }
-
-    .hero-title {
-        font-size: 48px;
-    }
-
-    .hero-subtitle {
-        font-size: 18px;
-    }
-}
-
-@media (max-width: 768px) {
-
-    .hero-title {
-        font-size: 38px;
-    }
-
-    .hero-subtitle {
-        font-size: 16px;
-        line-height: 1.6;
-    }
-
-    .hero-botoes {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .btn-hero {
-        width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 26px;
-        line-height: 1.1;
-        margin-bottom: 12px;
-    }
-
-    .hero-subtitle {
-        font-size: 14px;
-        line-height: 1.5;
-        margin-bottom: 18px;
-    }
-
-    .hero-botoes {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-    }
-
-    .btn-hero {
-        width: 100%;
-        padding: 11px 20px;
-        font-size: 13px;
-    }
-}
-
-@media (max-width: 414px) {
-    .hero-title {
-        font-size: 23px;
-        margin-bottom: 10px;
-    }
-
-    .hero-subtitle {
-        font-size: 13px;
-        line-height: 1.4;
-        margin-bottom: 16px;
-    }
-
-    .btn-hero {
-        padding: 10px 18px;
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 375px) {
-    .hero-title {
-        font-size: 21px;
-        margin-bottom: 8px;
-    }
-
-    .hero-subtitle {
-        font-size: 12px;
-        line-height: 1.35;
-        margin-bottom: 14px;
-    }
-
-    .btn-hero {
-        padding: 9px 16px;
-        font-size: 11px;
-    }
-}
-
-@media (max-width: 320px) {
-    .hero-title {
-        font-size: 19px;
-    }
-
-    .hero-subtitle {
-        font-size: 11px;
-        margin-bottom: 12px;
-    }
-
-    .btn-hero {
-        padding: 8px 14px;
-        font-size: 10px;
-    }
-}
-/*NOVO - FIM*/
-
-
-
-
-
-
-/* Título */
-
-/* Container dos vídeos */
-
-/* Card de todos os vídeo */
-
-/* Vídeo */
-
-/* Botão */
-
-/* NOVO - seção do produto */
-/* ===== SECAO PRODUTO ===== */
-
-/* Estrutura geral da secao */
+/* Estrutura geral da seção de vídeos */
 .videos-section {
     position: relative;
     overflow: hidden;
+    isolation: isolate;
+
     background: linear-gradient(180deg, #ffffff 0%, #f4f8f6 100%);
     text-align: center;
-    padding: 48px 0 40px;
-    isolation: isolate;
+
+    padding: 58px 0 46px;
 }
 
-/* Painel claro atras dos cards */
-.videos-section::before {
-    
-    position: absolute;
-    left: 50%;
-    top: 330px;
-    bottom: 78px;
-    width: min(1120px, calc(100% - 48px));
-    height: auto;
-    transform: translateX(-50%);
-    border-radius: 12px;
-    background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0)),
-        rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    box-shadow: 0 30px 70px rgba(2, 21, 46, 0.24);
-    z-index: 0;
-}
-
-/* Fundo verde quadriculado.
-   Para diminuir o verde, aumente o primeiro valor do inset.
-   Exemplo: inset: 60% 0 0; */
+/* Fundo verde quadriculado na parte inferior da seção */
 .videos-section::after {
     content: "";
     position: absolute;
     inset: 50% 0 0;
+
     background:
         linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
         linear-gradient(180deg, #145c38 0%, #0c3728 100%);
+
     background-size: 46px 46px, 46px 46px, auto;
     z-index: 0;
 }
 
-/* Texto da secao */
+/* Bloco de texto acima dos vídeos */
 .nosso-produto {
     position: relative;
     z-index: 1;
+
     max-width: 760px;
     margin: 0 auto 26px;
-    font-size: initial;
 }
 
+/* Título da seção de produto */
 .videos-section h2 {
     color: #061a30;
     background: none;
     -webkit-text-fill-color: initial;
+
     font-size: clamp(2.2rem, 4vw, 3.8rem);
     font-weight: 900;
     line-height: 1.02;
+
     margin-bottom: 16px;
     padding: 0;
 }
 
+/* Parágrafo da seção de produto */
 .nosso-produto p {
-    color: #4b6174;
+    color: var(--home-cinza-texto);
+
     font-size: 1.05rem;
     line-height: 1.65;
-    margin: 0 auto;
+
     max-width: 650px;
+    margin: 0 auto;
 }
 
-/* Grade dos videos.
-   padding controla a distancia entre paragrafo e videos.
-   margin-bottom controla a distancia entre videos e botao. */
+/* Container dos cards de vídeo */
 .videos-container.container-padrao {
     position: relative;
     z-index: 1;
+
     display: grid;
     grid-template-columns: repeat(3, minmax(220px, 315px));
     justify-content: center;
     align-items: stretch;
+
     gap: 35px;
+
     margin-top: 0;
     margin-bottom: 11px;
     padding: 30px 24px 0;
 }
 
-/* Cards de video */
+/* Card individual de vídeo */
 .video-card {
     position: relative;
+
     width: auto;
     height: clamp(310px, 30vw, 360px);
-    min-height: 0;
-    background: #071a2d;
+
+    background: var(--home-azul);
     border: 1px solid rgba(255, 255, 255, 0.24);
     border-radius: 8px;
+
     overflow: hidden;
-    box-shadow: 0 24px 44px rgba(2, 21, 46, 0.3);
-    transition: transform 0.28s ease, box-shadow 0.28s ease;
+
+    box-shadow: var(--home-sombra-card);
+
+    transition:
+        transform 0.28s ease,
+        box-shadow 0.28s ease;
 }
 
-/* Card central um pouco maior para dar destaque */
+/* Card central com leve destaque */
 .video-card:nth-child(2) {
     height: clamp(330px, 32vw, 380px);
-    transform: none;
     box-shadow: 0 32px 58px rgba(2, 21, 46, 0.38);
 }
 
+/* Hover dos cards */
 .video-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 34px 62px rgba(2, 21, 46, 0.38);
 }
 
-.video-card:nth-child(2):hover {
-    transform: translateY(-8px);
-}
-
-/* Degrade para melhorar leitura das etiquetas */
+/* Degradê por cima do vídeo para melhorar leitura da etiqueta */
 .video-card::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(2, 21, 46, 0.02) 45%, rgba(2, 21, 46, 0.72) 100%);
+
+    background:
+        linear-gradient(180deg,
+            rgba(2, 21, 46, 0.02) 45%,
+            rgba(2, 21, 46, 0.72) 100%);
+
     pointer-events: none;
 }
 
-/* Etiqueta de cada video */
+/* Etiqueta no card de vídeo */
 .video-card span {
     position: absolute;
     left: 18px;
     bottom: 18px;
     z-index: 2;
+
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.9);
+
+    background: rgba(255, 255, 255, 0.92);
     color: #061a30;
+
     padding: 8px 13px;
+
     font-size: 0.8rem;
     font-weight: 800;
 }
 
+/* Vídeo dentro do card */
 .video-card video {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     transition: transform 0.35s ease;
 }
 
+/* Zoom suave no hover */
 .video-card:hover video {
     transform: scale(1.04);
 }
 
-/* Botao exclusivo da secao Produto */
+/* Botão da seção Produto */
 .produto-btn {
-    margin-top: 20px; /* 👈 aumenta o espaço aqui */
     position: relative;
     z-index: 1;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
+    margin-top: 20px;
+
     background: #02152e;
-    color: #fff;
+    color: #ffffff;
+
     border: none;
     border-radius: 8px;
+
     padding: 14px 26px;
+
     font-size: 0.95rem;
     font-weight: 800;
     text-decoration: none;
+
     cursor: pointer;
+
     box-shadow: 0 18px 34px rgba(2, 21, 46, 0.28);
-    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
+/* Hover do botão Produto */
 .produto-btn:hover {
     background: #0a2746;
     transform: translateY(-2px);
-    opacity: 1;
 }
 
-/* Responsivo da secao Produto */
-@media (max-width: 1199px) {
-    .videos-section::after {
-        inset: 335px 0 0;
-    }
 
-    .videos-container.container-padrao {
-        grid-template-columns: 1fr;
-        max-width: 540px;
-        gap: 18px;
-        margin-bottom: 96px;
-        padding-top: 96px;
-    }
+/* =========================================================
+   CARD DETECÇÃO INTELIGENTE
+   Card escuro com texto e imagem do sensor.
+========================================================= */
 
-    .video-card,
-    .video-card:nth-child(2) {
-        height: 340px;
-        transform: none;
-    }
-
-    .video-card:hover,
-    .video-card:nth-child(2):hover {
-        transform: translateY(-6px);
-    }
-}
-
-@media (max-width: 768px) {
-    .videos-section {
-        padding: 44px 0 68px;
-    }
-
-    .videos-section::before {
-        width: calc(100% - 28px);
-        top: 350px;
-        height: auto;
-        bottom: 34px;
-    }
-
-    .videos-section::after {
-        inset: 335px 0 0;
-    }
-
-    .nosso-produto {
-        margin-bottom: 22px;
-    }
-
-    .videos-container.container-padrao {
-        margin-bottom: 84px;
-        padding-top: 76px;
-    }
-
-    .video-card,
-    .video-card:nth-child(2) {
-        height: 300px;
-    }
-}
-
-/*INICIO - Novo card detecção inteligente*/
+/* Fundo da seção */
 .secao-motivos {
-    background: #071a2d;
-    padding: 80px 20px;
     display: flex;
     justify-content: center;
+
+    background: var(--home-azul);
+    padding: 80px 20px;
 }
 
-/* 🔥 card moderno */
+/* Card principal */
 .card-motivos {
-
-    background: rgba(255, 255, 255, 0.05);
-    border-left: 6px solid #FAA301;
-    /*isso deixa aquela etiqueta laranja do lado do card*/
-    border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     gap: 60px;
+
+    width: 100%;
+    max-width: 1300px;
+
+    padding: 34px 70px;
 
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
 
-
+    border-left: 6px solid var(--home-amarelo);
     border-radius: 30px;
-    padding: 15px 70px;
-    max-width: 1300px;
-    /*aumenta a largura do card*/
-    width: 100%;
 
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.40);
 }
 
-/* texto */
-.texto h2 {
-    color: #fff;
-    max-width: 550px;
-}
-
-.texto p {
-    max-width: 750px;
-    color: #fff;
-}
-
+/* Tag pequena do card */
 .tag {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--home-verde-claro);
+
     font-size: 12px;
     letter-spacing: 2px;
-    color: #20C562;
-    display: block;
-    margin-bottom: 10px;
+    font-weight: 800;
 }
 
+/* Título do card */
 .texto h2 {
+    max-width: 550px;
+
+    color: #ffffff;
+
     font-size: 32px;
+    line-height: 1.18;
+    font-weight: 900;
+
     margin-bottom: 20px;
 }
 
+/* Texto do card */
 .texto p {
-    font-size: 16px;
+    max-width: 750px;
+
     color: #cfcfcf;
+
+    font-size: 16px;
     line-height: 1.6;
 }
 
-/* imagem */
+/* Imagem do sensor */
 .imagem img {
     width: 350px;
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
-    transition: transform 0.3s ease;
+
     filter: drop-shadow(0 0 25px rgba(250, 163, 1, 0.35));
+
+    transition: transform 0.3s ease;
 }
 
+/* Hover da imagem */
 .imagem img:hover {
     transform: scale(1.05);
 }
 
-/*FIM - novo card detecção inteligente*/
 
-/* 👨‍👩‍👧 USUÁRIOS */
+/* =========================================================
+   SEÇÃO QUEM USA SENTRYX
+   Apresenta os principais públicos que podem usar a solução:
+   - Pequenos negócios
+   - Residências familiares
+   - Restaurantes e cozinhas profissionais
+
+   Importante:
+   Essa seção mantém a lógica original com flexbox e ajustes
+   de posição nos textos, porque esse era o layout que estava
+   visualmente correto no notebook.
+========================================================= */
+
+/* Fundo e espaçamento geral da seção */
 .secao-usuarios {
     background: #ffffff;
     padding: 70px 20px;
 }
 
+/* Container interno da seção */
 .usuarios-wrapper {
     max-width: 1100px;
     margin: 0 auto;
 }
 
+/* Título central "Quem usa SENTRYX" */
 .secao-usuarios h3 {
     text-align: center;
     font-size: 2rem;
     font-weight: 700;
-    color: #111;
+    color: #111111;
     margin-bottom: 60px;
 }
 
+/* Palavra SENTRYX em verde no título */
 .secao-usuarios h3 span {
     color: #17a34a;
 }
 
+/* Bloco com imagem + texto */
 .usuario-bloco {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 50px;
     margin-bottom: 70px;
-
 }
 
+/* Bloco reverso:
+   Inverte a ordem para alternar imagem/texto no desktop */
 .usuario-bloco.reverso {
     flex-direction: row-reverse;
 }
 
+/* Área da imagem */
 .usuario-imagem {
     position: relative;
     flex: 1;
     max-width: 520px;
 }
 
+/* Imagem do bloco */
 .usuario-imagem img {
-    position: fixed;
+    position: relative;
+    z-index: 2;
     width: 100%;
     display: block;
     border-radius: 6px;
     object-fit: cover;
-    position: relative;
-    z-index: 2;
 }
 
-/* moldura decorativa estilo figma */
+/* Moldura decorativa das imagens */
 .destaque-laranja-verde::before,
 .destaque-verde-laranja::before {
     content: "";
@@ -671,6 +434,7 @@ body {}
     z-index: 1;
 }
 
+/* Moldura com laranja no topo/esquerda e verde na direita/baixo */
 .destaque-laranja-verde::before {
     border-top: 4px solid #f5a300;
     border-left: 4px solid #f5a300;
@@ -678,6 +442,7 @@ body {}
     border-bottom: 4px solid #18b556;
 }
 
+/* Moldura invertida */
 .destaque-verde-laranja::before {
     border-top: 4px solid #18b556;
     border-left: 4px solid #18b556;
@@ -685,67 +450,82 @@ body {}
     border-bottom: 4px solid #f5a300;
 }
 
+/* Área de texto */
 .usuario-texto {
     flex: 1;
     max-width: 430px;
     font-size: 55px;
-
 }
 
-/* aqui são nossas tag  h4 e p com os ids definidos*/
+/* =========================================================
+   TEXTOS DOS BLOCOS
+   Mantive os IDs originais porque o HTML já usa esses nomes.
+   Esses deslocamentos aproximam texto e imagem no desktop.
+========================================================= */
+
+/* Título do bloco Pequenos negócios */
 #pequenosNegocios {
     position: relative;
+    right: 120px;
     font-size: 32px;
     font-weight: 700;
-    color: #111;
+    color: #111111;
     margin-bottom: 16px;
-
-    right: 120px
 }
 
+/* Título do bloco Residências familiares */
 #residenciasFamiliares {
     position: relative;
+    left: 170px;
     font-size: 32px;
     font-weight: 700;
-    color: #111;
+    color: #111111;
     margin-bottom: 16px;
-
-    left: 170px
 }
 
+/* Título do bloco Restaurantes */
 #Restaurantes {
     position: relative;
+    right: 120px;
     font-size: 32px;
     font-weight: 700;
-    color: #111;
+    color: #111111;
     margin-bottom: 16px;
-    right: 120px
 }
 
+/* Texto do bloco Pequenos negócios */
 #um {
     position: relative;
+    right: 120px;
     font-size: 16px;
     color: #1c1c1c;
-    right: 120px;
+    line-height: 1.6;
 }
 
+/* Texto do bloco Residências familiares */
 #dois {
     position: relative;
+    left: 170px;
     font-size: 16px;
     color: #1c1c1c;
-    left: 170px;
+    line-height: 1.6;
 }
 
+/* Texto do bloco Restaurantes */
 #tres {
     position: relative;
+    right: 120px;
     font-size: 16px;
     color: #1c1c1c;
-    right: 120px;
+    line-height: 1.6;
 }
 
+/* =========================================================
+   RESPONSIVIDADE - QUEM USA SENTRYX
+   No mobile, removemos os deslocamentos laterais para evitar
+   que texto ou imagem saiam da tela.
+========================================================= */
 
-
-/* responsivo */
 @media (max-width: 1199px) {
 
     .usuario-bloco,
@@ -765,196 +545,283 @@ body {}
         margin-bottom: 40px;
     }
 
-    .usuario-texto h4 {
-        font-size: 1.3rem;
+    #pequenosNegocios,
+    #residenciasFamiliares,
+    #Restaurantes {
+        position: static;
+        font-size: 1.45rem;
+        margin-bottom: 12px;
     }
 
-    .usuario-texto p {
+    #um,
+    #dois,
+    #tres {
+        position: static;
         font-size: 0.95rem;
+        line-height: 1.6;
+        max-width: 620px;
+        margin: 0 auto;
     }
 }
 
-/* 🤖 TRYX */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@media (max-width: 768px) {
+
+    .secao-usuarios {
+        padding: 56px 18px;
+    }
+
+    .usuario-bloco {
+        margin-bottom: 54px;
+    }
+
+    .usuario-imagem img {
+        max-height: 260px;
+    }
 }
 
-.container-padrao {
-    width: 100%;
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 0 24px;
-    ;
+@media (max-width: 480px) {
+
+    .secao-usuarios {
+        padding: 50px 16px;
+    }
+
+    .secao-usuarios h3 {
+        font-size: 1.5rem;
+        margin-bottom: 36px;
+    }
+
+    .usuario-imagem img {
+        max-height: 220px;
+    }
+
+    #pequenosNegocios,
+    #residenciasFamiliares,
+    #Restaurantes {
+        font-size: 1.25rem;
+    }
+
+    #um,
+    #dois,
+    #tres {
+        font-size: 0.88rem;
+    }
 }
 
-.area-carrossel .card-comunidade p span {
-    color: #1F8C47;
-    font-weight: bold;
-}
+/* =========================================================
+   SEÇÃO TRYX
+   Apresenta a IA da SENTRYX.
+========================================================= */
 
+/* Fundo da seção TRYX */
 .secao-tryx {
     position: relative;
     overflow: hidden;
-    background:
-        linear-gradient(135deg, rgba(255, 183, 43, 0.96) 0%, rgba(246, 160, 18, 0.94) 42%, rgba(21, 89, 61, 0.96) 100%),
-        #f4a300;
-    padding: 86px 0 92px;
     isolation: isolate;
+
+    background:
+        linear-gradient(135deg,
+            rgba(255, 183, 43, 0.96) 0%,
+            rgba(246, 160, 18, 0.94) 42%,
+            rgba(21, 89, 61, 0.96) 100%),
+        #f4a300;
+
+    padding: 86px 0 92px;
 }
 
+/* Grade decorativa da seção TRYX */
 .secao-tryx::before {
     content: "";
     position: absolute;
     inset: 0;
+
     background-image:
         linear-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+
     background-size: 54px 54px;
+
     mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.8), transparent 72%);
     opacity: 0.45;
+
     z-index: -1;
 }
 
+/* Grid interno da TRYX */
 .tryx-grid {
     display: grid;
     grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
     align-items: center;
+
     gap: 58px;
 }
 
+/* Bloco de texto */
 .texto-tryx {
     max-width: 540px;
 }
 
-.tryx-etiqueta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    width: fit-content;
-    margin-bottom: 18px;
-    border: 1px solid rgba(2, 21, 46, 0.16);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.28);
-    color: #06213a;
-    padding: 8px 14px;
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
+/* Título "Conheça a TRYX" */
 .texto-tryx h2 {
     color: #061a30;
+
     font-size: clamp(2.5rem, 5vw, 4.8rem);
     font-weight: 900;
     line-height: 0.95;
+
     margin-bottom: 18px;
 }
 
+/* Palavra TRYX dentro do título */
 .texto-tryx h2 span {
     color: #ffffff;
     text-shadow: 0 10px 24px rgba(2, 21, 46, 0.22);
 }
 
+/* Subtítulo da TRYX */
 .texto-tryx h3 {
     max-width: 470px;
+
     color: #09233d;
+
     font-size: clamp(1.3rem, 2vw, 1.8rem);
     line-height: 1.18;
+
     margin-bottom: 18px;
 }
 
+/* Parágrafo da TRYX */
 .texto-tryx p {
     color: #12314a;
+
     font-size: 1.02rem;
     line-height: 1.65;
+
     margin-bottom: 22px;
 }
 
+/* Métricas rápidas */
 .tryx-metricas {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+
     gap: 12px;
+
     margin: 28px 0 24px;
 }
 
+/* Card de cada métrica */
 .tryx-metricas div {
     min-height: 92px;
+
     border: 1px solid rgba(255, 255, 255, 0.34);
     border-radius: 8px;
+
     background: rgba(255, 255, 255, 0.22);
     box-shadow: 0 18px 36px rgba(2, 21, 46, 0.12);
+
     padding: 16px 14px;
+
     backdrop-filter: blur(12px);
 }
 
+/* Valor da métrica */
 .tryx-metricas strong {
     display: block;
+
     color: #061a30;
+
     font-size: 1.18rem;
     font-weight: 900;
     line-height: 1.05;
 }
 
+/* Texto da métrica */
 .tryx-metricas span {
     display: block;
+
     margin-top: 8px;
+
     color: #234057;
+
     font-size: 0.83rem;
     font-weight: 700;
 }
 
+/* Lista de recursos */
 .tryx-recursos {
     display: grid;
     gap: 12px;
+
     margin: 0;
     padding: 0;
+
     list-style: none;
 }
 
+/* Item da lista */
 .tryx-recursos li {
     display: flex;
     align-items: flex-start;
+
     gap: 12px;
+
     color: #09233d;
+
     font-size: 0.98rem;
     font-weight: 650;
     line-height: 1.45;
 }
 
+/* Ícone da lista */
 .tryx-recursos i {
     display: inline-grid;
+    place-items: center;
+
     flex: 0 0 30px;
+
     width: 30px;
     height: 30px;
-    place-items: center;
+
     border-radius: 8px;
+
     background: #061a30;
     color: #ffffff;
+
     font-size: 0.9rem;
 }
 
+/* Botões escuros usados na Home */
 .btn-tryx,
 .btn-escuro {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     margin-top: 26px;
+
     background: #02152e;
-    color: #fff;
+    color: #ffffff;
+
     border: none;
     border-radius: 8px;
+
     padding: 14px 24px;
+
     font-size: 0.95rem;
     font-weight: 800;
     text-decoration: none;
+
     cursor: pointer;
+
     box-shadow: 0 18px 34px rgba(2, 21, 46, 0.22);
-    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
+/* Hover dos botões escuros */
 .btn-tryx:hover,
 .btn-escuro:hover {
     background: #0a2746;
@@ -962,258 +829,193 @@ body {}
     box-shadow: 0 22px 42px rgba(2, 21, 46, 0.28);
 }
 
+/* Área visual da TRYX */
 .tryx-visual {
     position: relative;
+
     min-height: 560px;
+
     display: grid;
     place-items: center;
 }
 
+/* Círculo visual atrás da TRYX */
 .tryx-visual::before {
     content: "";
     position: absolute;
+
     width: min(95%, 560px);
     aspect-ratio: 1;
+
     border-radius: 50%;
+
     background:
-        radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.2) 38%, transparent 62%),
-        conic-gradient(from 140deg, rgba(31, 140, 71, 0.92), rgba(255, 221, 87, 0.85), rgba(2, 21, 46, 0.86), rgba(31, 140, 71, 0.92));
-    filter: drop-shadow(0 38px 60px rgba(2, 21, 46, 0.3));
+        radial-gradient(circle at 50% 45%,
+            rgba(255, 255, 255, 0.68),
+            rgba(255, 255, 255, 0.2) 38%,
+            transparent 62%),
+        conic-gradient(from 140deg,
+            rgba(31, 140, 71, 0.92),
+            rgba(255, 221, 87, 0.85),
+            rgba(2, 21, 46, 0.86),
+            rgba(31, 140, 71, 0.92));
+
+    filter: drop-shadow(0 38px 60px rgba(2, 21, 46, 0.30));
     opacity: 0.92;
 }
 
+/* Imagem da TRYX */
 .tryx-visual img {
     position: relative;
     z-index: 2;
+
     width: min(96%, 560px);
     height: auto;
+
     filter: drop-shadow(0 28px 42px rgba(2, 21, 46, 0.34));
 }
 
+/* Órbitas decorativas */
 .tryx-orbita {
     position: absolute;
+    z-index: 1;
+
     border: 1px solid rgba(255, 255, 255, 0.42);
     border-radius: 50%;
-    z-index: 1;
 }
 
+/* Órbita maior */
 .tryx-orbita-um {
     width: min(98%, 600px);
     aspect-ratio: 1;
 }
 
+/* Órbita menor */
 .tryx-orbita-dois {
     width: min(76%, 460px);
     aspect-ratio: 1;
+
     transform: rotate(-18deg) scaleY(0.72);
 }
 
+/* Cards flutuantes da TRYX */
 .tryx-card-alerta,
 .tryx-card-status {
     position: absolute;
     z-index: 3;
+
     border: 1px solid rgba(255, 255, 255, 0.44);
     border-radius: 8px;
+
     background: rgba(255, 255, 255, 0.82);
-    box-shadow: 0 18px 42px rgba(2, 21, 46, 0.2);
+    box-shadow: 0 18px 42px rgba(2, 21, 46, 0.20);
+
     backdrop-filter: blur(14px);
 }
 
+/* Card de alerta */
 .tryx-card-alerta {
     top: 62px;
     left: 0;
+
     display: flex;
     align-items: center;
+
     gap: 12px;
+
     max-width: 270px;
+
     padding: 14px 16px;
 }
 
+/* Ícone do alerta */
 .tryx-card-alerta i {
     display: grid;
+    place-items: center;
+
     flex: 0 0 38px;
+
     width: 38px;
     height: 38px;
-    place-items: center;
+
     border-radius: 8px;
+
     background: #ffdd57;
     color: #061a30;
 }
 
-.tryx-card-alerta strong,
-.tryx-card-alerta span {
-    display: block;
-}
-
+/* Texto forte do alerta */
 .tryx-card-alerta strong {
+    display: block;
+
     color: #061a30;
+
     font-size: 0.92rem;
 }
 
+/* Texto pequeno do alerta */
 .tryx-card-alerta span {
+    display: block;
+
     margin-top: 3px;
+
     color: #315067;
+
     font-size: 0.78rem;
     font-weight: 700;
 }
 
+/* Card de status */
 .tryx-card-status {
     right: 6px;
     bottom: 78px;
+
     display: inline-flex;
     align-items: center;
+
     gap: 10px;
+
     padding: 13px 16px;
+
     color: #08223a;
+
     font-size: 0.9rem;
     font-weight: 800;
 }
 
+/* Bolinha do status */
 .tryx-card-status span {
     width: 10px;
     height: 10px;
+
     border-radius: 50%;
-    background: #1F8C47;
+
+    background: var(--home-verde);
     box-shadow: 0 0 0 6px rgba(31, 140, 71, 0.16);
 }
 
-@media (max-width: 1199px) {
-    .tryx-grid {
-        grid-template-columns: 1fr;
-        gap: 36px;
-    }
 
-    .texto-tryx {
-        max-width: 680px;
-    }
-
-    .tryx-visual {
-        min-height: 480px;
-    }
-}
-
-@media (max-width: 768px) {
-    .secao-tryx {
-        padding: 64px 0 70px;
-    }
-
-    .tryx-metricas {
-        grid-template-columns: 1fr;
-    }
-
-    .tryx-visual {
-        min-height: 390px;
-    }
-
-    .tryx-card-alerta {
-        top: 18px;
-        left: 0;
-        max-width: 240px;
-    }
-
-    .tryx-card-status {
-        right: 0;
-        bottom: 30px;
-        max-width: 230px;
-    }
-}
-
-/* SEÇÃO COMUNIDADE 
-.secao-comunidade {
-    background: #219247;
-    padding: 50px 0 30px;
-    position: relative;
-}
-
-.topo-comunidade {
-    text-align: center;
-    margin-bottom: 28px;
-}
-
-.topo-comunidade h3 {
-    font-size: 1.9rem;
-    font-weight: 800;
-    color: #071a2d;
-    margin-bottom: 10px;
-}
-
-.topo-comunidade p {
-    font-size: 0.95rem;
-    color: #d9f0df;
-    margin-bottom: 18px;
-}
-
-.topo-comunidade .btn-escuro {
-    margin-top: 0;
-}
-
-.area-carrossel {
-    position: relative;
-    padding-bottom: 56px;
-    /* deixa as setas como rodapé 
-}
-
-.viewport-carrossel {
-    overflow: hidden;
-    width: 100%;
-}
-
-.track-carrossel {
-    display: flex;
-    gap: 14px;
-    transition: transform 0.4s ease;
-    will-change: transform;
-}
-
-.card-comunidade {
-    min-width: 245px;
-    max-width: 245px;
-    background: #b8debf;
-    border-radius: 10px;
-    padding: 14px 14px 18px;
-    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35);
-    border: 1px solid rgba(0, 0, 0, 0.15);
-}
-
-.avatar-card {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: #ececec;
-    margin-bottom: 12px;
-}
-
-.card-comunidade p {
-    font-size: 0.74rem;
-    line-height: 1.45;
-    color: #1b2d2a;
-}/*
 /* =========================================================
-   SEÇÃO COMUNIDADE - SENTRYX
+   SEÇÃO COMUNIDADE
+   Carrossel automático com depoimentos.
 ========================================================= */
 
+/* Fundo da comunidade */
 .secao-comunidade {
     position: relative;
     overflow: hidden;
 
-    padding: 50px 0;
+    padding: 78px 0 56px;
 
     background:
-        radial-gradient(circle at top left,
-            rgba(31, 140, 71, 0.18),
-            transparent 30%),
-
-        radial-gradient(circle at bottom right,
-            rgba(250, 163, 1, 0.12),
-            transparent 30%),
-
-        #070E1E;
+        radial-gradient(circle at top left, rgba(31, 140, 71, 0.18), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(250, 163, 1, 0.12), transparent 30%),
+        var(--home-azul-profundo);
 }
 
-/* linha superior */
+/* Linha superior decorativa */
 .secao-comunidade::before {
-    content: '';
-
+    content: "";
     position: absolute;
 
     top: 0;
@@ -1222,31 +1024,28 @@ body {}
     width: 100%;
     height: 2px;
 
-    background: linear-gradient(
-        90deg,
-        transparent,
-        #1F8C47,
-        #FAA301,
-        transparent
-    );
+    background:
+        linear-gradient(90deg,
+            transparent,
+            var(--home-verde),
+            var(--home-amarelo),
+            transparent);
 }
 
-/* =========================================================
-   TOPO
-========================================================= */
-
+/* Topo da comunidade */
 .topo-comunidade {
     text-align: center;
 
-    margin-bottom: 15px;
+    margin-bottom: 32px;
 
     animation: fadeDown 0.8s ease;
 }
 
+/* Título da comunidade */
 .topo-comunidade h2 {
     color: #ffffff;
 
-    font-size: 3rem;
+    font-size: clamp(2.2rem, 4vw, 3rem);
     font-weight: 800;
 
     margin-bottom: 16px;
@@ -1254,11 +1053,11 @@ body {}
     letter-spacing: 0.5px;
 }
 
+/* Texto da comunidade */
 .topo-comunidade p {
     color: #B8C7D9;
 
     font-size: 1.05rem;
-
     line-height: 1.7;
 
     max-width: 700px;
@@ -1266,11 +1065,13 @@ body {}
     margin: 0 auto 24px;
 }
 
+/* Nome da marca dentro dos textos */
 .marca {
-    color: #1F8C47;
+    color: var(--home-verde);
     font-weight: 700;
 }
 
+/* Linha decorativa abaixo do texto */
 .linha-decorativa {
     width: 100px;
     height: 4px;
@@ -1279,32 +1080,26 @@ body {}
 
     border-radius: 50px;
 
-    background: linear-gradient(
-        90deg,
-        #1F8C47,
-        #FAA301
-    );
+    background:
+        linear-gradient(90deg,
+            var(--home-verde),
+            var(--home-amarelo));
 }
 
-/* =========================================================
-   CARROSSEL
-========================================================= */
-
+/* Área geral do carrossel */
 .area-carrossel {
     position: relative;
 
     width: 100vw;
-
     left: 50%;
 
     transform: translateX(-50%);
 }
 
-/* fade lateral */
+/* Fades laterais do carrossel */
 .area-carrossel::before,
 .area-carrossel::after {
-    content: '';
-
+    content: "";
     position: absolute;
 
     top: 0;
@@ -1317,43 +1112,36 @@ body {}
     pointer-events: none;
 }
 
+/* Fade esquerdo */
 .area-carrossel::before {
     left: 0;
-
-    background: linear-gradient(
-        to right,
-        #070E1E,
-        transparent
-    );
+    background: linear-gradient(to right, var(--home-azul-profundo), transparent);
 }
 
+/* Fade direito */
 .area-carrossel::after {
     right: 0;
-
-    background: linear-gradient(
-        to left,
-        #070E1E,
-        transparent
-    );
+    background: linear-gradient(to left, var(--home-azul-profundo), transparent);
 }
 
+/* Janela visível do carrossel */
 .viewport-carrossel {
     overflow-x: hidden;
 
     scroll-behavior: smooth;
-
     scrollbar-width: none;
 
     padding-bottom: 10px;
 }
 
+/* Remove scrollbar em navegadores WebKit */
 .viewport-carrossel::-webkit-scrollbar {
     display: none;
 }
 
+/* Faixa que se movimenta */
 .track-carrossel {
     display: flex;
-
     gap: 22px;
 
     width: max-content;
@@ -1365,12 +1153,12 @@ body {}
     animation: scrollAuto 25s linear infinite;
 }
 
-/* pausa quando passa o mouse */
+/* Pausa o carrossel no hover */
 .area-carrossel:hover .track-carrossel {
     animation-play-state: paused;
 }
 
-/* animação corrigida */
+/* Animação do carrossel */
 @keyframes scrollAuto {
     0% {
         transform: translateX(0);
@@ -1381,17 +1169,17 @@ body {}
     }
 }
 
-/* =========================================================
-   CARDS
-========================================================= */
-
+/* Card individual da comunidade */
 .card-comunidade {
     position: relative;
 
     width: 280px;
     min-width: 280px;
-
     min-height: 320px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     padding: 24px;
 
@@ -1399,18 +1187,12 @@ body {}
 
     overflow: hidden;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
     backdrop-filter: blur(18px);
 
     background: rgba(255, 255, 255, 0.07);
-
     border: 1px solid rgba(255, 255, 255, 0.08);
 
-    box-shadow:
-        0 10px 25px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
 
     transition:
         transform 0.4s ease,
@@ -1418,26 +1200,24 @@ body {}
         border-color 0.4s ease;
 
     animation: fadeUp 0.7s ease forwards;
-
     opacity: 0;
 }
 
-/* brilho interno */
+/* Brilho interno do card */
 .card-comunidade::before {
-    content: '';
-
+    content: "";
     position: absolute;
     inset: 0;
 
-    background: linear-gradient(
-        135deg,
-        rgba(255,255,255,0.10),
-        transparent 45%
-    );
+    background:
+        linear-gradient(135deg,
+            rgba(255, 255, 255, 0.10),
+            transparent 45%);
 
     pointer-events: none;
 }
 
+/* Hover do card */
 .card-comunidade:hover {
     transform: translateY(-8px);
 
@@ -1448,7 +1228,7 @@ body {}
         0 0 20px rgba(31, 140, 71, 0.18);
 }
 
-/* delay animação */
+/* Delays dos primeiros cards */
 .card-comunidade:nth-child(1) {
     animation-delay: 0.1s;
 }
@@ -1465,15 +1245,10 @@ body {}
     animation-delay: 0.4s;
 }
 
-/* =========================================================
-   AVATAR
-========================================================= */
-
+/* Avatar dos usuários */
 .avatar-card {
     width: 58px;
     height: 58px;
-
-    border-radius: 50%;
 
     display: flex;
     align-items: center;
@@ -1481,19 +1256,17 @@ body {}
 
     margin-bottom: 16px;
 
+    border-radius: 50%;
+
     color: #ffffff;
 
     font-size: 1.2rem;
     font-weight: 800;
 
-    box-shadow:
-        0 6px 16px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
 }
 
-/* =========================================================
-   TEXTOS
-========================================================= */
-
+/* Nome da pessoa */
 .card-comunidade h3 {
     color: #ffffff;
 
@@ -1503,6 +1276,7 @@ body {}
     margin-bottom: 4px;
 }
 
+/* Cargo/função */
 .card-comunidade .funcao {
     color: #7DFFA8;
 
@@ -1515,38 +1289,39 @@ body {}
     margin-bottom: 14px;
 }
 
+/* Depoimento */
 .card-comunidade .depoimento {
+    flex-grow: 1;
+
     color: #DCE6F2;
 
     font-size: 0.88rem;
-
     line-height: 1.65;
 
     margin-bottom: 18px;
-
-    flex-grow: 1;
 }
 
-/* =========================================================
-   TAG SEGURANÇA
-========================================================= */
+/* Garante que SENTRYX dentro dos cards fique verde */
+.area-carrossel .card-comunidade p span {
+    color: var(--home-verde);
+    font-weight: 700;
+}
 
+/* Tag "Ambiente protegido" */
 .tag-seguranca {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
 
-    margin-top: auto;
-
     width: fit-content;
+
+    margin-top: auto;
 
     padding: 7px 12px;
 
     border-radius: 999px;
 
     background: rgba(31, 140, 71, 0.14);
-
     border: 1px solid rgba(31, 140, 71, 0.22);
 
     color: #7DFFA8;
@@ -1554,22 +1329,16 @@ body {}
     font-size: 0.72rem;
     font-weight: 600;
 }
-[vw-access-button] {
-    bottom: -340px !important;
-}
-/* =========================================================
-   BOTÃO
-========================================================= */
 
+/* Botão abaixo da comunidade */
 .botao-container {
     text-align: center;
-
     margin-top: 25px;
 }
 
+/* Botão comunidade */
 .btn-comunidade {
     border: none;
-
     cursor: pointer;
 
     padding: 15px 32px;
@@ -1580,42 +1349,86 @@ body {}
 
     font-size: 1rem;
     font-weight: 700;
-
     letter-spacing: 0.4px;
 
-    background: linear-gradient(
-        135deg,
-        #1F8C47,
-        #16913C
-    );
+    background:
+        linear-gradient(135deg,
+            var(--home-verde),
+            #16913C);
 
-    box-shadow:
-        0 10px 28px rgba(31, 140, 71, 0.35);
+    box-shadow: 0 10px 28px rgba(31, 140, 71, 0.35);
 
     transition: all 0.35s ease;
 }
 
+/* Hover botão comunidade */
 .btn-comunidade:hover {
     transform: translateY(-4px);
 
-    background: linear-gradient(
-        135deg,
-        #16913C,
-        #1F8C47
-    );
+    background:
+        linear-gradient(135deg,
+            #16913C,
+            var(--home-verde));
 
-    box-shadow:
-        0 14px 36px rgba(31, 140, 71, 0.45);
+    box-shadow: 0 14px 36px rgba(31, 140, 71, 0.45);
 }
 
+/* Clique botão comunidade */
 .btn-comunidade:active {
     transform: scale(0.98);
 }
 
+
 /* =========================================================
-   ANIMAÇÕES
+   SEÇÃO CONTRIBUA
+   Chamada final antes do footer.
 ========================================================= */
 
+/* Fundo da seção */
+.secao-contribua {
+    background: #e8e8e8;
+    padding: 85px 0 75px;
+}
+
+/* Box interno */
+.contribuicao-box {
+    text-align: center;
+}
+
+/* Título */
+.contribuicao-box h3 {
+    color: var(--home-azul);
+
+    font-size: 1.45rem;
+    font-weight: 800;
+
+    margin-bottom: 10px;
+}
+
+/* Texto */
+.contribuicao-box p {
+    color: #444444;
+
+    font-size: 0.9rem;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE - VLIBRAS
+   Ajuste do botão do VLibras.
+========================================================= */
+[vw-access-button] {
+    bottom: 18px !important;
+}
+
+
+/* =========================================================
+   ANIMAÇÕES DA HOME
+========================================================= */
+
+/* Entrada de cima */
 @keyframes fadeDown {
     from {
         opacity: 0;
@@ -1628,6 +1441,7 @@ body {}
     }
 }
 
+/* Entrada de baixo */
 @keyframes fadeUp {
     from {
         opacity: 0;
@@ -1640,12 +1454,270 @@ body {}
     }
 }
 
-/* =========================================================
-   RESPONSIVO
-========================================================= */
 
+/* =========================================================
+   RESPONSIVIDADE - NOTEBOOK MENOR / TABLET
+   Até 1199px.
+========================================================= */
+@media (max-width: 1199px) {
+
+    /* Produto: vídeos em uma coluna para evitar aperto */
+    .videos-section::after {
+        inset: 335px 0 0;
+    }
+
+    .videos-container.container-padrao {
+        grid-template-columns: 1fr;
+
+        max-width: 540px;
+
+        gap: 18px;
+
+        margin-bottom: 96px;
+        padding-top: 96px;
+    }
+
+    .video-card,
+    .video-card:nth-child(2) {
+        height: 340px;
+    }
+
+    .video-card:hover,
+    .video-card:nth-child(2):hover {
+        transform: translateY(-6px);
+    }
+
+    /* Card detecção: empilha texto e imagem */
+    .card-motivos {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 32px;
+
+        padding: 42px 44px;
+    }
+
+    .imagem {
+        width: 100%;
+        text-align: center;
+    }
+
+    .imagem img {
+        width: min(100%, 330px);
+    }
+
+    /* Quem usa: mantém confortável em telas médias */
+    .usuario-bloco {
+        gap: 42px;
+    }
+
+    #pequenosNegocios,
+    #residenciasFamiliares,
+    #Restaurantes {
+        font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    }
+
+    /* TRYX: vira uma coluna */
+    .tryx-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .texto-tryx {
+        max-width: 680px;
+    }
+
+    .tryx-visual {
+        min-height: 480px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE - TABLET / CELULAR GRANDE
+   Até 900px.
+========================================================= */
+@media (max-width: 900px) {
+
+    /* Produto: reduz espaçamento e evita corte */
+    .videos-section {
+        padding-top: 46px;
+    }
+
+    .videos-container.container-padrao {
+        padding-top: 72px;
+        margin-bottom: 72px;
+    }
+
+    /* Quem usa: passa para uma coluna */
+    .usuario-bloco,
+    .usuario-bloco.reverso {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        text-align: center;
+    }
+
+    .usuario-bloco.reverso .usuario-imagem,
+    .usuario-bloco.reverso .usuario-texto {
+        order: initial;
+    }
+
+    .usuario-imagem {
+        max-width: 620px;
+        margin: 0 auto;
+    }
+
+    .usuario-texto {
+        max-width: 620px;
+        margin: 0 auto;
+    }
+
+    .usuario-imagem img {
+        height: 300px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE - CELULAR
+   Até 768px.
+========================================================= */
 @media (max-width: 768px) {
 
+    /* Produto */
+    .videos-section {
+        padding: 44px 0 68px;
+    }
+
+    .videos-section::after {
+        inset: 335px 0 0;
+    }
+
+    .nosso-produto {
+        margin-bottom: 22px;
+    }
+
+    .videos-section h2 {
+        font-size: 2rem;
+        line-height: 1.08;
+    }
+
+    .nosso-produto p {
+        font-size: 0.95rem;
+        line-height: 1.65;
+    }
+
+    .videos-container.container-padrao {
+        max-width: 520px;
+
+        margin-bottom: 84px;
+        padding-top: 76px;
+    }
+
+    .video-card,
+    .video-card:nth-child(2) {
+        height: 300px;
+    }
+
+    .produto-btn {
+        width: calc(100% - 48px);
+        max-width: 320px;
+    }
+
+    /* Card detecção */
+    .secao-motivos {
+        padding: 64px 18px;
+    }
+
+    .card-motivos {
+        padding: 34px 24px;
+        border-radius: 24px;
+    }
+
+    .texto h2 {
+        font-size: 28px;
+    }
+
+    .texto p {
+        font-size: 15px;
+    }
+
+    /* Quem usa */
+    .secao-usuarios {
+        padding: 62px 18px;
+    }
+
+    .secao-usuarios h3 {
+        font-size: 1.7rem;
+        margin-bottom: 44px;
+    }
+
+    .usuario-bloco {
+        margin-bottom: 66px;
+    }
+
+    .usuario-imagem img {
+        height: 260px;
+    }
+
+    #pequenosNegocios,
+    #residenciasFamiliares,
+    #Restaurantes {
+        font-size: 2rem;
+        line-height: 1.15;
+        margin-bottom: 14px;
+    }
+
+    #um,
+    #dois,
+    #tres {
+        font-size: 0.95rem;
+        line-height: 1.65;
+    }
+
+    /* TRYX */
+    .secao-tryx {
+        padding: 64px 0 70px;
+    }
+
+    .texto-tryx h2 {
+        font-size: 2.4rem;
+        line-height: 1;
+    }
+
+    .texto-tryx h3 {
+        font-size: 1.25rem;
+    }
+
+    .texto-tryx p {
+        font-size: 0.95rem;
+    }
+
+    .tryx-metricas {
+        grid-template-columns: 1fr;
+    }
+
+    .tryx-visual {
+        min-height: 390px;
+    }
+
+    .tryx-card-alerta {
+        top: 18px;
+        left: 0;
+
+        max-width: 240px;
+    }
+
+    .tryx-card-status {
+        right: 0;
+        bottom: 30px;
+
+        max-width: 230px;
+    }
+
+    /* Comunidade */
     .secao-comunidade {
         padding: 70px 0 50px;
     }
@@ -1656,14 +1728,12 @@ body {}
 
     .topo-comunidade p {
         font-size: 0.95rem;
-
         padding: 0 10px;
     }
 
     .card-comunidade {
         width: 250px;
         min-width: 250px;
-
         min-height: 300px;
     }
 
@@ -1680,28 +1750,278 @@ body {}
         width: 100%;
         max-width: 320px;
     }
-}
-/* CONTRIBUA */
-.secao-contribua {
-    background: #e8e8e8;
-    padding: 85px 0 75px;
+
+    /* Contribua */
+    .secao-contribua {
+        padding: 64px 0 58px;
+    }
 }
 
-.contribuicao-box {
-    text-align: center;
+
+/* =========================================================
+   RESPONSIVIDADE - CELULAR PEQUENO
+   Até 480px.
+========================================================= */
+@media (max-width: 480px) {
+
+    /* Produto */
+    .videos-section {
+        padding-top: 38px;
+        padding-bottom: 58px;
+    }
+
+    .videos-section::after {
+        inset: 310px 0 0;
+    }
+
+    .videos-section h2 {
+        font-size: 1.75rem;
+    }
+
+    .nosso-produto p {
+        font-size: 0.9rem;
+    }
+
+    .videos-container.container-padrao {
+        padding-top: 62px;
+        margin-bottom: 70px;
+    }
+
+    .video-card,
+    .video-card:nth-child(2) {
+        height: 250px;
+    }
+
+    .video-card span {
+        left: 14px;
+        bottom: 14px;
+        font-size: 0.74rem;
+    }
+
+    /* Card detecção */
+    .card-motivos {
+        padding: 30px 20px;
+        gap: 26px;
+    }
+
+    .texto h2 {
+        font-size: 24px;
+    }
+
+    .texto p {
+        font-size: 14px;
+    }
+
+    .imagem img {
+        width: min(100%, 260px);
+    }
+
+    /* Quem usa */
+    .secao-usuarios {
+        padding: 56px 16px;
+    }
+
+    .secao-usuarios h3 {
+        font-size: 1.45rem;
+        margin-bottom: 38px;
+    }
+
+    .usuario-bloco {
+        gap: 24px;
+        margin-bottom: 56px;
+    }
+
+    .usuario-imagem img {
+        height: 220px;
+    }
+
+    .destaque-laranja-verde::before,
+    .destaque-verde-laranja::before {
+        inset: -8px;
+    }
+
+    #pequenosNegocios,
+    #residenciasFamiliares,
+    #Restaurantes {
+        font-size: 1.55rem;
+    }
+
+    #um,
+    #dois,
+    #tres {
+        font-size: 0.88rem;
+    }
+
+    /* TRYX */
+    .texto-tryx h2 {
+        font-size: 2rem;
+    }
+
+    .texto-tryx h3 {
+        font-size: 1.12rem;
+    }
+
+    .tryx-recursos li {
+        font-size: 0.9rem;
+    }
+
+    .tryx-visual {
+        min-height: 330px;
+    }
+
+    .tryx-card-alerta,
+    .tryx-card-status {
+        display: none;
+    }
+
+    .tryx-orbita-um {
+        width: min(94%, 340px);
+    }
+
+    .tryx-orbita-dois {
+        width: min(72%, 250px);
+    }
+
+    .tryx-visual img {
+        width: min(90%, 320px);
+    }
+
+    .btn-tryx,
+    .btn-escuro {
+        width: 100%;
+        padding: 13px 18px;
+    }
+
+    /* Comunidade */
+    .topo-comunidade h2 {
+        font-size: 1.9rem;
+    }
+
+    .topo-comunidade p {
+        font-size: 0.9rem;
+    }
+
+    .card-comunidade {
+        width: 235px;
+        min-width: 235px;
+        padding: 20px;
+    }
+
+    .area-carrossel::before,
+    .area-carrossel::after {
+        width: 42px;
+    }
+
+    /* Contribua */
+    .contribuicao-box h3 {
+        font-size: 1.25rem;
+    }
+
+    .contribuicao-box p {
+        font-size: 0.85rem;
+    }
 }
 
+
+/* =========================================================
+   RESPONSIVIDADE - CELULAR MUITO PEQUENO
+   Até 375px.
+========================================================= */
+@media (max-width: 375px) {
+
+    .videos-section h2 {
+        font-size: 1.55rem;
+    }
+
+    .video-card,
+    .video-card:nth-child(2) {
+        height: 220px;
+    }
+
+    .usuario-imagem img {
+        height: 200px;
+    }
+
+    #pequenosNegocios,
+    #residenciasFamiliares,
+    #Restaurantes {
+        font-size: 1.35rem;
+    }
+
+    .texto-tryx h2 {
+        font-size: 1.75rem;
+    }
+
+    .topo-comunidade h2 {
+        font-size: 1.65rem;
+    }
+
+    .card-comunidade {
+        width: 220px;
+        min-width: 220px;
+    }
+}
+
+
+/* =========================================================
+   PADRÃO TIPOGRÁFICO FINAL DA HOME
+   Este bloco fica no final do arquivo para garantir que os
+   títulos principais das seções sigam o padrão global.
+
+   A variável --font-section-title fica no styleglobal.css.
+========================================================= */
+
+/* Títulos principais das seções */
+.videos-section h2,
+.secao-usuarios h3,
+.texto-tryx h2,
+.topo-comunidade h2 {
+    font-size: var(--font-section-title) !important;
+    line-height: var(--line-title) !important;
+    font-weight: var(--weight-extra-bold) !important;
+    letter-spacing: -1px;
+}
+
+/* Parágrafos principais das seções */
+.nosso-produto p,
+.texto-tryx p,
+.topo-comunidade p {
+    font-size: var(--font-paragraph-lg) !important;
+    line-height: var(--line-paragraph) !important;
+    font-weight: var(--weight-regular) !important;
+}
+
+/* Subtítulo da seção TRYX */
+.texto-tryx h3 {
+    font-size: var(--font-section-subtitle) !important;
+    line-height: var(--line-subtitle) !important;
+    font-weight: var(--weight-bold) !important;
+}
+
+/* Títulos menores de blocos/cards */
+#pequenosNegocios,
+#residenciasFamiliares,
+#Restaurantes,
+.texto h2,
 .contribuicao-box h3 {
-    font-size: 1.45rem;
-    font-weight: 800;
-    color: #071a2d;
-    margin-bottom: 10px;
+    font-size: var(--font-card-title) !important;
+    line-height: var(--line-title) !important;
+    font-weight: var(--weight-extra-bold) !important;
 }
 
+/* Parágrafos comuns */
+#um,
+#dois,
+#tres,
+.texto p,
+.card-comunidade .depoimento,
 .contribuicao-box p {
-    font-size: 0.9rem;
-    color: #444;
-    margin-bottom: 18px;
+    font-size: var(--font-paragraph) !important;
+    line-height: var(--line-paragraph) !important;
+    font-weight: var(--weight-regular) !important;
 }
-
-/* ===== FOOTER NOVO ESTA NO CSS GLOBAL =====
+/* Título específico da seção TRYX na Home */
+#titulo-tryx-home {
+    font-size: clamp(2.8rem, 5vw, 4.2rem) !important;
+    line-height: 1 !important;
+}

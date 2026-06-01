@@ -86,12 +86,10 @@ body {
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(
-            90deg,
+        linear-gradient(90deg,
             rgba(7, 14, 30, 0.92) 0%,
             rgba(7, 14, 30, 0.80) 48%,
-            rgba(7, 14, 30, 0.74) 100%
-        );
+            rgba(7, 14, 30, 0.74) 100%);
     z-index: 1;
 }
 
@@ -192,14 +190,16 @@ body {
     color: #ffffff;
     font-size: clamp(34px, 5vw, 58px);
     line-height: 1.06;
+
     .suporte-hero h1 {
-    color: #ffffff;
-    font-size: clamp(34px, 5vw, 58px);
-    line-height: 1.06;
-    letter-spacing: -1.8px;
-    margin-bottom: 20px;
-    max-width: 760px;
-}
+        color: #ffffff;
+        font-size: clamp(34px, 5vw, 58px);
+        line-height: 1.06;
+        letter-spacing: -1.8px;
+        margin-bottom: 20px;
+        max-width: 760px;
+    }
+
     letter-spacing: -1.8px;
     margin-bottom: 20px;
     max-width: 760px;
@@ -939,7 +939,9 @@ body {
 
 /* Animação leve da mascote */
 @keyframes tryxFloat {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
 
@@ -1586,7 +1588,20 @@ body {
 
     /* Reduz o espaçamento da hero */
     .suporte-hero {
-        padding: 125px 0 74px;
+        padding: 135px 0 70px;
+        min-height: auto;
+        overflow: visible;
+    }
+
+    .suporte-hero-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .suporte-hero-card {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
     }
 
     /* Overlay mais escuro no celular para melhorar leitura */
@@ -1678,8 +1693,8 @@ body {
 
     /* Posicionamento do chat flutuante no celular */
     .tryx-chat-widget {
-        right: 18px;
-        bottom: 18px;
+        right: 16px;
+        bottom: 16px;
     }
 
     /* Chat ocupa quase toda a largura no celular */
@@ -1691,7 +1706,7 @@ body {
 
     /* Botão flutuante um pouco menor no celular */
     .tryx-floating-button {
-        width: 58px;
-        height: 58px;
+        width: 52px;
+        height: 52px;
     }
 }

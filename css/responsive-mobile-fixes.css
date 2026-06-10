@@ -1,0 +1,2657 @@
+/* =========================================================
+   RESPONSIVE-MOBILE-FIXES.CSS
+   Ajustes finais de responsividade do projeto SENTRYX.
+
+   IMPORTANTE:
+   Este arquivo foi criado para corrigir telas menores sem
+   trocar nomes de classes, IDs ou a estrutura principal do HTML.
+
+   Como usar:
+   - Mantenha este CSS carregado depois do CSS global e depois
+     do CSS específico de cada página.
+   - Edite este arquivo quando precisar ajustar apenas mobile.
+   - Evite repetir aqui regras que já funcionam bem nos arquivos
+     originais. Use este arquivo para correções, refinamentos e
+     prevenção de overflow horizontal.
+
+   Paleta oficial:
+   - Verde: #1F8C47
+   - Azul escuro: #070E1E
+   - Laranja: #FAA301
+   - Branco: #FFFFFF
+========================================================= */
+
+/* =========================================================
+   BASE DE SEGURANÇA RESPONSIVA
+   Evita que elementos grandes criem rolagem lateral.
+========================================================= */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img,
+video,
+iframe,
+svg,
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Mantém textos longos dentro dos cards no celular. */
+p,
+h1,
+h2,
+h3,
+h4,
+a,
+span,
+strong,
+li {
+    overflow-wrap: break-word;
+}
+
+/* =========================================================
+   TELAS ATÉ 1199px
+   Ajustes para notebooks menores e tablets em paisagem.
+========================================================= */
+@media (max-width: 1199px) {
+
+    /* Reduz a largura útil dos containers sem mudar a classe global. */
+    .container,
+    .container-padrao {
+        width: min(100%, 1040px);
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+    /* Impede que grids de cards fiquem apertados demais. */
+    .container-planos,
+    .grid-depoimentos,
+    .grid-mvv,
+    .grid-equipe,
+    .caminhos-grid,
+    .base-grid,
+    .resumo-grid,
+    .painel-grid,
+    .sf-grid {
+        gap: 22px;
+    }
+}
+
+/* =========================================================
+   TELAS ATÉ 900px
+   Tablet e celulares grandes.
+   Aqui o layout começa a se comportar como app: colunas únicas,
+   cards menores e navegação horizontal confortável.
+========================================================= */
+@media (max-width: 900px) {
+
+    /* NAVBAR GLOBAL
+       Evita que o menu quebre em muitas linhas e ocupe metade da tela. */
+    header,
+    .nav {
+        padding: 8px 0;
+    }
+
+    nav .menu {
+        align-items: stretch;
+        gap: 9px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .menu .logo {
+        text-align: center;
+    }
+
+    .menu .logo a {
+        font-size: 1.55rem;
+        line-height: 1;
+    }
+
+    .menu ul {
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 8px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 2px 2px 6px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .menu ul::-webkit-scrollbar {
+        display: none;
+    }
+
+    .menu ul li {
+        flex: 0 0 auto;
+    }
+
+    .menu ul li a {
+        min-height: 34px;
+        padding: 7px 12px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        white-space: nowrap;
+        background: rgba(255, 255, 255, 0.06);
+    }
+
+    #selecionado {
+        background: #FFFFFF;
+        color: #070E1E;
+    }
+
+    /* HERO GLOBAL
+       Compensa o header fixo e reduz o impacto visual no mobile. */
+    .hero-padrao,
+    .suporte-hero {
+        min-height: auto;
+        padding-top: 132px;
+        padding-bottom: 64px;
+    }
+
+    .hero-conteudo,
+    .suporte-hero-container {
+        margin-top: 0;
+    }
+
+    .hero-title,
+    .suporte-hero-title,
+    .planos-showcase__texto h1,
+    .painel-topo h1,
+    .checkout-resumo h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
+        line-height: 1.05;
+        letter-spacing: -1px;
+    }
+
+    .hero-subtitle,
+    .suporte-hero-texto p,
+    .planos-showcase__texto p,
+    .descricao,
+    .checkout-resumo p {
+        font-size: 0.98rem;
+        line-height: 1.6;
+    }
+
+    /* Botões em largura total quando a tela começa a ficar estreita. */
+    .hero-botoes,
+    .suporte-hero-botoes,
+    .form-actions {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .btn-hero,
+    .btn-primary,
+    .btn-secondary,
+    .btn-suporte,
+    .btn-verde,
+    .btn-outline,
+    button {
+        min-height: 46px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* HOME: vídeos, público-alvo, TRYX e comunidade. */
+    .videos-container,
+    .usuarios-wrapper,
+    .tryx-grid,
+    .contribuicao-box {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .video-card,
+    .card-motivos,
+    .usuario-bloco,
+    .tryx-visual,
+    .tryx-card-alerta,
+    .tryx-card-status,
+    .card-comunidade,
+    .contribuicao-box {
+        border-radius: 22px;
+    }
+
+    .usuario-bloco,
+    .usuario-bloco.reverso,
+    .bloco-sobre,
+    .bloco-sobre.reverso {
+        flex-direction: column;
+        text-align: left;
+        gap: 22px;
+    }
+
+    .usuario-bloco.reverso .usuario-texto,
+    .bloco-sobre.reverso .bloco-texto {
+        text-align: left;
+    }
+
+    .usuario-imagem,
+    .bloco-imagem {
+        width: 100%;
+        max-width: 520px;
+        margin: 0 auto;
+    }
+
+    /* SOBRE NÓS: grids principais em uma coluna. */
+    .intro-grid,
+    .grid-mvv,
+    .grid-equipe {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    /* PLANOS: cartões mais proporcionais e sem altura exagerada. */
+    .planos-showcase,
+    .container-planos,
+    .planos-beneficios,
+    .grid-depoimentos,
+    .pulseira-card {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .card-plano,
+    .card-depoimento,
+    .pulseira-card,
+    .planos-showcase__painel {
+        min-height: auto;
+        padding: 24px;
+        border-radius: 22px;
+    }
+
+    /* SUPORTE: cards e colunas viram fluxo único. */
+    .hero-grid,
+    .caminhos-grid,
+    .tryx-container,
+    .base-grid,
+    .contact-grid,
+    .tryx-opcoes {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .suporte-hero-card,
+    .caminho-card,
+    .base-card,
+    .contact-card,
+    .tryx-mascote-box {
+        min-height: auto;
+        border-radius: 22px;
+    }
+
+    /* TECNOLOGIA: blocos técnicos em coluna para evitar aperto. */
+    .tecnologias-lab,
+    .tech-metricas,
+    .tech-trilha,
+    .sf-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .sf-card,
+    .tech-radar,
+    .tech-leitura {
+        min-height: auto;
+        border-radius: 22px;
+    }
+
+    /* PAINEL: layout de aplicativo, com cards compactos. */
+    .painel-container {
+        width: 100%;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .painel-topo,
+    .topo-info,
+    .resumo-grid,
+    .painel-grid,
+    .painel-grid.inferior,
+    .form-grid,
+    .suporte-popup-grid,
+    .checkout-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .card,
+    .info-box,
+    .resumo-card,
+    .modal-card,
+    .resumo,
+    .card-monitoramento,
+    .card-acoes,
+    .card-contatos,
+    .card-historico,
+    .card-orientacoes,
+    .card-suporte {
+        min-height: auto;
+        border-radius: 20px;
+    }
+}
+
+/* =========================================================
+   TELAS ATÉ 768px
+   Celulares comuns.
+   Reduz fontes, paddings e alturas para deixar tudo mais
+   proporcional, com aparência de app.
+========================================================= */
+@media (max-width: 768px) {
+
+    .container,
+    .container-padrao {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    section {
+        scroll-margin-top: 110px;
+    }
+
+    /* Títulos de seção menores para não dominar a tela. */
+    .section-title,
+    .titulo-secao,
+    .nosso-produto h2,
+    .secao-usuarios h2,
+    .texto-tryx h2,
+    .secao-intro h2,
+    .secao-mvv h2,
+    .tecnologias-topo h2,
+    .base-section h2,
+    .caminhos-section h2,
+    .tryx-info h2 {
+        font-size: clamp(1.65rem, 7vw, 2.25rem);
+        line-height: 1.12;
+        letter-spacing: -0.6px;
+    }
+
+    /* Parágrafos mais confortáveis para leitura no celular. */
+    p,
+    li {
+        font-size: 0.94rem;
+        line-height: 1.62;
+    }
+
+    /* HOME: cards menores, proporcionais e com menos respiro vertical. */
+    .videos-section,
+    .secao-usuarios,
+    .secao-tryx,
+    .secao-blocos,
+    .secao-mvv,
+    .secao-tecnologias,
+    .base-section,
+    .caminhos-section,
+    .tryx-section,
+    .contact-section,
+    .secao-planos,
+    .checkout {
+        padding-top: 56px;
+        padding-bottom: 56px;
+    }
+
+    .video-card,
+    .card-motivos,
+    .usuario-bloco,
+    .bloco-sobre,
+    .mvv-card,
+    .membro-card,
+    .card-plano,
+    .card-depoimento,
+    .sf-card,
+    .caminho-card,
+    .base-card,
+    .contact-card,
+    .card,
+    .resumo-card,
+    .modal-card {
+        padding: 20px;
+    }
+
+    /* Imagens não ficam gigantes no mobile. */
+    .usuario-imagem img,
+    .bloco-imagem img,
+    .intro-imagem img,
+    .membro-card img,
+    .pulseira-card img,
+    .tryx-mascote-box img,
+    .suporte-hero-card img {
+        width: 100%;
+        max-height: 330px;
+        object-fit: cover;
+        border-radius: 18px;
+    }
+
+    /* Evita que elementos decorativos passem por cima dos textos. */
+    .usuario-imagem,
+    .bloco-imagem,
+    .tryx-visual,
+    .suporte-hero-card,
+    .tech-radar {
+        overflow: hidden;
+    }
+
+    /* Cards de preço ficam menores e mais elegantes. */
+    .card-plano h3,
+    .resumo-card h3,
+    .modal-card h3 {
+        font-size: 1.35rem;
+    }
+
+    .preco,
+    .valor,
+    .resumo-topo h3 {
+        font-size: clamp(2rem, 12vw, 3rem);
+        line-height: 1;
+    }
+
+    /* Painel do usuário: reduz altura visual dos cards. */
+    .painel-container {
+        padding-top: 128px;
+        padding-bottom: 40px;
+    }
+
+    .painel-topo {
+        padding: 20px;
+        border-radius: 22px;
+    }
+
+    .resumo-grid .card,
+    .painel-grid .card,
+    .painel-grid.inferior .card {
+        padding: 18px;
+    }
+
+    .card-header {
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    /* Chat da TRYX: impede que o widget ultrapasse a largura do celular. */
+    .tryx-chat-widget,
+    .tryx-chat-box {
+        width: min(100% - 24px, 380px);
+        right: 12px;
+        left: auto;
+    }
+}
+
+/* =========================================================
+   TELAS ATÉ 480px
+   Ajuste fino para celulares menores.
+========================================================= */
+@media (max-width: 480px) {
+
+    .container,
+    .container-padrao,
+    .painel-container {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    nav .menu {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .menu .logo a {
+        font-size: 1.35rem;
+    }
+
+    .menu ul li a {
+        min-height: 32px;
+        padding: 6px 10px;
+        font-size: 0.72rem;
+    }
+
+    .hero-padrao,
+    .suporte-hero {
+        padding-top: 118px;
+        padding-bottom: 48px;
+    }
+
+    .hero-title,
+    .suporte-hero-title,
+    .planos-showcase__texto h1,
+    .painel-topo h1,
+    .checkout-resumo h1 {
+        font-size: clamp(1.75rem, 10vw, 2.3rem);
+        line-height: 1.08;
+    }
+
+    .hero-subtitle,
+    .suporte-hero-texto p,
+    .planos-showcase__texto p,
+    .descricao,
+    .checkout-resumo p {
+        font-size: 0.9rem;
+    }
+
+    .btn-hero,
+    .btn-primary,
+    .btn-secondary,
+    .btn-suporte,
+    .btn-verde,
+    .btn-outline,
+    button {
+        min-height: 44px;
+        padding-left: 16px;
+        padding-right: 16px;
+        font-size: 0.84rem;
+    }
+
+    .videos-section,
+    .secao-usuarios,
+    .secao-tryx,
+    .secao-blocos,
+    .secao-mvv,
+    .secao-tecnologias,
+    .base-section,
+    .caminhos-section,
+    .tryx-section,
+    .contact-section,
+    .secao-planos,
+    .checkout {
+        padding-top: 42px;
+        padding-bottom: 42px;
+    }
+
+    .video-card,
+    .card-motivos,
+    .usuario-bloco,
+    .bloco-sobre,
+    .mvv-card,
+    .membro-card,
+    .card-plano,
+    .card-depoimento,
+    .sf-card,
+    .caminho-card,
+    .base-card,
+    .contact-card,
+    .card,
+    .resumo-card,
+    .modal-card,
+    .planos-showcase__painel {
+        padding: 16px;
+        border-radius: 18px;
+    }
+
+    .usuario-imagem img,
+    .bloco-imagem img,
+    .intro-imagem img,
+    .membro-card img,
+    .pulseira-card img,
+    .tryx-mascote-box img,
+    .suporte-hero-card img {
+        max-height: 260px;
+    }
+
+    /* Cards de comunidade ficam menores e não criam overflow. */
+    .card-comunidade {
+        width: min(82vw, 280px);
+        min-width: min(82vw, 280px);
+        padding: 16px;
+    }
+
+    .avatar-card {
+        width: 64px;
+        height: 64px;
+    }
+
+    /* Formulários mais fáceis de tocar no celular. */
+    input,
+    select,
+    textarea {
+        min-height: 44px;
+        font-size: 0.92rem;
+    }
+
+    .form-actions {
+        gap: 10px;
+    }
+
+    /* Footer mais compacto, mas sem perder leitura. */
+    .footer-sentryx__topo {
+        padding-top: 34px;
+        padding-bottom: 26px;
+        gap: 24px;
+    }
+
+    .footer-sentryx__base-conteudo {
+        gap: 8px;
+        text-align: left;
+    }
+}
+
+/* =========================================================
+   TELAS ATÉ 360px
+   Ajustes para aparelhos bem estreitos.
+========================================================= */
+@media (max-width: 360px) {
+
+    .container,
+    .container-padrao,
+    .painel-container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .menu ul li a {
+        font-size: 0.68rem;
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+
+    .hero-title,
+    .suporte-hero-title,
+    .planos-showcase__texto h1,
+    .painel-topo h1,
+    .checkout-resumo h1 {
+        font-size: 1.65rem;
+    }
+
+    .video-card,
+    .card-motivos,
+    .usuario-bloco,
+    .bloco-sobre,
+    .mvv-card,
+    .membro-card,
+    .card-plano,
+    .card-depoimento,
+    .sf-card,
+    .caminho-card,
+    .base-card,
+    .contact-card,
+    .card,
+    .resumo-card,
+    .modal-card,
+    .planos-showcase__painel {
+        padding: 14px;
+    }
+}
+
+/* =========================================================
+   ACESSIBILIDADE E PERFORMANCE VISUAL
+   Respeita usuários que preferem menos animação.
+========================================================= */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =========================================================
+   AJUSTES FINOS MOBILE - VERSÃO 3
+   Estes ajustes foram adicionados após testes visuais no celular.
+   O objetivo aqui é corrigir pontos específicos que ainda ficaram
+   desproporcionais mesmo com as media queries anteriores.
+
+   Problemas corrigidos nesta etapa:
+   - hero mobile sem ocupar corretamente a primeira dobra;
+   - excesso de espaço entre textos e cards;
+   - cards de vídeo com "moldura azul" causada por padding indevido;
+   - seção TRYX da Home grande demais para celular;
+   - radar da tecnologia e bloco de leitura desproporcionais;
+   - hero de suporte com card de chat muito grande no mobile.
+========================================================= */
+
+@media (max-width: 768px) {
+
+    /* -----------------------------------------------------
+       HERO MOBILE EM TELA CHEIA
+       Faz a primeira dobra do usuário mostrar a hero de forma
+       mais próxima do desktop: foco no conteúdo principal,
+       menos espaço desperdiçado e altura total útil.
+    ------------------------------------------------------ */
+    .hero-padrao,
+    .suporte-hero {
+        min-height: 100svh !important;
+        padding-top: 96px !important;
+        padding-bottom: 24px !important;
+        display: flex;
+        align-items: center;
+    }
+
+    .hero-conteudo {
+        width: 100%;
+        margin-top: 0 !important;
+    }
+
+    .hero-conteudo .container-padrao {
+        min-height: calc(100svh - 120px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hero-title,
+    #tec,
+    .suporte-hero-title {
+        font-size: clamp(2.25rem, 10vw, 3.2rem) !important;
+        line-height: 0.96 !important;
+        letter-spacing: -1.2px !important;
+        margin-bottom: 14px !important;
+        max-width: 100% !important;
+    }
+
+    .hero-subtitle,
+    .suporte-hero-subtitle,
+    .suporte-hero-texto p {
+        max-width: 100% !important;
+        font-size: 0.94rem !important;
+        line-height: 1.58 !important;
+        margin-bottom: 18px !important;
+    }
+
+    .hero-botoes,
+    .suporte-hero-botoes {
+        gap: 10px !important;
+        margin-top: 0 !important;
+    }
+
+    .btn-hero,
+    .btn-primary,
+    .btn-secondary,
+    .btn-suporte,
+    .btn-verde,
+    .btn-outline,
+    .btn-primario,
+    .btn-secundario,
+    .btn-suporte-primary,
+    .btn-suporte-secondary {
+        min-height: 44px !important;
+        font-size: 0.86rem !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    /* -----------------------------------------------------
+       ESPAÇAMENTO ENTRE SEÇÕES
+       Reduz o “vazio” entre blocos para a navegação mobile
+       ficar mais confortável e com aparência mais refinada.
+    ------------------------------------------------------ */
+    .videos-section,
+    .secao-usuarios,
+    .secao-tryx,
+    .secao-blocos,
+    .secao-mvv,
+    .secao-tecnologias,
+    .base-section,
+    .caminhos-section,
+    .tryx-section,
+    .contact-section,
+    .secao-planos,
+    .checkout,
+    .secao-funcionamento,
+    .secao-funcionalidades {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+    }
+
+    /* -----------------------------------------------------
+       HOME - PRODUTO / VÍDEOS
+       Corrige o problema da borda azul aparente no mobile.
+       Aqui o card continua com a moldura, mas o vídeo volta a
+       preencher o espaço interno sem padding extra.
+    ------------------------------------------------------ */
+    .nosso-produto {
+        margin-bottom: 18px !important;
+    }
+
+    .videos-section h2,
+    .nosso-produto h2 {
+        font-size: clamp(1.9rem, 9vw, 2.9rem) !important;
+        line-height: 1.02 !important;
+        margin-bottom: 12px !important;
+    }
+
+    .nosso-produto p {
+        font-size: 0.92rem !important;
+        line-height: 1.58 !important;
+    }
+
+    .videos-container.container-padrao {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+        padding: 12px 18px 0 !important;
+        margin-bottom: 6px !important;
+    }
+
+    .video-card,
+    .video-card:nth-child(2) {
+        height: clamp(230px, 68vw, 310px) !important;
+        padding: 0 !important;
+        border-radius: 20px !important;
+        overflow: hidden !important;
+        background: #061a30 !important;
+    }
+
+    .video-card video {
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+    }
+
+    .video-card span {
+        left: 14px !important;
+        bottom: 14px !important;
+        padding: 7px 12px !important;
+        font-size: 0.76rem !important;
+    }
+
+    .produto-btn {
+        width: min(100%, 240px) !important;
+        min-height: 44px !important;
+        margin-top: 14px !important;
+    }
+
+    /* -----------------------------------------------------
+       HOME - QUEM USA
+       Reduz distância exagerada entre título e cards.
+    ------------------------------------------------------ */
+    .secao-usuarios {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+
+    .secao-usuarios h3 {
+        margin-bottom: 34px !important;
+    }
+
+    .usuario-bloco {
+        gap: 16px !important;
+        margin-bottom: 34px !important;
+    }
+
+    .usuario-texto p {
+        font-size: 0.94rem !important;
+        line-height: 1.6 !important;
+    }
+
+    /* -----------------------------------------------------
+       HOME - TRYX
+       Reorganiza a composição para celular, deixando a parte
+       visual mais compacta e evitando sensação de “bagunça”.
+    ------------------------------------------------------ */
+    .secao-tryx {
+        padding-top: 42px !important;
+        padding-bottom: 42px !important;
+    }
+
+    .tryx-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+        align-items: start !important;
+    }
+
+    .texto-tryx {
+        max-width: 100% !important;
+    }
+
+    .texto-tryx h2 {
+        font-size: clamp(2rem, 10vw, 3rem) !important;
+        line-height: 0.94 !important;
+        margin-bottom: 12px !important;
+    }
+
+    .texto-tryx h3 {
+        font-size: 1.02rem !important;
+        line-height: 1.28 !important;
+        margin-bottom: 12px !important;
+    }
+
+    .texto-tryx p {
+        font-size: 0.92rem !important;
+        line-height: 1.58 !important;
+        margin-bottom: 14px !important;
+    }
+
+    .tryx-metricas {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+        margin: 16px 0 18px !important;
+    }
+
+    .tryx-metricas div {
+        min-height: 72px !important;
+        padding: 12px 10px !important;
+        border-radius: 16px !important;
+    }
+
+    .tryx-metricas strong {
+        font-size: 1rem !important;
+    }
+
+    .tryx-metricas span {
+        font-size: 0.72rem !important;
+        margin-top: 6px !important;
+    }
+
+    .tryx-recursos {
+        gap: 10px !important;
+    }
+
+    .tryx-recursos li {
+        font-size: 0.9rem !important;
+        gap: 10px !important;
+    }
+
+    .btn-tryx,
+    .btn-escuro {
+        width: 100% !important;
+        margin-top: 18px !important;
+    }
+
+    .tryx-visual {
+        min-height: 390px !important;
+        overflow: hidden !important;
+    }
+
+    .tryx-visual::before {
+        width: min(88vw, 330px) !important;
+    }
+
+    .tryx-orbita-um {
+        width: min(90vw, 360px) !important;
+    }
+
+    .tryx-orbita-dois {
+        width: min(68vw, 250px) !important;
+    }
+
+    .tryx-visual img {
+        width: min(78vw, 280px) !important;
+        max-width: 280px !important;
+    }
+
+    .tryx-card-alerta {
+        top: 4px !important;
+        left: 6px !important;
+        max-width: 190px !important;
+        padding: 10px 12px !important;
+        gap: 8px !important;
+        border-radius: 16px !important;
+    }
+
+    .tryx-card-alerta i {
+        width: 28px !important;
+        height: 28px !important;
+        flex-basis: 28px !important;
+        font-size: 0.76rem !important;
+        border-radius: 8px !important;
+    }
+
+    .tryx-card-alerta strong {
+        font-size: 0.78rem !important;
+    }
+
+    .tryx-card-alerta span {
+        font-size: 0.68rem !important;
+    }
+
+    .tryx-card-status {
+        right: 8px !important;
+        bottom: 12px !important;
+        padding: 10px 12px !important;
+        font-size: 0.76rem !important;
+        border-radius: 14px !important;
+    }
+
+    /* -----------------------------------------------------
+       TECNOLOGIA - COMO FUNCIONA
+       Deixa os cards do fluxo mais compactos e menos espaçados.
+    ------------------------------------------------------ */
+    .funcionamento-topo {
+        margin-bottom: 22px !important;
+    }
+
+    .funcionamento-topo h2 {
+        font-size: clamp(1.7rem, 8vw, 2.4rem) !important;
+    }
+
+    .funcionamento-linha {
+        gap: 12px !important;
+    }
+
+    .passo-flip,
+    .passo-inner,
+    .passo-frente,
+    .passo-verso {
+        min-height: 178px !important;
+    }
+
+    .passo-frente,
+    .passo-verso {
+        padding: 18px 16px !important;
+        border-radius: 22px !important;
+    }
+
+    .passo-numero {
+        top: 16px !important;
+        right: 18px !important;
+        font-size: 1.3rem !important;
+    }
+
+    .passo-icone {
+        width: 54px !important;
+        height: 54px !important;
+        font-size: 1.2rem !important;
+        margin-bottom: 12px !important;
+    }
+
+    .passo-frente h3 {
+        font-size: 1.05rem !important;
+    }
+
+    .passo-verso p {
+        font-size: 0.88rem !important;
+        line-height: 1.5 !important;
+    }
+
+    /* -----------------------------------------------------
+       TECNOLOGIA - RADAR
+       Organiza o conjunto radar + painel de leitura para o celular,
+       com menos peso visual e melhor proporção.
+    ------------------------------------------------------ */
+    .secao-tecnologias {
+        padding-top: 42px !important;
+        padding-bottom: 42px !important;
+    }
+
+    .secao-tecnologias::after {
+        height: 90px !important;
+        top: -34px !important;
+    }
+
+    .tecnologias-topo {
+        margin-bottom: 20px !important;
+    }
+
+    .tecnologias-topo h2 {
+        font-size: clamp(1.8rem, 8.2vw, 2.5rem) !important;
+        line-height: 1.05 !important;
+        max-width: 100% !important;
+    }
+
+    .tecnologias-lab {
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+    }
+
+    .tech-radar {
+        width: min(100%, 320px) !important;
+        margin: 0 auto !important;
+    }
+
+    .radar-centro {
+        width: 118px !important;
+        height: 118px !important;
+    }
+
+    .radar-centro span {
+        font-size: 0.95rem !important;
+    }
+
+    .radar-centro small {
+        font-size: 0.52rem !important;
+    }
+
+    .tech-ponto {
+        min-width: auto !important;
+        padding: 8px !important;
+        border-radius: 14px !important;
+    }
+
+    .tech-ponto i {
+        font-size: 0.85rem !important;
+    }
+
+    .tech-ponto span {
+        display: none !important;
+    }
+
+    .tech-leitura {
+        padding: 20px 18px !important;
+        border-radius: 20px !important;
+    }
+
+    .tech-leitura-status {
+        font-size: 0.68rem !important;
+        margin-bottom: 10px !important;
+    }
+
+    .tech-leitura h3 {
+        font-size: 1.75rem !important;
+        margin-bottom: 10px !important;
+    }
+
+    .tech-leitura p {
+        font-size: 0.9rem !important;
+        line-height: 1.56 !important;
+    }
+
+    .tech-metricas {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+        margin-top: 16px !important;
+    }
+
+    .tech-metricas div {
+        padding-top: 12px !important;
+    }
+
+    .tech-metricas strong {
+        font-size: 0.95rem !important;
+    }
+
+    .tech-metricas span {
+        font-size: 0.72rem !important;
+    }
+
+    .tech-trilha {
+        gap: 8px !important;
+        margin-top: 14px !important;
+    }
+
+    /* -----------------------------------------------------
+       SUPORTE - HERO COM CHAT
+       Reduz o peso visual do bloco e deixa a composição mais
+       enxuta para o celular.
+    ------------------------------------------------------ */
+    .suporte-hero-container {
+        min-height: calc(100svh - 124px) !important;
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+        align-content: center !important;
+    }
+
+    .suporte-tag {
+        margin-bottom: 16px !important;
+        padding: 8px 14px !important;
+        font-size: 0.78rem !important;
+    }
+
+    .suporte-hero-card {
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        padding: 18px !important;
+        border-radius: 22px !important;
+    }
+
+    .tryx-card-topo {
+        gap: 12px !important;
+        margin-bottom: 16px !important;
+    }
+
+    .tryx-avatar {
+        width: 54px !important;
+        height: 54px !important;
+        border-radius: 16px !important;
+    }
+
+    .tryx-card-topo h3 {
+        font-size: 1.1rem !important;
+    }
+
+    .tryx-card-topo p {
+        font-size: 0.76rem !important;
+    }
+
+    .tryx-status {
+        width: 10px !important;
+        height: 10px !important;
+    }
+
+    .tryx-chat-preview {
+        gap: 10px !important;
+    }
+
+    .mensagem {
+        max-width: 88% !important;
+        padding: 12px 14px !important;
+        border-radius: 16px !important;
+        font-size: 0.86rem !important;
+        line-height: 1.45 !important;
+    }
+
+    .tryx-chat-preview .mensagem-tryx:last-child {
+        display: none !important;
+    }
+
+    .tryx-card-btn {
+        min-height: 46px !important;
+        margin-top: 16px !important;
+        border-radius: 14px !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Ajuste extra para celulares mais estreitos. */
+    .hero-padrao,
+    .suporte-hero {
+        padding-top: 92px !important;
+        padding-bottom: 20px !important;
+    }
+
+    .hero-conteudo .container-padrao {
+        min-height: calc(100svh - 112px);
+    }
+
+    .hero-title,
+    #tec,
+    .suporte-hero-title {
+        font-size: clamp(2rem, 10.5vw, 2.7rem) !important;
+    }
+
+    .videos-container.container-padrao {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+
+    .video-card,
+    .video-card:nth-child(2) {
+        height: 240px !important;
+        border-radius: 18px !important;
+    }
+
+    .tryx-metricas {
+        grid-template-columns: 1fr !important;
+    }
+
+    .tryx-metricas div {
+        min-height: auto !important;
+    }
+
+    .tryx-visual {
+        min-height: 350px !important;
+    }
+
+    .tryx-card-alerta {
+        max-width: 168px !important;
+    }
+
+    .tech-radar {
+        width: min(100%, 290px) !important;
+    }
+
+    .radar-centro {
+        width: 104px !important;
+        height: 104px !important;
+    }
+
+    .tech-leitura h3 {
+        font-size: 1.5rem !important;
+    }
+
+    .tech-metricas {
+        grid-template-columns: 1fr !important;
+    }
+
+    .suporte-hero-card {
+        padding: 16px !important;
+    }
+
+    .mensagem {
+        max-width: 92% !important;
+        font-size: 0.82rem !important;
+    }
+}
+
+
+/* =========================================================
+   AJUSTES MOBILE - VERSÃO 4
+   Refinamento visual após nova rodada de testes no celular.
+
+   Foco desta etapa:
+   - navbar com todos os links visíveis, incluindo Login;
+   - hero com texto mais elegante e menos “perdido” no meio;
+   - seção "Quem usa" com espaçamentos mais curtos;
+   - seção TRYX mais integrada ao conteúdo no mobile;
+   - página Sobre nós com melhor enquadramento e cards organizados;
+   - hero da tecnologia com vídeo ocupando toda a área;
+   - radar "Camadas inteligentes" simplificado e proporcional;
+   - seção de funcionalidades com título e cards mais compactos.
+========================================================= */
+
+@media (max-width: 768px) {
+
+    /* -----------------------------------------------------
+       NAVBAR MOBILE - 2 LINHAS / TODOS OS LINKS VISÍVEIS
+       Em vez de menu horizontal rolável, no celular passamos a
+       exibir os links em grade. Assim o botão Login aparece
+       sem depender de rolagem lateral.
+    ------------------------------------------------------ */
+    header,
+    .nav {
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
+    }
+
+    nav .menu {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 8px !important;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+
+    .menu .logo {
+        text-align: center !important;
+    }
+
+    .menu .logo a {
+        font-size: 1.35rem !important;
+    }
+
+    .menu ul {
+        width: 100% !important;
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 6px !important;
+        padding: 0 !important;
+        overflow: visible !important;
+    }
+
+    .menu ul li,
+    .menu ul li a {
+        width: 100% !important;
+    }
+
+    .menu ul li a {
+        min-height: 32px !important;
+        padding: 6px 8px !important;
+        font-size: 0.66rem !important;
+        border-radius: 999px !important;
+        white-space: nowrap !important;
+    }
+
+    /* -----------------------------------------------------
+       HERO MOBILE - CONTEÚDO MAIS ELEGANTE
+       O texto sai do centro da tela e passa a ficar mais próximo
+       da base útil da hero, com proporção mais refinada.
+    ------------------------------------------------------ */
+    .hero-padrao,
+    .suporte-hero {
+        min-height: 100svh !important;
+        padding-top: 118px !important;
+        padding-bottom: 16px !important;
+        align-items: stretch !important;
+    }
+
+    .hero-conteudo .container-padrao,
+    .suporte-hero-container {
+        min-height: calc(100svh - 134px) !important;
+    }
+
+    .hero-conteudo .container-padrao {
+        justify-content: flex-end !important;
+        padding-bottom: 24px !important;
+    }
+
+    .hero-title,
+    #tec,
+    .suporte-hero-title {
+        font-size: clamp(2.1rem, 10vw, 2.95rem) !important;
+        line-height: 0.95 !important;
+        margin-bottom: 12px !important;
+    }
+
+    .hero-subtitle,
+    .suporte-hero-subtitle,
+    .suporte-hero-texto p {
+        font-size: 0.96rem !important;
+        line-height: 1.55 !important;
+        margin-bottom: 16px !important;
+        max-width: 92% !important;
+    }
+
+    /* Home hero e hero Sobre nós com enquadramento melhor. */
+    body > main .hero-padrao .hero-bg {
+        object-position: center center !important;
+    }
+
+    .pagina-sobre .hero-padrao .hero-bg {
+        object-position: center 20% !important;
+        transform: scale(1.03);
+    }
+
+    /* Vídeo da tecnologia preenchendo a hero inteira. */
+    .hero-padrao .hero-bg video {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        display: block !important;
+    }
+
+    /* -----------------------------------------------------
+       HOME - QUEM USA
+       Diminui a distância entre imagem e texto.
+    ------------------------------------------------------ */
+    .secao-usuarios h3 {
+        margin-bottom: 22px !important;
+    }
+
+    .usuario-bloco,
+    .usuario-bloco.reverso {
+        gap: 12px !important;
+        margin-bottom: 26px !important;
+    }
+
+    .usuario-imagem {
+        max-width: 100% !important;
+    }
+
+    .usuario-imagem img {
+        height: 210px !important;
+        border-radius: 18px !important;
+    }
+
+    #pequenosNegocios,
+    #residenciasFamiliares,
+    #Restaurantes {
+        margin-bottom: 10px !important;
+    }
+
+    #um,
+    #dois,
+    #tres {
+        margin-bottom: 0 !important;
+        line-height: 1.65 !important;
+    }
+
+    /* -----------------------------------------------------
+       HOME - TRYX
+       Faz a seção ficar mais unida e menos “quebrada”.
+    ------------------------------------------------------ */
+    .tryx-grid {
+        gap: 18px !important;
+    }
+
+    .texto-tryx h2 {
+        margin-bottom: 10px !important;
+    }
+
+    .texto-tryx h3 {
+        margin-bottom: 10px !important;
+        font-size: 0.98rem !important;
+    }
+
+    .texto-tryx p {
+        margin-bottom: 12px !important;
+    }
+
+    .tryx-metricas {
+        gap: 7px !important;
+        margin: 14px 0 14px !important;
+    }
+
+    .tryx-metricas div {
+        min-height: 64px !important;
+        padding: 10px !important;
+    }
+
+    .tryx-recursos {
+        gap: 8px !important;
+    }
+
+    .tryx-recursos li {
+        font-size: 0.88rem !important;
+        line-height: 1.38 !important;
+    }
+
+    .btn-tryx,
+    .btn-escuro {
+        margin-top: 14px !important;
+    }
+
+    .tryx-visual {
+        min-height: 280px !important;
+        margin-top: 2px !important;
+    }
+
+    .tryx-visual::before {
+        width: min(82vw, 280px) !important;
+    }
+
+    .tryx-orbita-um {
+        width: min(84vw, 300px) !important;
+    }
+
+    .tryx-orbita-dois {
+        width: min(62vw, 220px) !important;
+    }
+
+    .tryx-visual img {
+        width: min(66vw, 220px) !important;
+        max-width: 220px !important;
+    }
+
+    .tryx-card-alerta {
+        top: 0 !important;
+        left: 14px !important;
+        max-width: 160px !important;
+        padding: 8px 10px !important;
+    }
+
+    .tryx-card-status {
+        right: 14px !important;
+        bottom: 4px !important;
+        max-width: 170px !important;
+        line-height: 1.3 !important;
+    }
+
+    /* -----------------------------------------------------
+       SOBRE NÓS - HERO E CONTEÚDO
+       Ajusta enquadramento, molduras e organização dos blocos.
+    ------------------------------------------------------ */
+    #SBh1 {
+        margin-bottom: 0 !important;
+    }
+
+    .secao-intro {
+        padding-top: 38px !important;
+        padding-bottom: 28px !important;
+    }
+
+    .intro-grid {
+        gap: 16px !important;
+    }
+
+    .intro-texto {
+        padding: 22px 18px !important;
+        border-radius: 22px !important;
+    }
+
+    .intro-texto h2 {
+        font-size: 1.8rem !important;
+        margin-bottom: 12px !important;
+    }
+
+    .intro-texto p {
+        line-height: 1.75 !important;
+        margin-bottom: 12px !important;
+    }
+
+    .intro-imagem {
+        position: relative !important;
+    }
+
+    .intro-imagem::before {
+        content: "" !important;
+        position: absolute !important;
+        inset: -10px !important;
+        border-radius: 22px !important;
+        border-top: 4px solid #FAA301 !important;
+        border-left: 4px solid #FAA301 !important;
+        border-right: 4px solid #1F8C47 !important;
+        border-bottom: 4px solid #1F8C47 !important;
+        z-index: 0 !important;
+    }
+
+    .intro-imagem img {
+        position: relative !important;
+        z-index: 1 !important;
+        min-height: 230px !important;
+        max-height: 260px !important;
+        border-radius: 18px !important;
+        object-position: center center !important;
+    }
+
+    .secao-blocos {
+        padding-top: 8px !important;
+        padding-bottom: 40px !important;
+    }
+
+    .bloco-sobre,
+    .bloco-sobre.reverso {
+        gap: 16px !important;
+        margin-bottom: 22px !important;
+        padding: 18px !important;
+        border-radius: 22px !important;
+        background: #ffffff !important;
+        box-shadow: 0 16px 34px rgba(7, 14, 30, 0.08) !important;
+    }
+
+    .bloco-imagem {
+        max-width: 100% !important;
+    }
+
+    .bloco-imagem img {
+        border-radius: 18px !important;
+        max-height: 220px !important;
+        width: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+    }
+
+    .bloco-texto,
+    .bloco-sobre.reverso .bloco-texto {
+        text-align: left !important;
+        max-width: 100% !important;
+    }
+
+    .bloco-texto h3 {
+        font-size: 1.7rem !important;
+        margin-bottom: 10px !important;
+    }
+
+    .bloco-texto p {
+        line-height: 1.72 !important;
+        margin-bottom: 10px !important;
+    }
+
+    /* -----------------------------------------------------
+       TECNOLOGIA - HERO / CAMADAS INTELIGENTES
+       Corrige a composição do radar no celular.
+    ------------------------------------------------------ */
+    .secao-tecnologias::after {
+        top: -18px !important;
+        height: 56px !important;
+    }
+
+    .tecnologias-topo h2 {
+        font-size: clamp(1.9rem, 8vw, 2.45rem) !important;
+        line-height: 0.98 !important;
+    }
+
+    .tech-radar {
+        width: min(100%, 300px) !important;
+        aspect-ratio: 1 / 1 !important;
+    }
+
+    .tech-radar::before,
+    .tech-radar::after {
+        opacity: 0.55 !important;
+    }
+
+    .radar-centro {
+        width: 100px !important;
+        height: 100px !important;
+    }
+
+    .tech-ponto {
+        width: 34px !important;
+        min-width: 34px !important;
+        height: 34px !important;
+        padding: 0 !important;
+        border-radius: 50% !important;
+        justify-content: center !important;
+        gap: 0 !important;
+        background: rgba(7, 14, 30, 0.84) !important;
+    }
+
+    .tech-ponto i {
+        width: 100% !important;
+        height: 100% !important;
+        font-size: 0.85rem !important;
+        background: transparent !important;
+        color: #FAA301 !important;
+    }
+
+    .tech-ponto.ativo,
+    .tech-ponto:hover {
+        background: #ffffff !important;
+        transform: translate(-50%, -50%) scale(1.06) !important;
+    }
+
+    .tech-ponto.ativo i,
+    .tech-ponto:hover i {
+        color: #070E1E !important;
+    }
+
+    .tech-leitura {
+        margin-top: 0 !important;
+        padding: 18px 16px !important;
+        border-radius: 18px !important;
+    }
+
+    .tech-leitura h3 {
+        font-size: 1.45rem !important;
+    }
+
+    .tech-leitura p {
+        font-size: 0.88rem !important;
+    }
+
+    /* -----------------------------------------------------
+       TECNOLOGIA - FUNCIONALIDADES
+       Título menor, cards padronizados e sem seta decorativa.
+    ------------------------------------------------------ */
+    .sf-title {
+        font-size: clamp(2rem, 9vw, 2.8rem) !important;
+        line-height: 1.02 !important;
+        margin-bottom: 20px !important;
+        max-width: 100% !important;
+    }
+
+    .sf-grid {
+        gap: 12px !important;
+    }
+
+    .sf-card {
+        gap: 14px !important;
+        padding: 16px 14px !important;
+        border-radius: 18px !important;
+        align-items: flex-start !important;
+        min-height: auto !important;
+    }
+
+    .sf-num {
+        min-width: 34px !important;
+        font-size: 1.6rem !important;
+    }
+
+    .sf-connector {
+        display: none !important;
+    }
+
+    .sf-icon-wrap {
+        width: 42px !important;
+        height: 42px !important;
+        flex-basis: 42px !important;
+    }
+
+    .sf-icon-wrap svg {
+        width: 18px !important;
+        height: 18px !important;
+    }
+
+    .sf-content h3 {
+        font-size: 0.98rem !important;
+        line-height: 1.28 !important;
+        margin-bottom: 4px !important;
+    }
+
+    .sf-content p {
+        font-size: 0.82rem !important;
+        line-height: 1.55 !important;
+    }
+
+    .sf-arrow {
+        display: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu ul li a {
+        font-size: 0.63rem !important;
+        padding: 6px 6px !important;
+    }
+
+    .hero-padrao,
+    .suporte-hero {
+        padding-top: 114px !important;
+    }
+
+    .hero-title,
+    #tec,
+    .suporte-hero-title {
+        font-size: clamp(1.95rem, 10.5vw, 2.6rem) !important;
+    }
+
+    .hero-subtitle,
+    .suporte-hero-subtitle,
+    .suporte-hero-texto p {
+        font-size: 0.92rem !important;
+        max-width: 100% !important;
+    }
+
+    .intro-imagem img,
+    .bloco-imagem img,
+    .usuario-imagem img {
+        max-height: 200px !important;
+    }
+
+    .tryx-visual {
+        min-height: 250px !important;
+    }
+
+    .tech-radar {
+        width: min(100%, 280px) !important;
+    }
+
+    .sf-card {
+        gap: 12px !important;
+        padding: 14px 12px !important;
+    }
+}
+
+
+/* =========================================================
+   AJUSTES MOBILE - VERSÃO 5
+   Refinamentos finais com base nos últimos prints:
+   - navbar volta para rolagem horizontal, mais leve visualmente;
+   - hero sai do "rodapé" e sobe um pouco;
+   - seção Quem usa com menos vazio e moldura colorida no card;
+   - seção TRYX com a imagem antes do CTA no mobile;
+   - seção Sobre nós com moldura colorida em todos os cards completos.
+========================================================= */
+
+@media (max-width: 768px) {
+
+    /* -----------------------------------------------------
+       NAVBAR MOBILE COM ROLAGEM HORIZONTAL
+       Substitui a versão em grade e mantém a navegação mais
+       parecida com o layout anterior, agora incluindo Login.
+    ------------------------------------------------------ */
+    nav .menu {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 8px !important;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+
+    .menu .logo {
+        text-align: center !important;
+    }
+
+    .menu ul {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        gap: 8px !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        white-space: nowrap !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        padding: 0 0 2px !important;
+    }
+
+    .menu ul::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .menu ul li,
+    .menu ul li a {
+        width: auto !important;
+        flex: 0 0 auto !important;
+    }
+
+    .menu ul li a {
+        min-height: 34px !important;
+        padding: 7px 14px !important;
+        font-size: 0.68rem !important;
+        border-radius: 999px !important;
+    }
+
+    /* -----------------------------------------------------
+       HERO MAIS ALTO QUE O RODAPÉ, MAS NÃO CENTRALIZADO DEMAIS
+       Sobe o bloco de texto para ficar em um ponto intermediário.
+    ------------------------------------------------------ */
+    .hero-padrao,
+    .suporte-hero {
+        padding-top: 96px !important;
+        padding-bottom: 22px !important;
+    }
+
+    .hero-conteudo .container-padrao {
+        min-height: calc(100svh - 120px) !important;
+        justify-content: flex-end !important;
+        padding-bottom: 86px !important;
+    }
+
+    .pagina-sobre .hero-conteudo .container-padrao,
+    .pagina-sobre .hero-conteudo {
+        min-height: calc(100svh - 120px) !important;
+    }
+
+    .hero-title,
+    #tec {
+        max-width: 92% !important;
+    }
+
+    .hero-subtitle {
+        max-width: 88% !important;
+    }
+
+    /* -----------------------------------------------------
+       QUEM USA - ESPAÇO MAIS CURTO E CARD COM MOLDURA COLORIDA
+    ------------------------------------------------------ */
+    .secao-usuarios {
+        padding-top: 34px !important;
+        padding-bottom: 24px !important;
+    }
+
+    .secao-usuarios h3 {
+        margin-bottom: 18px !important;
+    }
+
+    .usuarios-wrapper {
+        gap: 0 !important;
+    }
+
+    .usuario-bloco,
+    .usuario-bloco.reverso {
+        position: relative !important;
+        gap: 10px !important;
+        margin-bottom: 18px !important;
+        padding: 14px !important;
+        border-radius: 20px !important;
+        background: #ffffff !important;
+        box-shadow: 0 14px 28px rgba(7, 14, 30, 0.08) !important;
+    }
+
+    .usuario-bloco::before,
+    .usuario-bloco.reverso::before {
+        content: "" !important;
+        position: absolute !important;
+        inset: 0 !important;
+        border-radius: 20px !important;
+        pointer-events: none !important;
+    }
+
+    .usuario-bloco::before {
+        border-top: 3px solid #FAA301 !important;
+        border-left: 3px solid #FAA301 !important;
+        border-right: 3px solid #1F8C47 !important;
+        border-bottom: 3px solid #1F8C47 !important;
+    }
+
+    .usuario-bloco.reverso::before {
+        border-top: 3px solid #1F8C47 !important;
+        border-left: 3px solid #1F8C47 !important;
+        border-right: 3px solid #FAA301 !important;
+        border-bottom: 3px solid #FAA301 !important;
+    }
+
+    .usuario-imagem {
+        max-width: 100% !important;
+        margin-bottom: 0 !important;
+    }
+
+    .usuario-imagem img {
+        height: 176px !important;
+        border-radius: 14px !important;
+    }
+
+    .usuario-texto,
+    .usuario-bloco.reverso .usuario-texto {
+        text-align: center !important;
+        max-width: 100% !important;
+    }
+
+    #pequenosNegocios,
+    #residenciasFamiliares,
+    #Restaurantes {
+        margin: 2px 0 6px !important;
+    }
+
+    #um,
+    #dois,
+    #tres {
+        line-height: 1.55 !important;
+    }
+
+    /* -----------------------------------------------------
+       TRYX - IMAGEM NO MEIO E CTA DEPOIS DELA
+       O botão antigo fica escondido no mobile e o CTA novo,
+       abaixo da imagem, entra no lugar.
+    ------------------------------------------------------ */
+    .tryx-grid {
+        gap: 14px !important;
+    }
+
+    .tryx-cta-desktop {
+        display: none !important;
+    }
+
+    .tryx-cta-mobile-wrap {
+        display: block !important;
+        width: 100% !important;
+        order: 3 !important;
+        margin-top: -4px !important;
+    }
+
+    .tryx-cta-mobile {
+        display: inline-flex !important;
+        width: 100% !important;
+        justify-content: center !important;
+        margin-top: 0 !important;
+    }
+
+    .tryx-visual {
+        order: 2 !important;
+        min-height: 250px !important;
+        margin-top: -2px !important;
+    }
+
+    .tryx-visual::before {
+        width: min(82vw, 250px) !important;
+    }
+
+    .tryx-orbita-um {
+        width: min(78vw, 270px) !important;
+    }
+
+    .tryx-orbita-dois {
+        width: min(56vw, 200px) !important;
+    }
+
+    .tryx-visual img {
+        width: min(58vw, 190px) !important;
+        max-width: 190px !important;
+    }
+
+    .tryx-card-alerta {
+        left: 50% !important;
+        top: 6px !important;
+        transform: translateX(-50%) !important;
+        max-width: 176px !important;
+    }
+
+    .tryx-card-status {
+        left: 50% !important;
+        right: auto !important;
+        bottom: 2px !important;
+        transform: translateX(-50%) !important;
+        max-width: 180px !important;
+        text-align: center !important;
+        justify-content: center !important;
+    }
+
+    /* -----------------------------------------------------
+       SOBRE NÓS - BORDA EM TODOS OS CARDS INTEIROS
+    ------------------------------------------------------ */
+    .secao-blocos {
+        padding-top: 8px !important;
+        padding-bottom: 28px !important;
+    }
+
+    .bloco-sobre,
+    .bloco-sobre.reverso {
+        position: relative !important;
+        gap: 14px !important;
+        margin-bottom: 18px !important;
+        padding: 14px !important;
+        border-radius: 20px !important;
+        background: #ffffff !important;
+        box-shadow: 0 14px 30px rgba(7, 14, 30, 0.08) !important;
+    }
+
+    .bloco-sobre::before,
+    .bloco-sobre.reverso::before {
+        content: "" !important;
+        position: absolute !important;
+        inset: 0 !important;
+        border-radius: 20px !important;
+        pointer-events: none !important;
+    }
+
+    .bloco-sobre::before {
+        border-top: 3px solid #FAA301 !important;
+        border-left: 3px solid #FAA301 !important;
+        border-right: 3px solid #1F8C47 !important;
+        border-bottom: 3px solid #1F8C47 !important;
+    }
+
+    .bloco-sobre.reverso::before {
+        border-top: 3px solid #1F8C47 !important;
+        border-left: 3px solid #1F8C47 !important;
+        border-right: 3px solid #FAA301 !important;
+        border-bottom: 3px solid #FAA301 !important;
+    }
+
+    .bloco-imagem::before,
+    .moldura-laranja-verde::before,
+    .moldura-verde-laranja::before {
+        inset: -8px !important;
+        border-radius: 16px !important;
+    }
+
+    .bloco-imagem img {
+        max-height: 190px !important;
+        border-radius: 14px !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .tryx-cta-mobile-wrap {
+        display: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu ul li a {
+        font-size: 0.66rem !important;
+        padding: 7px 12px !important;
+    }
+
+    .hero-conteudo .container-padrao {
+        padding-bottom: 74px !important;
+    }
+
+    .usuario-imagem img {
+        height: 168px !important;
+    }
+
+    .tryx-visual {
+        min-height: 230px !important;
+    }
+
+    .tryx-card-alerta,
+    .tryx-card-status {
+        max-width: 165px !important;
+    }
+
+    .bloco-imagem img {
+        max-height: 176px !important;
+    }
+}
+
+
+/* =========================================================
+   AJUSTES MOBILE - VERSÃO 6
+   Foco desta etapa:
+   - seção TRYX da home com composição mais bonita e natural;
+   - introdução da página Sobre nós unindo texto + imagem;
+   - cards de missão/visão/valores mais compactos;
+   - seção TRYX do suporte sem espaço branco exagerado;
+   - reforço do botão de acessibilidade em todas as páginas.
+========================================================= */
+
+/* Elemento visual da TRYX específico para mobile.
+   No desktop ele não aparece para evitar duplicação. */
+.tryx-visual-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    /* -----------------------------------------------------
+       HOME - TRYX MAIS BONITA E CENTRALIZADA
+       A personagem passa a aparecer dentro do fluxo do texto,
+       em um visual centralizado e mais amigável ao usuário.
+    ------------------------------------------------------ */
+    .secao-tryx {
+        padding-top: 34px !important;
+        padding-bottom: 34px !important;
+    }
+
+    .tryx-grid {
+        display: block !important;
+    }
+
+    .texto-tryx {
+        max-width: 100% !important;
+    }
+
+    .texto-tryx h2,
+    .texto-tryx h3,
+    .texto-tryx p {
+        text-align: left !important;
+    }
+
+    .tryx-visual {
+        display: none !important;
+    }
+
+    .tryx-visual-mobile {
+        display: grid !important;
+        place-items: center !important;
+        position: relative !important;
+        min-height: 250px !important;
+        margin: 14px 0 12px !important;
+        border-radius: 26px !important;
+        overflow: hidden !important;
+        background:
+            radial-gradient(circle at 55% 50%, rgba(255, 255, 255, 0.34), transparent 34%),
+            linear-gradient(135deg, rgba(250, 163, 1, 0.96) 0%, rgba(31, 140, 71, 0.94) 100%) !important;
+        box-shadow: 0 18px 40px rgba(7, 14, 30, 0.14) !important;
+    }
+
+    .tryx-visual-mobile__orbita {
+        position: absolute;
+        border: 1px solid rgba(255, 255, 255, 0.36);
+        border-radius: 50%;
+    }
+
+    .tryx-visual-mobile__orbita-um {
+        width: min(82vw, 250px);
+        aspect-ratio: 1;
+    }
+
+    .tryx-visual-mobile__orbita-dois {
+        width: min(60vw, 180px);
+        aspect-ratio: 1;
+        transform: rotate(-18deg) scaleY(0.72);
+    }
+
+    .tryx-visual-mobile img {
+        position: relative;
+        z-index: 2;
+        width: min(54vw, 170px) !important;
+        height: auto !important;
+        filter: drop-shadow(0 18px 22px rgba(7, 14, 30, 0.24));
+    }
+
+    .tryx-metricas {
+        margin-top: 8px !important;
+    }
+
+    .texto-tryx .tryx-cta-desktop,
+    .texto-tryx .btn-tryx {
+        width: 100% !important;
+        margin-top: 14px !important;
+    }
+
+    .tryx-cta-mobile-wrap {
+        display: none !important;
+    }
+
+    /* -----------------------------------------------------
+       SOBRE NÓS - TEXTO VERDE + FOTO CONVERSANDO ENTRE SI
+       Agrupa os dois elementos em um único card visual.
+    ------------------------------------------------------ */
+    .secao-intro {
+        padding-top: 34px !important;
+        padding-bottom: 22px !important;
+    }
+
+    .intro-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        position: relative !important;
+        padding: 12px !important;
+        border-radius: 22px !important;
+        background: #ffffff !important;
+        box-shadow: 0 16px 34px rgba(7, 14, 30, 0.08) !important;
+    }
+
+    .intro-grid::before {
+        content: "" !important;
+        position: absolute !important;
+        inset: 0 !important;
+        border-radius: 22px !important;
+        border-top: 3px solid #FAA301 !important;
+        border-left: 3px solid #FAA301 !important;
+        border-right: 3px solid #1F8C47 !important;
+        border-bottom: 3px solid #1F8C47 !important;
+        pointer-events: none !important;
+    }
+
+    .intro-texto {
+        margin: 0 !important;
+        border-radius: 18px !important;
+        padding: 20px 16px !important;
+    }
+
+    .intro-imagem::before {
+        display: none !important;
+    }
+
+    .intro-imagem img {
+        min-height: 210px !important;
+        max-height: 230px !important;
+        border-radius: 18px !important;
+    }
+
+    /* -----------------------------------------------------
+       SOBRE NÓS - MISSÃO, VISÃO E VALORES MAIS COMPACTOS
+    ------------------------------------------------------ */
+    .secao-mvv {
+        padding: 54px 16px !important;
+    }
+
+    .titulo-missao-visao-valores h2 {
+        font-size: 1.9rem !important;
+    }
+
+    .titulo-missao-visao-valores p {
+        font-size: 0.92rem !important;
+    }
+
+    .grid-mvv {
+        gap: 14px !important;
+        margin-top: 24px !important;
+    }
+
+    .card-mvv {
+        padding: 18px 16px !important;
+        border-radius: 18px !important;
+    }
+
+    .card-mvv .icone {
+        width: 34px !important;
+        height: 34px !important;
+        min-width: 34px !important;
+        min-height: 34px !important;
+        font-size: 14px !important;
+        border-radius: 10px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .card-mvv h3 {
+        font-size: 1.45rem !important;
+        margin-bottom: 8px !important;
+    }
+
+    .card-mvv p {
+        font-size: 0.92rem !important;
+        line-height: 1.55 !important;
+    }
+
+    .tags {
+        gap: 8px !important;
+        margin-top: 10px !important;
+    }
+
+    .tags span {
+        padding: 5px 10px !important;
+        font-size: 0.74rem !important;
+    }
+
+    /* -----------------------------------------------------
+       SUPORTE - BLOCO DA TRYX SEM ESPAÇO EM BRANCO
+       Aproxima a imagem do conteúdo e compacta o card.
+    ------------------------------------------------------ */
+    .tryx-section {
+        padding-top: 38px !important;
+        padding-bottom: 38px !important;
+    }
+
+    .tryx-container {
+        gap: 20px !important;
+    }
+
+    .tryx-mascote-box {
+        min-height: auto !important;
+        max-width: 100% !important;
+        justify-self: stretch !important;
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+        padding: 18px 16px 16px !important;
+        border-radius: 24px !important;
+    }
+
+    .tryx-mascote-box::before {
+        width: 280px !important;
+        height: 280px !important;
+        left: 50% !important;
+        top: 26% !important;
+        transform: translate(-50%, -50%) !important;
+        opacity: 0.85 !important;
+    }
+
+    .tryx-mascote-img {
+        width: min(72vw, 230px) !important;
+        max-width: 230px !important;
+        margin: 0 auto -2px !important;
+        justify-self: center !important;
+    }
+
+    .tryx-mascote-content {
+        padding-right: 0 !important;
+        text-align: center !important;
+    }
+
+    .tryx-mascote-content h3 {
+        font-size: 1.8rem !important;
+        line-height: 1.05 !important;
+        margin-bottom: 10px !important;
+    }
+
+    .tryx-mascote-content p {
+        font-size: 0.94rem !important;
+        line-height: 1.55 !important;
+        margin-bottom: 14px !important;
+    }
+
+    .tryx-opcoes {
+        gap: 10px !important;
+    }
+
+    .tryx-opcoes button {
+        min-height: 42px !important;
+        padding: 10px 14px !important;
+        font-size: 0.86rem !important;
+        border-radius: 14px !important;
+    }
+
+    .btn-abrir-chat {
+        min-height: 44px !important;
+        margin-top: 14px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .tryx-visual-mobile {
+        min-height: 222px !important;
+    }
+
+    .tryx-visual-mobile img {
+        width: min(56vw, 156px) !important;
+    }
+
+    .intro-imagem img {
+        min-height: 190px !important;
+        max-height: 210px !important;
+    }
+
+    .card-mvv {
+        padding: 16px 14px !important;
+    }
+
+    .tryx-mascote-img {
+        width: min(70vw, 210px) !important;
+        max-width: 210px !important;
+    }
+}
+
+
+/* =========================================================
+   AJUSTES MOBILE - VERSÃO 7
+   Refinamento visual final:
+   - hero com tipografia e botões mais fortes;
+   - bloco da TRYX com visual mais premium e menos "quadrado".
+========================================================= */
+
+@media (max-width: 768px) {
+
+    /* -----------------------------------------------------
+       HERO HOME - MAIS PRESENÇA VISUAL
+       Aumenta tipografia e botões, e reduz a sensação de vazio.
+    ------------------------------------------------------ */
+    .hero-conteudo .container-padrao {
+        padding-bottom: 62px !important;
+    }
+
+    .hero-conteudo {
+        transform: translateY(-18px) !important;
+    }
+
+    .hero-title:not(#tec) {
+        font-size: clamp(2.7rem, 11.2vw, 3.55rem) !important;
+        line-height: 0.92 !important;
+        letter-spacing: -1.4px !important;
+        margin-bottom: 14px !important;
+        max-width: 96% !important;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem !important;
+        line-height: 1.58 !important;
+        max-width: 95% !important;
+        margin-bottom: 18px !important;
+    }
+
+    .hero-botoes {
+        gap: 12px !important;
+        width: 100% !important;
+    }
+
+    .hero-botoes .btn-hero {
+        width: 100% !important;
+        min-height: 50px !important;
+        padding: 0 18px !important;
+        font-size: 0.94rem !important;
+        font-weight: 700 !important;
+        border-radius: 999px !important;
+    }
+
+    /* -----------------------------------------------------
+       TRYX HOME - VISUAL PREMIUM MOBILE
+       Sai do aspecto de "card quadrado" e vira um showcase
+       horizontal, mais elegante e com aparência de produto.
+    ------------------------------------------------------ */
+    .tryx-visual-mobile {
+        min-height: 220px !important;
+        margin: 16px 0 16px !important;
+        padding: 18px 16px 20px !important;
+        border-radius: 30px !important;
+        background:
+            radial-gradient(circle at 68% 48%, rgba(255, 255, 255, 0.24), transparent 28%),
+            radial-gradient(circle at 34% 56%, rgba(255, 255, 255, 0.16), transparent 32%),
+            linear-gradient(135deg, #f3aa12 0%, #d79b17 18%, #6ea02c 58%, #1f8c47 100%) !important;
+        box-shadow: 0 20px 42px rgba(7, 14, 30, 0.16) !important;
+        isolation: isolate !important;
+    }
+
+    .tryx-visual-mobile::before {
+        content: "Assistente TRYX" !important;
+        position: absolute !important;
+        top: 14px !important;
+        left: 14px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        min-height: 30px !important;
+        padding: 0 12px !important;
+        border-radius: 999px !important;
+        background: rgba(255, 255, 255, 0.20) !important;
+        border: 1px solid rgba(255, 255, 255, 0.26) !important;
+        color: #ffffff !important;
+        font-size: 0.72rem !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.2px !important;
+        backdrop-filter: blur(10px) !important;
+        z-index: 3 !important;
+    }
+
+    .tryx-visual-mobile::after {
+        content: "IA • Alertas • Tempo real" !important;
+        position: absolute !important;
+        left: 50% !important;
+        bottom: 14px !important;
+        transform: translateX(-50%) !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-height: 32px !important;
+        padding: 0 14px !important;
+        border-radius: 999px !important;
+        background: rgba(7, 14, 30, 0.24) !important;
+        border: 1px solid rgba(255, 255, 255, 0.18) !important;
+        color: #ffffff !important;
+        font-size: 0.72rem !important;
+        font-weight: 700 !important;
+        white-space: nowrap !important;
+        backdrop-filter: blur(10px) !important;
+        z-index: 3 !important;
+    }
+
+    .tryx-visual-mobile__orbita-um {
+        width: min(92%, 300px) !important;
+        opacity: 0.44 !important;
+    }
+
+    .tryx-visual-mobile__orbita-dois {
+        width: min(64%, 188px) !important;
+        opacity: 0.55 !important;
+    }
+
+    .tryx-visual-mobile img {
+        width: min(62vw, 196px) !important;
+        max-width: 196px !important;
+        transform: translateY(4px) !important;
+    }
+
+    .tryx-metricas {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+    }
+
+    .tryx-metricas div {
+        border-radius: 16px !important;
+        background: rgba(255, 255, 255, 0.20) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title:not(#tec) {
+        font-size: clamp(2.45rem, 11vw, 3.1rem) !important;
+    }
+
+    .hero-subtitle {
+        font-size: 0.96rem !important;
+    }
+
+    .hero-conteudo .container-padrao {
+        padding-bottom: 54px !important;
+    }
+
+    .tryx-visual-mobile {
+        min-height: 205px !important;
+        border-radius: 26px !important;
+    }
+
+    .tryx-visual-mobile::before,
+    .tryx-visual-mobile::after {
+        font-size: 0.68rem !important;
+    }
+
+    .tryx-visual-mobile img {
+        width: min(60vw, 178px) !important;
+        max-width: 178px !important;
+    }
+}
+
+
+
+/* =========================================================
+   RESUMO FINAL DAS CORREÇÕES MOBILE
+   Este arquivo reúne os ajustes finais feitos depois dos testes
+   visuais no celular. Ele deve ser carregado por último no HTML.
+
+   Principais correções:
+   - evita overflow horizontal;
+   - melhora navbar em telas pequenas;
+   - ajusta hero, cards, vídeos, grids, TRYX e suporte;
+   - preserva nomes de classes e estrutura principal;
+   - centraliza correções mobile para não bagunçar CSS antigo.
+
+   Quando editar:
+   - use este arquivo para refinamentos de celular;
+   - não copie regras sem necessidade;
+   - procure antes se já existe uma regra semelhante acima.
+========================================================= */

@@ -2,11 +2,53 @@
 <html lang="pt-br">
 
 <head>
+    <!-- =========================================================
+         MAPA DO HEAD
+         Aqui ficam as configurações importantes da página:
+         - charset e viewport: compatibilidade e responsividade;
+         - title/description: SEO e resultado no Google;
+         - Open Graph/Twitter Cards: prévia em redes sociais;
+         - favicon: ícone da aba do navegador;
+         - CSS: estilos globais, específicos e correções mobile.
+    ========================================================== -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SENTRYX | Suporte</title>
+    <title>Suporte | SENTRYX e assistência com TRYX</title>
 
-    <!-- CSS global do projeto -->
+    
+    <!-- =========================================================
+         SEO DA PÁGINA
+         Ajuste o title e a description quando o conteúdo principal
+         da página mudar. Esses textos aparecem no Google e ajudam
+         a explicar a proposta da SENTRYX.
+    ========================================================== -->
+    <meta name="description" content="Acesse o suporte da SENTRYX, tire dúvidas sobre instalação, monitoramento, alertas e uso da IA TRYX para prevenção de vazamentos de gás.">
+    <meta name="keywords" content="SENTRYX, suporte, TRYX, atendimento, sensor offline, instalação de sensor, alerta de gás, vazamento de gás">
+    <meta name="author" content="SENTRYX">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#070E1E">
+
+    <!-- =========================================================
+         OPEN GRAPH / TWITTER CARDS
+         Controla a prévia do link em WhatsApp, LinkedIn e redes sociais.
+    ========================================================== -->
+    <meta property="og:title" content="Suporte | SENTRYX e assistência com TRYX">
+    <meta property="og:description" content="Acesse o suporte da SENTRYX, tire dúvidas sobre instalação, monitoramento, alertas e uso da IA TRYX para prevenção de vazamentos de gás.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/favicon32.png">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Suporte | SENTRYX e assistência com TRYX">
+    <meta name="twitter:description" content="Acesse o suporte da SENTRYX, tire dúvidas sobre instalação, monitoramento, alertas e uso da IA TRYX para prevenção de vazamentos de gás.">
+    <meta name="twitter:image" content="assets/favicon32.png">
+<!-- CSS global do projeto -->
+    <!-- =========================================================
+         FAVICON
+         Ícone exibido na aba do navegador.
+    ========================================================== -->
+    <link rel="shortcut icon" href="assets/favicon16x16.png" type="image/x-icon">
+
     <link rel="stylesheet" href="css/styleglobal.css">
 
     <!-- CSS exclusivo da tela de suporte -->
@@ -14,9 +56,23 @@
 
     <!-- Ícones Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <!-- =========================================================
+         AJUSTES FINAIS DE RESPONSIVIDADE
+         Deve ficar por último entre os CSS próprios do projeto para
+         corrigir mobile sem duplicar nem quebrar o CSS global.
+    ========================================================== -->
+    <link rel="stylesheet" href="css/responsive-mobile-fixes.css">
+
 </head>
 
 <body>
+
+    <!-- =========================================================
+         PÁGINA SUPORTE
+         Central de ajuda da SENTRYX com caminhos de atendimento,
+         orientações rápidas, base de conhecimento e apoio da TRYX.
+    ========================================================== -->
+
 
     <!-- HEADER -->
     <header>
@@ -42,7 +98,7 @@
     <section class="suporte-hero">
 
         <!-- Imagem de fundo puxada diretamente pelo HTML -->
-        <img src="assets/suportenossacor.png" alt="Imagem de fundo do suporte SENTRYX" class="hero-img-bg">
+        <img src="assets/suportenossacor.png" alt="Imagem de fundo do suporte SENTRYX" class="hero-img-bg" loading="lazy">
 
         <!-- Camadas visuais por cima da imagem -->
         <div class="hero-overlay"></div>
@@ -103,7 +159,7 @@
 
                     <!-- Imagem da TRYX puxada pelo HTML -->
                     <div class="tryx-avatar">
-                        <img src="assets/TRYX-sms.png" alt="Mascote TRYX">
+                        <img src="assets/TRYX-sms.png" alt="Mascote TRYX" loading="lazy">
                     </div>
 
                     <div>
@@ -362,7 +418,7 @@
             <div class="tryx-mascote-box">
 
                 <!-- Imagem da TRYX puxada pelo HTML -->
-                <img src="assets/TRYX-tchau.png" alt="Mascote TRYX" class="tryx-mascote-img">
+                <img src="assets/TRYX-tchau.png" alt="Mascote TRYX" class="tryx-mascote-img" loading="lazy">
 
                 <div class="tryx-mascote-content">
                     <h3>TRYX está pronta para te ajudar</h3>
@@ -509,7 +565,7 @@
     <div class="tryx-chat-widget">
 
         <button class="tryx-floating-button" id="abrirTryx" aria-label="Abrir chat da TRYX">
-            <img src="assets/TRYX-duvida.png" alt="TRYX">
+            <img src="assets/TRYX-duvida.png" alt="TRYX" loading="lazy">
         </button>
 
         <div class="tryx-chat-box" id="tryxChatBox">
@@ -518,7 +574,7 @@
 
                 <div class="tryx-header-info">
                     <div class="tryx-header-avatar">
-                        <img src="assets/TRYX-duvida.png" alt="TRYX">
+                        <img src="assets/TRYX-duvida.png" alt="TRYX" loading="lazy">
                     </div>
 
                     <div>
@@ -577,6 +633,26 @@
 
     <!-- JS da TRYX -->
     <script src="js/tryx-chat.js"></script>
+
+
+
+    <!-- =========================================================
+         ACESSIBILIDADE - VLIBRAS
+         Plugin oficial de acessibilidade em Libras.
+    ========================================================== -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
 
 </body>
 

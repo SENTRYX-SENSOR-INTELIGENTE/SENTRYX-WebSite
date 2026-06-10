@@ -2,19 +2,75 @@
 <html lang="pt-br">
 
 <head>
+    <!-- =========================================================
+         MAPA DO HEAD
+         Aqui ficam as configurações importantes da página:
+         - charset e viewport: compatibilidade e responsividade;
+         - title/description: SEO e resultado no Google;
+         - Open Graph/Twitter Cards: prévia em redes sociais;
+         - favicon: ícone da aba do navegador;
+         - CSS: estilos globais, específicos e correções mobile.
+    ========================================================== -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - SENTRYX</title>
-    <link rel="stylesheet" href="css/login.css">
+    <title>Login | Painel SENTRYX</title>
+    
+    <!-- =========================================================
+         SEO DA PÁGINA
+         Ajuste o title e a description quando o conteúdo principal
+         da página mudar. Esses textos aparecem no Google e ajudam
+         a explicar a proposta da SENTRYX.
+    ========================================================== -->
+    <meta name="description" content="Acesse o painel da SENTRYX para acompanhar sensores, alertas, ambientes monitorados e contatos de emergência.">
+    <meta name="keywords" content="SENTRYX, login, painel, monitoramento de gás, sensores, alertas, contatos de emergência">
+    <meta name="author" content="SENTRYX">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#070E1E">
+
+    <!-- =========================================================
+         OPEN GRAPH / TWITTER CARDS
+         Controla a prévia do link em WhatsApp, LinkedIn e redes sociais.
+    ========================================================== -->
+    <meta property="og:title" content="Login | Painel SENTRYX">
+    <meta property="og:description" content="Acesse o painel da SENTRYX para acompanhar sensores, alertas, ambientes monitorados e contatos de emergência.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/favicon32.png">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Login | Painel SENTRYX">
+    <meta name="twitter:description" content="Acesse o painel da SENTRYX para acompanhar sensores, alertas, ambientes monitorados e contatos de emergência.">
+    <meta name="twitter:image" content="assets/favicon32.png">
+    <!-- =========================================================
+         FAVICON
+         Ícone exibido na aba do navegador.
+    ========================================================== -->
+    <link rel="shortcut icon" href="assets/favicon16x16.png" type="image/x-icon">
+
+<link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- =========================================================
+         AJUSTES FINAIS DE RESPONSIVIDADE
+         Deve ficar por último entre os CSS próprios do projeto para
+         corrigir mobile sem duplicar nem quebrar o CSS global.
+    ========================================================== -->
+    <link rel="stylesheet" href="css/responsive-mobile-fixes.css">
+
 </head>
 
 <body>
 
+    <!-- =========================================================
+         PÁGINA LOGIN
+         Tela de acesso ao painel do usuário SENTRYX.
+         Mantém estrutura simples para facilitar integração futura.
+    ========================================================== -->
+
+
 
     <div class="container">
         <div class="login-box">
-            <h2>SENTRY<span>X</span></h2>
+            <h1>SENTRY<span>X</span></h1>
             <p>Faça login na sua conta</p>
 
             <form>
@@ -26,22 +82,37 @@
                     <input type="password" placeholder="Senha" required>
                 </div>
 
-                <a href="indexusuario.html">
-                    <button type="button">Entrar</button>
-                </a>
+                <!-- Link com aparência de botão: evita botão dentro de <a>, que é HTML inválido. -->
+                <a class="botao-login" href="indexusuario.html">Entrar</a>
             </form>
 
             <div class="extra">
                 <a href="#">Esqueceu a senha?</a>
                 <p>Não tem conta? <a href="#">Cadastre-se</a></p>
             </div>
-            </a>
         </div>
     </div>
     </div>
+
+
+
+    <!-- =========================================================
+         ACESSIBILIDADE - VLIBRAS
+         Plugin oficial de acessibilidade em Libras.
+    ========================================================== -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
     </div>
 
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
 
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
 
 </body>
 

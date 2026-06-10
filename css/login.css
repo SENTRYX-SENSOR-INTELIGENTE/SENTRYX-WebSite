@@ -1,3 +1,14 @@
+/* =========================================================
+   LOGIN.CSS
+   Estilos específicos da página de login da SENTRYX.
+
+   Controla:
+   - card de login;
+   - campos do formulário;
+   - botões;
+   - aparência visual da tela de acesso.
+========================================================= */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 * {
@@ -38,6 +49,7 @@ body {
 }
 
 /* LOGO */
+.login-box h1,
 .login-box h2 {
     margin: 0;
 }
@@ -121,3 +133,65 @@ button:hover {
     cursor: pointer;
     transition: all 0.3s ease;
 }
+/* =========================================================
+   BOTÃO DE LOGIN COMO LINK
+   Usado no HTML para evitar a estrutura inválida de colocar
+   um <button> dentro de um <a>. Mantém a mesma aparência visual.
+========================================================= */
+.botao-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px;
+    background: #1F8C47;
+    color: #FFFFFF;
+    border-radius: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.botao-login:hover {
+    background: #176c36;
+    transform: scale(1.03);
+}
+
+/* =========================================================
+   RESPONSIVIDADE DO LOGIN
+   Mantém o card centralizado e proporcional em celulares.
+========================================================= */
+@media (max-width: 480px) {
+    body {
+        min-height: 100svh;
+        height: auto;
+        padding: 24px 14px;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .login-box {
+        width: 100%;
+        max-width: 360px;
+        padding: 26px 18px;
+        border-radius: 18px;
+    }
+
+    .input-box input {
+        font-size: 0.95rem;
+    }
+}
+
+
+/* =========================================================
+   NOTA DE MANUTENÇÃO
+   Para futuras edições:
+   - cores principais: #1F8C47, #070E1E, #FAA301 e #FFFFFF;
+   - evite duplicar media queries sem verificar o CSS global;
+   - mantenha classes e IDs existentes para não quebrar páginas;
+   - ajustes de celular devem ficar preferencialmente em
+     responsive-mobile-fixes.css.
+========================================================= */

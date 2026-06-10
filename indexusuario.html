@@ -3,6 +3,16 @@
 
 
 <head>
+    <!-- =========================================================
+         MAPA DO HEAD
+         Aqui ficam as configurações importantes da página:
+         - charset e viewport: compatibilidade e responsividade;
+         - title/description: SEO e resultado no Google;
+         - Open Graph/Twitter Cards: prévia em redes sociais;
+         - favicon: ícone da aba do navegador;
+         - CSS: estilos globais, específicos e correções mobile.
+    ========================================================== -->
+
     <meta charset="UTF-8">
 
     <!-- OBS:
@@ -11,16 +21,62 @@
 
     <!-- OBS:
     Título da aba -->
-    <title>SENTRYX | Painel do Usuário</title>
+    <title>Painel do usuário | Monitoramento SENTRYX</title>
 
-    <!-- OBS:
+    
+    <!-- =========================================================
+         SEO DA PÁGINA
+         Ajuste o title e a description quando o conteúdo principal
+         da página mudar. Esses textos aparecem no Google e ajudam
+         a explicar a proposta da SENTRYX.
+    ========================================================== -->
+    <meta name="description" content="Painel do usuário SENTRYX para acompanhar status do sensor, nível de gás, histórico de alertas e contatos de emergência.">
+    <meta name="keywords" content="SENTRYX, painel do usuário, monitoramento, sensor de gás, histórico de alertas, nível de gás">
+    <meta name="author" content="SENTRYX">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#070E1E">
+
+    <!-- =========================================================
+         OPEN GRAPH / TWITTER CARDS
+         Controla a prévia do link em WhatsApp, LinkedIn e redes sociais.
+    ========================================================== -->
+    <meta property="og:title" content="Painel do usuário | SENTRYX">
+    <meta property="og:description" content="Painel do usuário SENTRYX para acompanhar status do sensor, nível de gás, histórico de alertas e contatos de emergência.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/favicon32.png">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Painel do usuário | SENTRYX">
+    <meta name="twitter:description" content="Painel do usuário SENTRYX para acompanhar status do sensor, nível de gás, histórico de alertas e contatos de emergência.">
+    <meta name="twitter:image" content="assets/favicon32.png">
+<!-- OBS:
     Arquivo CSS do painel -->
+    <!-- =========================================================
+         FAVICON
+         Ícone exibido na aba do navegador.
+    ========================================================== -->
+    <link rel="shortcut icon" href="assets/favicon16x16.png" type="image/x-icon">
+
     <link rel="stylesheet" href="css/styleusuario.css">
     <link rel="stylesheet" href="css/styleglobal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- =========================================================
+         AJUSTES FINAIS DE RESPONSIVIDADE
+         Deve ficar por último entre os CSS próprios do projeto para
+         corrigir mobile sem duplicar nem quebrar o CSS global.
+    ========================================================== -->
+    <link rel="stylesheet" href="css/responsive-mobile-fixes.css">
+
 </head>
 
 <body>
+
+    <!-- =========================================================
+         PAINEL DO USUÁRIO
+         Área de monitoramento do sensor, status, histórico,
+         contatos de emergência e orientações preventivas.
+    ========================================================== -->
+
 
     <!-- OBS:
     Header seguindo o padrão visual do site -->

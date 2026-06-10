@@ -1,3 +1,19 @@
+/* =========================================================
+   STYLETECNOLOGIA.CSS
+   Estilos específicos da página Tecnologia.
+
+   Controla:
+   - hero da tecnologia;
+   - cards de funcionamento;
+   - radar/camadas inteligentes;
+   - funcionalidades;
+   - diferenciais técnicos.
+
+   CUIDADO:
+   O radar possui elementos posicionados de forma absoluta.
+   Ajustes mobile finais ficam no responsive-mobile-fixes.css.
+========================================================= */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 /* OBS:
@@ -1531,3 +1547,14 @@ section h2 {
         font-size: 28px;
     }
 }
+
+
+/* =========================================================
+   NOTA DE MANUTENÇÃO
+   Para futuras edições:
+   - cores principais: #1F8C47, #070E1E, #FAA301 e #FFFFFF;
+   - evite duplicar media queries sem verificar o CSS global;
+   - mantenha classes e IDs existentes para não quebrar páginas;
+   - ajustes de celular devem ficar preferencialmente em
+     responsive-mobile-fixes.css.
+========================================================= */

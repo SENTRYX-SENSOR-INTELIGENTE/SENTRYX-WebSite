@@ -2,6 +2,16 @@
 <html lang="pt-BR">
 
 <head>
+    <!-- =========================================================
+         MAPA DO HEAD
+         Aqui ficam as configurações importantes da página:
+         - charset e viewport: compatibilidade e responsividade;
+         - title/description: SEO e resultado no Google;
+         - Open Graph/Twitter Cards: prévia em redes sociais;
+         - favicon: ícone da aba do navegador;
+         - CSS: estilos globais, específicos e correções mobile.
+    ========================================================== -->
+
     <meta charset="UTF-8">
 
     <!-- OBS:
@@ -10,18 +20,64 @@
 
     <!-- OBS:
     Título da aba -->
-    <title>SENTRYX | Tecnologia</title>
+    <title>Tecnologia | Sensor inteligente de gás SENTRYX</title>
 
-    <!-- OBS:
+    
+    <!-- =========================================================
+         SEO DA PÁGINA
+         Ajuste o title e a description quando o conteúdo principal
+         da página mudar. Esses textos aparecem no Google e ajudam
+         a explicar a proposta da SENTRYX.
+    ========================================================== -->
+    <meta name="description" content="Entenda a tecnologia da SENTRYX: sensor inteligente, monitoramento em tempo real, alertas preventivos e IA TRYX para segurança contra vazamentos de gás.">
+    <meta name="keywords" content="SENTRYX, tecnologia, sensor de gás, detector de gás, vazamento de gás, GLP, gás natural, IA TRYX, monitoramento em tempo real">
+    <meta name="author" content="SENTRYX">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#070E1E">
+
+    <!-- =========================================================
+         OPEN GRAPH / TWITTER CARDS
+         Controla a prévia do link em WhatsApp, LinkedIn e redes sociais.
+    ========================================================== -->
+    <meta property="og:title" content="Tecnologia | Sensor inteligente de gás SENTRYX">
+    <meta property="og:description" content="Entenda a tecnologia da SENTRYX: sensor inteligente, monitoramento em tempo real, alertas preventivos e IA TRYX para segurança contra vazamentos de gás.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/favicon32.png">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tecnologia | Sensor inteligente de gás SENTRYX">
+    <meta name="twitter:description" content="Entenda a tecnologia da SENTRYX: sensor inteligente, monitoramento em tempo real, alertas preventivos e IA TRYX para segurança contra vazamentos de gás.">
+    <meta name="twitter:image" content="assets/favicon32.png">
+<!-- OBS:
     Arquivo CSS da página -->
+    <!-- =========================================================
+         FAVICON
+         Ícone exibido na aba do navegador.
+    ========================================================== -->
+    <link rel="shortcut icon" href="assets/favicon16x16.png" type="image/x-icon">
+
     <link rel="stylesheet" href="css/styletecnologia.css">
     <link rel="stylesheet" href="css/styleglobal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- =========================================================
+         AJUSTES FINAIS DE RESPONSIVIDADE
+         Deve ficar por último entre os CSS próprios do projeto para
+         corrigir mobile sem duplicar nem quebrar o CSS global.
+    ========================================================== -->
+    <link rel="stylesheet" href="css/responsive-mobile-fixes.css">
+
 </head>
 
 <body>
+
+    <!-- =========================================================
+         PÁGINA TECNOLOGIA
+         Explica como o sensor, a IA TRYX, o monitoramento e os
+         alertas trabalham juntos para prevenir vazamentos de gás.
+    ========================================================== -->
+
 
     <!--BARRA DE NAVEGAÇÃO-->
     <header>
@@ -930,6 +986,26 @@
             </div>
         </footer>
         <!--Fim - Novo Footer -->
+
+
+
+    <!-- =========================================================
+         ACESSIBILIDADE - VLIBRAS
+         Plugin oficial de acessibilidade em Libras.
+    ========================================================== -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
 
 </body>
 

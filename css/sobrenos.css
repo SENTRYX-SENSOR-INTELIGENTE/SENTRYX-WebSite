@@ -1,3 +1,20 @@
+/* =========================================================
+   SOBRENOS.CSS
+   Estilos específicos da página Sobre nós.
+
+   Controla:
+   - hero da página Sobre;
+   - introdução/história;
+   - blocos com molduras;
+   - missão, visão e valores;
+   - equipe.
+
+   CUIDADO:
+   Os cards usam molduras verde/laranja para manter a
+   identidade visual. Ajustes mobile estão no arquivo
+   responsive-mobile-fixes.css.
+========================================================= */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 * {
@@ -543,3 +560,14 @@ ul {
 }
 
 /* FOOTER ESTA NO CSS GLOBAL */
+
+
+/* =========================================================
+   NOTA DE MANUTENÇÃO
+   Para futuras edições:
+   - cores principais: #1F8C47, #070E1E, #FAA301 e #FFFFFF;
+   - evite duplicar media queries sem verificar o CSS global;
+   - mantenha classes e IDs existentes para não quebrar páginas;
+   - ajustes de celular devem ficar preferencialmente em
+     responsive-mobile-fixes.css.
+========================================================= */

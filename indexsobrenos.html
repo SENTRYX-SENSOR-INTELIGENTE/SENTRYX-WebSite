@@ -2,17 +2,74 @@
 <html lang="pt-BR">
 
 <head>
+    <!-- =========================================================
+         MAPA DO HEAD
+         Aqui ficam as configurações importantes da página:
+         - charset e viewport: compatibilidade e responsividade;
+         - title/description: SEO e resultado no Google;
+         - Open Graph/Twitter Cards: prévia em redes sociais;
+         - favicon: ícone da aba do navegador;
+         - CSS: estilos globais, específicos e correções mobile.
+    ========================================================== -->
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sobre nós | SENTRYX</title>
-  <link rel="stylesheet" href="css/styleglobal.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre nós | História, missão e equipe SENTRYX</title>
+  
+    <!-- =========================================================
+         SEO DA PÁGINA
+         Ajuste o title e a description quando o conteúdo principal
+         da página mudar. Esses textos aparecem no Google e ajudam
+         a explicar a proposta da SENTRYX.
+    ========================================================== -->
+    <meta name="description" content="Conheça a história, missão, visão, valores e equipe da SENTRYX, projeto de tecnologia preventiva para detecção de vazamentos de gás.">
+    <meta name="keywords" content="SENTRYX, sobre nós, missão, visão, valores, equipe, sensor de gás, prevenção de vazamentos, tecnologia preventiva">
+    <meta name="author" content="SENTRYX">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#070E1E">
+
+    <!-- =========================================================
+         OPEN GRAPH / TWITTER CARDS
+         Controla a prévia do link em WhatsApp, LinkedIn e redes sociais.
+    ========================================================== -->
+    <meta property="og:title" content="Sobre nós | SENTRYX">
+    <meta property="og:description" content="Conheça a história, missão, visão, valores e equipe da SENTRYX, projeto de tecnologia preventiva para detecção de vazamentos de gás.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/favicon32.png">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sobre nós | SENTRYX">
+    <meta name="twitter:description" content="Conheça a história, missão, visão, valores e equipe da SENTRYX, projeto de tecnologia preventiva para detecção de vazamentos de gás.">
+    <meta name="twitter:image" content="assets/favicon32.png">
+    <!-- =========================================================
+         FAVICON
+         Ícone exibido na aba do navegador.
+    ========================================================== -->
+    <link rel="shortcut icon" href="assets/favicon16x16.png" type="image/x-icon">
+
+<link rel="stylesheet" href="css/styleglobal.css">
   <link rel="stylesheet" href="css/sobrenos.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- =========================================================
+         AJUSTES FINAIS DE RESPONSIVIDADE
+         Deve ficar por último entre os CSS próprios do projeto para
+         corrigir mobile sem duplicar nem quebrar o CSS global.
+    ========================================================== -->
+    <link rel="stylesheet" href="css/responsive-mobile-fixes.css">
+
 </head>
 
 <body>
+
+    <!-- =========================================================
+         PÁGINA SOBRE NÓS
+         Apresenta a história da SENTRYX, origem do projeto,
+         missão, visão, valores e equipe. Os blocos visuais usam
+         molduras verde/laranja para manter a identidade da marca.
+    ========================================================== -->
+
 
   <!--BARRA DE NAVEGAÇÃO-->
   <header>
@@ -92,7 +149,7 @@
           </div>
 
           <div class="intro-imagem">
-            <img src="assets/nossahistoria.png" alt="Sobre a SENTRYX">
+            <img src="assets/nossahistoria.png" alt="Sobre a SENTRYX" loading="lazy">
           </div>
         </div>
       </div>
@@ -104,7 +161,7 @@
 
         <div class="bloco-sobre">
           <div class="bloco-imagem moldura-laranja-verde">
-            <img src="assets/jornal.png" alt="História da SENTRYX">
+            <img src="assets/jornal.png" alt="História da SENTRYX" loading="lazy">
           </div>
 
           <div class="bloco-texto">
@@ -123,7 +180,7 @@
 
         <div class="bloco-sobre reverso">
           <div class="bloco-imagem moldura-verde-laranja">
-            <img src="assets/sensor.png" alt="Produto SENTRYX">
+            <img src="assets/sensor.png" alt="Produto SENTRYX" loading="lazy">
           </div>
 
           <div class="bloco-texto">
@@ -141,7 +198,7 @@
 
         <div class="bloco-sobre">
           <div class="bloco-imagem moldura-laranja-verde">
-            <img src="assets/fundo-sobre.jpg" alt="Persona SENTRYX">
+            <img src="assets/fundo-sobre.jpg" alt="Persona SENTRYX" loading="lazy">
           </div>
 
           <div class="bloco-texto">
@@ -255,42 +312,42 @@
 
         <div class="grid-equipe">
           <article class="card-equipe">
-            <img src="assets/Georgea.png" alt="Integrante 1">
+            <img src="assets/Georgea.png" alt="Integrante 1" loading="lazy">
             <h3>Georgea Lacerda</h3>
             <span>P.O (Product Owner)</span>
             <p>Responsável por contribuir com a construção e evolução da solução SENTRYX.</p>
           </article>
 
           <article class="card-equipe">
-            <img src="assets/gyovanna.png" alt="Integrante 2">
+            <img src="assets/gyovanna.png" alt="Integrante 2" loading="lazy">
             <h3>Gyovanna Gonçalves</h3>
             <span>UI/UX Designer</span>
             <p>Atua no projeto com foco em estratégia, inovação e desenvolvimento da proposta.</p>
           </article>
 
           <article class="card-equipe">
-            <img src="assets/Vini.png" alt="Integrante 3">
+            <img src="assets/Vini.png" alt="Integrante 3" loading="lazy">
             <h3>Vinícius Gonzaga</h3>
             <span>Scrum Master</span>
             <p>Contribui para transformar tecnologia em uma experiência mais acessível e segura.</p>
           </article>
 
           <article class="card-equipe">
-            <img src="assets/Davi.png" alt="Integrante 4">
+            <img src="assets/Davi.png" alt="Integrante 4" loading="lazy">
             <h3>Davi Alves Santana</h3>
             <span>Desenvolvedor fullstack</span>
             <p>Participa do desenvolvimento do projeto com foco em melhoria contínua e prevenção.</p>
           </article>
 
           <article class="card-equipe">
-            <img src="assets/guilherme.png" alt="Integrante 5">
+            <img src="assets/guilherme.png" alt="Integrante 5" loading="lazy">
             <h3>Guilherme Varjão</h3>
             <span>Desenvolvedor UI/UX</span>
             <p>Ajuda a transformar ideias em soluções reais voltadas para proteção e cuidado.</p>
           </article>
 
           <article class="card-equipe">
-            <img src="assets/Gabriel.png" alt="Integrante 6">
+            <img src="assets/Gabriel.png" alt="Integrante 6" loading="lazy">
             <h3>Gabriel dos Santos</h3>
             <span>Desenvolvedor</span>
             <p>Colabora com a SENTRYX e uni propósito, tecnologia e impacto social positivo.</p>
@@ -437,6 +494,26 @@ Fim do Footer-->
     </div>
   </footer>
   <!--Fim - Novo Footer -->
+
+
+
+    <!-- =========================================================
+         ACESSIBILIDADE - VLIBRAS
+         Plugin oficial de acessibilidade em Libras.
+    ========================================================== -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
 
 </body>
 

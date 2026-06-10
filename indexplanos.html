@@ -2,19 +2,75 @@
 <html lang="pt-br">
 
 <head>
+    <!-- =========================================================
+         MAPA DO HEAD
+         Aqui ficam as configurações importantes da página:
+         - charset e viewport: compatibilidade e responsividade;
+         - title/description: SEO e resultado no Google;
+         - Open Graph/Twitter Cards: prévia em redes sociais;
+         - favicon: ícone da aba do navegador;
+         - CSS: estilos globais, específicos e correções mobile.
+    ========================================================== -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sentryx | Planos</title>
+    <title>Planos | SENTRYX para residências e negócios</title>
 
-    <link rel="stylesheet" href="css/styleglobal.css">
+
+    
+    <!-- =========================================================
+         SEO DA PÁGINA
+         Ajuste o title e a description quando o conteúdo principal
+         da página mudar. Esses textos aparecem no Google e ajudam
+         a explicar a proposta da SENTRYX.
+    ========================================================== -->
+    <meta name="description" content="Conheça os planos da SENTRYX para proteger residências, pequenos negócios e cozinhas profissionais com detecção inteligente de gás.">
+    <meta name="keywords" content="SENTRYX, planos, detector de gás, sensor de gás, segurança residencial, segurança comercial, prevenção de vazamentos">
+    <meta name="author" content="SENTRYX">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#070E1E">
+
+    <!-- =========================================================
+         OPEN GRAPH / TWITTER CARDS
+         Controla a prévia do link em WhatsApp, LinkedIn e redes sociais.
+    ========================================================== -->
+    <meta property="og:title" content="Planos | SENTRYX">
+    <meta property="og:description" content="Conheça os planos da SENTRYX para proteger residências, pequenos negócios e cozinhas profissionais com detecção inteligente de gás.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/favicon32.png">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Planos | SENTRYX">
+    <meta name="twitter:description" content="Conheça os planos da SENTRYX para proteger residências, pequenos negócios e cozinhas profissionais com detecção inteligente de gás.">
+    <meta name="twitter:image" content="assets/favicon32.png">
+    <!-- =========================================================
+         FAVICON
+         Ícone exibido na aba do navegador.
+    ========================================================== -->
+    <link rel="shortcut icon" href="assets/favicon16x16.png" type="image/x-icon">
+
+<link rel="stylesheet" href="css/styleglobal.css">
     <link rel="stylesheet" href="css/styleplanos.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- =========================================================
+         AJUSTES FINAIS DE RESPONSIVIDADE
+         Deve ficar por último entre os CSS próprios do projeto para
+         corrigir mobile sem duplicar nem quebrar o CSS global.
+    ========================================================== -->
+    <link rel="stylesheet" href="css/responsive-mobile-fixes.css">
+
 </head>
 
 <body>
+
+    <!-- =========================================================
+         PÁGINA PLANOS
+         Apresenta opções de contratação da SENTRYX, benefícios,
+         pulseira de acessibilidade e argumentos comerciais.
+    ========================================================== -->
+
 
     <!-- HEADER -->
     <header>
@@ -200,7 +256,7 @@
 
                 <div class="pulseira-right">
                     <div class="pulseira-icone-grande">
-                        <img src="assets/pulseira.png" alt="Pulseira SENTRYX">
+                        <img src="assets/pulseira.png" alt="Pulseira SENTRYX" loading="lazy">
                     </div>
                     <div class="pulseira-tag-acessibilidade">
                         <i class="fa-solid fa-universal-access"></i>
@@ -580,6 +636,26 @@
                 card.style.setProperty('--mouse-y', `${y}%`);
             });
         });
+    </script>
+
+
+
+    <!-- =========================================================
+         ACESSIBILIDADE - VLIBRAS
+         Plugin oficial de acessibilidade em Libras.
+    ========================================================== -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
 
 </body>

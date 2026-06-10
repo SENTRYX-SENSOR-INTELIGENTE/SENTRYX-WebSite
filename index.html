@@ -3,27 +3,36 @@
 
 <head>
     <!-- =========================================================
+         MAPA DO HEAD
+         Aqui ficam as configurações importantes da página:
+         - charset e viewport: compatibilidade e responsividade;
+         - title/description: SEO e resultado no Google;
+         - Open Graph/Twitter Cards: prévia em redes sociais;
+         - favicon: ícone da aba do navegador;
+         - CSS: estilos globais, específicos e correções mobile.
+    ========================================================== -->
+
+    <!-- =========================================================
          CONFIGURAÇÕES BÁSICAS DA PÁGINA
          Essas tags ajudam o navegador a entender idioma, acentuação
          e adaptação para celular.
     ========================================================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SENTRYX | Detecção inteligente de gás</title>
+    <title>SENTRYX | Detecção de gás em tempo real e segurança inteligente</title>
 
     <!-- =========================================================
          SEO BÁSICO
          Ajuda mecanismos de busca, como Google, a entenderem
          sobre o que é a página.
     ========================================================== -->
-    <meta name="description"
-        content="A SENTRYX é uma solução inteligente para detecção de vazamentos de gás em tempo real, com monitoramento preventivo, alertas e suporte com inteligência artificial.">
+    <meta name="description" content="A SENTRYX é uma solução inteligente para detecção de vazamentos de gás em tempo real, com monitoramento preventivo, alertas e suporte com inteligência artificial.">
 
-    <meta name="keywords"
-        content="SENTRYX, detector de gás, sensor de gás, vazamento de gás, monitoramento inteligente, segurança residencial, segurança comercial, GLP, gás natural, inteligência artificial">
+    <meta name="keywords" content="SENTRYX, detector de gás, sensor de gás, vazamento de gás, monitoramento inteligente, segurança residencial, segurança comercial, GLP, gás natural, inteligência artificial">
 
     <meta name="author" content="SENTRYX">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#070E1E">
 
     <!-- =========================================================
          OPEN GRAPH
@@ -31,16 +40,33 @@
          em redes sociais ou WhatsApp.
     ========================================================== -->
     <meta property="og:title" content="SENTRYX | Detecção inteligente de gás">
-    <meta property="og:description"
-        content="Monitoramento inteligente para detectar vazamentos de gás em tempo real e proteger vidas.">
+    <meta property="og:description" content="A SENTRYX é uma solução inteligente para detecção de vazamentos de gás em tempo real, com monitoramento preventivo, alertas e suporte com inteligência artificial.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="assets/favicon16x16.png">
+    <meta property="og:image" content="assets/favicon32.png">
+    <meta property="og:locale" content="pt_BR">
 
+    
     <!-- =========================================================
+         TWITTER CARDS
+         Complementa o Open Graph para melhorar compartilhamentos.
+    ========================================================== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SENTRYX | Detecção inteligente de gás">
+    <meta name="twitter:description" content="A SENTRYX é uma solução inteligente para detecção de vazamentos de gás em tempo real, com monitoramento preventivo, alertas e suporte com inteligência artificial.">
+    <meta name="twitter:image" content="assets/favicon32.png">
+<!-- =========================================================
          FAVICON
          Ícone que aparece na aba do navegador.
     ========================================================== -->
     <link rel="shortcut icon" href="assets/favicon16x16.png" type="image/x-icon">
+
+    <!-- =========================================================
+         PERFORMANCE DAS FONTES E ÍCONES
+         O preconnect antecipa a conexão com CDNs usados na página,
+         ajudando o navegador a carregar os arquivos externos mais rápido.
+    ========================================================== -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
 
     <!-- =========================================================
          CSS DA HOME
@@ -68,9 +94,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- =========================================================
+         AJUSTES FINAIS DE RESPONSIVIDADE
+         Deve ficar por último entre os CSS próprios do projeto para
+         corrigir mobile sem duplicar nem quebrar o CSS global.
+    ========================================================== -->
+    <link rel="stylesheet" href="css/responsive-mobile-fixes.css">
+
 </head>
 
 <body>
+
+    <!-- =========================================================
+         PÁGINA INICIAL - HOME SENTRYX
+         Estrutura principal:
+         1. Header/nav global;
+         2. Hero com vídeo de fundo;
+         3. Sobre o produto com vídeos;
+         4. Detecção inteligente;
+         5. Quem usa SENTRYX;
+         6. TRYX;
+         7. Comunidade/contribuição;
+         8. Footer e VLibras.
+    ========================================================== -->
+
 
     <!-- =========================================================
          HEADER / MENU PRINCIPAL
@@ -236,7 +283,7 @@
 
                 <!-- Imagem do sensor -->
                 <div class="imagem">
-                    <img src="assets/sensor.png" alt="Sensor SENTRYX para detecção de vazamentos de gás">
+                    <img src="assets/sensor.png" alt="Sensor SENTRYX para detecção de vazamentos de gás" loading="lazy">
                 </div>
 
             </div>
@@ -268,7 +315,7 @@
                 <div class="usuario-bloco">
 
                     <div class="usuario-imagem destaque-laranja-verde">
-                        <img src="assets/padaria.jpeg" alt="Padaria utilizando solução de segurança SENTRYX">
+                        <img src="assets/padaria.jpeg" alt="Padaria utilizando solução de segurança SENTRYX" loading="lazy">
                     </div>
 
                     <div class="usuario-texto">
@@ -286,7 +333,7 @@
                 <div class="usuario-bloco reverso">
 
                     <div class="usuario-imagem destaque-verde-laranja">
-                        <img src="assets/familia1.jpeg" alt="Família protegida pela tecnologia SENTRYX">
+                        <img src="assets/familia1.jpeg" alt="Família protegida pela tecnologia SENTRYX" loading="lazy">
                     </div>
 
                     <div class="usuario-texto">
@@ -295,7 +342,6 @@
                         <p id="dois">
                             Perfeita para casas e apartamentos, a SENTRYX ajuda famílias a terem mais tranquilidade,
                             proteção e resposta rápida em situações de risco.
-
                         </p>
                     </div>
 
@@ -305,7 +351,7 @@
                 <div class="usuario-bloco">
 
                     <div class="usuario-imagem destaque-laranja-verde">
-                        <img src="assets/cozinha.jpeg" alt="Cozinha profissional com uso de gás">
+                        <img src="assets/cozinha.jpeg" alt="Cozinha profissional com uso de gás" loading="lazy">
                     </div>
 
                     <div class="usuario-texto">
@@ -345,6 +391,15 @@
                         A TRYX é a assistente inteligente oficial do ecossistema SENTRYX. Ela transforma alertas de
                         vazamento de gás em respostas claras, rápidas e fáceis de acompanhar.
                     </p>
+
+                    <!-- Visual simplificado da TRYX para mobile.
+                         No celular, a personagem aparece integrada ao conteúdo
+                         antes do botão principal, deixando a seção mais natural. -->
+                    <div class="tryx-visual-mobile" aria-hidden="true">
+                        <div class="tryx-visual-mobile__orbita tryx-visual-mobile__orbita-um"></div>
+                        <div class="tryx-visual-mobile__orbita tryx-visual-mobile__orbita-dois"></div>
+                        <img src="assets/IA.png" alt="" loading="lazy">
+                    </div>
 
                     <!-- Métricas da TRYX -->
                     <div class="tryx-metricas" aria-label="Recursos da TRYX">
@@ -386,7 +441,7 @@
 
                     </ul>
 
-                    <a href="indextecnologia.html" class="btn-tryx">
+                    <a href="indextecnologia.html" class="btn-tryx tryx-cta-desktop">
                         Conheça melhor nossa IA
                     </a>
 
@@ -407,13 +462,21 @@
                         </div>
                     </div>
 
-                    <img src="assets/IA.png" alt="Assistente virtual TRYX da SENTRYX">
+                    <img src="assets/IA.png" alt="Assistente virtual TRYX da SENTRYX" loading="lazy">
 
                     <div class="tryx-card-status">
                         <span></span>
                         Sistema em análise contínua
                     </div>
 
+                </div>
+
+                <!-- CTA extra apenas para mobile.
+                     Mantém a TRYX no centro da composição antes do botão em telas pequenas. -->
+                <div class="tryx-cta-mobile-wrap">
+                    <a href="indextecnologia.html" class="btn-tryx tryx-cta-mobile">
+                        Conheça melhor nossa IA
+                    </a>
                 </div>
 
             </div>
@@ -508,8 +571,8 @@
                                 <p class="funcao">Síndica de Condomínio</p>
 
                                 <p class="depoimento">
-                                    "O sistema da <span class="marca">SENTRYX </span>SENTRYX ajuda a identificar riscos rapidamente e aumenta a segurança de
-                                    todos os moradores.""
+                                    "O sistema da <span class="marca">SENTRYX</span> ajuda a identificar riscos rapidamente e aumenta a segurança de
+                                    todos os moradores."
                                 </p>
 
                                 <div class="tag-seguranca">
@@ -578,8 +641,7 @@
 
                                 <p class="depoimento">
                                     "Agora conseguimos identificar qualquer risco de vazamento antes de virar um
-                                    problema
-                                    sério no condomínio."
+                                    problema sério no condomínio."
                                 </p>
 
                                 <div class="tag-seguranca">
@@ -643,10 +705,8 @@
 
                 <!-- Botão final da comunidade -->
                 <div class="botao-container">
-                    <a href="indexplanos.html">
-                        <button class="btn-comunidade">
-                            Quero proteger meu ambiente →
-                        </button>
+                    <a href="indexplanos.html" class="btn-comunidade">
+                        Quero proteger meu ambiente →
                     </a>
                 </div>
 
@@ -669,10 +729,8 @@
                     Se identifica com nosso produto e gostaria de contribuir?
                 </p>
 
-                <a href="indexsuporte.html">
-                    <button class="btn-escuro">
-                        Saiba como
-                    </button>
+                <a href="indexsuporte.html" class="btn-escuro">
+                    Saiba como
                 </a>
             </div>
 

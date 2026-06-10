@@ -355,255 +355,291 @@
 
 /* =========================================================
    SEÇÃO QUEM USA SENTRYX
-   Apresenta os principais públicos que podem usar a solução:
-   - Pequenos negócios
-   - Residências familiares
-   - Restaurantes e cozinhas profissionais
+   Padrão baseado na seção "Sobre nós".
 
-   Importante:
-   Essa seção mantém a lógica original com flexbox e ajustes
-   de posição nos textos, porque esse era o layout que estava
-   visualmente correto no notebook.
+   Objetivo:
+   - manter imagem e texto bem alinhados;
+   - alternar a posição dos blocos com .reverso;
+   - evitar uso de left/right manual;
+   - impedir texto passando por cima da imagem;
+   - manter o mesmo estilo visual da seção Sobre nós.
+
+   Observação:
+   Não alteramos nomes de classes no HTML.
+   Apenas usamos as classes existentes:
+   .secao-usuarios
+   .usuarios-wrapper
+   .usuario-bloco
+   .usuario-bloco.reverso
+   .usuario-imagem
+   .usuario-texto
 ========================================================= */
 
-/* Fundo e espaçamento geral da seção */
+
+/* Área geral da seção */
 .secao-usuarios {
-    background: #ffffff;
-    padding: 70px 20px;
+    background: #ffffff !important;
+    padding: 10px 20px 90px !important;
 }
 
-/* Container interno da seção */
+
+/* Container central da seção */
 .usuarios-wrapper {
-    max-width: 1100px;
-    margin: 0 auto;
+    width: 100% !important;
+    max-width: 1120px !important;
+    margin: 0 auto !important;
 }
 
-/* Título central "Quem usa SENTRYX" */
+
+/* Título principal da seção */
 .secao-usuarios h3 {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 700;
-    color: #111111;
-    margin-bottom: 60px;
+    text-align: center !important;
+    color: #111111 !important;
+    margin-bottom: 70px !important;
 }
 
-/* Palavra SENTRYX em verde no título */
+
+/* Palavra SENTRYX no título */
 .secao-usuarios h3 span {
-    color: #17a34a;
+    color: #17a34a !important;
 }
 
-/* Bloco com imagem + texto */
+
+/* Cada bloco de imagem + texto */
 .usuario-bloco {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 50px;
-    margin-bottom: 70px;
+    display: flex !important;
+    align-items: center !important;
+
+    gap: 50px !important;
+
+    width: 100% !important;
+    margin-bottom: 84px !important;
 }
 
-/* Bloco reverso:
-   Inverte a ordem para alternar imagem/texto no desktop */
+
+/* Bloco invertido:
+   deixa a imagem do lado direito e o texto do lado esquerdo */
 .usuario-bloco.reverso {
-    flex-direction: row-reverse;
+    flex-direction: row-reverse !important;
 }
+
+
+/* Quando o bloco for invertido, o texto acompanha o padrão da página Sobre nós */
+.usuario-bloco.reverso .usuario-texto {
+    text-align: right !important;
+}
+
 
 /* Área da imagem */
 .usuario-imagem {
-    position: relative;
-    flex: 1;
-    max-width: 520px;
+    position: relative !important;
+
+    flex: 1 !important;
+    max-width: 520px !important;
+
+    margin: 0 !important;
 }
 
-/* Imagem do bloco */
+
+/* Imagem dentro do bloco */
 .usuario-imagem img {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    display: block;
-    border-radius: 6px;
-    object-fit: cover;
+    width: 100% !important;
+    height: 270px !important;
+
+    display: block !important;
+
+    object-fit: cover !important;
+    object-position: center !important;
+
+    border-radius: 8px !important;
+
+    position: relative !important;
+    z-index: 2 !important;
+
+    box-shadow: 0 20px 40px rgba(7, 14, 30, 0.18) !important;
 }
+
 
 /* Moldura decorativa das imagens */
 .destaque-laranja-verde::before,
 .destaque-verde-laranja::before {
-    content: "";
-    position: absolute;
-    inset: -12px;
-    border-radius: 6px;
-    z-index: 1;
+    content: "" !important;
+
+    position: absolute !important;
+    inset: -12px !important;
+
+    border-radius: 8px !important;
+
+    z-index: 1 !important;
 }
 
-/* Moldura com laranja no topo/esquerda e verde na direita/baixo */
+
+/* Moldura: laranja no topo/esquerda e verde na direita/baixo */
 .destaque-laranja-verde::before {
-    border-top: 4px solid #f5a300;
-    border-left: 4px solid #f5a300;
-    border-right: 4px solid #18b556;
-    border-bottom: 4px solid #18b556;
+    border-top: 4px solid #FAA301 !important;
+    border-left: 4px solid #FAA301 !important;
+    border-right: 4px solid #1F8C47 !important;
+    border-bottom: 4px solid #1F8C47 !important;
 }
 
-/* Moldura invertida */
+
+/* Moldura invertida: verde no topo/esquerda e laranja na direita/baixo */
 .destaque-verde-laranja::before {
-    border-top: 4px solid #18b556;
-    border-left: 4px solid #18b556;
-    border-right: 4px solid #f5a300;
-    border-bottom: 4px solid #f5a300;
+    border-top: 4px solid #1F8C47 !important;
+    border-left: 4px solid #1F8C47 !important;
+    border-right: 4px solid #FAA301 !important;
+    border-bottom: 4px solid #FAA301 !important;
 }
+
 
 /* Área de texto */
 .usuario-texto {
-    flex: 1;
-    max-width: 430px;
-    font-size: 55px;
+    flex: 1 !important;
+    max-width: 500px !important;
+
+    text-align: left !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-/* =========================================================
-   TEXTOS DOS BLOCOS
-   Mantive os IDs originais porque o HTML já usa esses nomes.
-   Esses deslocamentos aproximam texto e imagem no desktop.
-========================================================= */
 
-/* Título do bloco Pequenos negócios */
-#pequenosNegocios {
-    position: relative;
-    right: 120px;
-    font-size: 32px;
-    font-weight: 700;
-    color: #111111;
-    margin-bottom: 16px;
-}
-
-/* Título do bloco Residências familiares */
-#residenciasFamiliares {
-    position: relative;
-    left: 170px;
-    font-size: 32px;
-    font-weight: 700;
-    color: #111111;
-    margin-bottom: 16px;
-}
-
-/* Título do bloco Restaurantes */
+/* Remove deslocamentos antigos dos títulos */
+#pequenosNegocios,
+#residenciasFamiliares,
 #Restaurantes {
-    position: relative;
-    right: 120px;
-    font-size: 32px;
-    font-weight: 700;
-    color: #111111;
-    margin-bottom: 16px;
+    position: static !important;
+
+    left: auto !important;
+    right: auto !important;
+
+    color: #070E1E !important;
+
+    margin: 0 0 16px 0 !important;
+
+    max-width: 100% !important;
+
+    text-align: inherit !important;
 }
 
-/* Texto do bloco Pequenos negócios */
-#um {
-    position: relative;
-    right: 120px;
-    font-size: 16px;
-    color: #1c1c1c;
-    line-height: 1.6;
-}
 
-/* Texto do bloco Residências familiares */
-#dois {
-    position: relative;
-    left: 170px;
-    font-size: 16px;
-    color: #1c1c1c;
-    line-height: 1.6;
-}
-
-/* Texto do bloco Restaurantes */
+/* Remove deslocamentos antigos dos parágrafos */
+#um,
+#dois,
 #tres {
-    position: relative;
-    right: 120px;
-    font-size: 16px;
-    color: #1c1c1c;
-    line-height: 1.6;
+    position: static !important;
+
+    left: auto !important;
+    right: auto !important;
+
+    color: #4b6174 !important;
+
+    line-height: 1.9 !important;
+
+    margin: 0 0 14px 0 !important;
+
+    max-width: 100% !important;
+
+    text-align: inherit !important;
 }
+
 
 /* =========================================================
-   RESPONSIVIDADE - QUEM USA SENTRYX
-   No mobile, removemos os deslocamentos laterais para evitar
-   que texto ou imagem saiam da tela.
+   RESPONSIVIDADE - SEÇÃO QUEM USA SENTRYX
+
+   Em telas menores, os blocos viram coluna.
+   Isso evita que imagem e texto fiquem apertados.
 ========================================================= */
 
-@media (max-width: 1199px) {
+@media (max-width: 900px) {
+
+    .secao-usuarios {
+        padding: 50px 18px 70px !important;
+    }
+
+    .secao-usuarios h3 {
+        margin-bottom: 50px !important;
+    }
 
     .usuario-bloco,
     .usuario-bloco.reverso {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
+        flex-direction: column !important;
+
+        gap: 28px !important;
+
+        max-width: 620px !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-bottom: 70px !important;
+    }
+
+    .usuario-imagem,
+    .usuario-texto {
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
     .usuario-texto,
-    .usuario-imagem {
-        max-width: 100%;
+    .usuario-bloco.reverso .usuario-texto {
+        text-align: center !important;
     }
 
-    .secao-usuarios h3 {
-        font-size: 1.7rem;
-        margin-bottom: 40px;
+    .usuario-imagem img {
+        height: 260px !important;
     }
 
     #pequenosNegocios,
     #residenciasFamiliares,
-    #Restaurantes {
-        position: static;
-        font-size: 1.45rem;
-        margin-bottom: 12px;
-    }
-
+    #Restaurantes,
     #um,
     #dois,
     #tres {
-        position: static;
-        font-size: 0.95rem;
-        line-height: 1.6;
-        max-width: 620px;
-        margin: 0 auto;
+        text-align: center !important;
     }
 }
 
-@media (max-width: 768px) {
 
-    .secao-usuarios {
-        padding: 56px 18px;
-    }
-
-    .usuario-bloco {
-        margin-bottom: 54px;
-    }
-
-    .usuario-imagem img {
-        max-height: 260px;
-    }
-}
-
+/* Celular pequeno */
 @media (max-width: 480px) {
 
     .secao-usuarios {
-        padding: 50px 16px;
+        padding: 46px 16px 60px !important;
     }
 
     .secao-usuarios h3 {
-        font-size: 1.5rem;
-        margin-bottom: 36px;
+        margin-bottom: 42px !important;
+    }
+
+    .usuario-bloco,
+    .usuario-bloco.reverso {
+        gap: 22px !important;
+        margin-bottom: 58px !important;
     }
 
     .usuario-imagem img {
-        max-height: 220px;
+        height: 210px !important;
+        border-radius: 18px !important;
+    }
+
+    .destaque-laranja-verde::before,
+    .destaque-verde-laranja::before {
+        inset: -7px !important;
+        border-radius: 18px !important;
     }
 
     #pequenosNegocios,
     #residenciasFamiliares,
     #Restaurantes {
-        font-size: 1.25rem;
+        font-size: 1.5rem !important;
+        line-height: 1.15 !important;
     }
 
     #um,
     #dois,
     #tres {
-        font-size: 0.88rem;
+        font-size: 0.9rem !important;
+        line-height: 1.7 !important;
     }
 }
 
@@ -2020,8 +2056,202 @@
     line-height: var(--line-paragraph) !important;
     font-weight: var(--weight-regular) !important;
 }
+
 /* Título específico da seção TRYX na Home */
 #titulo-tryx-home {
     font-size: clamp(2.8rem, 5vw, 4.2rem) !important;
     line-height: 1 !important;
 }
+
+/* =========================================================
+   AJUSTES FINAIS DE MANUTENÇÃO - HOME
+   Este bloco fica no final para corrigir pequenos pontos sem
+   alterar nomes de classes nem quebrar o CSS existente.
+
+   O que ele melhora:
+   - permite usar .btn-comunidade e .btn-escuro diretamente em links <a>;
+   - evita textos ultrapassando imagens na seção "Quem usa";
+   - deixa cards mais proporcionais no celular;
+   - reduz animações para pessoas que preferem menos movimento.
+========================================================= */
+
+/* Botões usados como links: mantém aparência de botão, mas melhora semântica do HTML. */
+a.btn-comunidade,
+a.btn-escuro {
+    text-decoration: none;
+}
+
+/* Garante que os blocos de público-alvo não deixem texto invadir a área da imagem. */
+.usuario-bloco {
+    overflow: visible;
+}
+
+.usuario-texto {
+    min-width: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.usuario-imagem {
+    flex-shrink: 0;
+}
+
+/* Evita que imagens ou vídeos criem rolagem horizontal acidental. */
+.videos-section,
+.secao-motivos,
+.secao-usuarios,
+.secao-tryx,
+.secao-comunidade,
+.secao-contribua {
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+/* Responsividade extra para telas de tablet e celulares grandes. */
+@media (max-width: 900px) {
+
+    .usuario-bloco,
+    .usuario-bloco.reverso {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .usuario-texto {
+        align-items: center;
+        text-align: center;
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .usuario-imagem {
+        max-width: 620px;
+        margin: 0 auto;
+    }
+}
+
+/* Responsividade extra para celular: aparência mais compacta, tipo app. */
+@media (max-width: 600px) {
+
+    .videos-section {
+        padding-inline: 0;
+    }
+
+    .videos-container.container-padrao {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding-inline: 18px;
+    }
+
+    .video-card,
+    .video-card:nth-child(2) {
+        width: 100%;
+        max-width: 330px;
+        height: 230px;
+        margin-inline: auto;
+        border-radius: 16px;
+    }
+
+    .card-motivos {
+        width: min(100%, 360px);
+        margin-inline: auto;
+        border-radius: 22px;
+    }
+
+    .secao-usuarios {
+        padding-inline: 18px;
+    }
+
+    .usuario-bloco,
+    .usuario-bloco.reverso {
+        width: min(100%, 360px);
+        margin-inline: auto;
+        padding: 0;
+        gap: 20px;
+    }
+
+    .usuario-imagem,
+    .usuario-texto {
+        width: 100%;
+    }
+
+    .usuario-imagem img {
+        height: 210px;
+        border-radius: 20px;
+    }
+
+    .usuario-texto {
+        padding-inline: 6px;
+    }
+
+    #um,
+    #dois,
+    #tres {
+        max-width: 31ch;
+        margin-inline: auto;
+    }
+
+    .tryx-grid {
+        width: min(100%, 380px);
+        margin-inline: auto;
+    }
+
+    .tryx-metricas {
+        grid-template-columns: 1fr;
+    }
+
+    .tryx-recursos li {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .contribuicao-box {
+        width: min(100%, 360px);
+        margin-inline: auto;
+    }
+}
+
+/* Celulares muito estreitos: reduz larguras para evitar qualquer barra horizontal. */
+@media (max-width: 360px) {
+
+    .video-card,
+    .video-card:nth-child(2),
+    .usuario-bloco,
+    .usuario-bloco.reverso,
+    .card-motivos,
+    .contribuicao-box {
+        max-width: 100%;
+    }
+
+    .usuario-imagem img {
+        height: 190px;
+    }
+
+    .card-comunidade {
+        width: 210px;
+        min-width: 210px;
+    }
+}
+
+/* Acessibilidade: reduz movimento para usuários que configuraram menos animações no sistema. */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =========================================================
+   NOTA DE MANUTENÇÃO
+   Para futuras edições:
+   - cores principais: #1F8C47, #070E1E, #FAA301 e #FFFFFF;
+   - evite duplicar media queries sem verificar o CSS global;
+   - mantenha classes e IDs existentes para não quebrar páginas;
+   - ajustes de celular devem ficar preferencialmente em
+     responsive-mobile-fixes.css.
+========================================================= */

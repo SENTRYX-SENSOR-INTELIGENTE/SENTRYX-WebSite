@@ -88,39 +88,39 @@ html {
    Use essas variáveis nos CSS das páginas específicas.
 ========================================================= */
 
-/* Título principal das páginas, normalmente usado na hero */
---font-hero-title: clamp(2.4rem, 5vw, 4rem);
+    /* Título principal das páginas, normalmente usado na hero */
+    --font-hero-title: clamp(2.4rem, 5vw, 4rem);
 
-/* Título principal de cada seção */
---font-section-title: clamp(3.5rem, 3.2vw, 2.8rem);
+    /* Título principal de cada seção */
+    --font-section-title: clamp(3.5rem, 3.2vw, 2.8rem);
 
-/* Subtítulo ou chamada menor dentro das seções */
---font-section-subtitle: clamp(1.15rem, 2.2vw, 1.5rem);
+    /* Subtítulo ou chamada menor dentro das seções */
+    --font-section-subtitle: clamp(1.15rem, 2.2vw, 1.5rem);
 
-/* Título de cards, blocos e destaques menores */
---font-card-title: clamp(1.35rem, 2.2vw, 2rem);
+    /* Título de cards, blocos e destaques menores */
+    --font-card-title: clamp(1.35rem, 2.2vw, 2rem);
 
-/* Parágrafo maior, usado em introduções de seção */
---font-paragraph-lg: 1.05rem;
+    /* Parágrafo maior, usado em introduções de seção */
+    --font-paragraph-lg: 1.05rem;
 
-/* Parágrafo comum */
---font-paragraph: 1rem;
+    /* Parágrafo comum */
+    --font-paragraph: 1rem;
 
-/* Texto pequeno, usado em tags, selos e detalhes */
---font-small: 0.875rem;
+    /* Texto pequeno, usado em tags, selos e detalhes */
+    --font-small: 0.875rem;
 
-/* Pesos de fonte padronizados */
---weight-regular: 400;
---weight-medium: 500;
---weight-semibold: 600;
---weight-bold: 700;
---weight-extra-bold: 800;
---weight-black: 900;
+    /* Pesos de fonte padronizados */
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+    --weight-extra-bold: 800;
+    --weight-black: 900;
 
-/* Alturas de linha padronizadas */
---line-title: 1.08;
---line-subtitle: 1.25;
---line-paragraph: 1.65;
+    /* Alturas de linha padronizadas */
+    --line-title: 1.08;
+    --line-subtitle: 1.25;
+    --line-paragraph: 1.65;
 }
 
 
@@ -367,13 +367,11 @@ nav .menu {
     color: var(--branco);
     margin-bottom: 24px;
 
-    background: linear-gradient(
-        90deg,
-        #ffffff 0%,
-        #d8ffe7 35%,
-        #63e691 65%,
-        #1F8C47 100%
-    );
+    background: linear-gradient(90deg,
+            #ffffff 0%,
+            #d8ffe7 35%,
+            #63e691 65%,
+            #1F8C47 100%);
 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -723,60 +721,90 @@ nav .menu {
    RESPONSIVIDADE GLOBAL - TABLET / CELULAR GRANDE
    Até 900px.
 
-   Aqui o menu começa a quebrar em duas linhas:
-   logo em cima, links abaixo.
+   Aqui o menu começa a se adaptar para telas menores.
+   Mantemos o header fixo, mas organizamos logo e links
+   para não quebrar o layout.
 ========================================================= */
 @media (max-width: 900px) {
 
-    /* Header um pouco mais compacto */
+    /* Header fixo mais compacto */
     header,
     .nav {
         padding: 10px 0;
     }
 
-    /* Menu vira coluna: logo em cima, links embaixo */
+    /* Menu em coluna: logo em cima e links embaixo */
     nav .menu {
         flex-direction: column;
+        align-items: center;
         justify-content: center;
+
         gap: 12px;
+
         padding: 0 18px;
     }
 
-    /* Logo menor */
+    /* Logo menor em telas médias */
     .menu .logo a {
         font-size: 30px;
+        line-height: 1;
     }
 
-    /* Lista de links centralizada e quebrando linha */
+    /* Lista de links centralizada e com quebra controlada */
     .menu ul {
         width: 100%;
+
+        display: flex;
+        align-items: center;
         justify-content: center;
         flex-wrap: wrap;
+
         gap: 8px;
+
+        padding: 0;
+        margin: 0;
     }
 
     /* Links menores para caber melhor */
     .menu ul li a {
-        font-size: 14px;
-        padding: 7px 11px;
+        font-size: 13px;
+        padding: 7px 10px;
+        border-radius: 999px;
+        white-space: nowrap;
     }
 
-    /* Hero precisa de mais espaço no topo por causa do header em duas linhas */
+    /* Hero com altura mais confortável */
     .hero-padrao {
-        min-height: auto;
-        padding: 170px 0 100px;
+        min-height: 620px;
+        height: auto;
+
+        padding: 150px 0 80px;
+
+        align-items: center;
     }
 
-    /* Conteúdo sem margem exagerada */
+    /* Remove margem extra do conteúdo */
     .hero-conteudo {
         margin-top: 0;
     }
-}
 
+    /* Conteúdo centralizado dentro do container */
+    .hero-conteudo .container-padrao {
+        max-width: 620px;
+    }
+}
 
 /* =========================================================
    RESPONSIVIDADE GLOBAL - CELULAR
    Até 768px.
+
+   Ajusta:
+   - container;
+   - header;
+   - menu;
+   - hero;
+   - botões;
+   - footer.
 ========================================================= */
 @media (max-width: 768px) {
 
@@ -794,18 +822,17 @@ nav .menu {
     /* Menu em coluna */
     nav .menu {
         gap: 10px;
+        padding: 0 14px;
     }
 
     /* Logo menor */
     .menu .logo a {
-        font-size: 28px;
+        font-size: 27px;
+        line-height: 1;
     }
 
-    /* 
-       Menu no celular:
-       Em vez de sumir, os links continuam disponíveis.
-       Eles podem quebrar linha ou ocupar mais espaço.
-    */
+    /* Menu no celular:
+       Mantém todos os links visíveis, mas com espaçamento melhor. */
     .menu ul {
         display: flex;
         flex-wrap: wrap;
@@ -815,39 +842,75 @@ nav .menu {
 
     /* Links do menu no celular */
     .menu ul li a {
-        font-size: 13px;
-        padding: 7px 10px;
+        font-size: 11px;
+        padding: 6px 8px;
         border-radius: 999px;
+        white-space: nowrap;
     }
 
-    /* Hero menor e mais adaptado */
+    /* Hero mais confortável para celular */
     .hero-padrao {
-        padding: 165px 0 86px;
-        min-height: auto;
+        min-height: 560px;
+        height: auto;
+
+        padding: 135px 0 68px;
+
         align-items: center;
+    }
+
+    /* Ajuste do fundo do hero */
+    .hero-bg {
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    /* Overlay mais uniforme no celular */
+    .hero-overlay {
+        background:
+            linear-gradient(180deg,
+                rgba(7, 14, 30, 0.78) 0%,
+                rgba(7, 14, 30, 0.62) 45%,
+                rgba(7, 14, 30, 0.84) 100%);
+    }
+
+    /* Conteúdo do hero */
+    .hero-conteudo {
+        margin-top: 0;
+    }
+
+    .hero-conteudo .container-padrao {
+        max-width: 430px;
+        text-align: left;
     }
 
     /* Título do hero */
     .hero-title {
-        font-size: 38px;
-        line-height: 1.12;
-        letter-spacing: -1.4px;
         max-width: 100%;
+
+        font-size: clamp(2rem, 10vw, 2.75rem);
+        line-height: 1;
+        letter-spacing: -1.2px;
+
+        margin-bottom: 18px;
     }
 
     /* Subtítulo do hero */
     .hero-subtitle {
-        font-size: 16px;
-        line-height: 1.6;
         max-width: 100%;
-        margin-bottom: 32px;
+
+        font-size: 0.95rem;
+        line-height: 1.55;
+
+        margin-bottom: 26px;
     }
 
     /* Botões um abaixo do outro */
     .hero-botoes {
         flex-direction: column;
         align-items: stretch;
+
         gap: 12px;
+
         width: 100%;
     }
 
@@ -855,8 +918,11 @@ nav .menu {
     .btn-hero {
         width: 100%;
         min-height: 48px;
-        padding: 0 22px;
-        font-size: 14px;
+
+        padding: 0 20px;
+
+        font-size: 0.88rem;
+        text-align: center;
     }
 
     /* Footer em uma coluna */
@@ -889,6 +955,8 @@ nav .menu {
 /* =========================================================
    RESPONSIVIDADE GLOBAL - CELULAR PEQUENO
    Até 480px.
+
+   Ajuste fino para telas de celular comuns.
 ========================================================= */
 @media (max-width: 480px) {
 
@@ -899,25 +967,23 @@ nav .menu {
 
     /* Logo menor */
     .menu .logo a {
-        font-size: 25px;
+        font-size: 24px;
     }
 
-    /* 
-       Links do menu em formato compacto.
-       Isso evita esconder o menu completamente.
-    */
+    /* Menu mais compacto */
     .menu ul {
-        gap: 4px;
+        gap: 5px;
     }
 
     .menu ul li a {
-        font-size: 10px;
+        font-size: 9px;
         padding: 6px 7px;
     }
 
-    /* Hero ainda mais compacto */
+    /* Hero com altura mais parecida com app */
     .hero-padrao {
-        padding: 155px 0 70px;
+        min-height: 540px;
+        padding: 125px 0 58px;
     }
 
     /* Conteúdo do hero */
@@ -927,24 +993,24 @@ nav .menu {
 
     /* Título menor */
     .hero-title {
-        font-size: 30px;
-        line-height: 1.14;
-        letter-spacing: -1px;
+        font-size: 1.9rem;
+        line-height: 1.05;
+        letter-spacing: -0.8px;
         margin-bottom: 16px;
     }
 
     /* Subtítulo menor */
     .hero-subtitle {
-        font-size: 14px;
-        line-height: 1.55;
-        margin-bottom: 26px;
+        font-size: 0.86rem;
+        line-height: 1.5;
+        margin-bottom: 24px;
     }
 
     /* Botão menor */
     .btn-hero {
-        min-height: 46px;
-        font-size: 13px;
-        padding: 0 18px;
+        min-height: 45px;
+        font-size: 0.78rem;
+        padding: 0 16px;
     }
 
     /* Footer mais compacto */
@@ -1018,142 +1084,161 @@ nav .menu {
 
     /* Links bem compactos */
     .menu ul li a {
-        font-size: 9px;
-        padding: 5px 6px;
+        font-size: 8.5px;
+        padding: 5px 5px;
     }
 
     /* Hero ajustado para telas pequenas */
     .hero-padrao {
-        padding: 145px 0 60px;
-    }
-
-    /* Título pequeno, mas ainda legível */
-    .hero-title {
-        font-size: 26px;
-        line-height: 1.15;
-        margin-bottom: 14px;
+        min-height: 520px;
+        padding: 120px 0 52px;
     }
 
     /* Subtítulo pequeno */
     .hero-subtitle {
-        font-size: 13px;
-        line-height: 1.5;
+        font-size: 0.8rem;
+        line-height: 1.45;
         margin-bottom: 22px;
     }
 
-    /* Botão compacto */
-    .btn-hero {
-        min-height: 44px;
-        font-size: 12px;
+        /* Botão compacto */
+        .btn-hero {
+            min-height: 43px;
+            font-size: 0.72rem;
+        }
+
+        /* Footer compacto */
+        .footer-sentryx__topo {
+            gap: 20px;
+            padding-top: 28px;
+            padding-bottom: 22px;
+        }
+
+        .footer-sentryx__logo {
+            font-size: 1.15rem;
+        }
+
+        .footer-sentryx__marca p {
+            font-size: 12px;
+        }
+
+        .footer-sentryx__coluna h4 {
+            font-size: 13px;
+        }
+
+        .footer-sentryx__coluna li {
+            font-size: 11px;
+        }
+
+        .footer-sentryx__redes a {
+            width: 32px;
+            height: 32px;
+            font-size: 12px;
+        }
     }
 
-    /* Footer compacto */
-    .footer-sentryx__topo {
-        gap: 20px;
-        padding-top: 28px;
-        padding-bottom: 22px;
+
+    /* =========================================================
+   RESPONSIVIDADE GLOBAL - TELAS EXTREMAMENTE PEQUENAS
+   Até 320px.
+========================================================= */
+    @media (max-width: 320px) {
+
+        /* Padding mínimo */
+        .container-padrao {
+            padding: 0 10px;
+        }
+
+        /* Logo bem compacta */
+        .menu .logo a {
+            font-size: 20px;
+        }
+
+        /* Links mínimos */
+        .menu ul li a {
+            font-size: 10px;
+            padding: 5px 6px;
+        }
+
+        /* Hero bem compacto */
+        .hero-padrao {
+            padding: 135px 0 50px;
+        }
+
+        .hero-title {
+            font-size: 23px;
+            line-height: 1.15;
+        }
+
+        .hero-subtitle {
+            font-size: 12px;
+            line-height: 1.45;
+            margin-bottom: 18px;
+        }
+
+        .btn-hero {
+            min-height: 42px;
+            font-size: 11px;
+        }
+
+        /* Footer mínimo */
+        .footer-sentryx__topo {
+            gap: 16px;
+            padding-top: 24px;
+            padding-bottom: 18px;
+        }
+
+        .footer-sentryx__logo {
+            font-size: 1rem;
+        }
+
+        .footer-sentryx__marca p {
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        .footer-sentryx__coluna h4 {
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .footer-sentryx__coluna li {
+            font-size: 10px;
+            margin-bottom: 6px;
+        }
+
+        .footer-sentryx__redes a {
+            width: 30px;
+            height: 30px;
+            font-size: 11px;
+        }
+
+        .footer-sentryx__base-conteudo p {
+            font-size: 10px;
+        }
     }
 
-    .footer-sentryx__logo {
-        font-size: 1.15rem;
-    }
+/* =========================================================
+   ACESSIBILIDADE - VLIBRAS (GLOBAL)
+   Mantém o botão visível e padronizado em todas as páginas.
+========================================================= */
+[vw-access-button] {
+    right: 18px !important;
+    bottom: 18px !important;
+    z-index: 9999 !important;
+}
 
-    .footer-sentryx__marca p {
-        font-size: 12px;
-    }
-
-    .footer-sentryx__coluna h4 {
-        font-size: 13px;
-    }
-
-    .footer-sentryx__coluna li {
-        font-size: 11px;
-    }
-
-    .footer-sentryx__redes a {
-        width: 32px;
-        height: 32px;
-        font-size: 12px;
-    }
+[vw-plugin-wrapper] {
+    z-index: 9998 !important;
 }
 
 
 /* =========================================================
-   RESPONSIVIDADE GLOBAL - TELAS EXTREMAMENTE PEQUENAS
-   Até 320px.
+   NOTA DE MANUTENÇÃO
+   Para futuras edições:
+   - cores principais: #1F8C47, #070E1E, #FAA301 e #FFFFFF;
+   - evite duplicar media queries sem verificar o CSS global;
+   - mantenha classes e IDs existentes para não quebrar páginas;
+   - ajustes de celular devem ficar preferencialmente em
+     responsive-mobile-fixes.css.
 ========================================================= */
-@media (max-width: 320px) {
-
-    /* Padding mínimo */
-    .container-padrao {
-        padding: 0 10px;
-    }
-
-    /* Logo bem compacta */
-    .menu .logo a {
-        font-size: 20px;
-    }
-
-    /* Links mínimos */
-    .menu ul li a {
-        font-size: 10px;
-        padding: 5px 6px;
-    }
-
-    /* Hero bem compacto */
-    .hero-padrao {
-        padding: 135px 0 50px;
-    }
-
-    .hero-title {
-        font-size: 23px;
-        line-height: 1.15;
-    }
-
-    .hero-subtitle {
-        font-size: 12px;
-        line-height: 1.45;
-        margin-bottom: 18px;
-    }
-
-    .btn-hero {
-        min-height: 42px;
-        font-size: 11px;
-    }
-
-    /* Footer mínimo */
-    .footer-sentryx__topo {
-        gap: 16px;
-        padding-top: 24px;
-        padding-bottom: 18px;
-    }
-
-    .footer-sentryx__logo {
-        font-size: 1rem;
-    }
-
-    .footer-sentryx__marca p {
-        font-size: 11px;
-        line-height: 1.5;
-    }
-
-    .footer-sentryx__coluna h4 {
-        font-size: 12px;
-        margin-bottom: 8px;
-    }
-
-    .footer-sentryx__coluna li {
-        font-size: 10px;
-        margin-bottom: 6px;
-    }
-
-    .footer-sentryx__redes a {
-        width: 30px;
-        height: 30px;
-        font-size: 11px;
-    }
-
-    .footer-sentryx__base-conteudo p {
-        font-size: 10px;
-    }
-}

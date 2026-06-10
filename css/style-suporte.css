@@ -1,4 +1,21 @@
 /* =========================================================
+   STYLE-SUPORTE.CSS
+   Estilos específicos da página Suporte.
+
+   Controla:
+   - hero de suporte;
+   - card de conversa com TRYX;
+   - caminhos de suporte;
+   - seção da mascote TRYX;
+   - base de conhecimento;
+   - cards de contato.
+
+   CUIDADO:
+   A seção da TRYX usa grid no desktop e recebe ajustes
+   específicos no mobile pelo responsive-mobile-fixes.css.
+========================================================= */
+
+/* =========================================================
    IMPORTAÇÃO DA FONTE PRINCIPAL
    Essa fonte será usada em toda a tela de suporte.
 ========================================================= */
@@ -1710,3 +1727,14 @@ body {
         height: 52px;
     }
 }
+
+
+/* =========================================================
+   NOTA DE MANUTENÇÃO
+   Para futuras edições:
+   - cores principais: #1F8C47, #070E1E, #FAA301 e #FFFFFF;
+   - evite duplicar media queries sem verificar o CSS global;
+   - mantenha classes e IDs existentes para não quebrar páginas;
+   - ajustes de celular devem ficar preferencialmente em
+     responsive-mobile-fixes.css.
+========================================================= */

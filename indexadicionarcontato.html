@@ -1,107 +1,859 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SENTRYX | Adicionar contato</title>
+    <!-- =========================================================
+         MAPA DO HEAD
+         Aqui ficam as configurações importantes da página:
+         - charset e viewport: compatibilidade e responsividade;
+         - title/description: SEO e resultado no Google;
+         - Open Graph/Twitter Cards: prévia em redes sociais;
+         - favicon: ícone da aba do navegador;
+         - CSS: estilos globais, específicos e correções mobile.
+    ========================================================== -->
 
-    <link rel="stylesheet" href="css/styleusuario.css" />
-    <link rel="stylesheet" href="css/styleglobal.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- =========================================================
+         CONFIGURAÇÕES BÁSICAS DA PÁGINA
+         Essas tags ajudam o navegador a entender idioma, acentuação
+         e adaptação para celular.
+    ========================================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENTRYX | Detecção de gás em tempo real e segurança inteligente</title>
+
+    <!-- =========================================================
+         SEO BÁSICO
+         Ajuda mecanismos de busca, como Google, a entenderem
+         sobre o que é a página.
+    ========================================================== -->
+    <meta name="description" content="A SENTRYX é uma solução inteligente para detecção de vazamentos de gás em tempo real, com monitoramento preventivo, alertas e suporte com inteligência artificial.">
+
+    <meta name="keywords" content="SENTRYX, detector de gás, sensor de gás, vazamento de gás, monitoramento inteligente, segurança residencial, segurança comercial, GLP, gás natural, inteligência artificial">
+
+    <meta name="author" content="SENTRYX">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#070E1E">
+
+    <!-- =========================================================
+         OPEN GRAPH
+         Melhora a prévia da página quando o link é compartilhado
+         em redes sociais ou WhatsApp.
+    ========================================================== -->
+    <meta property="og:title" content="SENTRYX | Detecção inteligente de gás">
+    <meta property="og:description" content="A SENTRYX é uma solução inteligente para detecção de vazamentos de gás em tempo real, com monitoramento preventivo, alertas e suporte com inteligência artificial.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/favicon32.png">
+    <meta property="og:locale" content="pt_BR">
+
+    
+    <!-- =========================================================
+         TWITTER CARDS
+         Complementa o Open Graph para melhorar compartilhamentos.
+    ========================================================== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SENTRYX | Detecção inteligente de gás">
+    <meta name="twitter:description" content="A SENTRYX é uma solução inteligente para detecção de vazamentos de gás em tempo real, com monitoramento preventivo, alertas e suporte com inteligência artificial.">
+    <meta name="twitter:image" content="assets/favicon32.png">
+<!-- =========================================================
+         FAVICON
+         Ícone que aparece na aba do navegador.
+    ========================================================== -->
+    <link rel="shortcut icon" href="assets/favicon16x16.png" type="image/x-icon">
+
+    <!-- =========================================================
+         PERFORMANCE DAS FONTES E ÍCONES
+         O preconnect antecipa a conexão com CDNs usados na página,
+         ajudando o navegador a carregar os arquivos externos mais rápido.
+    ========================================================== -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+
+    <!-- =========================================================
+         CSS DA HOME
+         Mantive a ordem original para evitar mudanças visuais
+         inesperadas no layout que já estava funcionando.
+    ========================================================== -->
+    <link rel="stylesheet" href="css/stylesentryxweb.css">
+
+    <!-- =========================================================
+         ÍCONES BOXICONS
+         Mantido porque já existia no projeto.
+    ========================================================== -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <!-- =========================================================
+         CSS GLOBAL
+         Controla header, hero global, container e footer.
+    ========================================================== -->
+    <link rel="stylesheet" href="css/styleglobal.css">
+
+    <!-- =========================================================
+         ÍCONES FONT AWESOME
+         Usado nos ícones de botões, footer, TRYX e comunidade.
+    ========================================================== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- =========================================================
+         AJUSTES FINAIS DE RESPONSIVIDADE
+         Deve ficar por último entre os CSS próprios do projeto para
+         corrigir mobile sem duplicar nem quebrar o CSS global.
+    ========================================================== -->
+    <link rel="stylesheet" href="css/responsive-mobile-fixes.css">
+
 </head>
 
 <body>
 
+    <!-- =========================================================
+         PÁGINA INICIAL - HOME SENTRYX
+         Estrutura principal:
+         1. Header/nav global;
+         2. Hero com vídeo de fundo;
+         3. Sobre o produto com vídeos;
+         4. Detecção inteligente;
+         5. Quem usa SENTRYX;
+         6. TRYX;
+         7. Comunidade/contribuição;
+         8. Footer e VLibras.
+    ========================================================== -->
+
+
+    <!-- =========================================================
+         HEADER / MENU PRINCIPAL
+         Menu fixo que aparece no topo do site.
+         Mantive as mesmas classes para não quebrar o CSS global.
+    ========================================================== -->
     <header>
-        <nav class="nav">
+        <nav>
             <div class="menu">
+
+                <!-- Logo principal -->
                 <div class="logo">
-                    <a href="#">SENTRY<span>X</span></a>
+                    <a href="index.html">SENTRY<span>X</span></a>
                 </div>
 
+                <!-- Links de navegação -->
                 <ul>
-                    <li><a href="indexusuario.html">Painel</a></li>
-                    <li><a href="#">Configurações</a></li>
-                    <li><a href="indexsuporte.html">Ajuda</a></li>
-                    <li><a href="index.html">Sair</a></li>
+                    <li><a id="selecionado" href="index.html">Início</a></li>
+                    <li><a href="indexsobrenos.html">Sobre nós</a></li>
+                    <li><a href="indextecnologia.html">Tecnologia</a></li>
+                    <li><a href="indexsuporte.html">Suporte</a></li>
+                    <li><a href="indexplanos.html">Ver planos</a></li>
+                    <li><a href="indexlogin.html">Login</a></li>
                 </ul>
+
             </div>
         </nav>
     </header>
 
-    <main class="painel-container">
-        <section class="painel-topo" style="margin-bottom: 22px;">
-            <div class="topo-texto">
-                <p class="boas-vindas">Contatos</p>
-                <h1>Adicionar usuário</h1>
-                <p class="descricao">Cadastre um novo contato de emergência para ser acionado quando necessário.</p>
+
+    <!-- =========================================================
+         CONTEÚDO PRINCIPAL
+         A tag main melhora a organização semântica da página.
+         Ela não altera o visual por si só.
+    ========================================================== -->
+    <main>
+
+        <!-- =====================================================
+             HERO PRINCIPAL
+             Primeira seção da Home.
+             Usa classes globais do hero para manter padrão
+             com as outras páginas.
+        ====================================================== -->
+        <section class="hero-padrao">
+
+            <!-- Vídeo de fundo do hero -->
+            <video class="hero-bg" autoplay muted loop playsinline>
+                <source src="assets/foco sensor.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos em HTML5.
+            </video>
+
+            <!-- Camada escura sobre o vídeo para melhorar leitura -->
+            <div class="hero-overlay"></div>
+
+            <!-- Conteúdo textual do hero -->
+            <div class="hero-conteudo">
+                <div class="container-padrao">
+
+                    <h1 class="hero-title">
+                        Detecção de gás em tempo real que salva vidas.
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        A SENTRYX, com IA integrada, monitora seu espaço continuamente e detecta vazamentos perigosos
+                        antes que se tornem uma ameaça.
+                    </p>
+
+                    <div class="hero-botoes">
+
+                        <a href="indexplanos.html" class="btn-hero btn-hero-verde">
+                            Ver planos
+                        </a>
+
+                        <a href="indextecnologia.html" class="btn-hero btn-hero-outline">
+                            Conheça a tecnologia
+                        </a>
+
+                    </div>
+
+                </div>
             </div>
 
-            <div class="topo-info">
-                <div class="info-box">
-                    <span>Etapa</span>
-                    <strong>Cadastro</strong>
-                </div>
-                <div class="info-box status">
-                    <span>Seguro</span>
-                    <strong>UI pronta</strong>
-                </div>
-            </div>
         </section>
 
-        <section class="card" style="max-width: 760px; margin: 0 auto;">
-            <div class="card-header">
-                <div class="header-titulo">
-                    <h2>Dados do contato</h2>
-                    <p class="header-sub">Preencha as informações abaixo</p>
-                </div>
+
+        <!-- =====================================================
+             SOBRE O NOSSO PRODUTO
+             Seção com vídeos demonstrativos do sensor.
+             Mantive as classes originais:
+             videos-section, nosso-produto, videos-container,
+             video-card e produto-btn.
+        ====================================================== -->
+        <section class="videos-section" id="produto">
+
+            <div class="nosso-produto container-padrao">
+                <h2>Sobre o nosso produto</h2>
+
+                <p>
+                    Veja de perto o design, os detalhes internos e a presença do sensor que ajuda a proteger ambientes
+                    com gás todos os dias.
+                </p>
             </div>
 
-            <form class="form-contato" onsubmit="event.preventDefault(); mockSubmit();">
-                <div class="form-grid">
-                    <div class="field">
-                        <label for="nome">Nome</label>
-                        <input id="nome" name="nome" type="text" placeholder="Ex: Maria Silva" required />
-                    </div>
+            <div class="videos-container container-padrao">
 
-                    <div class="field">
-                        <label for="parentesco">Parentesco</label>
-                        <input id="parentesco" name="parentesco" type="text" placeholder="Ex: Mãe" required />
-                    </div>
+                <!-- Card 1 -->
+                <div class="video-card">
+                    <span>Estrutura</span>
 
-                    <div class="field" style="grid-column: 1 / -1;">
-                        <label for="telefone">Telefone</label>
-                        <input id="telefone" name="telefone" type="tel" placeholder="Ex: (11) 99999-9999" required />
-                        <small class="help">Apenas para uso de emergência.</small>
-                    </div>
+                    <video src="assets/desmontando1.mp4" autoplay muted loop playsinline>
+                        Seu navegador não suporta vídeos em HTML5.
+                    </video>
                 </div>
 
-                <div class="form-actions">
-                    <a class="btn-secundario btn-voltar" href="indexusuario.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Voltar</a>
-                    <button class="btn-padrao btn-salvar" type="submit"><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Salvar contato</button>
+                <!-- Card 2 -->
+                <div class="video-card">
+                    <span>Precisão</span>
+
+                    <video src="assets/closesentryx.mp4" autoplay muted loop playsinline>
+                        Seu navegador não suporta vídeos em HTML5.
+                    </video>
                 </div>
 
-                <div id="toast" class="toast" role="status" aria-live="polite" hidden>
-                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
-                    <span>Contato cadastrado (simulação).</span>
+                <!-- Card 3 -->
+                <div class="video-card">
+                    <span>Design</span>
+
+                    <video src="assets/girandosentryx.mp4" autoplay muted loop playsinline>
+                        Seu navegador não suporta vídeos em HTML5.
+                    </video>
                 </div>
-            </form>
+
+            </div>
+
+            <a href="indextecnologia.html" class="produto-btn">
+                Saiba mais
+            </a>
+
         </section>
+
+
+        <!-- =====================================================
+             CARD DETECÇÃO INTELIGENTE
+             Explica o principal valor do produto:
+             detectar riscos antes que se tornem perigosos.
+        ====================================================== -->
+        <section class="secao-motivos">
+
+            <div class="card-motivos">
+
+                <!-- Texto do card -->
+                <div class="texto">
+                    <span class="tag">DETECÇÃO INTELIGENTE</span>
+
+                    <h2>Detecte riscos antes que eles se tornem um problema</h2>
+
+                    <p>
+                        Vazamentos de gás são invisíveis, mas os riscos são reais. A SENTRYX detecta sinais antes
+                        que se tornem perigosos, oferecendo monitoramento contínuo e alertas imediatos para garantir
+                        mais segurança no seu dia a dia.
+                    </p>
+                </div>
+
+                <!-- Imagem do sensor -->
+                <div class="imagem">
+                    <img src="assets/sensor.png" alt="Sensor SENTRYX para detecção de vazamentos de gás" loading="lazy">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ONDA / DIVISÓRIA VISUAL
+             Mantive a classe existente.
+             Essa seção serve como transição visual.
+        ====================================================== -->
+        <section class="onda" aria-hidden="true"></section>
+
+
+        <!-- =====================================================
+             QUEM USA SENTRYX
+             Seção de públicos-alvo.
+             Mantive todas as classes e ids existentes para não
+             quebrar o CSS atual.
+        ====================================================== -->
+        <section class="secao-usuarios">
+
+            <div class="usuarios-wrapper">
+
+                <h3>Quem usa <span>SENTRYX</span></h3>
+
+                <!-- Bloco 1: pequenos negócios -->
+                <div class="usuario-bloco">
+
+                    <div class="usuario-imagem destaque-laranja-verde">
+                        <img src="assets/padaria.jpeg" alt="Padaria utilizando solução de segurança SENTRYX" loading="lazy">
+                    </div>
+
+                    <div class="usuario-texto">
+                        <h4 id="pequenosNegocios">Pequenos negócios</h4>
+
+                        <p id="um">
+                            Ideal para padarias, mercados, mercearias e outros pequenos
+                            estabelecimentos que precisam de mais segurança no ambiente.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Bloco 2: residências familiares -->
+                <div class="usuario-bloco reverso">
+
+                    <div class="usuario-imagem destaque-verde-laranja">
+                        <img src="assets/familia1.jpeg" alt="Família protegida pela tecnologia SENTRYX" loading="lazy">
+                    </div>
+
+                    <div class="usuario-texto">
+                        <h4 id="residenciasFamiliares">Residências familiares</h4>
+
+                        <p id="dois">
+                            Perfeita para casas e apartamentos, a SENTRYX ajuda famílias a terem mais tranquilidade,
+                            proteção e resposta rápida em situações de risco.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Bloco 3: restaurantes e cozinhas profissionais -->
+                <div class="usuario-bloco">
+
+                    <div class="usuario-imagem destaque-laranja-verde">
+                        <img src="assets/cozinha.jpeg" alt="Cozinha profissional com uso de gás" loading="lazy">
+                    </div>
+
+                    <div class="usuario-texto">
+                        <h4 id="Restaurantes">Restaurantes e cozinhas profissionais</h4>
+
+                        <p id="tres">
+                            Uma solução eficiente para ambientes com uso intenso de gás, oferecendo mais controle,
+                            prevenção e segurança operacional.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SEÇÃO TRYX
+             Apresenta a IA da SENTRYX.
+             Mantive classes originais para preservar o CSS:
+             secao-tryx, tryx-grid, texto-tryx, tryx-visual etc.
+        ====================================================== -->
+        <section class="secao-tryx">
+
+            <div class="container-padrao tryx-grid">
+
+                <!-- Texto da seção TRYX -->
+                <div class="texto-tryx">
+
+                    <h2 id="titulo-tryx-home">Conheça a <span>TRYX</span></h2>
+
+                    <h3>A IA que entende alertas, histórico e risco em tempo real.</h3>
+
+                    <p>
+                        A TRYX é a assistente inteligente oficial do ecossistema SENTRYX. Ela transforma alertas de
+                        vazamento de gás em respostas claras, rápidas e fáceis de acompanhar.
+                    </p>
+
+                    <!-- Visual simplificado da TRYX para mobile.
+                         No celular, a personagem aparece integrada ao conteúdo
+                         antes do botão principal, deixando a seção mais natural. -->
+                    <div class="tryx-visual-mobile" aria-hidden="true">
+                        <div class="tryx-visual-mobile__orbita tryx-visual-mobile__orbita-um"></div>
+                        <div class="tryx-visual-mobile__orbita tryx-visual-mobile__orbita-dois"></div>
+                        <img src="assets/IA.png" alt="" loading="lazy">
+                    </div>
+
+                    <!-- Métricas da TRYX -->
+                    <div class="tryx-metricas" aria-label="Recursos da TRYX">
+
+                        <div>
+                            <strong>24h</strong>
+                            <span>monitoramento</span>
+                        </div>
+
+                        <div>
+                            <strong>IA</strong>
+                            <span>análise de risco</span>
+                        </div>
+
+                        <div>
+                            <strong>Tempo real</strong>
+                            <span>notificações</span>
+                        </div>
+
+                    </div>
+
+                    <!-- Lista de recursos -->
+                    <ul class="tryx-recursos">
+
+                        <li>
+                            <i class="fa-solid fa-bell"></i>
+                            Envia avisos imediatos quando um risco é detectado.
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-chart-line"></i>
+                            Organiza o histórico e ajuda a enxergar padrões.
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-shield-halved"></i>
+                            Orienta decisões com mais segurança e eficiência.
+                        </li>
+
+                    </ul>
+
+                    <a href="indextecnologia.html" class="btn-tryx tryx-cta-desktop">
+                        Conheça melhor nossa IA
+                    </a>
+
+                </div>
+
+                <!-- Visual da TRYX -->
+                <div class="tryx-visual" aria-label="Interface visual da assistente TRYX">
+
+                    <div class="tryx-orbita tryx-orbita-um"></div>
+                    <div class="tryx-orbita tryx-orbita-dois"></div>
+
+                    <div class="tryx-card-alerta">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+
+                        <div>
+                            <strong>Alerta preventivo</strong>
+                            <span>Risco identificado na cozinha</span>
+                        </div>
+                    </div>
+
+                    <img src="assets/IA.png" alt="Assistente virtual TRYX da SENTRYX" loading="lazy">
+
+                    <div class="tryx-card-status">
+                        <span></span>
+                        Sistema em análise contínua
+                    </div>
+
+                </div>
+
+                <!-- CTA extra apenas para mobile.
+                     Mantém a TRYX no centro da composição antes do botão em telas pequenas. -->
+                <div class="tryx-cta-mobile-wrap">
+                    <a href="indextecnologia.html" class="btn-tryx tryx-cta-mobile">
+                        Conheça melhor nossa IA
+                    </a>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             COMUNIDADE
+             Depoimentos e pessoas que representam usuários
+             da SENTRYX.
+             Mantive os estilos inline dos avatares, pois eles
+             eram responsáveis pelas cores diferentes.
+        ====================================================== -->
+        <section class="secao-comunidade">
+
+            <div class="container-padrao">
+
+                <div class="topo-comunidade">
+                    <h2>Nossa Comunidade</h2>
+
+                    <p>
+                        Famílias, comércios e empresas que confiam na <span class="marca">SENTRYX</span>
+                        para proteger vidas através da detecção inteligente de vazamentos de gás GLP e natural.
+                    </p>
+
+                    <div class="linha-decorativa"></div>
+                </div>
+
+                <div class="area-carrossel">
+
+                    <div class="viewport-carrossel">
+
+                        <div class="track-carrossel">
+
+                            <!-- Card 1 -->
+                            <div class="card-comunidade">
+
+                                <div class="avatar-card" style="background: linear-gradient(135deg, #FF6B6B, #FF8E72);">
+                                    MC
+                                </div>
+
+                                <h3>Mariana Costa</h3>
+
+                                <p class="funcao">Moradora Residencial</p>
+
+                                <p class="depoimento">
+                                    "Depois da instalação da <span class="marca">SENTRYX</span>, nossa casa ficou muito
+                                    mais segura. As notificações em tempo real trazem tranquilidade para toda a
+                                    família."
+                                </p>
+
+                                <div class="tag-seguranca">
+                                    <i class="fas fa-shield-alt"></i>
+                                    Ambiente Protegido
+                                </div>
+
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="card-comunidade">
+
+                                <div class="avatar-card" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);">
+                                    JL
+                                </div>
+
+                                <h3>João Lemos</h3>
+
+                                <p class="funcao">Proprietário de Restaurante</p>
+
+                                <p class="depoimento">
+                                    "Utilizamos gás GLP diariamente na cozinha. A <span class="marca">SENTRYX</span>
+                                    trouxe mais controle e segurança para toda a operação."
+                                </p>
+
+                                <div class="tag-seguranca">
+                                    <i class="fas fa-shield-alt"></i>
+                                    Ambiente Protegido
+                                </div>
+
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="card-comunidade">
+
+                                <div class="avatar-card" style="background: linear-gradient(135deg, #F8B500, #FEC868);">
+                                    AP
+                                </div>
+
+                                <h3>Ana Paula</h3>
+
+                                <p class="funcao">Síndica de Condomínio</p>
+
+                                <p class="depoimento">
+                                    "O sistema da <span class="marca">SENTRYX</span> ajuda a identificar riscos rapidamente e aumenta a segurança de
+                                    todos os moradores."
+                                </p>
+
+                                <div class="tag-seguranca">
+                                    <i class="fas fa-shield-alt"></i>
+                                    Ambiente Protegido
+                                </div>
+
+                            </div>
+
+                            <!-- Card 4 -->
+                            <div class="card-comunidade">
+
+                                <div class="avatar-card" style="background: linear-gradient(135deg, #A8E6CF, #56CC95);">
+                                    RS
+                                </div>
+
+                                <h3>Ricardo Souza</h3>
+
+                                <p class="funcao">Gerente Comercial</p>
+
+                                <p class="depoimento">
+                                    "A <span class="marca">SENTRYX</span> se tornou essencial no nosso negócio.
+                                    Conseguimos agir rapidamente em qualquer sinal de vazamento."
+                                </p>
+
+                                <div class="tag-seguranca">
+                                    <i class="fas fa-shield-alt"></i>
+                                    Ambiente Protegido
+                                </div>
+
+                            </div>
+
+                            <!-- Card 5 -->
+                            <div class="card-comunidade">
+
+                                <div class="avatar-card" style="background: linear-gradient(135deg, #FF9A9E, #FECFEF);">
+                                    LS
+                                </div>
+
+                                <h3>Lucas Silva</h3>
+
+                                <p class="funcao">Proprietário de Padaria</p>
+
+                                <p class="depoimento">
+                                    "Com o uso diário de gás GLP, a <span class="marca">SENTRYX</span> trouxe mais
+                                    segurança e agilidade no monitoramento da cozinha."
+                                </p>
+
+                                <div class="tag-seguranca">
+                                    <i class="fas fa-shield-alt"></i>
+                                    Ambiente Protegido
+                                </div>
+
+                            </div>
+
+                            <!-- Card 6 -->
+                            <div class="card-comunidade">
+
+                                <div class="avatar-card" style="background: linear-gradient(135deg, #89F7FE, #66A6FF);">
+                                    CM
+                                </div>
+
+                                <h3>Carla Mendes</h3>
+
+                                <p class="funcao">Síndica Residencial</p>
+
+                                <p class="depoimento">
+                                    "Agora conseguimos identificar qualquer risco de vazamento antes de virar um
+                                    problema sério no condomínio."
+                                </p>
+
+                                <div class="tag-seguranca">
+                                    <i class="fas fa-shield-alt"></i>
+                                    Ambiente Protegido
+                                </div>
+
+                            </div>
+
+                            <!-- Card 7 -->
+                            <div class="card-comunidade">
+
+                                <div class="avatar-card" style="background: linear-gradient(135deg, #A1C4FD, #C2E9FB);">
+                                    EF
+                                </div>
+
+                                <h3>Eduardo Ferreira</h3>
+
+                                <p class="funcao">Oficina Mecânica</p>
+
+                                <p class="depoimento">
+                                    "Ambientes com equipamentos e gás precisam de atenção constante. A
+                                    <span class="marca">SENTRYX</span> nos ajuda nisso diariamente."
+                                </p>
+
+                                <div class="tag-seguranca">
+                                    <i class="fas fa-shield-alt"></i>
+                                    Ambiente Protegido
+                                </div>
+
+                            </div>
+
+                            <!-- Card 8 -->
+                            <div class="card-comunidade">
+
+                                <div class="avatar-card" style="background: linear-gradient(135deg, #FFD194, #D1913C);">
+                                    BT
+                                </div>
+
+                                <h3>Beatriz Torres</h3>
+
+                                <p class="funcao">Proprietária de Café</p>
+
+                                <p class="depoimento">
+                                    "A segurança da cozinha é prioridade. Com a <span class="marca">SENTRYX</span>,
+                                    conseguimos operar com muito mais confiança."
+                                </p>
+
+                                <div class="tag-seguranca">
+                                    <i class="fas fa-shield-alt"></i>
+                                    Ambiente Protegido
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Botão final da comunidade -->
+                <div class="botao-container">
+                    <a href="indexplanos.html" class="btn-comunidade">
+                        Quero proteger meu ambiente →
+                    </a>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CONTRIBUA COM A SENTRYX
+             Chamada simples antes do footer.
+             Mantive classes originais.
+        ====================================================== -->
+        <section class="secao-contribua">
+
+            <div class="container-padrao contribuicao-box">
+                <h3>Contribua com a SENTRYX</h3>
+
+                <p>
+                    Se identifica com nosso produto e gostaria de contribuir?
+                </p>
+
+                <a href="indexsuporte.html" class="btn-escuro">
+                    Saiba como
+                </a>
+            </div>
+
+        </section>
+
     </main>
 
+
+    <!-- =========================================================
+         FOOTER
+         Rodapé global do site.
+         Mantive as classes originais do footer.
+    ========================================================== -->
+    <footer class="footer-sentryx">
+
+        <div class="container-padrao footer-sentryx__topo">
+
+            <!-- Marca -->
+            <div class="footer-sentryx__marca">
+                <a href="index.html" class="footer-sentryx__logo">
+                    SENTRY<span>X</span>
+                </a>
+
+                <p>
+                    Tecnologia preventiva que antecipa riscos e protege vidas com inteligência, precisão e confiança.
+                </p>
+            </div>
+
+            <!-- Navegação -->
+            <div class="footer-sentryx__coluna">
+                <h4>Navegação</h4>
+
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="indexsobrenos.html">Sobre nós</a></li>
+                    <li><a href="indextecnologia.html">Tecnologia</a></li>
+                    <li><a href="indexplanos.html">Ver planos</a></li>
+                    <li><a href="indexsuporte.html">Suporte</a></li>
+                    <li><a href="indexlogin.html">Login</a></li>
+                </ul>
+            </div>
+
+            <!-- Soluções -->
+            <div class="footer-sentryx__coluna">
+                <h4>Soluções</h4>
+
+                <ul>
+                    <li><a href="#">Residencial</a></li>
+                    <li><a href="#">Comercial</a></li>
+                    <li><a href="#">Cozinhas profissionais</a></li>
+                    <li><a href="#">Monitoramento inteligente</a></li>
+                </ul>
+            </div>
+
+            <!-- Contato -->
+            <div class="footer-sentryx__coluna">
+                <h4>Contato</h4>
+
+                <ul class="footer-sentryx__contato">
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        contato@sentryx.com
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        (11) 99999-9999
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        São Paulo - SP
+                    </li>
+                </ul>
+
+                <div class="footer-sentryx__redes">
+                    <a href="#" aria-label="Instagram da SENTRYX">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#" aria-label="LinkedIn da SENTRYX">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+
+                    <a href="#" aria-label="WhatsApp da SENTRYX">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Base do footer -->
+        <div class="footer-sentryx__base">
+            <div class="container-padrao">
+                <div class="footer-sentryx__base-conteudo">
+                    <p>© 2026 SENTRYX. Todos os direitos reservados.</p>
+                    <p>Segurança inteligente para proteger o que realmente importa.</p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         ACESSIBILIDADE - VLIBRAS
+         Plugin oficial de acessibilidade em Libras.
+    ========================================================== -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
     <script>
-        function mockSubmit() {
-            const toast = document.getElementById('toast');
-            toast.hidden = false;
-            setTimeout(() => {
-                toast.hidden = true;
-                window.location.href = 'indexusuario.html';
-            }, 1200);
-        }
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
 
 </body>
 
 </html>
-

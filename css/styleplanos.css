@@ -1,3 +1,19 @@
+/* =========================================================
+   STYLEPLANOS.CSS
+   Estilos específicos da página Planos.
+
+   Controla:
+   - vitrine dos planos;
+   - cards de preço;
+   - benefícios;
+   - pulseira de acessibilidade;
+   - depoimentos/CTA.
+
+   CUIDADO:
+   Mantenha os nomes das classes para não quebrar botões,
+   grids e correções mobile.
+========================================================= */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 html {
@@ -1468,3 +1484,14 @@ body {
         display: none;
     }
 }
+
+
+/* =========================================================
+   NOTA DE MANUTENÇÃO
+   Para futuras edições:
+   - cores principais: #1F8C47, #070E1E, #FAA301 e #FFFFFF;
+   - evite duplicar media queries sem verificar o CSS global;
+   - mantenha classes e IDs existentes para não quebrar páginas;
+   - ajustes de celular devem ficar preferencialmente em
+     responsive-mobile-fixes.css.
+========================================================= */

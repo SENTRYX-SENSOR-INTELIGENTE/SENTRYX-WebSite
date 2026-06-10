@@ -2635,6 +2635,42 @@ li {
         max-width: 178px !important;
     }
 }
+/* =========================================================
+   AJUSTE FINAL - HERO MOBILE MAIS BAIXA
+   Move o texto e os botões da hero para mais perto da parte
+   inferior da tela, reduzindo aquele espaço vazio/gap.
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .hero-conteudo {
+        transform: none !important;
+    }
+
+    .hero-conteudo .container-padrao {
+        justify-content: flex-end !important;
+        padding-bottom: 12px !important;
+    }
+
+    .hero-title:not(#tec) {
+        margin-bottom: 14px !important;
+    }
+
+    .hero-subtitle {
+        margin-bottom: 18px !important;
+    }
+
+    .hero-botoes {
+        margin-bottom: 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero-conteudo .container-padrao {
+        padding-bottom: 12px !important;
+    }
+}
 
 
 

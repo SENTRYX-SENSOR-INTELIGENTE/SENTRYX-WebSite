@@ -195,3 +195,24 @@ button:hover {
    - ajustes de celular devem ficar preferencialmente em
      responsive-mobile-fixes.css.
 ========================================================= */
+
+/* =========================================================
+   MENSAGENS DO FLASK
+   Estiliza avisos enviados pelo backend com flash().
+   Exemplo: erro de login ou cadastro realizado com sucesso.
+========================================================= */
+
+.mensagens {
+    margin-top: 18px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background-color: rgba(250, 163, 1, 0.15);
+    border: 1px solid rgba(250, 163, 1, 0.45);
+    color: #ffffff;
+    text-align: center;
+    font-size: 14px;
+}
+
+.mensagens p {
+    margin: 0;
+}

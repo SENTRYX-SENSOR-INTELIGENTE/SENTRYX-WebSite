@@ -6,46 +6,24 @@
          MAPA DO HEAD
          Aqui ficam as configurações principais da página:
          - charset: permite acentos e caracteres especiais;
-         - viewport: faz o layout funcionar melhor no celular;
-         - title/description: ajudam no SEO e identificam a página;
+         - viewport: deixa a tela responsiva no celular;
+         - title/description: ajudam na identificação da página;
          - favicon: ícone da aba do navegador;
-         - CSS: arquivos responsáveis pela estilização da tela.
+         - CSS: estilos visuais da tela.
     ========================================================== -->
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | Painel SENTRYX</title>
+    <title>Cadastro | Painel SENTRYX</title>
 
     <!-- =========================================================
-         SEO DA PÁGINA
-         Essas informações ajudam mecanismos de busca e redes sociais
-         a entenderem sobre o que é esta página.
+         SEO BÁSICO DA PÁGINA
+         Descrição usada para identificar a página de cadastro.
     ========================================================== -->
     <meta name="description"
-        content="Acesse o painel da SENTRYX para acompanhar sensores, alertas, ambientes monitorados e contatos de emergência.">
-    <meta name="keywords"
-        content="SENTRYX, login, painel, monitoramento de gás, sensores, alertas, contatos de emergência">
-    <meta name="author" content="SENTRYX">
-    <meta name="robots" content="index, follow">
+        content="Crie sua conta no painel da SENTRYX para acompanhar sensores, alertas e contatos de emergência.">
+
     <meta name="theme-color" content="#070E1E">
-
-    <!-- =========================================================
-         OPEN GRAPH / TWITTER CARDS
-         Controlam a prévia do link quando a página é compartilhada
-         em WhatsApp, LinkedIn e outras redes sociais.
-    ========================================================== -->
-    <meta property="og:title" content="Login | Painel SENTRYX">
-    <meta property="og:description"
-        content="Acesse o painel da SENTRYX para acompanhar sensores, alertas, ambientes monitorados e contatos de emergência.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="assets/favicon32.png">
-    <meta property="og:locale" content="pt_BR">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Login | Painel SENTRYX">
-    <meta name="twitter:description"
-        content="Acesse o painel da SENTRYX para acompanhar sensores, alertas, ambientes monitorados e contatos de emergência.">
-    <meta name="twitter:image" content="assets/favicon32.png">
 
     <!-- =========================================================
          FAVICON
@@ -55,15 +33,19 @@
 
     <!-- =========================================================
          CSS DA PÁGINA
-         login.css: estilização principal da tela de login.
-         Font Awesome: biblioteca de ícones.
-         responsive-mobile-fixes.css: ajustes finais de responsividade.
+         login.css:
+         Reaproveitamos o mesmo CSS da tela de login para manter
+         identidade visual e padrão entre login e cadastro.
+
+         Font Awesome:
+         Biblioteca de ícones, caso seja usada no layout.
+
+         responsive-mobile-fixes.css:
+         Correções finais para responsividade em telas menores.
     ========================================================== -->
     <link rel="stylesheet" href="css/login.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
     <link rel="stylesheet" href="css/responsive-mobile-fixes.css">
 </head>
@@ -71,13 +53,24 @@
 <body>
 
     <!-- =========================================================
-         PÁGINA DE LOGIN
-         Esta tela permite que o usuário acesse o painel da SENTRYX.
+         PÁGINA DE CADASTRO
+         Esta tela permite criar uma conta para acessar o painel
+         da SENTRYX.
 
          IMPORTANTE:
-         Antes, o botão "Entrar" apenas mandava para indexusuario.html.
-         Agora ele envia email e senha para o backend Flask validar
-         no banco de dados MySQL.
+         Esta página agora está integrada ao Flask + MySQL.
+
+         O usuário preenche os dados:
+         - nome
+         - email
+         - senha
+         - telefone
+
+         Depois o formulário envia essas informações para a rota
+         /cadastro no app.py.
+
+         O Flask recebe os dados, criptografa a senha e salva tudo
+         na tabela usuarios do banco sentryx_db.
     ========================================================== -->
 
     <div class="container">
@@ -88,31 +81,48 @@
                  Exibe o nome SENTRYX com o X destacado pelo CSS.
             ================================================== -->
             <h1>SENTRY<span>X</span></h1>
-            <p>Faça login na sua conta</p>
+            <p>Crie sua conta para acessar o painel</p>
 
             <!-- =================================================
-                 FORMULÁRIO DE LOGIN CONECTADO AO FLASK
+                 FORMULÁRIO DE CADASTRO CONECTADO AO FLASK
 
-                 action="/login":
-                 Envia os dados para a rota /login do Flask.
+                 action="/cadastro":
+                 Envia os dados para a rota /cadastro do Flask.
 
                  method="POST":
-                 Envia os dados de forma interna no corpo da requisição.
-                 Usamos POST para login porque estamos enviando dados
-                 sensíveis, como email e senha.
+                 Envia os dados internamente para o backend.
 
                  No app.py, esses dados são recebidos assim:
+
+                 nome = request.form.get('nome')
                  email = request.form.get('email')
                  senha = request.form.get('senha')
+                 telefone = request.form.get('telefone')
+
+                 Depois o Flask salva essas informações no MySQL.
             ================================================== -->
-            <form action="/login" method="POST">
+            <form action="/cadastro" method="POST">
+
+                <!-- =============================================
+                     CAMPO DE NOME
+
+                     name="nome":
+                     Esse nome precisa bater com o que está no app.py.
+                     Ele será salvo na coluna nome da tabela usuarios.
+                ============================================== -->
+                <div class="input-box">
+                    <input type="text" name="nome" placeholder="Nome completo" required>
+                </div>
 
                 <!-- =============================================
                      CAMPO DE EMAIL
 
                      name="email":
-                     Esse nome é obrigatório para o Flask conseguir
-                     capturar o valor digitado no campo de email.
+                     O Flask usa esse valor para cadastrar o email
+                     do usuário no banco.
+
+                     No banco, o email está como UNIQUE, ou seja,
+                     não permite dois usuários com o mesmo email.
                 ============================================== -->
                 <div class="input-box">
                     <input type="email" name="email" placeholder="Email" required>
@@ -122,51 +132,65 @@
                      CAMPO DE SENHA
 
                      name="senha":
-                     Esse nome é obrigatório para o Flask conseguir
-                     capturar a senha digitada e comparar com a senha
-                     criptografada salva no banco de dados.
+                     A senha digitada será enviada ao Flask.
+
+                     IMPORTANTE:
+                     A senha não é salva pura no banco.
+                     No app.py, usamos generate_password_hash()
+                     para salvar uma senha criptografada.
                 ============================================== -->
                 <div class="input-box">
                     <input type="password" name="senha" placeholder="Senha" required>
                 </div>
 
                 <!-- =============================================
-                     BOTÃO DE ENTRAR
+                     CAMPO DE TELEFONE
 
-                     Antes era um link:
-                     <a href="indexusuario.html">Entrar</a>
-
-                     Agora é um botão de submit:
-                     Ele envia o formulário para o Flask validar.
+                     name="telefone":
+                     Campo opcional para contato do usuário.
+                     Será salvo na coluna telefone da tabela usuarios.
                 ============================================== -->
-                <button class="botao-login" type="submit">Entrar</button>
+                <div class="input-box">
+                    <input type="text" name="telefone" placeholder="Telefone">
+                </div>
+
+                <!-- =============================================
+                     BOTÃO DE CADASTRAR
+
+                     type="submit":
+                     Envia o formulário para o backend Flask.
+
+                     Quando o cadastro dá certo, o Flask redireciona
+                     o usuário para a tela de login.
+                ============================================== -->
+                <button class="botao-login" type="submit">Cadastrar</button>
             </form>
 
             <!-- =================================================
-                 LINKS EXTRAS
+                 LINK PARA LOGIN
 
-                 O link "Cadastre-se" agora aponta para /cadastro,
-                 que é uma rota do Flask.
+                 Se o usuário já tiver conta, ele pode voltar para
+                 a rota /login.
 
-                 Essa rota abre a tela indexcadastro.html e também
-                 salva novos usuários no banco MySQL quando o formulário
-                 de cadastro é enviado.
+                 Esse link não abre mais diretamente indexlogin.html.
+                 Agora ele passa pelo Flask.
             ================================================== -->
             <div class="extra">
-                <a href="#">Esqueceu a senha?</a>
-                <p>Não tem conta? <a href="/cadastro">Cadastre-se</a></p>
+                <p>Já tem conta? <a href="/login">Entrar</a></p>
             </div>
 
             <!-- =================================================
                  MENSAGENS DO FLASK
 
                  Aqui aparecem mensagens enviadas pelo app.py com flash().
+
                  Exemplos:
-                 - "E-mail ou senha incorretos."
                  - "Cadastro realizado com sucesso! Agora faça login."
+                 - "Este e-mail já está cadastrado."
+                 - "Erro ao cadastrar..."
 
                  Essa parte só funciona quando a página é aberta pelo Flask:
-                 http://127.0.0.1:5000/login
+                 http://127.0.0.1:5000/cadastro
             ================================================== -->
             {% with mensagens = get_flashed_messages() %}
                 {% if mensagens %}
@@ -184,7 +208,7 @@
     <!-- =========================================================
          ACESSIBILIDADE - VLIBRAS
          Plugin oficial de acessibilidade em Libras.
-         Mantido para melhorar a inclusão e acessibilidade do site.
+         Mantido para tornar o projeto mais inclusivo.
     ========================================================== -->
     <div vw class="enabled">
         <div vw-access-button class="active"></div>

@@ -105,7 +105,7 @@
         Topo curto do painel, com informações resumidas -->
         <section class="painel-topo">
             <div class="topo-texto">
-                <p class="boas-vindas">Olá, usuário</p>
+                <p>Olá, {{ nome_usuario or 'usuário' }}</p>
                 <h1>Painel de monitoramento</h1>
                 <p class="descricao">
                     Acompanhe o nível de gás, gerencie contatos de emergência e visualize alertas do sensor em tempo real.

@@ -24,41 +24,62 @@
 # flash:
 # Envia mensagens temporárias para aparecerem no HTML.
 # Exemplo: "E-mail ou senha incorretos."
+#
+# PyMySQL:
+# Permite conectar o Python ao MySQL local.
+#
+# psycopg2:
+# Permite conectar o Python ao PostgreSQL, usado no Render.
+#
+# Werkzeug Security:
+# Usado para criptografar e validar senhas.
+#
+# python-dotenv:
+# Permite carregar variáveis do arquivo .env localmente.
+#
+# os:
+# Usado para acessar variáveis de ambiente e montar caminhos
+# de pastas dentro do projeto.
 # ============================================================
 
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 
-# ============================================================
-# PyMySQL
-# ============================================================
-# Biblioteca que permite o Python conversar com o banco MySQL.
-# Neste projeto, usamos o MySQL local com o banco sentryx_db.
-# ============================================================
-
 import pymysql
 
 # ============================================================
-# SEGURANÇA DE SENHA
+# PostgreSQL / Render
 # ============================================================
-# generate_password_hash:
-# Criptografa a senha antes de salvar no banco.
+# psycopg2:
+# Biblioteca que permite o Python conversar com PostgreSQL.
+# No Render, o banco gratuito usado será PostgreSQL.
 #
-# check_password_hash:
-# Compara a senha digitada no login com a senha criptografada
-# que está salva no banco.
+# psycopg2.extras.RealDictCursor:
+# Faz os resultados do PostgreSQL também voltarem como dicionário,
+# parecido com o DictCursor do PyMySQL.
 # ============================================================
+
+import psycopg2
+import psycopg2.extras
 
 from werkzeug.security import generate_password_hash, check_password_hash
 
 # ============================================================
-# OS
+# DOTENV
 # ============================================================
-# Biblioteca usada para trabalhar com caminhos de pastas.
-# Como o app.py está dentro da pasta backend, usamos o os para
-# localizar a pasta principal do site SENTRYX26.
+# load_dotenv:
+# Permite carregar variáveis de ambiente a partir do arquivo .env
+# quando estamos rodando o projeto localmente.
+#
+# Isso evita deixar senha, usuário e chave secreta escritos
+# diretamente dentro do código.
 # ============================================================
 
+from dotenv import load_dotenv
+
 import os
+
+# Carrega as variáveis do arquivo .env local, se ele existir.
+load_dotenv()
 
 
 # ============================================================
@@ -131,23 +152,23 @@ app = Flask(
 
 
 # ============================================================
-# CHAVE SECRETA DO FLASK
+# CHAVE SECRETA DO FLASK COM VARIÁVEL DE AMBIENTE
 # ============================================================
 # A secret_key é usada para proteger sessões e mensagens flash.
 #
-# Sessão:
-# Guarda dados do usuário logado.
+# Primeiro tentamos buscar a SECRET_KEY no ambiente.
 #
-# Flash:
-# Mostra mensagens temporárias no HTML.
+# Localmente:
+# Ela pode estar no arquivo backend/.env.
 #
-# IMPORTANTE:
-# Para um projeto profissional online, essa chave não deve ficar
-# escrita diretamente no código. Futuramente, no Render, podemos
-# colocar isso em variável de ambiente.
+# No Render:
+# Ela será cadastrada em Environment Variables.
+#
+# Se não encontrar nenhuma SECRET_KEY, usamos um valor padrão
+# apenas para desenvolvimento local.
 # ============================================================
 
-app.secret_key = 'sentryx_chave_secreta'
+app.secret_key = os.getenv('SECRET_KEY', 'sentryx_chave_secreta_dev')
 
 
 # ============================================================
@@ -188,16 +209,58 @@ app.secret_key = 'sentryx_chave_secreta'
 # ============================================================
 
 def get_db_connection():
+    # ========================================================
+    # DATABASE_URL - POSTGRESQL NO RENDER
+    # ========================================================
+    # No Render, o banco PostgreSQL fornece uma variável chamada
+    # DATABASE_URL.
+    #
+    # Essa variável guarda tudo que o sistema precisa para se
+    # conectar ao banco online:
+    # - usuário;
+    # - senha;
+    # - host;
+    # - porta;
+    # - nome do banco.
+    #
+    # Se DATABASE_URL existir, significa que estamos usando o
+    # banco PostgreSQL online do Render.
+    # ========================================================
+
+    database_url = os.getenv('DATABASE_URL')
+
+    if database_url:
+        return psycopg2.connect(
+            database_url,
+            cursor_factory=psycopg2.extras.RealDictCursor
+        )
+
+    # ========================================================
+    # MYSQL LOCAL
+    # ========================================================
+    # Se DATABASE_URL não existir, usamos o MySQL local.
+    #
+    # Os dados vêm do arquivo backend/.env.
+    #
+    # Exemplo de .env local:
+    #
+    # DB_HOST=localhost
+    # DB_USER=root
+    # DB_PASSWORD=sua_senha
+    # DB_NAME=sentryx_db
+    # DB_PORT=3307
+    # SECRET_KEY=sua_chave
+    # ========================================================
+
     return pymysql.connect(
-        host='localhost',
-        user='root',
-        password='MySQL@2022',
-        database='sentryx_db',
-        port=3307,
+        host=os.getenv('DB_HOST', 'localhost'),
+        user=os.getenv('DB_USER', 'root'),
+        password=os.getenv('DB_PASSWORD'),
+        database=os.getenv('DB_NAME', 'sentryx_db'),
+        port=int(os.getenv('DB_PORT', 3307)),
         cursorclass=pymysql.cursors.DictCursor
     )
-
-
+    
 # ============================================================
 # ROTA INICIAL DO SITE
 # ============================================================
@@ -562,7 +625,10 @@ def dashboard():
     # indexusuario.html
     # ========================================================
 
-    return render_template('indexusuario.html')
+    return render_template(
+        'indexusuario.html',
+        nome_usuario=session.get('usuario')
+    )
 
 
 # ============================================================
@@ -587,56 +653,158 @@ def logout():
 # ============================================================
 # ROTA DE TESTE DO BANCO
 # ============================================================
-# Esta rota foi criada para verificar se o Flask consegue
-# conversar com o banco MySQL sentryx_db.
+# Esta rota verifica se o Flask consegue conversar com o banco.
+#
+# Ela funciona em dois cenários:
+#
+# 1. MySQL local:
+#    Usa SHOW TABLES;
+#
+# 2. PostgreSQL no Render:
+#    Consulta as tabelas pelo information_schema.
 #
 # Quando acessamos:
 #
 # http://127.0.0.1:5000/teste-banco
 #
-# O Flask tenta executar:
+# ou, no Render:
 #
-# SHOW TABLES;
+# https://seu-link.onrender.com/teste-banco
 #
-# Se der certo, retorna status conectado e a lista de tabelas.
+# O sistema retorna uma resposta em JSON informando se a conexão
+# deu certo e quais tabelas existem.
 # ============================================================
 
 @app.route('/teste-banco')
 def teste_banco():
 
     try:
-        # Abre conexão com o banco.
         conexao = get_db_connection()
         cursor = conexao.cursor()
 
-        # Executa comando SQL para listar as tabelas do banco.
-        cursor.execute("SHOW TABLES;")
+        if os.getenv('DATABASE_URL'):
+            cursor.execute("""
+                SELECT table_name
+                FROM information_schema.tables
+                WHERE table_schema = 'public';
+            """)
+        else:
+            cursor.execute("SHOW TABLES;")
 
-        # Pega todas as tabelas retornadas.
         tabelas = cursor.fetchall()
 
-        # Fecha conexão.
         cursor.close()
         conexao.close()
 
-        # Retorna uma resposta em formato de dicionário.
-        # O Flask transforma isso em JSON no navegador.
         return {
             "status": "conectado",
-            "mensagem": "Conexão com o banco sentryx_db realizada com sucesso!",
+            "mensagem": "Conexão com o banco realizada com sucesso!",
             "tabelas": tabelas
         }
 
     except Exception as erro:
-        # Se algo der errado, mostramos o erro.
-        # Isso ajuda a identificar problemas de conexão, senha,
-        # porta, nome do banco etc.
         return {
             "status": "erro",
             "mensagem": str(erro)
         }
+        
+        # ============================================================
+# ROTA TEMPORÁRIA PARA CRIAR TABELAS NO RENDER
+# ============================================================
+# Esta rota será usada para criar/verificar as tabelas no banco
+# PostgreSQL online do Render.
+#
+# IMPORTANTE:
+# Ela é temporária para facilitar a configuração inicial.
+# Depois que o banco estiver criado e funcionando, podemos
+# remover essa rota ou proteger com uma chave de segurança.
+#
+# Para usar no Render:
+#
+# https://seu-link.onrender.com/criar-tabelas-render
+# ============================================================
 
+@app.route('/criar-tabelas-render')
+def criar_tabelas_render():
+    try:
+        conexao = get_db_connection()
+        cursor = conexao.cursor()
 
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS usuarios (
+                id SERIAL PRIMARY KEY,
+                nome VARCHAR(100) NOT NULL,
+                email VARCHAR(100) UNIQUE NOT NULL,
+                senha VARCHAR(255) NOT NULL,
+                telefone VARCHAR(20),
+                criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+        """)
+
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS sensores (
+                id SERIAL PRIMARY KEY,
+                nome_sensor VARCHAR(100) NOT NULL,
+                codigo_sensor VARCHAR(100) UNIQUE NOT NULL,
+                local_instalacao VARCHAR(100),
+                tipo_gas VARCHAR(50),
+                status_sensor VARCHAR(30) DEFAULT 'ativo',
+                usuario_id INT NOT NULL,
+                criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+            );
+        """)
+
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS leituras_gas (
+                id SERIAL PRIMARY KEY,
+                sensor_id INT NOT NULL,
+                nivel_gas DECIMAL(10,2) NOT NULL,
+                temperatura DECIMAL(10,2),
+                umidade DECIMAL(10,2),
+                data_leitura TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (sensor_id) REFERENCES sensores(id) ON DELETE CASCADE
+            );
+        """)
+
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS alertas (
+                id SERIAL PRIMARY KEY,
+                sensor_id INT NOT NULL,
+                nivel_risco VARCHAR(30) NOT NULL,
+                mensagem TEXT NOT NULL,
+                status_alerta VARCHAR(30) DEFAULT 'pendente',
+                criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (sensor_id) REFERENCES sensores(id) ON DELETE CASCADE
+            );
+        """)
+
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS contatos_emergencia (
+                id SERIAL PRIMARY KEY,
+                usuario_id INT NOT NULL,
+                nome VARCHAR(100) NOT NULL,
+                telefone VARCHAR(20) NOT NULL,
+                parentesco VARCHAR(50),
+                FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+            );
+        """)
+
+        conexao.commit()
+        cursor.close()
+        conexao.close()
+
+        return {
+            "status": "ok",
+            "mensagem": "Tabelas criadas/verificadas com sucesso."
+        }
+
+    except Exception as erro:
+        return {
+            "status": "erro",
+            "mensagem": str(erro)
+        }
+        
 # ============================================================
 # INICIAR O SERVIDOR FLASK
 # ============================================================

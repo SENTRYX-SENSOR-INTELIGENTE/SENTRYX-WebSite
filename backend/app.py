@@ -609,14 +609,54 @@ def dashboard():
     # ========================================================
     # PROTEÇÃO DO DASHBOARD
     # ========================================================
-    # Verifica se existe logged_in na sessão.
-    #
-    # Se não existir, significa que o usuário não fez login.
+    # Se o usuário não estiver logado, ele volta para o login.
     # ========================================================
 
     if not session.get('logged_in'):
         return redirect(url_for('login'))
 
+    # ========================================================
+    # BUSCAR CONTATOS DE EMERGÊNCIA DO USUÁRIO LOGADO
+    # ========================================================
+    # Pegamos o id do usuário salvo na sessão e buscamos apenas
+    # os contatos vinculados a esse usuário.
+    #
+    # Assim, cada usuário visualiza somente os próprios contatos.
+    # ========================================================
+
+    usuario_id = session.get('usuario_id')
+
+    conexao = get_db_connection()
+    cursor = conexao.cursor()
+
+    cursor.execute(
+        """
+        SELECT id, nome, telefone, parentesco
+        FROM contatos_emergencia
+        WHERE usuario_id = %s
+        ORDER BY id DESC
+        """,
+        (usuario_id,)
+    )
+
+    contatos = cursor.fetchall()
+
+    cursor.close()
+    conexao.close()
+
+    # ========================================================
+    # ABRIR PAINEL DO USUÁRIO
+    # ========================================================
+    # Enviamos para o HTML:
+    # - nome_usuario: nome do usuário logado
+    # - contatos: lista de contatos cadastrados no banco
+    # ========================================================
+
+    return render_template(
+        'indexusuario.html',
+        nome_usuario=session.get('usuario'),
+        contatos=contatos
+    )
     # ========================================================
     # ABRIR PAINEL DO USUÁRIO
     # ========================================================
@@ -804,6 +844,125 @@ def criar_tabelas_render():
             "status": "erro",
             "mensagem": str(erro)
         }
+        
+# ============================================================
+# ROTA PARA CADASTRAR CONTATO DE EMERGÊNCIA
+# ============================================================
+# Esta rota recebe os dados enviados pelo formulário do painel
+# do usuário e salva na tabela contatos_emergencia.
+#
+# O formulário está dentro do indexusuario.html e envia:
+# - nome
+# - telefone
+# - parentesco
+#
+# A rota usa o usuario_id salvo na sessão para vincular o contato
+# ao usuário logado.
+# ============================================================
+
+@app.route('/adicionar-contato', methods=['POST'])
+def adicionar_contato():
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+
+    usuario_id = session['usuario_id']
+    nome = request.form.get('nome')
+    telefone = request.form.get('telefone')
+    parentesco = request.form.get('parentesco')
+
+    conexao = get_db_connection()
+    cursor = conexao.cursor()
+
+    cursor.execute(
+        """
+        INSERT INTO contatos_emergencia (usuario_id, nome, telefone, parentesco)
+        VALUES (%s, %s, %s, %s)
+        """,
+        (usuario_id, nome, telefone, parentesco)
+    )
+
+    conexao.commit()
+    cursor.close()
+    conexao.close()
+
+    flash('Contato de emergência cadastrado com sucesso!')
+    return redirect(url_for('dashboard'))
+
+# ============================================================
+# ROTA PARA EDITAR CONTATO DE EMERGÊNCIA
+# ============================================================
+# Esta rota recebe os dados alterados no formulário do painel
+# e atualiza o contato no banco.
+#
+# Importante:
+# A edição só acontece se o contato pertencer ao usuário logado.
+# Isso evita que um usuário edite contato de outro usuário.
+# ============================================================
+
+@app.route('/editar-contato/<int:contato_id>', methods=['POST'])
+def editar_contato(contato_id):
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+
+    usuario_id = session['usuario_id']
+    nome = request.form.get('nome')
+    telefone = request.form.get('telefone')
+    parentesco = request.form.get('parentesco')
+
+    conexao = get_db_connection()
+    cursor = conexao.cursor()
+
+    cursor.execute(
+        """
+        UPDATE contatos_emergencia
+        SET nome = %s, telefone = %s, parentesco = %s
+        WHERE id = %s AND usuario_id = %s
+        """,
+        (nome, telefone, parentesco, contato_id, usuario_id)
+    )
+
+    conexao.commit()
+    cursor.close()
+    conexao.close()
+
+    flash('Contato de emergência atualizado com sucesso!')
+    return redirect(url_for('dashboard'))
+
+
+# ============================================================
+# ROTA PARA EXCLUIR CONTATO DE EMERGÊNCIA
+# ============================================================
+# Esta rota exclui um contato do banco.
+#
+# Importante:
+# A exclusão só acontece se o contato pertencer ao usuário logado.
+# O aviso de confirmação aparece no HTML antes do envio.
+# ============================================================
+
+@app.route('/excluir-contato/<int:contato_id>', methods=['POST'])
+def excluir_contato(contato_id):
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+
+    usuario_id = session['usuario_id']
+
+    conexao = get_db_connection()
+    cursor = conexao.cursor()
+
+    cursor.execute(
+        """
+        DELETE FROM contatos_emergencia
+        WHERE id = %s AND usuario_id = %s
+        """,
+        (contato_id, usuario_id)
+    )
+
+    conexao.commit()
+    cursor.close()
+    conexao.close()
+
+    flash('Contato de emergência excluído com sucesso!')
+    return redirect(url_for('dashboard'))
         
 # ============================================================
 # INICIAR O SERVIDOR FLASK

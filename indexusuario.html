@@ -23,15 +23,17 @@
     Título da aba -->
     <title>Painel do usuário | Monitoramento SENTRYX</title>
 
-    
+
     <!-- =========================================================
          SEO DA PÁGINA
          Ajuste o title e a description quando o conteúdo principal
          da página mudar. Esses textos aparecem no Google e ajudam
          a explicar a proposta da SENTRYX.
     ========================================================== -->
-    <meta name="description" content="Painel do usuário SENTRYX para acompanhar status do sensor, nível de gás, histórico de alertas e contatos de emergência.">
-    <meta name="keywords" content="SENTRYX, painel do usuário, monitoramento, sensor de gás, histórico de alertas, nível de gás">
+    <meta name="description"
+        content="Painel do usuário SENTRYX para acompanhar status do sensor, nível de gás, histórico de alertas e contatos de emergência.">
+    <meta name="keywords"
+        content="SENTRYX, painel do usuário, monitoramento, sensor de gás, histórico de alertas, nível de gás">
     <meta name="author" content="SENTRYX">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#070E1E">
@@ -41,15 +43,17 @@
          Controla a prévia do link em WhatsApp, LinkedIn e redes sociais.
     ========================================================== -->
     <meta property="og:title" content="Painel do usuário | SENTRYX">
-    <meta property="og:description" content="Painel do usuário SENTRYX para acompanhar status do sensor, nível de gás, histórico de alertas e contatos de emergência.">
+    <meta property="og:description"
+        content="Painel do usuário SENTRYX para acompanhar status do sensor, nível de gás, histórico de alertas e contatos de emergência.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="assets/favicon32.png">
     <meta property="og:locale" content="pt_BR">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Painel do usuário | SENTRYX">
-    <meta name="twitter:description" content="Painel do usuário SENTRYX para acompanhar status do sensor, nível de gás, histórico de alertas e contatos de emergência.">
+    <meta name="twitter:description"
+        content="Painel do usuário SENTRYX para acompanhar status do sensor, nível de gás, histórico de alertas e contatos de emergência.">
     <meta name="twitter:image" content="assets/favicon32.png">
-<!-- OBS:
+    <!-- OBS:
     Arquivo CSS do painel -->
     <!-- =========================================================
          FAVICON
@@ -59,7 +63,9 @@
 
     <link rel="stylesheet" href="css/styleusuario.css">
     <link rel="stylesheet" href="css/styleglobal.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- =========================================================
          AJUSTES FINAIS DE RESPONSIVIDADE
          Deve ficar por último entre os CSS próprios do projeto para
@@ -91,7 +97,7 @@
                     <li><a href="#">Painel</a></li>
                     <li><a href="#">Configurações</a></li>
                     <li><a href="indexsuporte.html">Ajuda</a></li>
-                    <li><a href="index.html">Sair</a></li>
+                    <li><a href="/logout">Sair</a></li>
                 </ul>
             </div>
         </nav>
@@ -108,7 +114,8 @@
                 <p>Olá, {{ nome_usuario or 'usuário' }}</p>
                 <h1>Painel de monitoramento</h1>
                 <p class="descricao">
-                    Acompanhe o nível de gás, gerencie contatos de emergência e visualize alertas do sensor em tempo real.
+                    Acompanhe o nível de gás, gerencie contatos de emergência e visualize alertas do sensor em tempo
+                    real.
                 </p>
             </div>
 
@@ -211,9 +218,12 @@
                 </div>
 
                 <div class="botoes-acoes">
-                    <button class="btn-padrao"><i class="fa-solid fa-vial" aria-hidden="true"></i> Testar sensor</button>
-                    <button class="btn-secundario"><i class="fa-regular fa-bell" aria-hidden="true"></i> Testar notificação</button>
-                    <button class="btn-alerta"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Acionar emergência</button>
+                    <button class="btn-padrao"><i class="fa-solid fa-vial" aria-hidden="true"></i> Testar
+                        sensor</button>
+                    <button class="btn-secundario"><i class="fa-regular fa-bell" aria-hidden="true"></i> Testar
+                        notificação</button>
+                    <button class="btn-alerta"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                        Acionar emergência</button>
                 </div>
             </div>
 
@@ -225,34 +235,53 @@
                         <h2>Contatos de emergência</h2>
                         <p class="header-sub">Avise quem realmente importa</p>
                     </div>
-                    <button class="mini-acao btn-adicionar-contato" type="button" aria-haspopup="dialog" aria-controls="popup-adicionar-contato"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Adicionar</button>
+                    <button class="mini-acao btn-adicionar-contato" type="button" aria-haspopup="dialog"
+                        aria-controls="popup-adicionar-contato"><i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+                        Adicionar</button>
                 </div>
 
 
                 <div class="lista-contatos">
+
+                    {% if contatos %}
+
+                    {% for contato in contatos %}
                     <div class="item-contato">
                         <div>
-                            <strong>Maria Silva</strong>
-                            <p>Mãe • (11) 99999-9999</p>
+                            <strong>{{ contato.nome }}</strong>
+                            <p>{{ contato.parentesco or 'Contato' }} • {{ contato.telefone }}</p>
                         </div>
-                        <button aria-label="Editar Maria Silva"><i class="fa-solid fa-pen" aria-hidden="true"></i> Editar</button>
+
+                        <div style="display: flex; gap: 8px; align-items: center;">
+                            <!-- Botão de editar -->
+                            <button type="button" class="btn-editar-contato" aria-label="Editar {{ contato.nome }}"
+                                data-id="{{ contato.id }}" data-nome="{{ contato.nome }}"
+                                data-parentesco="{{ contato.parentesco }}" data-telefone="{{ contato.telefone }}">
+                                <i class="fa-solid fa-pen" aria-hidden="true"></i> Editar
+                            </button>
+
+                            <!-- Botão de excluir -->
+                            <form action="/excluir-contato/{{ contato.id }}" method="POST"
+                                onsubmit="return confirm('Tem certeza que deseja excluir este contato de emergência? Essa ação não poderá ser desfeita.');">
+                                <button type="submit" aria-label="Excluir {{ contato.nome }}">
+                                    <i class="fa-solid fa-trash" aria-hidden="true"></i> Excluir
+                                </button>
+                            </form>
+                        </div>
                     </div>
+                    {% endfor %}
+
+                    {% else %}
 
                     <div class="item-contato">
                         <div>
-                            <strong>João Souza</strong>
-                            <p>Vizinho • (11) 98888-8888</p>
+                            <strong>Nenhum contato cadastrado</strong>
+                            <p>Você ainda não possui nenhum contato de emergência cadastrado.</p>
                         </div>
-                        <button aria-label="Editar João Souza"><i class="fa-solid fa-pen" aria-hidden="true"></i> Editar</button>
                     </div>
 
-                    <div class="item-contato">
-                        <div>
-                            <strong>Carla Mendes</strong>
-                            <p>Irmã • (11) 97777-7777</p>
-                        </div>
-                        <button aria-label="Editar Carla Mendes"><i class="fa-solid fa-pen" aria-hidden="true"></i> Editar</button>
-                    </div>
+                    {% endif %}
+
                 </div>
             </div>
             <!-- OBS:
@@ -287,7 +316,7 @@
                 </div>
             </div>
 
-           
+
 
         </section>
 
@@ -295,7 +324,7 @@
         Terceira linha com histórico e instruções -->
         <section class="painel-grid inferior">
 
-            
+
 
             <!-- OBS:
             Instruções rápidas -->
@@ -314,7 +343,7 @@
                     <p>4. Retire as pessoas do ambiente com segurança.</p>
                 </div>
             </div>
- <!-- OBS:
+            <!-- OBS:
             Card de suporte -->
             <div class="card card-suporte">
                 <div class="card-header">
@@ -331,53 +360,55 @@
                     <p><strong>Atendimento:</strong> disponível 24 horas</p>
                 </div>
 
-                    <button class="btn-padrao btn-falar-suporte" type="button" aria-haspopup="dialog" aria-controls="popup-suporte">Falar com suporte</button>
+                <button class="btn-padrao btn-falar-suporte" type="button" aria-haspopup="dialog"
+                    aria-controls="popup-suporte">Falar com suporte</button>
             </div>
 
         </section>
 
-</main>
+    </main>
 
-    <!-- Pop-up: Adicionar contato -->
+    <!-- Pop-up: Adicionar/Editar contato -->
     <div id="popup-adicionar-contato" class="popup-overlay" role="dialog" aria-modal="true" aria-hidden="true">
         <div class="popup">
             <div class="popup-topo">
                 <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px;">
                     <div>
-                        <h2>Adicionar usuário</h2>
-                        <p>Cadastre um contato de emergência</p>
+                        <h2 id="popup-contato-titulo">Adicionar contato</h2>
+                        <p id="popup-contato-descricao">Cadastre um contato de emergência</p>
                     </div>
                     <button type="button" class="popup-close" aria-label="Fechar">&times;</button>
                 </div>
             </div>
+
             <div class="popup-corpo">
-                <form class="form-contato" onsubmit="event.preventDefault(); mockContatoSubmit();">
+                <form id="form-contato" class="form-contato" action="/adicionar-contato" method="POST">
                     <div class="form-grid">
                         <div class="field">
                             <label for="nome">Nome</label>
-                            <input id="nome" name="nome" type="text" placeholder="Ex: Maria Silva" required />
+                            <input id="nome" name="nome" type="text" placeholder="Ex: Maria Silva" required>
                         </div>
 
                         <div class="field">
                             <label for="parentesco">Parentesco</label>
-                            <input id="parentesco" name="parentesco" type="text" placeholder="Ex: Mãe" required />
+                            <input id="parentesco" name="parentesco" type="text" placeholder="Ex: Mãe" required>
                         </div>
 
                         <div class="field" style="grid-column: 1 / -1;">
                             <label for="telefone">Telefone</label>
-                            <input id="telefone" name="telefone" type="tel" placeholder="Ex: (11) 99999-9999" required />
+                            <input id="telefone" name="telefone" type="tel" placeholder="Ex: (11) 99999-9999" required>
                             <small class="help">Apenas para uso de emergência.</small>
                         </div>
                     </div>
 
                     <div class="form-actions">
-                        <a class="btn-secundario btn-voltar" href="#" onclick="closePopup(); return false;"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Voltar</a>
-                        <button class="btn-padrao" type="submit"><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Salvar contato</button>
-                    </div>
+                        <a class="btn-secundario btn-voltar" href="#" onclick="closePopup(); return false;">
+                            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Voltar
+                        </a>
 
-                    <div id="toast-popup" class="toast" role="status" aria-live="polite" hidden>
-                        <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
-                        <span>Contato cadastrado (simulação).</span>
+                        <button id="btn-salvar-contato" class="btn-padrao" type="submit">
+                            <i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Salvar contato
+                        </button>
                     </div>
                 </form>
             </div>
@@ -404,7 +435,8 @@
                             <strong>E-mail</strong>
                             <span>suporte@sentryx.com</span>
                         </div>
-                        <a class="btn-secundario" href="mailto:suporte@sentryx.com"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Enviar</a>
+                        <a class="btn-secundario" href="mailto:suporte@sentryx.com"><i class="fa-solid fa-paper-plane"
+                                aria-hidden="true"></i> Enviar</a>
                     </div>
 
                     <div class="suporte-popup-item">
@@ -413,12 +445,14 @@
                             <strong>Telefone</strong>
                             <span>0800 123 4567</span>
                         </div>
-                        <a class="btn-secundario" href="tel:08001234567"><i class="fa-solid fa-phone-volume" aria-hidden="true"></i> Ligar</a>
+                        <a class="btn-secundario" href="tel:08001234567"><i class="fa-solid fa-phone-volume"
+                                aria-hidden="true"></i> Ligar</a>
                     </div>
                 </div>
 
                 <div class="form-actions" style="justify-content:flex-start; margin-top:18px;">
-                    <button type="button" class="btn-padrao" data-close-suporte><i class="fa-solid fa-xmark" aria-hidden="true"></i> Fechar</button>
+                    <button type="button" class="btn-padrao" data-close-suporte><i class="fa-solid fa-xmark"
+                            aria-hidden="true"></i> Fechar</button>
                 </div>
 
                 <div id="toast-suporte" class="toast" role="status" aria-live="polite" hidden>
@@ -434,6 +468,16 @@
 
         const btnAdicionar = document.querySelector('.btn-adicionar-contato');
         const btnFechar = document.querySelector('.popup-close');
+        const botoesEditarContato = document.querySelectorAll('.btn-editar-contato');
+
+        const formContato = document.getElementById('form-contato');
+        const inputNome = document.getElementById('nome');
+        const inputParentesco = document.getElementById('parentesco');
+        const inputTelefone = document.getElementById('telefone');
+
+        const tituloContato = document.getElementById('popup-contato-titulo');
+        const descricaoContato = document.getElementById('popup-contato-descricao');
+        const botaoSalvarContato = document.getElementById('btn-salvar-contato');
 
         function openPopup() {
             popup.classList.add('ativo');
@@ -447,48 +491,46 @@
             document.body.style.overflow = '';
         }
 
-        // Suporte
-        const popupSuporte = document.getElementById('popup-suporte');
-        const btnFalarSuporte = document.querySelector('.btn-falar-suporte');
-        const btnFecharSuporte = document.querySelector('[data-close-suporte]');
+        function abrirPopupAdicionarContato() {
+            formContato.action = '/adicionar-contato';
 
-        function openSuporte() {
-            popupSuporte?.classList.add('ativo');
-            popupSuporte?.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
+            tituloContato.textContent = 'Adicionar contato';
+            descricaoContato.textContent = 'Cadastre um contato de emergência';
+            botaoSalvarContato.innerHTML = '<i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Salvar contato';
+
+            inputNome.value = '';
+            inputParentesco.value = '';
+            inputTelefone.value = '';
+
+            openPopup();
         }
 
-        function closeSuporte() {
-            popupSuporte?.classList.remove('ativo');
-            popupSuporte?.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
+        function abrirPopupEditarContato(botao) {
+            const contatoId = botao.dataset.id;
+            const nome = botao.dataset.nome || '';
+            const parentesco = botao.dataset.parentesco || '';
+            const telefone = botao.dataset.telefone || '';
+
+            formContato.action = `/editar-contato/${contatoId}`;
+
+            tituloContato.textContent = 'Editar contato';
+            descricaoContato.textContent = 'Atualize os dados do contato de emergência';
+            botaoSalvarContato.innerHTML = '<i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Salvar alterações';
+
+            inputNome.value = nome;
+            inputParentesco.value = parentesco;
+            inputTelefone.value = telefone;
+
+            openPopup();
         }
 
-
-        function mockContatoSubmit() {
-            const toast = document.getElementById('toast-popup');
-            toast.hidden = false;
-            setTimeout(() => {
-                toast.hidden = true;
-                closePopup();
-            }, 1200);
-        }
-
-        btnAdicionar?.addEventListener('click', openPopup);
+        btnAdicionar?.addEventListener('click', abrirPopupAdicionarContato);
         btnFechar?.addEventListener('click', closePopup);
 
-        btnFalarSuporte?.addEventListener('click', openSuporte);
-        btnFecharSuporte?.addEventListener('click', closeSuporte);
-
-
-        popup?.addEventListener('click', (e) => {
-            if (e.target === popup) closePopup();
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && popup.classList.contains('ativo')) {
-                closePopup();
-            }
+        botoesEditarContato.forEach((botao) => {
+            botao.addEventListener('click', () => {
+                abrirPopupEditarContato(botao);
+            });
         });
     </script>
 

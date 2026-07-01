@@ -2,6 +2,9 @@
 <html lang="pt-BR">
 
 <head>
+    <!-- =========================================================
+         CONFIGURAÇÕES BÁSICAS E SEO
+    ========================================================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,22 +13,49 @@
     <meta name="description"
         content="Finalize sua contratação SENTRYX e tenha mais segurança com monitoramento inteligente de vazamentos de gás.">
 
+    <meta name="keywords"
+        content="SENTRYX, checkout, plano de monitoramento, sensor de gás, segurança inteligente">
+
+    <meta name="author" content="SENTRYX">
+    <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#071A2D">
 
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="Checkout | SENTRYX">
+    <meta property="og:description"
+        content="Finalize sua contratação de recursos inteligentes SENTRYX.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/favicon32.png">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Checkout | SENTRYX">
+    <meta name="twitter:description"
+        content="Finalize sua contratação de recursos inteligentes SENTRYX.">
+    <meta name="twitter:image" content="assets/favicon32.png">
+
+    <!-- FAVICON -->
     <link rel="shortcut icon" href="assets/favicon16x16.png" type="image/x-icon">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="css/styleglobal.css">
     <link rel="stylesheet" href="css/stylecheckout.css">
     <link rel="stylesheet" href="css/responsive-mobile-fixes.css">
 
+    <!-- FONT AWESOME -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous"
         referrerpolicy="no-referrer">
 </head>
 
 <body>
 
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
     <header>
         <nav>
             <div class="menu">
@@ -51,12 +81,18 @@
 
     <main>
 
+        <!-- =========================================================
+             CHECKOUT
+        ========================================================== -->
         <section class="checkout">
 
             <div class="container-padrao">
 
                 <div class="checkout-grid">
 
+                    <!-- =================================================
+                         RESUMO DO PLANO
+                    ================================================== -->
                     <aside class="checkout-resumo">
 
                         <span class="mini-tag">
@@ -68,7 +104,8 @@
                         </h1>
 
                         <p id="descricaoPlano">
-                            Proteção inteligente para restaurantes, padarias e cozinhas profissionais.
+                            Proteção inteligente para restaurantes, padarias
+                            e cozinhas profissionais.
                         </p>
 
                         <div class="resumo-card">
@@ -78,12 +115,17 @@
                                 <span id="periodoPlano">/mês</span>
                             </div>
 
-                            <ul id="listaBeneficios"></ul>
+                            <ul id="listaBeneficios">
+                                <!-- Benefícios preenchidos pelo JavaScript -->
+                            </ul>
 
                         </div>
 
                     </aside>
 
+                    <!-- =================================================
+                         FORMULÁRIO
+                    ================================================== -->
                     <section class="checkout-formulario">
 
                         <h2 id="tituloFormulario">
@@ -92,7 +134,9 @@
 
                         <form id="formCheckout">
 
-                            <div id="camposFormulario"></div>
+                            <div id="camposFormulario">
+                                <!-- Campos preenchidos pelo JavaScript -->
+                            </div>
 
                             <button type="submit" class="btn-finalizar" id="botaoFinalizar">
                                 Finalizar assinatura
@@ -110,7 +154,10 @@
 
     </main>
 
-    <div class="modal-sucesso" id="modalSucesso" role="dialog" aria-modal="true">
+    <!-- =========================================================
+         MODAL DE SUCESSO
+    ========================================================== -->
+    <div class="modal-sucesso" id="modalSucesso" role="dialog" aria-modal="true" aria-labelledby="tituloModal">
 
         <div class="modal-card">
 
@@ -134,6 +181,10 @@
 
     </div>
 
+    <!-- =========================================================
+         JAVASCRIPT
+         Define o plano baseado na URL.
+    ========================================================== -->
     <script>
         const planos = {
             basico: {
@@ -188,9 +239,16 @@
             }
         };
 
-        const planoEscolhido = localStorage.getItem("sentryxPlano") || "profissional";
+        /* =========================================================
+           IDENTIFICA O PLANO PELA URL
+           Exemplo:
+           checkout.html?plano=basico
+        ========================================================== */
+        const parametros = new URLSearchParams(window.location.search);
+        const planoEscolhido = parametros.get("plano") || "profissional";
         const plano = planos[planoEscolhido] || planos.profissional;
 
+        /* ELEMENTOS */
         const nomePlano = document.getElementById("nomePlano");
         const precoPlano = document.getElementById("precoPlano");
         const periodoPlano = document.getElementById("periodoPlano");
@@ -206,14 +264,13 @@
         const tituloModal = document.getElementById("tituloModal");
         const textoModal = document.getElementById("textoModal");
 
+        /* =========================================================
+           PREENCHE RESUMO DO PLANO
+        ========================================================== */
         nomePlano.textContent = plano.nome;
         precoPlano.textContent = plano.preco;
         periodoPlano.textContent = plano.periodo;
         descricaoPlano.textContent = plano.descricao;
-        tituloFormulario.textContent = plano.tituloFormulario;
-        botaoFinalizar.textContent = plano.textoBotao;
-
-        document.title = `${plano.nome} | Checkout SENTRYX`;
 
         listaBeneficios.innerHTML = plano.beneficios.map((beneficio) => `
             <li>
@@ -222,6 +279,46 @@
             </li>
         `).join("");
 
+        tituloFormulario.textContent = plano.tituloFormulario;
+        botaoFinalizar.textContent = plano.textoBotao;
+
+        document.title = `${plano.nome} | Checkout SENTRYX`;
+
+        /* =========================================================
+           FORMULÁRIO PARA PLANO EMPRESARIAL
+        ========================================================== */
+        const formularioEmpresarial = `
+            <div class="campo">
+                <label for="nome">Nome completo</label>
+                <input id="nome" name="nome" type="text" placeholder="Digite seu nome" required>
+            </div>
+
+            <div class="campo">
+                <label for="email">Email corporativo</label>
+                <input id="email" name="email" type="email" placeholder="Digite seu email" required>
+            </div>
+
+            <div class="campo">
+                <label for="empresa">Empresa ou condomínio</label>
+                <input id="empresa" name="empresa" type="text" placeholder="Ex.: Condomínio SENTRYX" required>
+            </div>
+
+            <div class="linha-campos">
+                <div class="campo">
+                    <label for="unidades">Quantidade de unidades</label>
+                    <input id="unidades" name="unidades" type="number" min="1" placeholder="Ex.: 40" required>
+                </div>
+
+                <div class="campo">
+                    <label for="telefone">Telefone</label>
+                    <input id="telefone" name="telefone" type="tel" placeholder="(11) 99999-9999" required>
+                </div>
+            </div>
+        `;
+
+        /* =========================================================
+           FORMULÁRIO PARA BÁSICO E PROFISSIONAL
+        ========================================================== */
         const formularioAssinatura = `
             <div class="campo">
                 <label for="nome">Nome completo</label>
@@ -243,7 +340,6 @@
             </div>
 
             <div class="linha-campos">
-
                 <div class="campo">
                     <label for="validade">Validade</label>
                     <input id="validade" name="validade" type="text"
@@ -261,47 +357,19 @@
                         maxlength="4"
                         required>
                 </div>
-
             </div>
         `;
 
-        const formularioEmpresarial = `
-            <div class="campo">
-                <label for="nome">Nome completo</label>
-                <input id="nome" name="nome" type="text" placeholder="Digite seu nome" required>
-            </div>
-
-            <div class="campo">
-                <label for="email">Email corporativo</label>
-                <input id="email" name="email" type="email" placeholder="Digite seu email" required>
-            </div>
-
-            <div class="campo">
-                <label for="empresa">Empresa ou condomínio</label>
-                <input id="empresa" name="empresa" type="text" placeholder="Ex.: Condomínio SENTRYX" required>
-            </div>
-
-            <div class="linha-campos">
-
-                <div class="campo">
-                    <label for="unidades">Quantidade de unidades</label>
-                    <input id="unidades" name="unidades" type="number" min="1" placeholder="Ex.: 40" required>
-                </div>
-
-                <div class="campo">
-                    <label for="telefone">Telefone</label>
-                    <input id="telefone" name="telefone" type="tel" placeholder="(11) 99999-9999" required>
-                </div>
-
-            </div>
-        `;
-
+        /* Renderiza o formulário certo */
         if (planoEscolhido === "empresarial") {
             camposFormulario.innerHTML = formularioEmpresarial;
         } else {
             camposFormulario.innerHTML = formularioAssinatura;
         }
 
+        /* =========================================================
+           MÁSCARAS DOS CAMPOS DE PAGAMENTO
+        ========================================================== */
         const campoCartao = document.getElementById("cartao");
         const campoValidade = document.getElementById("validade");
         const campoCvv = document.getElementById("cvv");
@@ -332,6 +400,10 @@
             });
         }
 
+        /* =========================================================
+           ENVIO DO FORMULÁRIO
+           Por enquanto é uma simulação visual.
+        ========================================================== */
         form.addEventListener("submit", (event) => {
             event.preventDefault();
 
@@ -339,6 +411,7 @@
                 tituloModal.textContent = "Solicitação enviada!";
                 textoModal.textContent =
                     "Recebemos suas informações. Nossa equipe entrará em contato para montar uma proposta personalizada.";
+
             } else {
                 tituloModal.textContent = "Assinatura realizada!";
                 textoModal.textContent =
@@ -348,12 +421,14 @@
             modal.classList.add("ativo");
         });
 
+        /* Fecha modal ao clicar fora */
         modal.addEventListener("click", (event) => {
             if (event.target === modal) {
                 modal.classList.remove("ativo");
             }
         });
 
+        /* Fecha modal com ESC */
         document.addEventListener("keydown", (event) => {
             if (event.key === "Escape") {
                 modal.classList.remove("ativo");
